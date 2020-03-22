@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Hand Made",
+    "subtitle": "Mini Coffee Table",
+    "text": "30% Fırsat",
+    "image": "/assets/img/slider/coffeetable.jpg",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 2,
+    "title": "Duvarları Güzelleştir",
+    "subtitle": "Ahşap Aksesuar",
+    "text": "20% Fırsat",
+    "image": "/assets/img/slider/woodlove.jpg",
+    "url": "/shop-grid-standard"
+  }
+]

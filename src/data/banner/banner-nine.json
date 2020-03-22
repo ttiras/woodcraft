@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/img/banner/banner-16.png",
+    "title": "Sunum Ürünleri",
+    "subtitle": "",
+    "price": "39-99 TL",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": 2,
+    "image": "/assets/img/banner/banner-17.png",
+    "title": "Aksesuar ve Tablolar",
+    "subtitle": "",
+    "price": "49-699 TL",
+    "link": "/shop-grid-standard"
+  }
+]

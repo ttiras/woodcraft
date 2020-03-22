@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/img/blog/blog-1.jpg",
+    "category": ["yaşam", "ev"],
+    "title": "Ev Aksesuar Trendleri",
+    "url": "/blog-details-standard",
+    "author": "Admin",
+    "authorUrl": "/blog-standard"
+  },
+  {
+    "id": 2,
+    "image": "/assets/img/blog/blog-2.jpg",
+    "category": ["ev"],
+    "title": "Pratik Sunum Ürünleriyle Hayatını Kolaylaştır",
+    "url": "/blog-details-standard",
+    "author": "Admin",
+    "authorUrl": "/blog-standard"
+  },
+  {
+    "id": 3,
+    "image": "/assets/img/blog/blog-3.jpg",
+    "category": ["ahşap sanatı"],
+    "title": "Ahşap Aşkı",
+    "url": "/blog-details-standard",
+    "author": "Admin",
+    "authorUrl": "/blog-standard"
+  }
+]
