@@ -2,6 +2,8 @@ import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import React from "react";
 import ReactDOM from "react-dom";
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from '@apollo/react-hooks';
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
@@ -15,6 +17,10 @@ import * as serviceWorker from "./serviceWorker";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
+const client = new ApolloClient({
+  uri: 'https://woodcraft.herokuapp.com/v1/graphql',
+});
+
 const store = createStore(
   rootReducer,
   load(),
@@ -26,7 +32,9 @@ store.dispatch(fetchProducts(products));
 
 ReactDOM.render(
   <Provider store={store}>
+    <ApolloProvider client={client}>
     <App />
+    </ApolloProvider>
   </Provider>,
   document.getElementById("root")
 );

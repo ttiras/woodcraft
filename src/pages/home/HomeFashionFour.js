@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+
 import MetaTags from "react-meta-tags";
 import LayoutFive from "../../layouts/LayoutFive";
 import HeroSliderTwelve from "../../wrappers/hero-slider/HeroSliderTwelve";
@@ -8,8 +9,17 @@ import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
 import BannerNine from "../../wrappers/banner/BannerNine";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 import TabProductThree from "../../wrappers/product/TabProductThree";
+import CountDownOne from "../../wrappers/countdown/CountDownOne";
+
+
+
+
+
 
 const HomeFashionFour = () => {
+  
+
+  
   return (
     <Fragment>
       <MetaTags>
@@ -25,6 +35,14 @@ const HomeFashionFour = () => {
         {/* product grid */}
         {/* section title with text */}
         <SectionTitleWithText spaceBottomClass='pb-90' />
+
+          {/* countdown */}
+          <CountDownOne
+          spaceTopClass="pt-115"
+          spaceBottomClass="pb-115"
+          bgImg="/assets/img/woodcraft.jpg"
+          dateTime="April 13, 2020 12:12:00"
+        />
 
         {/* tab product */}
         <TabProductThree spaceBottomClass='pb-60' category='electronics' />
