@@ -25,7 +25,7 @@ const ProductGridSingleThree = ({
   const finalDiscountedPrice = +(
     discountedPrice * currency.currencyRate
   ).toFixed(2);
-
+  
   return (
     <Fragment>
       <div
@@ -60,7 +60,7 @@ const ProductGridSingleThree = ({
                 ) : (
                   ""
                 )}
-                {product.new ? <span className="purple">New</span> : ""}
+                {product.new ? <span className="purple">Yeni</span> : ""}
               </div>
             ) : (
               ""

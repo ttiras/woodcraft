@@ -11,15 +11,8 @@ import SectionTitleWithText from "../../components/section-title/SectionTitleWit
 import TabProductThree from "../../wrappers/product/TabProductThree";
 import CountDownOne from "../../wrappers/countdown/CountDownOne";
 
-
-
-
-
-
 const HomeFashionFour = () => {
-  
-
-  
+    
   return (
     <Fragment>
       <MetaTags>
@@ -45,7 +38,7 @@ const HomeFashionFour = () => {
         />
 
         {/* tab product */}
-        <TabProductThree spaceBottomClass='pb-60' category='electronics' />
+        <TabProductThree spaceBottomClass='pb-60' category='furniture' />
         {/* feature icon */}
         <FeatureIconThree
           spaceBottomClass='pb-70'

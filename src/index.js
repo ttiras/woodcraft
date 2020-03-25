@@ -4,13 +4,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks';
+import gql from "graphql-tag";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
 import { Provider } from "react-redux";
+
+
 import { fetchProducts } from "./redux/actions/productActions";
 import rootReducer from "./redux/reducers/rootReducer";
-import products from "./data/products.json";
+//import products from "./data/products.json";
 import App from "./App";
 import "./assets/scss/style.scss";
 import * as serviceWorker from "./serviceWorker";
@@ -21,6 +24,39 @@ const client = new ApolloClient({
   uri: 'https://woodcraft.herokuapp.com/v1/graphql',
 });
 
+client
+  .query({
+    query: gql`
+     {
+      products {
+        discount
+        fullDescription
+        new
+        price
+        product_id
+        product_name
+        rating
+        saleCount
+        shortDescription
+        sku
+        stock
+        category {
+          category_id
+        }
+        tag {
+          tag_id
+        }
+        image {
+          image_id
+        }
+      }
+    }
+    `
+  })
+  .then(result => {
+    const products= result.data.products
+    store.dispatch(fetchProducts(products))});
+
 const store = createStore(
   rootReducer,
   load(),
@@ -28,7 +64,7 @@ const store = createStore(
 );
 
 // fetch products from json file
-store.dispatch(fetchProducts(products));
+
 
 ReactDOM.render(
   <Provider store={store}>
