@@ -34,7 +34,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                     <Link to={process.env.PUBLIC_URL + "/product/" + single.id}>
                       <img
                         alt=""
-                        src={process.env.PUBLIC_URL + single.image[0]}
+                        src={process.env.PUBLIC_URL + single.image[0].path}
                         className="img-fluid"
                       />
                     </Link>
@@ -48,7 +48,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                         {single.name}{" "}
                       </Link>
                     </h4>
-                    <h6>Qty: {single.quantity}</h6>
+                    <h6>Adet: {single.quantity}</h6>
                     <span>
                       {discountedPrice !== null
                         ? currency.currencySymbol + finalDiscountedPrice
@@ -57,8 +57,8 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                     {single.selectedProductColor &&
                     single.selectedProductSize ? (
                       <div className="cart-item-variation">
-                        <span>Color: {single.selectedProductColor}</span>
-                        <span>Size: {single.selectedProductSize}</span>
+                        <span>Renk: {single.selectedProductColor}</span>
+                        <span>Boy: {single.selectedProductSize}</span>
                       </div>
                     ) : (
                       ""
@@ -75,7 +75,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
           </ul>
           <div className="shopping-cart-total">
             <h4>
-              Total :{" "}
+              Toplam :{" "}
               <span className="shop-total">
                 {currency.currencySymbol + cartTotalPrice.toFixed(2)}
               </span>
@@ -83,18 +83,18 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
             <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
-              view cart
+              sepeti görüntüle
             </Link>
             <Link
               className="default-btn"
               to={process.env.PUBLIC_URL + "/checkout"}
             >
-              checkout
+              siparişi onayla
             </Link>
           </div>
         </Fragment>
       ) : (
-        <p className="text-center">No items added to cart</p>
+        <p className="text-center">Sepette ürün yok</p>
       )}
     </div>
   );

@@ -33,38 +33,39 @@ client
         fullDescription
         new
         price
-        product_id
-        product_name
+        id
+        name
         rating
         saleCount
         shortDescription
         sku
         stock
         category {
-          category_id
-        }
-        tag {
-          tag_id
+          category {
+            category
+          }
         }
         image {
-          image_id
+          path
+        }
+        tag {
+          tag {
+            tag
+          }
         }
       }
     }
     `
   })
   .then(result => {
-    const products= result.data.products
-    store.dispatch(fetchProducts(products))});
+    store.dispatch(fetchProducts(result.data.products))
+    });
 
 const store = createStore(
   rootReducer,
   load(),
   composeWithDevTools(applyMiddleware(thunk, save()))
 );
-
-// fetch products from json file
-
 
 ReactDOM.render(
   <Provider store={store}>

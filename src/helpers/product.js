@@ -2,7 +2,7 @@
 export const getProducts = (products, category, type, limit) => {
   const finalProducts = category
     ? products.filter(
-        product => product.category.filter(single => single === category)[0]
+        product => product.category.filter(single => single.category.category === category)[0]
       )
     : products;
 
@@ -62,12 +62,12 @@ export const getSortedProducts = (products, sortType, sortValue) => {
   if (products && sortType && sortValue) {
     if (sortType === "category") {
       return products.filter(
-        product => product.category.filter(single => single === sortValue)[0]
+        product => product.category.filter(single => single.category.category === sortValue)[0]
       );
     }
     if (sortType === "tag") {
       return products.filter(
-        product => product.tag.filter(single => single === sortValue)[0]
+        product => product.tag.filter(single => single.tag.tag === sortValue)[0]
       );
     }
     if (sortType === "color") {
@@ -122,7 +122,7 @@ export const getIndividualCategories = products => {
       return (
         product.category &&
         product.category.map(single => {
-          return productCategories.push(single);
+          return productCategories.push(single.category.category);
         })
       );
     });
@@ -138,7 +138,7 @@ export const getIndividualTags = products => {
       return (
         product.tag &&
         product.tag.map(single => {
-          return productTags.push(single);
+          return productTags.push(single.tag.tag);
         })
       );
     });

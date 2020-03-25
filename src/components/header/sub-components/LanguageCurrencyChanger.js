@@ -68,8 +68,8 @@ const LanguageCurrencyChanger = ({
               </button>
             </li>
             <li>
-              <button value="GBP" onClick={e => setCurrencyTrigger(e)}>
-                GBP
+              <button value="TRY" onClick={e => setCurrencyTrigger(e)}>
+                TL
               </button>
             </li>
           </ul>

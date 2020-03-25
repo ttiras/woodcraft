@@ -41,13 +41,13 @@ const ProductGridListSingle = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
+                src={process.env.PUBLIC_URL + product.image[0].path}
                 alt=""
               />
               {product.image.length > 1 ? (
                 <img
                   className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
+                  src={process.env.PUBLIC_URL + product.image[1].path}
                   alt=""
                 />
               ) : (
@@ -61,7 +61,7 @@ const ProductGridListSingle = ({
                 ) : (
                   ""
                 )}
-                {product.new ? <span className="purple">New</span> : ""}
+                {product.new ? <span className="purple">Yeni</span> : ""}
               </div>
             ) : (
               ""
@@ -90,11 +90,11 @@ const ProductGridListSingle = ({
                     target="_blank"
                   >
                     {" "}
-                    Buy now{" "}
+                    Hemen al{" "}
                   </a>
                 ) : product.variation && product.variation.length >= 1 ? (
                   <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
-                    Select Option
+                    Seçenekler
                   </Link>
                 ) : product.stock && product.stock > 0 ? (
                   <button
@@ -117,7 +117,7 @@ const ProductGridListSingle = ({
                   </button>
                 ) : (
                   <button disabled className="active">
-                    Out of Stock
+                    Stokta Yok
                   </button>
                 )}
               </div>
@@ -163,13 +163,13 @@ const ProductGridListSingle = ({
                   <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                     <img
                       className="default-img img-fluid"
-                      src={process.env.PUBLIC_URL + product.image[0]}
+                      src={process.env.PUBLIC_URL + product.image[0].path}
                       alt=""
                     />
                     {product.image.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
-                        src={process.env.PUBLIC_URL + product.image[1]}
+                        src={process.env.PUBLIC_URL + product.image[1].path}
                         alt=""
                       />
                     ) : (
@@ -183,7 +183,7 @@ const ProductGridListSingle = ({
                       ) : (
                         ""
                       )}
-                      {product.new ? <span className="purple">New</span> : ""}
+                      {product.new ? <span className="purple">Yeni</span> : ""}
                     </div>
                   ) : (
                     ""
@@ -269,7 +269,7 @@ const ProductGridListSingle = ({
                       </button>
                     ) : (
                       <button disabled className="active">
-                        Out of Stock
+                        Stokta Yok
                       </button>
                     )}
                   </div>
