@@ -102,7 +102,7 @@ const App = props => {
   });
 
   return (
-    <ToastProvider placement="bottom-left">
+    <ToastProvider placement="top-right">
       <BreadcrumbsProvider>
         <Router>
           <ScrollToTop>
@@ -120,7 +120,7 @@ const App = props => {
                 <Route
                   exact
                   path={process.env.PUBLIC_URL + "/"}
-                  component={HomeFashion}
+                  component={HomeFashionFour}
                 />
 
                 {/* Homepages */}

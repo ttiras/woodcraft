@@ -94,7 +94,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
           </div>
         </Fragment>
       ) : (
-        <p className="text-center">Sepette ürün yok</p>
+        <p className="text-center">Sepet Boş</p>
       )}
     </div>
   );

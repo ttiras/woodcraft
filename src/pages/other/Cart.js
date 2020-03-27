@@ -338,7 +338,7 @@ const Cart = ({
                       <i className="pe-7s-cart"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      Seppette Ürün Yok <br />{" "}
+                      Sepet Boş <br />{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                         Alışverişe Başla
                       </Link>
