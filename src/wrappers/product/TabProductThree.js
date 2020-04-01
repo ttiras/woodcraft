@@ -3,6 +3,7 @@ import React from "react";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import ProductGridThree from "./ProductGridThree";
+import { Link } from "react-router-dom";
 
 const TabProductThree = ({ spaceBottomClass, category }) => {
   return (
@@ -63,6 +64,14 @@ const TabProductThree = ({ spaceBottomClass, category }) => {
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
+        <div className="view-more text-center mt-20 toggle-btn6 col-12">
+          <Link
+            className="loadMore6"
+            to={process.env.PUBLIC_URL + "/shop-grid-standard"}
+          >
+            TÜM ÜRÜNLER
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -41,13 +41,13 @@ const ProductGridSingle = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
+                src={process.env.PUBLIC_URL + product.image[0].path}
                 alt=""
               />
               {product.image.length > 1 ? (
                 <img
                   className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
+                  src={process.env.PUBLIC_URL + product.image[1].path}
                   alt=""
                 />
               ) : (
@@ -57,11 +57,11 @@ const ProductGridSingle = ({
             {product.discount || product.new ? (
               <div className="product-img-badges">
                 {product.discount ? (
-                  <span className="pink">-{product.discount}%</span>
+                  <span className="pink">-%{product.discount}</span>
                 ) : (
                   ""
                 )}
-                {product.new ? <span className="purple">New</span> : ""}
+                {product.new ? <span className="purple">Yeni</span> : ""}
               </div>
             ) : (
               ""

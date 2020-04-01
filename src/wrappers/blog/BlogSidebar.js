@@ -5,10 +5,10 @@ const BlogSidebar = () => {
   return (
     <div className="sidebar-style">
       <div className="sidebar-widget">
-        <h4 className="pro-sidebar-title">Search </h4>
+        <h4 className="pro-sidebar-title">Arama </h4>
         <div className="pro-sidebar-search mb-55 mt-25">
           <form className="pro-sidebar-search-form" action="#">
-            <input type="text" placeholder="Search here..." />
+            <input type="text" placeholder="Ara..." />
             <button>
               <i className="pe-7s-search" />
             </button>
@@ -16,7 +16,7 @@ const BlogSidebar = () => {
         </div>
       </div>
       <div className="sidebar-widget">
-        <h4 className="pro-sidebar-title">Recent Projects </h4>
+        <h4 className="pro-sidebar-title">Önceki Yazılar </h4>
         <div className="sidebar-project-wrap mt-30">
           <div className="single-sidebar-blog">
             <div className="sidebar-blog-img">
@@ -101,14 +101,14 @@ const BlogSidebar = () => {
         </div>
       </div>
       <div className="sidebar-widget mt-35">
-        <h4 className="pro-sidebar-title">Categories</h4>
+        <h4 className="pro-sidebar-title">Kategoriler</h4>
         <div className="sidebar-widget-list sidebar-widget-list--blog mt-20">
           <ul>
             <li>
               <div className="sidebar-widget-list-left">
                 <input type="checkbox" defaultValue />{" "}
                 <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                  Women <span>4</span>{" "}
+                  Ev <span>4</span>{" "}
                 </Link>
                 <span className="checkmark" />
               </div>
@@ -117,7 +117,7 @@ const BlogSidebar = () => {
               <div className="sidebar-widget-list-left">
                 <input type="checkbox" defaultValue />{" "}
                 <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                  Men <span>4</span>{" "}
+                  Yaşam <span>4</span>{" "}
                 </Link>
                 <span className="checkmark" />
               </div>
@@ -126,7 +126,7 @@ const BlogSidebar = () => {
               <div className="sidebar-widget-list-left">
                 <input type="checkbox" defaultValue />{" "}
                 <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                  Bags <span>4</span>{" "}
+                  Sunum <span>4</span>{" "}
                 </Link>
                 <span className="checkmark" />
               </div>
@@ -135,7 +135,7 @@ const BlogSidebar = () => {
               <div className="sidebar-widget-list-left">
                 <input type="checkbox" defaultValue />{" "}
                 <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                  Accessories <span>4</span>{" "}
+                  Aksesuar <span>4</span>{" "}
                 </Link>
                 <span className="checkmark" />
               </div>
@@ -144,30 +144,30 @@ const BlogSidebar = () => {
         </div>
       </div>
       <div className="sidebar-widget mt-50">
-        <h4 className="pro-sidebar-title">Tag </h4>
+        <h4 className="pro-sidebar-title">Etiketler </h4>
         <div className="sidebar-widget-tag mt-25">
           <ul>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                Clothing
+                Kahve sunumu
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                Accessories
+                Aksesuarlar
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                For Men
+                Duvar süsü
               </Link>
             </li>
             <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-standard"}>Women</Link>
+              <Link to={process.env.PUBLIC_URL + "/blog-standard"}>Ev</Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                Fashion
+                Salon
               </Link>
             </li>
           </ul>

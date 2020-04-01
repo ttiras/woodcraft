@@ -1,15 +1,16 @@
 import React, { Fragment } from "react";
 
 import MetaTags from "react-meta-tags";
-import LayoutFive from "../../layouts/LayoutFive";
 import HeroSliderTwelve from "../../wrappers/hero-slider/HeroSliderTwelve";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
 import BannerNine from "../../wrappers/banner/BannerNine";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
-import TabProductThree from "../../wrappers/product/TabProductThree";
-import CountDownOne from "../../wrappers/countdown/CountDownOne";
+import TabProduct from "../../wrappers/product/TabProduct";
+import ImageSliderOne from "../../wrappers/image-slider/ImageSliderOne";
+import LayoutOne from "../../layouts/LayoutOne";
+import SectionTitle from "../../components/section-title/SectionTitle";
 
 const HomeFashionFour = () => {
     
@@ -22,23 +23,15 @@ const HomeFashionFour = () => {
           content='Fashion home of flone react minimalist eCommerce template.'
         />
       </MetaTags>
-      <LayoutFive>
+      <LayoutOne>
         {/* hero slider */}
         <HeroSliderTwelve />
         {/* product grid */}
         {/* section title with text */}
         <SectionTitleWithText spaceBottomClass='pb-90' />
 
-          {/* countdown */}
-          <CountDownOne
-          spaceTopClass="pt-115"
-          spaceBottomClass="pb-115"
-          bgImg="/assets/img/woodcraft.jpg"
-          dateTime="April 13, 2020 12:12:00"
-        />
-
         {/* tab product */}
-        <TabProductThree spaceBottomClass='pb-60' category='furniture' />
+        <TabProduct spaceBottomClass='pb-60' category='furniture' />
         {/* feature icon */}
         <FeatureIconThree
           spaceBottomClass='pb-70'
@@ -50,7 +43,10 @@ const HomeFashionFour = () => {
         <BrandLogoSliderOne spaceBottomClass='pb-95' />
         {/* blog featured */}
         <BlogFeatured spaceBottomClass='pb-55' />
-      </LayoutFive>
+        {/* image slider */}
+        <ImageSliderOne />
+
+      </LayoutOne>
     </Fragment>
   );
 };

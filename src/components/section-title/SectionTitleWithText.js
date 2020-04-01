@@ -10,7 +10,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
     >
       <div className="container">
         <div className="welcome-content text-center">
-          <h5>BİZ</h5>
+          <h5>KAHVE KEYFİNİZİ GÜZELLEŞTİRİYORUZ</h5>
           <h1>Violet'e Hoş Geldiniz</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

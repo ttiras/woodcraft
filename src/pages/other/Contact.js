@@ -18,9 +18,9 @@ const Contact = ({ location }) => {
           content="Contact of flone react minimalist eCommerce template."
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Contact
+        İletişim
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
@@ -38,8 +38,7 @@ const Contact = ({ location }) => {
                       <i className="fa fa-phone" />
                     </div>
                     <div className="contact-info-dec">
-                      <p>+012 345 678 102</p>
-                      <p>+012 345 678 102</p>
+                      <p>0216 693 13 50</p>
                     </div>
                   </div>
                   <div className="single-contact-info">
@@ -60,12 +59,12 @@ const Contact = ({ location }) => {
                       <i className="fa fa-map-marker" />
                     </div>
                     <div className="contact-info-dec">
-                      <p>Address goes here, </p>
-                      <p>street, Crossroad 123.</p>
+                      <p>Küçüksu Mah. Asma Sok. No: 10 C-4</p>
+                      <p>Kandilli Üsküdar</p>
                     </div>
                   </div>
                   <div className="contact-social text-center">
-                    <h3>Follow Us</h3>
+                    <h3>Takip et</h3>
                     <ul>
                       <li>
                         <a href="//facebook.com">
@@ -99,12 +98,12 @@ const Contact = ({ location }) => {
               <div className="col-lg-8 col-md-7">
                 <div className="contact-form">
                   <div className="contact-title mb-30">
-                    <h2>Get In Touch</h2>
+                    <h2>Mesaj gönder</h2>
                   </div>
                   <form className="contact-form-style">
                     <div className="row">
                       <div className="col-lg-6">
-                        <input name="name" placeholder="Name*" type="text" />
+                        <input name="name" placeholder="İsim*" type="text" />
                       </div>
                       <div className="col-lg-6">
                         <input name="email" placeholder="Email*" type="email" />
@@ -112,18 +111,18 @@ const Contact = ({ location }) => {
                       <div className="col-lg-12">
                         <input
                           name="subject"
-                          placeholder="Subject*"
+                          placeholder="Konu*"
                           type="text"
                         />
                       </div>
                       <div className="col-lg-12">
                         <textarea
                           name="message"
-                          placeholder="Your Massege*"
+                          placeholder="Mesaj*"
                           defaultValue={""}
                         />
                         <button className="submit" type="submit">
-                          SEND
+                          GÖNDER
                         </button>
                       </div>
                     </div>
