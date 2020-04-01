@@ -107,7 +107,7 @@ function ProductModal(props) {
                         <div key={key}>
                           <div className="single-image">
                             <img
-                              src={process.env.PUBLIC_URL + single}
+                              src={process.env.PUBLIC_URL + single.path}
                               className="img-fluid"
                               alt=""
                             />
@@ -125,7 +125,7 @@ function ProductModal(props) {
                         <div key={key}>
                           <div className="single-image">
                             <img
-                              src={process.env.PUBLIC_URL + single}
+                              src={process.env.PUBLIC_URL + single.path}
                               className="img-fluid"
                               alt=""
                             />
@@ -301,10 +301,10 @@ function ProductModal(props) {
                           disabled={productCartQty >= productStock}
                         >
                           {" "}
-                          Add To Cart{" "}
+                          Sepete Ekle{" "}
                         </button>
                       ) : (
-                        <button disabled>Out of Stock</button>
+                        <button disabled>Stokta Yok</button>
                       )}
                     </div>
                     <div className="pro-details-wishlist">
@@ -313,28 +313,15 @@ function ProductModal(props) {
                         disabled={wishlistItem !== undefined}
                         title={
                           wishlistItem !== undefined
-                            ? "Added to wishlist"
-                            : "Add to wishlist"
+                            ? "Favorilere Eklendi"
+                            : "Favorilere Ekle"
                         }
                         onClick={() => addToWishlist(product, addToast)}
                       >
                         <i className="pe-7s-like" />
                       </button>
                     </div>
-                    <div className="pro-details-compare">
-                      <button
-                        className={compareItem !== undefined ? "active" : ""}
-                        disabled={compareItem !== undefined}
-                        title={
-                          compareItem !== undefined
-                            ? "Added to compare"
-                            : "Add to compare"
-                        }
-                        onClick={() => addToCompare(product, addToast)}
-                      >
-                        <i className="pe-7s-shuffle" />
-                      </button>
-                    </div>
+                    
                   </div>
                 )}
               </div>

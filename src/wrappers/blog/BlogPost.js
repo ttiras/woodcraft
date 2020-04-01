@@ -85,23 +85,23 @@ const BlogPost = () => {
           <ul>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                lifestyle ,
+                stil ,
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                interior ,
+                yaşam ,
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                outdoor
+                ev
               </Link>
             </li>
           </ul>
         </div>
         <div className="blog-share">
-          <span>share :</span>
+          <span>paylaş :</span>
           <div className="share-social">
             <ul>
               <li>
@@ -126,10 +126,10 @@ const BlogPost = () => {
       <div className="next-previous-post">
         <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
           {" "}
-          <i className="fa fa-angle-left" /> prev post
+          <i className="fa fa-angle-left" /> önceki 
         </Link>
         <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-          next post <i className="fa fa-angle-right" />
+          sonraki <i className="fa fa-angle-right" />
         </Link>
       </div>
     </Fragment>

@@ -36,11 +36,11 @@ const BlogPostsNoSidebar = () => {
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  read more
+                  devamını oku
                 </Link>
               </div>
               <div className="blog-share">
-                <span>share :</span>
+                <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
                     <li>
@@ -98,11 +98,11 @@ const BlogPostsNoSidebar = () => {
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  read more
+                  devamını oku
                 </Link>
               </div>
               <div className="blog-share">
-                <span>share :</span>
+                <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
                     <li>
@@ -160,11 +160,11 @@ const BlogPostsNoSidebar = () => {
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  read more
+                  devamını oku
                 </Link>
               </div>
               <div className="blog-share">
-                <span>share :</span>
+                <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
                     <li>
@@ -222,11 +222,11 @@ const BlogPostsNoSidebar = () => {
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  read more
+                  devamını oku
                 </Link>
               </div>
               <div className="blog-share">
-                <span>share :</span>
+                <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
                     <li>
@@ -284,11 +284,11 @@ const BlogPostsNoSidebar = () => {
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  read more
+                  devamını oku
                 </Link>
               </div>
               <div className="blog-share">
-                <span>share :</span>
+                <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
                     <li>
@@ -346,11 +346,11 @@ const BlogPostsNoSidebar = () => {
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  read more
+                  devamını oku
                 </Link>
               </div>
               <div className="blog-share">
-                <span>share :</span>
+                <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
                     <li>
