@@ -31,17 +31,41 @@ const IconGroup = ({
       <div className="same-style header-search d-none d-lg-block">
         
       </div>
-      <div className="same-style account-setting d-none d-lg-block">
-        
-        <div className="account-dropdown">
-         
-        </div>
-      </div>
       <div className="same-style header-compare">
         
       </div>
+      <div className="same-style account-setting d-none d-lg-block">
+        <button
+          className="account-setting-active"
+          onClick={e => handleClick(e)}
+        >
+          <i className="pe-7s-user-female" />
+        </button>
+        <div className="account-dropdown">
+          <ul>
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
+            </li>
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/login-register"}>
+                Register
+              </Link>
+            </li>
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/my-account"}>
+                my account
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="same-style header-wishlist">
-       
+        <Link to={process.env.PUBLIC_URL + "/wishlist"}>
+          <i className="pe-7s-like" />
+          <span className="count-style">
+            {wishlistData && wishlistData.length ? wishlistData.length : 0}
+          </span>
+        </Link>
       </div>
       <div className="same-style cart-wrap d-none d-lg-block">
         <button className="icon-cart" onClick={e => handleClick(e)}>
