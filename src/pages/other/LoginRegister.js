@@ -9,7 +9,7 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import Signin from "./Signin";
 import Signup from "./Signup";
-import Firebase from '../../auth/firebase'
+import fire from '../../auth/firebase'
 
 const LoginRegister = ({ location }) => {
   const { pathname } = location;
@@ -50,10 +50,10 @@ const LoginRegister = ({ location }) => {
                     </Nav>
                     <Tab.Content>
                       <Tab.Pane eventKey="login">
-                      <Signin Firebase={Firebase}/>
+                      <Signin fire={fire}/>
                       </Tab.Pane>
                       <Tab.Pane eventKey="register">
-                        <Signup Firebase={Firebase}/>
+                        <Signup fire={fire}/>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>

@@ -238,7 +238,7 @@ const ProductDescriptionInfo = ({
               return (
                 <li key={key}>
                   <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                    {single}
+                    {single.category.category}
                   </Link>
                 </li>
               );
@@ -256,7 +256,7 @@ const ProductDescriptionInfo = ({
               return (
                 <li key={key}>
                   <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                    {single}
+                    {single.tag.tag}
                   </Link>
                 </li>
               );

@@ -2,12 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
 
-export default function Signup({Firebase}) {
+export default function Signup({firebase}) {
   const { handleSubmit, register, errors, watch } = useForm();
   const  dispatch  = useAuthDispatch()
 
   const onSubmit = async (values) => {
-    await Firebase.register(values.name, values.email, values.password)
+    await firebase.register(values.name, values.email, values.password)
   };
 
   return (

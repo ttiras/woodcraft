@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import MenuCart from "./sub-components/MenuCart";
 import { deleteFromCart } from "../../redux/actions/cartActions";
+import { useAuthState } from '../../auth/auth-context'
+import fire from '../../auth/firebase'
 
 const IconGroup = ({
   currency,
@@ -17,12 +19,19 @@ const IconGroup = ({
     e.currentTarget.nextSibling.classList.toggle("active");
   };
 
+  const state = useAuthState()
+
   const triggerMobileMenu = () => {
     const offcanvasMobileMenu = document.querySelector(
       "#offcanvas-mobile-menu"
     );
     offcanvasMobileMenu.classList.add("active");
   };
+
+  const handleLogout = async () => {
+    await fire.auth().signOut()
+    window.open('/', '_self')
+  }
 
   return (
     <div
@@ -42,21 +51,37 @@ const IconGroup = ({
           <i className="pe-7s-user-female" />
         </button>
         <div className="account-dropdown">
+          {state.user? 
           <ul>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
-            </li>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/login-register"}>
-                Register
+            <li onClick={handleLogout}>
+              <Link to={''}>
+                Logout
               </Link>
+              
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/my-account"}>
                 my account
               </Link>
             </li>
-          </ul>
+          </ul> :
+          <ul>
+          <li>
+            <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
+          </li>
+          <li>
+            <Link to={process.env.PUBLIC_URL + "/login-register"}>
+              Register
+            </Link>
+          </li>
+          <li>
+            <Link to={process.env.PUBLIC_URL + "/my-account"}>
+              my account
+            </Link>
+          </li>
+        </ul>
+        }
+          
         </div>
       </div>
       <div className="same-style header-wishlist">

@@ -46,7 +46,7 @@ const ProductImageGallerySlider = ({ product }) => {
               <div key={key}>
                 <div className="single-image">
                   <img
-                    src={process.env.PUBLIC_URL + single}
+                    src={process.env.PUBLIC_URL + single.path}
                     className="img-fluid"
                     alt=""
                   />

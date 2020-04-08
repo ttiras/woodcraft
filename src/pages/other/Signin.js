@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "../../auth/auth-context";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export default function Signin({ Firebase }) {
+function Signin({ fire, ...props }) {
   const { handleSubmit, register, errors } = useForm();
   const [error, setError] = useState(null)
   const state = useAuthState();
 
   const onSubmit = async (values) => {
-    try{await Firebase.login(values.email, values.password)}
+    try{
+      await fire.auth().signInWithEmailAndPassword(values.email, values.password)
+      props.history.goBack()
+    }
     catch(err){setError(err)}
     
   };
@@ -63,7 +66,7 @@ export default function Signin({ Firebase }) {
               <span>Giriş</span>
             </button>
             {error && <div className='alert alert-danger' role='alert'>
-              Girilen bilgiler yanlış. 
+              {error.message}
             </div> }
           </div>
         </form>
@@ -71,3 +74,5 @@ export default function Signin({ Firebase }) {
     </div>
   );
 }
+
+export default withRouter(Signin)

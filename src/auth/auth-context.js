@@ -4,7 +4,8 @@ export const AuthContext = React.createContext();
 export const AuthDispatch = React.createContext();
 
 const initialState = {
-    user: {}
+    user: {},
+    isAuthenticated: false
 };
 
 const reducer = (state, action) => {
@@ -21,6 +22,12 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload
       };
+
+    case "AUTHENTICATE":
+      return {
+        ...state,
+        isAuthenticated: action.payload
+      }
 
     case "REGISTER":
       return {

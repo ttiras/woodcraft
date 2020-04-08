@@ -47,7 +47,7 @@ const ProductSticky = ({ location, product }) => {
         {/* related product slider */}
         <RelatedProductSlider
           spaceBottomClass="pb-95"
-          category={product.category[0]}
+          category={product.category[0].category.category}
         />
       </LayoutOne>
     </Fragment>

@@ -7,9 +7,9 @@ import { multilanguage, loadLanguages } from "redux-multilanguage";
 import { connect } from "react-redux";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
 import { useAuthDispatch } from "./auth/auth-context";
-import SecuredRoute from './utils/SecuredRoute'
+import SecuredRoute from "./utils/SecuredRoute";
 
-import Firebase from './auth/firebase'
+import fire from "./auth/firebase";
 
 // home pages
 const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
@@ -93,36 +93,47 @@ const Checkout = lazy(() => import("./pages/other/Checkout"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
-const App = props => {
-  const  dispatch  = useAuthDispatch()
+const App = (props) => {
+  const dispatch = useAuthDispatch();
   useEffect(() => {
     props.dispatch(
       loadLanguages({
         languages: {
           en: require("./translations/english.json"),
           fn: require("./translations/french.json"),
-          de: require("./translations/germany.json")
-        }
+          de: require("./translations/germany.json"),
+        },
       })
     );
-    
-      Firebase.isInitialized().then(val => {
-        dispatch({
-          type: 'LOGIN',
-          payload: {'uid': val.uid, 'email': val.email}
-        })
-    })
   });
 
+  useEffect(()=>{
+    fire.auth().onAuthStateChanged((user)=>{
+      if(user)
+      {
+        dispatch({
+          type: 'LOGIN',
+          payload: user
+        })
+      }
+      else{
+        dispatch({
+          type: 'LOGIN',
+          payload: null
+        })
+      }
+    })
+  },[])
+
   return (
-    <ToastProvider placement="top-right">
+    <ToastProvider placement='top-right'>
       <BreadcrumbsProvider>
         <Router>
           <ScrollToTop>
             <Suspense
               fallback={
-                <div className="flone-preloader-wrapper">
-                  <div className="flone-preloader">
+                <div className='flone-preloader-wrapper'>
+                  <div className='flone-preloader'>
                     <span></span>
                     <span></span>
                   </div>
@@ -279,7 +290,7 @@ const App = props => {
                 {/* Shop product pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/product/:id"}
-                  render={routeProps => (
+                  render={(routeProps) => (
                     <Product {...routeProps} key={routeProps.match.params.id} />
                   )}
                 />
@@ -378,7 +389,7 @@ const App = props => {
 };
 
 App.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
 };
 
 export default connect()(multilanguage(App));

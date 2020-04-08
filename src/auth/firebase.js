@@ -13,56 +13,6 @@ const config = {
   measurementId: "G-0XDJKMWQG5"
 };
 
-class Firebase {
-	constructor() {
-		app.initializeApp(config)
-		this.auth = app.auth()
-		this.db = app.firestore()
-	}
+const fire = app.initializeApp(config);
 
-	login(email, password) {
-		return this.auth.signInWithEmailAndPassword(email, password)
-	}
-
-	logout() {
-		return this.auth.signOut()
-	}
-
-	register(name, email, password) {
-		return this.auth.createUserWithEmailAndPassword(email, password)
-		/*return this.auth.currentUser.updateProfile({
-			displayName: name
-		})*/
-	}
-
-	addQuote(quote) {
-		if(!this.auth.currentUser) {
-			return alert('Not authorized')
-		}
-
-		return this.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).set({
-			quote
-		})
-	}
-
-	isInitialized() {
-		return new Promise(resolve => {
-			this.auth.onAuthStateChanged(resolve)
-		})
-	}
-
-	getCurrentUsername() {
-		return this.auth.currentUser && this.auth.currentUser.displayName
-	}
-
-	async getCurrentUserQuote() {
-		const quote = await this.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).get()
-		return quote.get('quote')
-	}
-
-	resetPassword(email) {
-		return this.auth.sendPasswordResetEmail(email)
-	}
-}
-
-export default new Firebase()
+export default fire;
