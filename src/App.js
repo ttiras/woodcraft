@@ -6,6 +6,10 @@ import { ToastProvider } from "react-toast-notifications";
 import { multilanguage, loadLanguages } from "redux-multilanguage";
 import { connect } from "react-redux";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
+import { useAuthDispatch } from "./auth/auth-context";
+import SecuredRoute from './utils/SecuredRoute'
+
+import Firebase from './auth/firebase'
 
 // home pages
 const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
@@ -80,6 +84,7 @@ const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
+const PasswordReset = lazy(() => import("./pages/other/PasswordReset"));
 
 const Cart = lazy(() => import("./pages/other/Cart"));
 const Wishlist = lazy(() => import("./pages/other/Wishlist"));
@@ -89,6 +94,7 @@ const Checkout = lazy(() => import("./pages/other/Checkout"));
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
 const App = props => {
+  const  dispatch  = useAuthDispatch()
   useEffect(() => {
     props.dispatch(
       loadLanguages({
@@ -99,6 +105,13 @@ const App = props => {
         }
       })
     );
+    
+      Firebase.isInitialized().then(val => {
+        dispatch({
+          type: 'LOGIN',
+          payload: {'uid': val.uid, 'email': val.email}
+        })
+    })
   });
 
   return (
@@ -318,13 +331,18 @@ const App = props => {
                   path={process.env.PUBLIC_URL + "/contact"}
                   component={Contact}
                 />
-                <Route
+                <SecuredRoute
                   path={process.env.PUBLIC_URL + "/my-account"}
                   component={MyAccount}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/login-register"}
                   component={LoginRegister}
+                />
+
+                <Route
+                  path={process.env.PUBLIC_URL + "/reset-password"}
+                  component={PasswordReset}
                 />
 
                 <Route

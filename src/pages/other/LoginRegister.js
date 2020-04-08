@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import MetaTags from "react-meta-tags";
-import { Link } from "react-router-dom";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
+
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import Signin from "./Signin";
+import Signup from "./Signup";
+import Firebase from '../../auth/firebase'
 
 const LoginRegister = ({ location }) => {
   const { pathname } = location;
@@ -36,7 +39,7 @@ const LoginRegister = ({ location }) => {
                     <Nav variant="pills" className="login-register-tab-list">
                       <Nav.Item>
                         <Nav.Link eventKey="login">
-                          <h4>Griş</h4>
+                          <h4>Giriş</h4>
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
@@ -47,62 +50,10 @@ const LoginRegister = ({ location }) => {
                     </Nav>
                     <Tab.Content>
                       <Tab.Pane eventKey="login">
-                        <div className="login-form-container">
-                          <div className="login-register-form">
-                            <form>
-                              <input
-                                type="text"
-                                name="user-name"
-                                placeholder="Username"
-                              />
-                              <input
-                                type="password"
-                                name="user-password"
-                                placeholder="Password"
-                              />
-                              <div className="button-box">
-                                <div className="login-toggle-btn">
-                                  <input type="checkbox" />
-                                  <label className="ml-10">Beni hatırla</label>
-                                  <Link to={process.env.PUBLIC_URL + "/"}>
-                                    Şifre yenileme
-                                  </Link>
-                                </div>
-                                <button type="submit">
-                                  <span>Giriş</span>
-                                </button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
+                      <Signin Firebase={Firebase}/>
                       </Tab.Pane>
                       <Tab.Pane eventKey="register">
-                        <div className="login-form-container">
-                          <div className="login-register-form">
-                            <form>
-                              <input
-                                type="text"
-                                name="user-name"
-                                placeholder="Username"
-                              />
-                              <input
-                                type="password"
-                                name="user-password"
-                                placeholder="Password"
-                              />
-                              <input
-                                name="user-email"
-                                placeholder="Email"
-                                type="email"
-                              />
-                              <div className="button-box">
-                                <button type="submit">
-                                  <span>Kayıt</span>
-                                </button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
+                        <Signup Firebase={Firebase}/>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>

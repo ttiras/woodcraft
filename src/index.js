@@ -11,6 +11,7 @@ import { save, load } from "redux-localstorage-simple";
 import { Provider } from "react-redux";
 
 
+
 import { fetchProducts } from "./redux/actions/productActions";
 import rootReducer from "./redux/reducers/rootReducer";
 //import products from "./data/products.json";
@@ -19,6 +20,7 @@ import "./assets/scss/style.scss";
 import * as serviceWorker from "./serviceWorker";
 
 import { composeWithDevTools } from "redux-devtools-extension";
+import AuthContextProvider from "./auth/auth-context";
 
 const client = new ApolloClient({
   uri: 'https://woodcraft.herokuapp.com/v1/graphql',
@@ -70,7 +72,9 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
-    <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </ApolloProvider>
   </Provider>,
   document.getElementById("root")
