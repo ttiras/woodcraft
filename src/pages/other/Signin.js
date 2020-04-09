@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "../../auth/auth-context";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Signin({ fire, ...props }) {
+function Signin({ fire, history }) {
   const { handleSubmit, register, errors } = useForm();
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const state = useAuthState();
 
   const onSubmit = async (values) => {
-    try{
-      await fire.auth().signInWithEmailAndPassword(values.email, values.password)
-      props.history.goBack()
+    try {
+      await fire
+        .auth()
+        .signInWithEmailAndPassword(values.email, values.password);
+      history.goBack();
+    } catch (err) {
+      setError(err.message);
     }
-    catch(err){setError(err)}
-    
   };
+  console.log(state)
 
   return (
     <div className='login-form-container'>
       <div className='login-register-form'>
         <form onSubmit={handleSubmit(onSubmit)}>
-        {errors.email && (
+          {errors.email && (
             <div className='alert alert-danger' role='alert'>
               {errors.email.message}
             </div>
@@ -60,14 +63,18 @@ function Signin({ fire, ...props }) {
             <div className='login-toggle-btn'>
               <input type='checkbox' />
               <label className='ml-10'>Beni hatırla</label>
-              <Link to={process.env.PUBLIC_URL + "/reset-password"}>Şifre yenileme</Link>
+              <Link to={process.env.PUBLIC_URL + "/reset-password"}>
+                Şifre yenileme
+              </Link>
             </div>
             <button type='submit'>
               <span>Giriş</span>
             </button>
-            {error && <div className='alert alert-danger' role='alert'>
-              {error.message}
-            </div> }
+            {error && (
+              <div className='alert alert-danger' role='alert'>
+                Bilgiler hatalı veya sunucuda sorun oluştu.
+              </div>
+            )}
           </div>
         </form>
       </div>
@@ -75,4 +82,4 @@ function Signin({ fire, ...props }) {
   );
 }
 
-export default withRouter(Signin)
+export default Signin;

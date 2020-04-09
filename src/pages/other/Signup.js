@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
 
-export default function Signup({firebase}) {
+export default function Signup({ fire, history }) {
   const { handleSubmit, register, errors, watch } = useForm();
-  const  dispatch  = useAuthDispatch()
+  const [error, setError] = useState(null);
 
   const onSubmit = async (values) => {
-    await firebase.register(values.name, values.email, values.password)
+    try {
+      await fire
+        .auth()
+        .createUserWithEmailAndPassword(values.email, values.password);
+        history.goBack()
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -88,6 +95,11 @@ export default function Signup({firebase}) {
             <button type='submit'>
               <span>Kayıt</span>
             </button>
+            {error && (
+              <div className='alert alert-danger' role='alert'>
+                {error}
+              </div>
+            )}
           </div>
         </form>
       </div>

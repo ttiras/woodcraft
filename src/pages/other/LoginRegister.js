@@ -4,6 +4,7 @@ import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
+import { withRouter } from "react-router-dom";
 
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
@@ -11,7 +12,7 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import fire from '../../auth/firebase'
 
-const LoginRegister = ({ location }) => {
+const LoginRegister = ({ location, ...props }) => {
   const { pathname } = location;
 
   return (
@@ -50,10 +51,10 @@ const LoginRegister = ({ location }) => {
                     </Nav>
                     <Tab.Content>
                       <Tab.Pane eventKey="login">
-                      <Signin fire={fire}/>
+                      <Signin fire={fire} history={props.history}/>
                       </Tab.Pane>
                       <Tab.Pane eventKey="register">
-                        <Signup fire={fire}/>
+                        <Signup fire={fire} history={props.history}/>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
@@ -71,4 +72,4 @@ LoginRegister.propTypes = {
   location: PropTypes.object
 };
 
-export default LoginRegister;
+export default withRouter(LoginRegister);
