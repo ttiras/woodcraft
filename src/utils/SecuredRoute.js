@@ -9,7 +9,7 @@ function SecuredRoute(props) {
   const {component: Component, path} = props;
   return (
     <Route path={path} render={() => {
-        if (!state.user.uid) {
+        if (!state.isAuthenticated) {
           props.history.push('/login-register')
           return <div></div>;
         }

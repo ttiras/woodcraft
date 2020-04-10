@@ -51,7 +51,7 @@ const IconGroup = ({
           <i className="pe-7s-user-female" />
         </button>
         <div className="account-dropdown">
-          {state.user? 
+          {state.isAuthenticated? 
           <ul>
             <li onClick={handleLogout}>
               <Link to={''}>
@@ -72,11 +72,6 @@ const IconGroup = ({
           <li>
             <Link to={process.env.PUBLIC_URL + "/login-register"}>
               Register
-            </Link>
-          </li>
-          <li>
-            <Link to={process.env.PUBLIC_URL + "/my-account"}>
-              my account
             </Link>
           </li>
         </ul>

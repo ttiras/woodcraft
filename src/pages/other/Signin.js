@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useAuthState } from "../../auth/auth-context";
+
 import { Link } from "react-router-dom";
 
 function Signin({ fire, history }) {
   const { handleSubmit, register, errors } = useForm();
   const [error, setError] = useState(null);
-  const state = useAuthState();
 
   const onSubmit = async (values) => {
     try {
-      await fire
+     await fire
         .auth()
         .signInWithEmailAndPassword(values.email, values.password);
       history.goBack();
@@ -18,7 +17,6 @@ function Signin({ fire, history }) {
       setError(err.message);
     }
   };
-  console.log(state)
 
   return (
     <div className='login-form-container'>
