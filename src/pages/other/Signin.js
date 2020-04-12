@@ -1,18 +1,90 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
 import { Link } from "react-router-dom";
+import firebase from "firebase";
+
+import { useMutation } from "@apollo/react-hooks";
+import INSERT_USER from "../../graphql/InsertUser";
+
+import axios from "axios";
+
+import "./Signin.css";
 
 function Signin({ fire, history }) {
+  const [insertUser] = useMutation(INSERT_USER, {
+    onCompleted(data) {
+      console.log(data);
+    },
+  });
   const { handleSubmit, register, errors } = useForm();
   const [error, setError] = useState(null);
 
-  const onSubmit = async (values) => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  const providerFb = new firebase.auth.FacebookAuthProvider();
+
+  const handleGoogleSignin = () => {
+    fire
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const token = result.credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(token, user);
+        axios.post("http://localhost:8000", { user }).then((res) => {
+          console.log(res);
+        });
+      })
+      .catch(function (error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential;
+        setError(errorCode, errorMessage, email, credential);
+      });
+  };
+
+  const handleFacebookSignin = () => {
+    fire
+      .auth()
+      .signInWithPopup(providerFb)
+      .then(function (result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const token = result.credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(token, user);
+        axios.post("http://localhost:8000", { user }).then((res) => {
+          console.log(res.config.data.user);
+        });
+      })
+      .catch(function (error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential;
+        setError(errorCode, errorMessage, email, credential);
+      });
+  };
+
+  const onSubmit = (values) => {
     try {
-     await fire
+      fire
         .auth()
-        .signInWithEmailAndPassword(values.email, values.password);
-      history.goBack();
+        .signInWithEmailAndPassword(values.email, values.password)
+        .then(async (respond) => {
+          const uid = respond.user.uid;
+          console.log(uid);
+          
+          history.goBack();
+        });
     } catch (err) {
       setError(err.message);
     }
@@ -62,7 +134,7 @@ function Signin({ fire, history }) {
               <input type='checkbox' />
               <label className='ml-10'>Beni hatırla</label>
               <Link to={process.env.PUBLIC_URL + "/reset-password"}>
-                Şifre yenileme
+                Şifremi Unuttum
               </Link>
             </div>
             <button type='submit'>
@@ -73,6 +145,56 @@ function Signin({ fire, history }) {
                 Bilgiler hatalı veya sunucuda sorun oluştu.
               </div>
             )}
+          </div>
+          <div className='button-box text-center'>
+            <h5 className='text-divider mb-5'>
+              <span>YA DA</span>
+            </h5>
+            <div className='mb-2'>
+              <button
+                type='button'
+                className='btn-block'
+                onClick={handleGoogleSignin}
+              >
+                <span>
+                  <i className='fa fa-apple'></i> Apple Hesabınla Giriş Yap
+                </span>
+              </button>
+            </div>
+            <div className='mb-2'>
+              <button
+                type='button'
+                className='btn-block'
+                onClick={handleGoogleSignin}
+              >
+                <span>
+                  <i className='fa fa-twitter'></i> TwItter Hesabınla Giriş Yap
+                </span>
+              </button>
+            </div>
+            <div className='mb-2'>
+              <button
+                type='button'
+                className='btn-block'
+                onClick={handleGoogleSignin}
+              >
+                <span>
+                  <i className='fa fa-google'></i> Google Hesabınla Giriş Yap
+                </span>
+              </button>
+            </div>
+            <div>
+              <button
+                type='button'
+                className='btn-block'
+                onClick={handleFacebookSignin}
+              >
+                <span>
+                  <i className='fa fa-facebook'></i> Facebook Hesabınla Giriş
+                  Yap
+                </span>
+              </button>
+            </div>
           </div>
         </form>
       </div>

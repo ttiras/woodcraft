@@ -4,7 +4,7 @@ export const AuthContext = React.createContext();
 export const AuthDispatch = React.createContext();
 
 const initialState = {
-    user: {},
+    user: null,
     isAuthenticated: false
 };
 

@@ -7,6 +7,8 @@ import { deleteFromCart } from "../../redux/actions/cartActions";
 import { useAuthState } from '../../auth/auth-context'
 import fire from '../../auth/firebase'
 
+import './IconGroup.css'
+
 const IconGroup = ({
   currency,
   cartData,
@@ -30,7 +32,7 @@ const IconGroup = ({
 
   const handleLogout = async () => {
     await fire.auth().signOut()
-    window.open('/', '_self')
+    window.open('/', 'self')
   }
 
   return (
@@ -38,10 +40,10 @@ const IconGroup = ({
       className={`header-right-wrap ${iconWhiteClass ? iconWhiteClass : ""}`}
     >
       <div className="same-style header-search d-none d-lg-block">
-        
+      {state.user&& <span>Hoşgeldin</span>}
       </div>
-      <div className="same-style header-compare">
-        
+      <div className="same-style displayname">
+      {state.user&&  <span>{state.user.name ? state.user.name.toUpperCase() : state.user.displayName}</span>}        
       </div>
       <div className="same-style account-setting d-none d-lg-block">
         <button

@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+
 import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
+
+
+import axios from 'axios'
 
 export default function Signup({ fire, history }) {
   const { handleSubmit, register, errors, watch } = useForm();
+  
+  const state = useAuthState()
+  const dispatch= useAuthDispatch()
   const [error, setError] = useState(null);
 
   const onSubmit = async (values) => {
     try {
-      await fire
+      const result = await fire
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
-        history.goBack()
+        const user = result.user
+        axios.post('http://localhost:8000', { user })
+        const userRef = fire.firestore().collection("users").doc(user.uid);
+        userRef.set({name: values.username, email: values.email })
+          history.goBack()
     } catch (err) {
       setError(err.message);
     }
   };
-
+  
   return (
     <div className='login-form-container'>
       <div className='login-register-form'>

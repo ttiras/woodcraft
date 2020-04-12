@@ -34,17 +34,53 @@ const App = (props) => {
 
   useEffect(() => {
     fire.auth().onAuthStateChanged((user) => {
-      if(user)try{
-        user.getIdToken().then((token)=>{
-          setAccessToken(token)
-          dispatch({
-            type: 'AUTHENTICATE',
-            payload: true
-          })
-        })
-      }catch(err){console.log('app',err)}
+      console.log("onauthchangecalled", user);
+      if (user) {
+        dispatch({
+          type: "LOGIN",
+          payload: user,
+        });
+        try {
+          fire
+            .firestore()
+            .collection("users")
+            .doc(user.uid)
+            .get()
+            .then((respond) => {
+              if (respond) {
+                const user = respond.data();
+                if(user){
+                  dispatch({
+                    type: "LOGIN",
+                    payload: user,
+                  });
+                }                
+              }
+            });
+          user.getIdTokenResult(true).then((result) => {
+            const token = result.token;
+            console.log(token);
+            setAccessToken(token);
+            dispatch({
+              type: "AUTHENTICATE",
+              payload: true,
+            });
+          });
+        } catch (err) {
+          console.log("app", err);
+        }
+      } else {
+        dispatch({
+          type: "LOGIN",
+          payload: null,
+        });
+        dispatch({
+          type: "AUTHENTICATE",
+          payload: false,
+        });
+      }
     });
-  }, []);
+  }, [dispatch]);
 
   const store = createStore(
     rootReducer,
@@ -61,14 +97,14 @@ const App = (props) => {
       return {
         headers: {
           ...headers,
-          authorization: `Bearer ${token}`
-        }
+          authorization: `Bearer ${token}`,
+        },
       };
     } else {
       return {
         headers: {
-          ...headers
-        }
+          ...headers,
+        },
       };
     }
   });
@@ -80,14 +116,14 @@ const App = (props) => {
       lazy: true,
       connectionParams: {
         headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      }
-    }
+          Authorization: `Bearer ${accessToken}`,
+        },
+      },
+    },
   });
 
   const httpLink = new HttpLink({
-    uri: httpurl
+    uri: httpurl,
   });
 
   const link = split(
@@ -103,7 +139,7 @@ const App = (props) => {
   const client = new ApolloClient({
     link,
     credentials: "include",
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 
   client
