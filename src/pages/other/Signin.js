@@ -150,17 +150,7 @@ function Signin({ fire, history }) {
             <h5 className='text-divider mb-5'>
               <span>YA DA</span>
             </h5>
-            <div className='mb-2'>
-              <button
-                type='button'
-                className='btn-block'
-                onClick={handleGoogleSignin}
-              >
-                <span>
-                  <i className='fa fa-apple'></i> Apple Hesabınla Giriş Yap
-                </span>
-              </button>
-            </div>
+            
             <div className='mb-2'>
               <button
                 type='button'

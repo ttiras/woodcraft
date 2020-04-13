@@ -17,11 +17,10 @@ const IconGroup = ({
   deleteFromCart,
   iconWhiteClass
 }) => {
+  const state = useAuthState()
   const handleClick = e => {
     e.currentTarget.nextSibling.classList.toggle("active");
   };
-
-  const state = useAuthState()
 
   const triggerMobileMenu = () => {
     const offcanvasMobileMenu = document.querySelector(
@@ -32,25 +31,22 @@ const IconGroup = ({
 
   const handleLogout = async () => {
     await fire.auth().signOut()
-    window.open('/', 'self')
+    window.open('/', '_self')
   }
 
   return (
     <div
       className={`header-right-wrap ${iconWhiteClass ? iconWhiteClass : ""}`}
     >
-      <div className="same-style header-search d-none d-lg-block">
-      {state.user&& <span>Hoşgeldin</span>}
-      </div>
-      <div className="same-style displayname">
-      {state.user&&  <span>{state.user.name ? state.user.name.toUpperCase() : state.user.displayName}</span>}        
-      </div>
+      {state&& state.user&&state.user.name&&  <span className='displayname'>{state.user.name}</span>}
+      {state&& state.user&&state.user.displayName&&  <span className='displayname'>{state.user.displayName.split(' ')[0]}</span>}
       <div className="same-style account-setting d-none d-lg-block">
         <button
           className="account-setting-active"
           onClick={e => handleClick(e)}
         >
-          <i className="pe-7s-user-female" />
+          
+          <i className="pe-7s-user-female" /> 
         </button>
         <div className="account-dropdown">
           {state.isAuthenticated? 

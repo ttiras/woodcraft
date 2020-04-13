@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
+import { multilanguage, loadLanguages } from "redux-multilanguage";
+import { connect } from "react-redux";
+
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
@@ -28,9 +31,21 @@ import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
 
-const App = (props) => {
+const App = props => {
   const [accessToken, setAccessToken] = useState("");
   const dispatch = useAuthDispatch();
+
+  useEffect(() => {
+    store.dispatch(
+      loadLanguages({
+        languages: {
+          en: require("./translations/english.json"),
+          fn: require("./translations/french.json"),
+          de: require("./translations/germany.json")
+        }
+      })
+    );
+  });
 
   useEffect(() => {
     fire.auth().onAuthStateChanged((user) => {
@@ -167,4 +182,4 @@ App.propTypes = {
   dispatch: PropTypes.func,
 };
 
-export default App;
+export default  App;

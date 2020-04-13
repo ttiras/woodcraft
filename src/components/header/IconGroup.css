@@ -1,1 +1,4 @@
-.displayname{color: rgb(167, 64, 64)!important;}
+.displayname{
+    color: rgb(167, 64, 64)!important;
+    font-size: medium!important;
+}
