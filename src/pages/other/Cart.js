@@ -344,7 +344,7 @@ const Cart = ({
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>
-                        Ödemeyi Git
+                        Siparişi Tamamla
                       </Link>
                     </div>
                     <button type='button' onClick={handlePost}>POST</button>
