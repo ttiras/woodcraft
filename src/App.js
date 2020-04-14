@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import { multilanguage, loadLanguages } from "redux-multilanguage";
-import { connect } from "react-redux";
 
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
@@ -15,7 +14,7 @@ import rootReducer from "./redux/reducers/rootReducer";
 
 import { ToastProvider } from "react-toast-notifications";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
-import { useAuthDispatch } from "./auth/auth-context";
+import { useAuthState, useAuthDispatch } from "./auth/auth-context";
 
 import fire from "./auth/firebase";
 import Routers from "./Routers";
@@ -25,14 +24,15 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import GET_PRODUCTS from "./graphql/GetProducts";
 
 import { WebSocketLink } from "apollo-link-ws";
-import { HttpLink } from "apollo-link-http";
+import { createHttpLink } from "apollo-link-http";
 import { split } from "apollo-link";
 import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
 
 const App = props => {
-  const [accessToken, setAccessToken] = useState("");
+  const state = useAuthState()
+  const accessToken = state.token
   const dispatch = useAuthDispatch();
 
   useEffect(() => {
@@ -72,15 +72,18 @@ const App = props => {
                 }                
               }
             });
-          user.getIdTokenResult(true).then((result) => {
-            const token = result.token;
-            console.log(token);
-            setAccessToken(token);
-            dispatch({
-              type: "AUTHENTICATE",
-              payload: true,
-            });
-          });
+              user.getIdTokenResult(true).then((result) => {
+                console.log(result)
+                dispatch({
+                  type: "TOKEN",
+                  payload: result.token
+                });
+                dispatch({
+                  type: "AUTHENTICATE",
+                  payload: true
+                });
+              });
+          
         } catch (err) {
           console.log("app", err);
         }
@@ -97,6 +100,19 @@ const App = props => {
     });
   }, [dispatch]);
 
+  useEffect(()=>{
+    setTimeout(() => {
+      client
+    .query({
+      query: GET_PRODUCTS,
+    })
+    .then((result) => {
+      store.dispatch(fetchProducts(result.data.products));
+    }).catch(err=>console.log(err))
+    }, 500);
+    
+  },[])
+
   const store = createStore(
     rootReducer,
     load(),
@@ -107,7 +123,7 @@ const App = props => {
   const httpurl = "https://woodcraft.herokuapp.com/v1/graphql";
 
   const authLink = setContext((_, { headers }) => {
-    const token = accessToken;
+    const token = accessToken
     if (token) {
       return {
         headers: {
@@ -137,7 +153,7 @@ const App = props => {
     },
   });
 
-  const httpLink = new HttpLink({
+  const httpLink = createHttpLink({
     uri: httpurl,
   });
 
@@ -156,15 +172,7 @@ const App = props => {
     credentials: "include",
     cache: new InMemoryCache(),
   });
-
-  client
-    .query({
-      query: GET_PRODUCTS,
-    })
-    .then((result) => {
-      store.dispatch(fetchProducts(result.data.products));
-    });
-
+  
   return (
     <Provider store={store}>
       <ApolloProvider client={client}>

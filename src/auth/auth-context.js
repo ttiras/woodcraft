@@ -29,6 +29,12 @@ const reducer = (state, action) => {
         isAuthenticated: action.payload
       }
 
+      case "TOKEN":
+        return {
+          ...state,
+          token: action.payload
+        }
+
     case "REGISTER":
       return {
         ...state,

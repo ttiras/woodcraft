@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const GET_PRODUCTS = gql`
   query MyQuery {
-    products {
+    products { 
       discount
       fullDescription
       new

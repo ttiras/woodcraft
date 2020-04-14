@@ -1,17 +1,30 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { useMutation } from "@apollo/react-hooks";
+
 import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
 
 
 import axios from 'axios'
+import INSERT_USER from "../../graphql/InsertUser";
 
 export default function Signup({ fire, history }) {
   const { handleSubmit, register, errors, watch } = useForm();
+  const [insertUser, { loading, data }] = useMutation(
+    INSERT_USER,
+    {
+      onCompleted(data) {
+        console.log(data)
+      }
+    }
+  );
   
   const state = useAuthState()
   const dispatch= useAuthDispatch()
   const [error, setError] = useState(null);
+
+
 
   const onSubmit = async (values) => {
     try {
@@ -22,6 +35,18 @@ export default function Signup({ fire, history }) {
         axios.post('http://localhost:8000', { user })
         const userRef = fire.firestore().collection("users").doc(user.uid);
         userRef.set({name: values.username, email: values.email })
+          setTimeout(() => {
+            insertUser({
+              variables: {
+                user: {
+                  name: values.username,
+                  email: values.email
+                }
+              }
+     
+          })
+          }, 2000);
+          
           history.goBack()
     } catch (err) {
       setError(err.message);
