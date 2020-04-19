@@ -52,7 +52,7 @@ if (!admin.apps.length) {
     })
 }
 
-app.post('/',  function(req, res) {
+app.post('/claims',  function(req, res) {
    
 setFirebaseAuthJWTClaims(req.body.user)
 res.send(200)

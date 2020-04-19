@@ -32,7 +32,7 @@ export default function Signup({ fire, history }) {
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
         const user = result.user
-        axios.post('http://localhost:8000', { user })
+        axios.post(`${process.env.PUBLIC_URL}:8000/claims`, { user })
         const userRef = fire.firestore().collection("users").doc(user.uid);
         userRef.set({name: values.username, email: values.email })
           setTimeout(() => {

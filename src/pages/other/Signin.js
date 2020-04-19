@@ -32,7 +32,7 @@ function Signin({ fire, history }) {
         // The signed-in user info.
         const user = result.user;
         console.log(token, user);
-        axios.post("http://localhost:8000", { user }).then((res) => {
+        axios.post("http://localhost:8000/claims", { user }).then((res) => {
           console.log(res);
         });
       })
@@ -58,7 +58,7 @@ function Signin({ fire, history }) {
         // The signed-in user info.
         const user = result.user;
         console.log(token, user);
-        axios.post("http://localhost:8000", { user }).then((res) => {
+        axios.post("http://localhost:8000/claims", { user }).then((res) => {
           console.log(res.config.data.user);
         });
       })

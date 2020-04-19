@@ -31,3 +31,73 @@
     -webkit-animation: spin .8s linear infinite;
     animation: spin .8s linear infinite;
 }
+
+.boxtext{
+    font-size: medium;
+}
+
+.checks{
+    height: 15px;
+    margin: 0;
+    position: relative;
+    top: 1px;
+    width: 17px;
+}
+
+label{
+    font-weight: bold;
+    color: dimgrey!important;
+}
+
+.noneed{
+    color: lightgrey!important;
+}
+
+.submitAddress{
+    background-color:white;
+    border: medium none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 11px 30px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    margin-top: 10px;
+}
+
+span{
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #708090;
+    color: #fff;
+}
+
+.edit{
+    cursor: pointer;
+}
+
+.checkbox{
+    height: 20px!important;
+    width: 10%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.colortext{
+    color: black;
+    font-weight: bold;
+}

@@ -6,6 +6,7 @@ import MenuCart from "./sub-components/MenuCart";
 import { deleteFromCart } from "../../redux/actions/cartActions";
 import { useAuthState } from '../../auth/auth-context'
 import fire from '../../auth/firebase'
+import { useHistory } from 'react-router-dom'
 
 import './IconGroup.css'
 
@@ -18,6 +19,7 @@ const IconGroup = ({
   iconWhiteClass
 }) => {
   const state = useAuthState()
+  const history = useHistory()
   const handleClick = e => {
     e.currentTarget.nextSibling.classList.toggle("active");
   };
@@ -31,7 +33,7 @@ const IconGroup = ({
 
   const handleLogout = async () => {
     await fire.auth().signOut()
-    window.open('/', '_self')
+    history.goBack()
   }
 
   return (

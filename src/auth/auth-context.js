@@ -4,42 +4,60 @@ export const AuthContext = React.createContext();
 export const AuthDispatch = React.createContext();
 
 const initialState = {
-    user: null,
-    isAuthenticated: false
+  user: null,
+  isAuthenticated: false,
+  order: {},
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    
     case "LOGIN":
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
       };
-    
+
     case "LOGOUT":
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
+      };
+
+    case "NOTES":
+      return {
+        ...state,
+        notes: action.payload,
+      };
+
+    case "ADDRESS":
+      return {
+        ...state,
+        address: action.payload,
+      };
+
+    case "INVOICE_ADDRESS":
+      return {
+        ...state,
+        invoiceAddress: action.payload,
       };
 
     case "AUTHENTICATE":
       return {
         ...state,
-        isAuthenticated: action.payload
-      }
+        isAuthenticated: action.payload,
+      };
 
-      case "TOKEN":
-        return {
-          ...state,
-          token: action.payload
-        }
+    case "TOKEN":
+      return {
+        ...state,
+        token: action.payload,
+      };
 
     case "REGISTER":
       return {
         ...state,
-        user: action.payload
-      }
+        user: action.payload,
+      };
 
     default:
       return state;
@@ -50,9 +68,7 @@ const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <AuthContext.Provider value={state}>
-      <AuthDispatch.Provider value={dispatch}>
-        {children}
-      </AuthDispatch.Provider>
+      <AuthDispatch.Provider value={dispatch}>{children}</AuthDispatch.Provider>
     </AuthContext.Provider>
   );
 };
@@ -77,4 +93,4 @@ export const useAuthDispatch = () => {
   return context;
 };
 
-export default AuthContextProvider
+export default AuthContextProvider;

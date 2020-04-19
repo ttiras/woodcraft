@@ -1,21 +1,19 @@
 import PropTypes from "prop-types";
-import axios from 'axios'
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import MetaTags from "react-meta-tags";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { connect } from "react-redux";
+import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
 import { getDiscountPrice } from "../../helpers/product";
 import {
   addToCart,
   decreaseQuantity,
   deleteFromCart,
   cartItemStock,
-  deleteAllFromCart
+  deleteAllFromCart,
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 
 const Cart = ({
   location,
@@ -24,113 +22,43 @@ const Cart = ({
   decreaseQuantity,
   addToCart,
   deleteFromCart,
-  deleteAllFromCart
+  deleteAllFromCart,
 }) => {
+  const state = useAuthState();
+  const dispatch = useAuthDispatch();
   const [quantityCount] = useState(1);
+  const [notes, setNotes] = useState("");
   const { addToast } = useToasts();
   const { pathname } = location;
   let cartTotalPrice = 0;
 
-  const handlePost = ()=>{
-    axios.post('https://excessive-chipped-nautilus.glitch.me/', {
-      locale: 'TR',
-      conversationId: '123456789',
-      price: '1',
-      paidPrice: '1.2',
-      currency: 'TRY',
-      basketId: 'B67832',
-      callbackUrl: 'https://excessive-chipped-nautilus.glitch.me/payments',
-      enabledInstallments: [2, 3, 6, 9],
-      buyer: {
-          id: 'BY789',
-          name: 'John',
-          surname: 'Doe',
-          gsmNumber: '+905350000000',
-          email: 'email@email.com',
-          identityNumber: '74300864791',
-          lastLoginDate: '2015-10-05 12:43:35',
-          registrationDate: '2013-04-21 15:12:09',
-          registrationAddress: 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
-          ip: '85.34.78.112',
-          city: 'Istanbul',
-          country: 'Turkey',
-          zipCode: '34732'
-      },
-      shippingAddress: {
-          contactName: 'Jane Doe',
-          city: 'Istanbul',
-          country: 'Turkey',
-          address: 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
-          zipCode: '34742'
-      },
-      billingAddress: {
-          contactName: 'Jane Doe',
-          city: 'Istanbul',
-          country: 'Turkey',
-          address: 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
-          zipCode: '34742'
-      },
-      basketItems: [
-          {
-              id: 'BI101',
-              name: 'Binocular',
-              category1: 'Collectibles',
-              category2: 'Accessories',
-              itemType: 'PHYSICAL',
-              price: '0.3'
-          },
-          {
-              id: 'BI102',
-              name: 'Game code',
-              category1: 'Game',
-              category2: 'Online Game Items',
-              itemType: 'VIRTUAL',
-              price: '0.5'
-          },
-          {
-              id: 'BI103',
-              name: 'Usb',
-              category1: 'Electronics',
-              category2: 'Usb / Cable',
-              itemType: 'PHYSICAL',
-              price: '0.2'
-          }
-      ]
-  })
-    .then((result) => {
-      console.log(result)      
-      window.open(result.data.paymentPageUrl)
-    }, (error) => {
-      console.log(error);
+  const handleNotes = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "NOTES",
+      payload: e.target.value,
     });
-  } 
+  };
 
   return (
     <Fragment>
       <MetaTags>
         <title>Violet | Sepet</title>
         <meta
-          name="description"
-          content="Cart page of flone react minimalist eCommerce template."
+          name='description'
+          content='Cart page of flone react minimalist eCommerce template.'
         />
       </MetaTags>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Sepet
-      </BreadcrumbsItem>
-
-      <LayoutOne headerTop="visible">
-        {/* breadcrumb */}
-        <Breadcrumb />
-        <div className="cart-main-area pt-90 pb-100">
-          <div className="container">
+      <LayoutOne headerTop='visible'>
+        <div className='cart-main-area pt-90 pb-100'>
+          <div className='container'>
             {cartItems && cartItems.length >= 1 ? (
               <Fragment>
-                <h3 className="cart-page-title">Sepetteki Ürünler</h3>
-                <div className="row">
-                  <div className="col-12">
-                    <div className="table-content table-responsive cart-table-content">
+                <h3 className='cart-page-title'>Sipariş Özeti</h3>
+                <div className='row'>
+                  <div className='col-12'>
+                    <div className='table-content table-responsive cart-table-content'>
                       <table>
                         <thead>
                           <tr>
@@ -162,7 +90,7 @@ const Cart = ({
                                   finalProductPrice * cartItem.quantity);
                             return (
                               <tr key={key}>
-                                <td className="product-thumbnail">
+                                <td className='product-thumbnail'>
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
@@ -171,17 +99,17 @@ const Cart = ({
                                     }
                                   >
                                     <img
-                                      className="img-fluid"
+                                      className='img-fluid'
                                       src={
                                         process.env.PUBLIC_URL +
                                         cartItem.image[0].path
                                       }
-                                      alt=""
+                                      alt=''
                                     />
                                   </Link>
                                 </td>
 
-                                <td className="product-name">
+                                <td className='product-name'>
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
@@ -193,7 +121,7 @@ const Cart = ({
                                   </Link>
                                   {cartItem.selectedProductColor &&
                                   cartItem.selectedProductSize ? (
-                                    <div className="cart-item-variation">
+                                    <div className='cart-item-variation'>
                                       <span>
                                         Color: {cartItem.selectedProductColor}
                                       </span>
@@ -206,30 +134,30 @@ const Cart = ({
                                   )}
                                 </td>
 
-                                <td className="product-price-cart">
+                                <td className='product-price-cart'>
                                   {discountedPrice !== null ? (
                                     <Fragment>
-                                      <span className="amount old">
+                                      <span className='amount old'>
                                         {currency.currencySymbol +
                                           finalProductPrice}
                                       </span>
-                                      <span className="amount">
+                                      <span className='amount'>
                                         {currency.currencySymbol +
                                           finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
-                                    <span className="amount">
+                                    <span className='amount'>
                                       {currency.currencySymbol +
                                         finalProductPrice}
                                     </span>
                                   )}
                                 </td>
 
-                                <td className="product-quantity">
-                                  <div className="cart-plus-minus">
+                                <td className='product-quantity'>
+                                  <div className='cart-plus-minus'>
                                     <button
-                                      className="dec qtybutton"
+                                      className='dec qtybutton'
                                       onClick={() =>
                                         decreaseQuantity(cartItem, addToast)
                                       }
@@ -237,13 +165,13 @@ const Cart = ({
                                       -
                                     </button>
                                     <input
-                                      className="cart-plus-minus-box"
-                                      type="text"
+                                      className='cart-plus-minus-box'
+                                      type='text'
                                       value={cartItem.quantity}
                                       readOnly
                                     />
                                     <button
-                                      className="inc qtybutton"
+                                      className='inc qtybutton'
                                       onClick={() =>
                                         addToCart(
                                           cartItem,
@@ -266,7 +194,7 @@ const Cart = ({
                                     </button>
                                   </div>
                                 </td>
-                                <td className="product-subtotal">
+                                <td className='product-subtotal'>
                                   {discountedPrice !== null
                                     ? currency.currencySymbol +
                                       (
@@ -278,13 +206,13 @@ const Cart = ({
                                       ).toFixed(2)}
                                 </td>
 
-                                <td className="product-remove">
+                                <td className='product-remove'>
                                   <button
                                     onClick={() =>
                                       deleteFromCart(cartItem, addToast)
                                     }
                                   >
-                                    <i className="fa fa-times"></i>
+                                    <i className='fa fa-times'></i>
                                   </button>
                                 </td>
                               </tr>
@@ -295,17 +223,17 @@ const Cart = ({
                     </div>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="cart-shiping-update-wrapper">
-                      <div className="cart-shiping-update">
+                <div className='row'>
+                  <div className='col-lg-12'>
+                    <div className='cart-shiping-update-wrapper'>
+                      <div className='cart-shiping-update'>
                         <Link
                           to={process.env.PUBLIC_URL + "/shop-grid-standard"}
                         >
                           Alışverişe Devam Et
                         </Link>
                       </div>
-                      <div className="cart-clear">
+                      <div className='cart-clear'>
                         <button onClick={() => deleteAllFromCart(addToast)}>
                           Sepeti Boşalt
                         </button>
@@ -314,19 +242,32 @@ const Cart = ({
                   </div>
                 </div>
 
-                <div className="row">
-                  <div className="col-lg-4 col-md-6">
-                    
+                <div className='row'>
+                  <div className='col-lg-8 col-md-12'>
+                    <div className='cart-tax'>
+                      <div className='title-wrap'>
+                        <h4 className='cart-bottom-title section-bg-gray'>
+                          Alışverişinizle ilgili eklemek istedikleriniz
+                        </h4>
+                      </div>
+                      <div className='tax-wrapper'>
+                        <div className='additional-info'>
+                          <label>Sipariş Notları</label>
+                          <textarea
+                            placeholder='Sipraişinizle ilgili belirtmek istedğiniz konular... '
+                            name='message'
+                            value={state.notes}
+                            rows='4'
+                            onChange={(e) => handleNotes(e)}
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <div className="col-lg-4 col-md-6">
-                    
-                  </div>
-
-                  <div className="col-lg-4 col-md-12">
-                    <div className="grand-totall">
-                      <div className="title-wrap">
-                        <h4 className="cart-bottom-title section-bg-gary-cart">
+                  <div className='col-lg-4 col-md-12'>
+                    <div className='grand-totall'>
+                      <div className='title-wrap'>
+                        <h4 className='cart-bottom-title section-bg-gary-cart'>
                           Sepet Toplamı
                         </h4>
                       </div>
@@ -337,8 +278,8 @@ const Cart = ({
                         </span>
                       </h5>
 
-                      <h4 className="grand-totall-title">
-                      Ödenecek Tutar{" "}
+                      <h4 className='grand-totall-title'>
+                        Ödenecek Tutar{" "}
                         <span>
                           {currency.currencySymbol + cartTotalPrice.toFixed(2)}
                         </span>
@@ -347,18 +288,17 @@ const Cart = ({
                         Siparişi Tamamla
                       </Link>
                     </div>
-                    <button type='button' onClick={handlePost}>POST</button>
                   </div>
                 </div>
               </Fragment>
             ) : (
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="item-empty-area text-center">
-                    <div className="item-empty-area__icon mb-30">
-                      <i className="pe-7s-cart"></i>
+              <div className='row'>
+                <div className='col-lg-12'>
+                  <div className='item-empty-area text-center'>
+                    <div className='item-empty-area__icon mb-30'>
+                      <i className='pe-7s-cart'></i>
                     </div>
-                    <div className="item-empty-area__text">
+                    <div className='item-empty-area__text'>
                       Sepet Boş <br />{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                         Alışverişe Başla
@@ -382,17 +322,17 @@ Cart.propTypes = {
   decreaseQuantity: PropTypes.func,
   location: PropTypes.object,
   deleteAllFromCart: PropTypes.func,
-  deleteFromCart: PropTypes.func
+  deleteFromCart: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item, addToast, quantityCount) => {
       dispatch(addToCart(item, addToast, quantityCount));
@@ -403,9 +343,9 @@ const mapDispatchToProps = dispatch => {
     deleteFromCart: (item, addToast) => {
       dispatch(deleteFromCart(item, addToast));
     },
-    deleteAllFromCart: addToast => {
+    deleteAllFromCart: (addToast) => {
       dispatch(deleteAllFromCart(addToast));
-    }
+    },
   };
 };
 

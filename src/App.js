@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { multilanguage, loadLanguages } from "redux-multilanguage";
 
+
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
@@ -101,7 +102,6 @@ const App = props => {
   }, [dispatch]);
 
   useEffect(()=>{
-    setTimeout(() => {
       client
     .query({
       query: GET_PRODUCTS,
@@ -109,8 +109,6 @@ const App = props => {
     .then((result) => {
       store.dispatch(fetchProducts(result.data.products));
     }).catch(err=>console.log(err))
-    }, 500);
-    
   },[])
 
   const store = createStore(
