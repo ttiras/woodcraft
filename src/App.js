@@ -73,18 +73,19 @@ const App = props => {
                 }                
               }
             });
-              user.getIdTokenResult(true).then((result) => {
-                console.log(result)
-                dispatch({
-                  type: "TOKEN",
-                  payload: result.token
+              setTimeout(() => {
+                user.getIdTokenResult(true).then((result) => {
+                  console.log(result)
+                  dispatch({
+                    type: "TOKEN",
+                    payload: result.token
+                  });
+                  dispatch({
+                    type: "AUTHENTICATE",
+                    payload: true
+                  });
                 });
-                dispatch({
-                  type: "AUTHENTICATE",
-                  payload: true
-                });
-              });
-          
+              }, 500);  
         } catch (err) {
           console.log("app", err);
         }

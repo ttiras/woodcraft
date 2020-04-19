@@ -76,6 +76,7 @@ const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
+const PaymentSuccess = lazy(() => import("./pages/other/PaymentSuccess"))
 const PasswordReset = lazy(() => import("./pages/other/PasswordReset"));
 
 const Cart = lazy(() => import("./pages/other/Cart"));
@@ -324,6 +325,11 @@ function Routers() {
             <Route
               path={process.env.PUBLIC_URL + "/checkout"}
               component={Checkout}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/success"}
+              component={PaymentSuccess}
             />
 
             <Route

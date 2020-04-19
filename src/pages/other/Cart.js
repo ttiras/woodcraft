@@ -32,11 +32,10 @@ const Cart = ({
   const { pathname } = location;
   let cartTotalPrice = 0;
 
-  const handleNotes = (e) => {
-    e.preventDefault();
+  const handleNotes = () => {
     dispatch({
       type: "NOTES",
-      payload: e.target.value,
+      payload: notes,
     });
   };
 
@@ -138,17 +137,17 @@ const Cart = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className='amount old'>
-                                        {currency.currencySymbol +
+                                        {currency.currencySymbol + ' ' +
                                           finalProductPrice}
                                       </span>
                                       <span className='amount'>
-                                        {currency.currencySymbol +
+                                        {currency.currencySymbol + ' ' +
                                           finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className='amount'>
-                                      {currency.currencySymbol +
+                                      {currency.currencySymbol + ' ' +
                                         finalProductPrice}
                                     </span>
                                   )}
@@ -196,11 +195,11 @@ const Cart = ({
                                 </td>
                                 <td className='product-subtotal'>
                                   {discountedPrice !== null
-                                    ? currency.currencySymbol +
+                                    ? currency.currencySymbol + ' ' +
                                       (
                                         finalDiscountedPrice * cartItem.quantity
                                       ).toFixed(2)
-                                    : currency.currencySymbol +
+                                    : currency.currencySymbol + ' ' +
                                       (
                                         finalProductPrice * cartItem.quantity
                                       ).toFixed(2)}
@@ -258,7 +257,7 @@ const Cart = ({
                             name='message'
                             value={state.notes}
                             rows='4'
-                            onChange={(e) => handleNotes(e)}
+                            onChange={(e) => setNotes(e.target.value)}
                           />
                         </div>
                       </div>
@@ -274,17 +273,17 @@ const Cart = ({
                       <h5>
                         Ürünler Toplamı (KDV Dahil){" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {currency.currencySymbol + ' ' + cartTotalPrice.toFixed(2)}
                         </span>
                       </h5>
 
                       <h4 className='grand-totall-title'>
                         Ödenecek Tutar{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {currency.currencySymbol + ' ' + cartTotalPrice.toFixed(2)}
                         </span>
                       </h4>
-                      <Link to={process.env.PUBLIC_URL + "/checkout"}>
+                      <Link onClick={handleNotes} to={process.env.PUBLIC_URL + "/checkout"}>
                         Siparişi Tamamla
                       </Link>
                     </div>

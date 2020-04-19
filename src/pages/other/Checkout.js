@@ -39,7 +39,7 @@ const Checkout = ({ location, cartItems, currency }) => {
       .then(function (result) {
         const user = result.user;
         console.log(user);
-        axios.post(`${process.env.PUBLIC_URL}/claims`, { user }).then((res) => {
+        axios.post(`${process.env.PUBLIC_URL}:8000/claims`, { user }).then((res) => {
           console.log(res);
         });
         setLoading(false);
@@ -113,83 +113,59 @@ const Checkout = ({ location, cartItems, currency }) => {
   };
 
   const handlePost = () => {
-    axios
-      .post("https://excessive-chipped-nautilus.glitch.me/", {
-        locale: "TR",
-        conversationId: "123456789",
-        price: "1",
-        paidPrice: "1.2",
-        currency: "TRY",
-        basketId: "B67832",
-        callbackUrl: "https://excessive-chipped-nautilus.glitch.me/payments",
-        enabledInstallments: [2, 3, 6, 9],
-        buyer: {
-          id: "BY789",
-          name: "John",
-          surname: "Doe",
-          gsmNumber: "+905350000000",
-          email: "email@email.com",
-          identityNumber: "74300864791",
-          lastLoginDate: "2015-10-05 12:43:35",
-          registrationDate: "2013-04-21 15:12:09",
-          registrationAddress:
-            "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
-          ip: "85.34.78.112",
-          city: "Istanbul",
-          country: "Turkey",
-          zipCode: "34732",
-        },
-        shippingAddress: {
-          contactName: "Jane Doe",
-          city: "Istanbul",
-          country: "Turkey",
-          address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
-          zipCode: "34742",
-        },
-        billingAddress: {
-          contactName: "Jane Doe",
-          city: "Istanbul",
-          country: "Turkey",
-          address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
-          zipCode: "34742",
-        },
-        basketItems: [
-          {
-            id: "BI101",
-            name: "Binocular",
-            category1: "Collectibles",
-            category2: "Accessories",
-            itemType: "PHYSICAL",
-            price: "0.3",
-          },
-          {
-            id: "BI102",
-            name: "Game code",
-            category1: "Game",
-            category2: "Online Game Items",
-            itemType: "VIRTUAL",
-            price: "0.5",
-          },
-          {
-            id: "BI103",
-            name: "Usb",
-            category1: "Electronics",
-            category2: "Usb / Cable",
-            itemType: "PHYSICAL",
-            price: "0.2",
-          },
-        ],
+    if(state.user&& state.address){
+      const request = {
+      price: cartTotalPrice.toFixed(2),
+      paidPrice: cartTotalPrice.toFixed(2),
+      currency: 'TRY',
+      callbackUrl: "https://excessive-chipped-nautilus.glitch.me/payments",
+      enabledInstallments: [2, 3, 6, 9],
+      buyer: {
+        id: state.user.uid,
+        name: state.address.name.split(' ').length >2 ? state.address.name.split(' ')[0] + ' ' + state.address.name.split(' ')[1] : state.address.name.split(' ')[0],
+        surname: state.address.name.split(' ').length >2 ? state.address.name.split(' ')[2] : state.address.name.split(' ')[1],
+        gsmNumber: state.address.phone,
+        email: state.address.email,
+        identityNumber: state.address.identity,
+        registrationAddress: state.address.street + ' ' + state.address.ilçe,
+        city: state.address.il,
+        country: 'Turkey'
+      },
+      basketItems: cartItems.map((item)=>(
+        {id: item.id,
+          name: item.name,
+          category1: item.category[0].category.category,
+          itemType: "PHYSICAL",
+          price: getDiscountPrice(item.price, item.discount)
       })
+      ),
+      shippingAddress: {
+        contactName: state.address.name,
+        city: state.address.il,
+        country: 'Turkey',
+        address: state.address.street + ' ' + state.address.ilçe
+      },
+      billingAddress: {
+        contactName: state.invoiceAddress? state.invoiceAddress.name : state.address.name,
+        city: state.invoiceAddress? state.invoiceAddress.il : state.address.il,
+        country: 'Turkey',
+        address: state.invoiceAddress? state.invoiceAddress.firm + ' ' + state.invoiceAddress.street + ' ' + state.invoiceAddress.ilçe + ' VD:' + state.invoiceAddress.vergid + ' VNo:' + state.invoiceAddress.vergin : state.address.street + ' ' + state.address.ilçe
+      }
+    }
+    axios
+      .post("https://excessive-chipped-nautilus.glitch.me/", request)
       .then(
         (result) => {
           console.log(result);
-          window.open(result.data.paymentPageUrl);
+          window.open(result.data.paymentPageUrl, '_self');
         },
         (error) => {
           console.log(error);
         }
       );
+    
   };
+  }
 
   return (
     <Fragment>
@@ -206,7 +182,7 @@ const Checkout = ({ location, cartItems, currency }) => {
           <div className='container'>
             {cartItems && cartItems.length >= 1 ? (
               <div className='row'>
-                {!state.isAuthenticated ? (
+                {state.isAuthenticated ? (
                   <div className='col-lg-7'>
                     <div className='your-order-area'>
                       <h3>Adres Bilgileri</h3>
@@ -332,7 +308,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                     <div className='col-lg-7 '>
                       <div
                         id='cover-spin'
-                        className={loading && "d-block"}
+                        className={loading? "d-block" : ''}
                       ></div>
                       <div className='your-order-area'>
                         <div className='item-empty-area__text boxtext'>
@@ -425,12 +401,12 @@ const Checkout = ({ location, cartItems, currency }) => {
                                   </span>{" "}
                                   <span className='order-price'>
                                     {discountedPrice !== null
-                                      ? currency.currencySymbol +
+                                      ? currency.currencySymbol + ' ' +
                                         (
                                           finalDiscountedPrice *
                                           cartItem.quantity
                                         ).toFixed(2)
-                                      : currency.currencySymbol +
+                                      : currency.currencySymbol + ' ' +
                                         (
                                           finalProductPrice * cartItem.quantity
                                         ).toFixed(2)}
@@ -450,7 +426,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                           <ul>
                             <li className='order-total'>Toplam</li>
                             <li>
-                              {currency.currencySymbol +
+                              {currency.currencySymbol + ' ' +
                                 cartTotalPrice.toFixed(2)}
                             </li>
                           </ul>
