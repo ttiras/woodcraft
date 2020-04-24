@@ -1,44 +1,33 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { useToasts } from "react-toast-notifications";
 import MetaTags from "react-meta-tags";
 import { connect } from "react-redux";
 import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
-import { getDiscountPrice } from "../../helpers/product";
+import { useQuery } from "@apollo/react-hooks";
+import { useRouteMatch } from "react-router-dom";
 import {
   addToCart,
   decreaseQuantity,
   deleteFromCart,
-  cartItemStock,
   deleteAllFromCart,
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
+import SINGLE_ORDER from '../../graphql/GetSingleOrder'
+
 
 const Cart = ({
   location,
-  cartItems,
   currency,
-  decreaseQuantity,
-  addToCart,
-  deleteFromCart,
-  deleteAllFromCart,
 }) => {
   const state = useAuthState();
   const dispatch = useAuthDispatch();
-  const [quantityCount] = useState(1);
-  const [notes, setNotes] = useState("");
-  const { addToast } = useToasts();
+  const match = useRouteMatch();
+  const { loading, error, data } = useQuery(SINGLE_ORDER, {variables: {id: match.params.id} });
   const { pathname } = location;
-  let cartTotalPrice = 0;
-
-  const handleNotes = () => {
-    dispatch({
-      type: "NOTES",
-      payload: notes,
-    });
-  };
-
+  
+ if(error) console.log(error)
+ if(data) console.log(data)
   return (
     <Fragment>
       <MetaTags>
@@ -54,9 +43,10 @@ const Cart = ({
           <div className='container'>
               <Fragment>
                   <div className="alert alert-success text-center" role="alert">
+                    {data&& `Sayın ${data.orders[0].user_ordered.name.toUpperCase()} `}
                   Siparişiniz Başarıyla Oluşturulmuştur.
     <i className='fa fa-2x fa-smile-o mb-3'></i>
-    <h4 className='mb-3'>Kargo takip bilgileri email adresinize gönderilecektir.</h4>
+    <h4 className='mb-3'>Kargo takip bilgileri {data&& data.orders[0].user_ordered.email} adresine gönderilecektir.</h4>
     
   <p className='mt-3'>Göstermiş olduğunuz ilgiye teşekkür ederiz.</p>
   <p>Ürünlerinizi en iyi şekilde ulaştırmak için çalışmalara başladık bile.</p>
@@ -72,43 +62,27 @@ const Cart = ({
                             <th>Ürün Adı</th>
                             <th>Fiyat</th>
                             <th>Adet</th>
-                            <th>Ara Toplam</th>
-                            <th>Sil</th>
+                            <th>Toplam</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {cartItems.map((cartItem, key) => {
-                            const discountedPrice = getDiscountPrice(
-                              cartItem.price,
-                              cartItem.discount
-                            );
-                            const finalProductPrice = (
-                              cartItem.price * currency.currencyRate
-                            ).toFixed(2);
-                            const finalDiscountedPrice = (
-                              discountedPrice * currency.currencyRate
-                            ).toFixed(2);
-
-                            discountedPrice != null
-                              ? (cartTotalPrice +=
-                                  finalDiscountedPrice * cartItem.quantity)
-                              : (cartTotalPrice +=
-                                  finalProductPrice * cartItem.quantity);
+                          {data&& data.orders[0].order_items.map((item) => {
+                           const product = item.product
                             return (
-                              <tr key={key}>
+                              <tr key={product.id}>
                                 <td className='product-thumbnail'>
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
                                       "/product/" +
-                                      cartItem.id
+                                      product.id
                                     }
                                   >
                                     <img
                                       className='img-fluid'
                                       src={
                                         process.env.PUBLIC_URL +
-                                        cartItem.image[0].path
+                                        product.image[0].path
                                       }
                                       alt=''
                                     />
@@ -120,106 +94,29 @@ const Cart = ({
                                     to={
                                       process.env.PUBLIC_URL +
                                       "/product/" +
-                                      cartItem.id
+                                      product.id
                                     }
                                   >
-                                    {cartItem.name}
+                                    {product.name}
                                   </Link>
-                                  {cartItem.selectedProductColor &&
-                                  cartItem.selectedProductSize ? (
-                                    <div className='cart-item-variation'>
-                                      <span>
-                                        Color: {cartItem.selectedProductColor}
-                                      </span>
-                                      <span>
-                                        Size: {cartItem.selectedProductSize}
-                                      </span>
-                                    </div>
-                                  ) : (
-                                    ""
-                                  )}
+                                  
                                 </td>
 
                                 <td className='product-price-cart'>
-                                  {discountedPrice !== null ? (
-                                    <Fragment>
-                                      <span className='amount old'>
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
-                                      </span>
-                                      <span className='amount'>
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
-                                      </span>
-                                    </Fragment>
-                                  ) : (
-                                    <span className='amount'>
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
-                                    </span>
-                                  )}
+                                  {product.price}
                                 </td>
 
                                 <td className='product-quantity'>
                                   <div className='cart-plus-minus'>
-                                    <button
-                                      className='dec qtybutton'
-                                      onClick={() =>
-                                        decreaseQuantity(cartItem, addToast)
-                                      }
-                                    >
-                                      -
-                                    </button>
-                                    <input
-                                      className='cart-plus-minus-box'
-                                      type='text'
-                                      value={cartItem.quantity}
-                                      readOnly
-                                    />
-                                    <button
-                                      className='inc qtybutton'
-                                      onClick={() =>
-                                        addToCart(
-                                          cartItem,
-                                          addToast,
-                                          quantityCount
-                                        )
-                                      }
-                                      disabled={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity &&
-                                        cartItem.quantity >=
-                                          cartItemStock(
-                                            cartItem,
-                                            cartItem.selectedProductColor,
-                                            cartItem.selectedProductSize
-                                          )
-                                      }
-                                    >
-                                      +
-                                    </button>
+                                    {item.qty}
                                   </div>
                                 </td>
                                 <td className='product-subtotal'>
-                                  {discountedPrice !== null
-                                    ? currency.currencySymbol +
-                                      (
-                                        finalDiscountedPrice * cartItem.quantity
-                                      ).toFixed(2)
-                                    : currency.currencySymbol +
-                                      (
-                                        finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)}
+                                  {product.price*item.qty}
                                 </td>
 
                                 <td className='product-remove'>
-                                  <button
-                                    onClick={() =>
-                                      deleteFromCart(cartItem, addToast)
-                                    }
-                                  >
-                                    <i className='fa fa-times'></i>
-                                  </button>
+                                  
                                 </td>
                               </tr>
                             );
@@ -231,6 +128,29 @@ const Cart = ({
                 </div>
 
                 <div className='row'>
+               {data&& data.orders[0].addresses.map((address)=>(
+                 <div className='col-lg-4 col-md-12' key={address.id}>
+                   <div className='grand-totall'>
+                   <div className='title-wrap'>
+                        <h4 className='cart-bottom-title section-bg-gary-cart'>
+                          {data.orders[0].addresses.length === 1 ? 'Teslimat Adresi' : address.isinvoiceAddress ? 'Fatura Adresi' : 'Teslimat Adresi'}
+                        </h4>
+                      </div>              
+                      <h5>
+                {address.name.toUpperCase()}{" "}
+                </h5>
+                <h5> {address.street}</h5>
+                  
+                  <h4 className='grand-totall-title'>
+                    {address.town}{" "}
+                    |{" "}
+                    {address.city.toUpperCase()}
+                    </h4>
+                </div>
+                </div>
+               )) 
+                              
+                            }
                   
                   <div className='col-lg-4 col-md-12'>
                     <div className='grand-totall'>
@@ -240,16 +160,22 @@ const Cart = ({
                         </h4>
                       </div>
                       <h5>
-                        Ürünler Toplamı (KDV Dahil){" "}
+                        Ürünler Toplamı{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {data&& data.orders[0].amount + currency.currencySymbol}
+                        </span>
+                      </h5>
+                      <h5>
+                        KDV {" "}
+                        <span>
+                          Dahil
                         </span>
                       </h5>
 
                       <h4 className='grand-totall-title'>
-                        Tutar{" "}
+                        Toplam Ödenen{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {data&& data.orders[0].amount + currency.currencySymbol}
                         </span>
                       </h4>
                     </div>

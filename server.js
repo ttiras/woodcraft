@@ -120,7 +120,7 @@ app.post("/payments", function (req, res) {
         request("https://woodcraft.herokuapp.com/v1/graphql", gql, variables)
           .then((res) => console.log(res))
           .catch((err) => console.log(err));
-        res.redirect("http://localhost:3000/success");
+        res.redirect(`http://localhost:3000/order/${result.basketId}`);
       }
     }
   );

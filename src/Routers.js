@@ -328,7 +328,7 @@ function Routers() {
             />
 
 <Route
-              path={process.env.PUBLIC_URL + "/success"}
+              path={process.env.PUBLIC_URL + "/order/:id"}
               component={PaymentSuccess}
             />
 
