@@ -75,7 +75,7 @@ const App = props => {
             });
               setTimeout(() => {
                 user.getIdTokenResult(true).then((result) => {
-                  console.log(result)
+                  console.log('claim',result)
                   dispatch({
                     type: "TOKEN",
                     payload: result.token
@@ -85,7 +85,7 @@ const App = props => {
                     payload: true
                   });
                 });
-              }, 500);  
+              }, 750);  
         } catch (err) {
           console.log("app", err);
         }

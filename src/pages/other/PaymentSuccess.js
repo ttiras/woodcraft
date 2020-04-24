@@ -42,7 +42,7 @@ const Cart = ({
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Sepet</title>
+        <title>Violet | Ödeme Başarılı</title>
         <meta
           name='description'
           content='Cart page of flone react minimalist eCommerce template.'
@@ -54,9 +54,12 @@ const Cart = ({
           <div className='container'>
               <Fragment>
                   <div className="alert alert-success text-center" role="alert">
-    <h4>Siparişiniz Başarıyla Alınmıştır.</h4>
-  <p>Göstermiş olduğunuz ilgiye teşekkür ederiz.</p>
-  <p>Ürünlerinizi en iyi şekilde ulaştırmak için çalışmaya başladık bile.</p>
+                  Siparişiniz Başarıyla Oluşturulmuştur.
+    <i className='fa fa-2x fa-smile-o mb-3'></i>
+    <h4 className='mb-3'>Kargo takip bilgileri email adresinize gönderilecektir.</h4>
+    
+  <p className='mt-3'>Göstermiş olduğunuz ilgiye teşekkür ederiz.</p>
+  <p>Ürünlerinizi en iyi şekilde ulaştırmak için çalışmalara başladık bile.</p>
 </div>
                 <h3 className='cart-page-title'>Sipariş Özeti</h3>
                 <div className='row'>

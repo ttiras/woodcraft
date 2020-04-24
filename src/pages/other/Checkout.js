@@ -10,10 +10,12 @@ import fire from "../../auth/firebase";
 import axios from "axios";
 import firebase from "firebase";
 import { useHistory } from "react-router-dom";
+import { useMutation } from "@apollo/react-hooks";
 
 import "./Checkout.css";
 
 import InvoiceModal from "./InvoiceModal";
+import INSERT_ORDER from "../../graphql/InsertOrder";
 
 const Checkout = ({ location, cartItems, currency }) => {
   const state = useAuthState();
@@ -23,6 +25,86 @@ const Checkout = ({ location, cartItems, currency }) => {
   const [error, setError] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
+  const [insertOrder, { loading: ordersLoading, data }] = useMutation(
+    INSERT_ORDER,
+    {
+      onCompleted(data) {
+        console.log(data);
+        if (state.user && state.address) {
+          const request = {
+            price: cartTotalPrice.toFixed(2),
+            paidPrice: cartTotalPrice.toFixed(2),
+            basketId: data.insert_orders.returning[0].id,
+            currency: "TRY",
+            callbackUrl: "http://localhost:8000/payments",
+            enabledInstallments: [2, 3, 6, 9],
+            buyer: {
+              id: state.user.uid,
+              name:
+                state.address.name.split(" ").length > 2
+                  ? state.address.name.split(" ")[0] +
+                    " " +
+                    state.address.name.split(" ")[1]
+                  : state.address.name.split(" ")[0],
+              surname:
+                state.address.name.split(" ").length > 2
+                  ? state.address.name.split(" ")[2]
+                  : state.address.name.split(" ")[1],
+              gsmNumber: state.address.phone,
+              email: state.address.email,
+              identityNumber: state.address.identity,
+              registrationAddress: state.address.street + " " + state.address.ilçe,
+              city: state.address.il,
+              country: "Turkey",
+            },
+            basketItems: cartItems.map((item) => ({
+              id: item.id,
+              name: item.name,
+              category1: item.category[0].category.category,
+              itemType: "PHYSICAL",
+              price: getDiscountPrice(item.price, item.discount) * item.quantity,
+            })),
+            shippingAddress: {
+              contactName: state.address.name,
+              city: state.address.il,
+              country: "Turkey",
+              address: state.address.street + " " + state.address.ilçe,
+            },
+            billingAddress: {
+              contactName: state.invoiceAddress
+                ? state.invoiceAddress.name
+                : state.address.name,
+              city: state.invoiceAddress
+                ? state.invoiceAddress.il
+                : state.address.il,
+              country: "Turkey",
+              address: state.invoiceAddress
+                ? state.invoiceAddress.firm +
+                  " " +
+                  state.invoiceAddress.street +
+                  " " +
+                  state.invoiceAddress.ilçe +
+                  " VD:" +
+                  state.invoiceAddress.vergid +
+                  " VNo:" +
+                  state.invoiceAddress.vergin
+                : state.address.street + " " + state.address.ilçe,
+            },
+          };
+          axios.post("http://localhost:8000", request).then(
+            (result) => {
+              console.log(result);
+              
+              window.open(result.data.paymentPageUrl, '_self'); 
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+        }
+      },
+    }
+  );
 
   const { pathname } = location;
   let cartTotalPrice = 0;
@@ -38,10 +120,11 @@ const Checkout = ({ location, cartItems, currency }) => {
       .signInAnonymously()
       .then(function (result) {
         const user = result.user;
-        console.log(user);
-        axios.post(`${process.env.PUBLIC_URL}:8000/claims`, { user }).then((res) => {
-          console.log(res);
-        });
+        axios
+          .post('http://localhost:8000/claims', { user })
+          .then((res) => {
+            console.log(res);
+          });
         setLoading(false);
       });
   };
@@ -112,59 +195,41 @@ const Checkout = ({ location, cartItems, currency }) => {
     setModalShow(true);
   };
 
-  const handlePost = () => {
-    if(state.user&& state.address){
-      const request = {
-      price: cartTotalPrice.toFixed(2),
-      paidPrice: cartTotalPrice.toFixed(2),
-      currency: 'TRY',
-      callbackUrl: "https://excessive-chipped-nautilus.glitch.me/payments",
-      enabledInstallments: [2, 3, 6, 9],
-      buyer: {
-        id: state.user.uid,
-        name: state.address.name.split(' ').length >2 ? state.address.name.split(' ')[0] + ' ' + state.address.name.split(' ')[1] : state.address.name.split(' ')[0],
-        surname: state.address.name.split(' ').length >2 ? state.address.name.split(' ')[2] : state.address.name.split(' ')[1],
-        gsmNumber: state.address.phone,
-        email: state.address.email,
-        identityNumber: state.address.identity,
-        registrationAddress: state.address.street + ' ' + state.address.ilçe,
-        city: state.address.il,
-        country: 'Turkey'
-      },
-      basketItems: cartItems.map((item)=>(
-        {id: item.id,
-          name: item.name,
-          category1: item.category[0].category.category,
-          itemType: "PHYSICAL",
-          price: getDiscountPrice(item.price, item.discount)
-      })
-      ),
-      shippingAddress: {
-        contactName: state.address.name,
-        city: state.address.il,
-        country: 'Turkey',
-        address: state.address.street + ' ' + state.address.ilçe
-      },
-      billingAddress: {
-        contactName: state.invoiceAddress? state.invoiceAddress.name : state.address.name,
-        city: state.invoiceAddress? state.invoiceAddress.il : state.address.il,
-        country: 'Turkey',
-        address: state.invoiceAddress? state.invoiceAddress.firm + ' ' + state.invoiceAddress.street + ' ' + state.invoiceAddress.ilçe + ' VD:' + state.invoiceAddress.vergid + ' VNo:' + state.invoiceAddress.vergin : state.address.street + ' ' + state.address.ilçe
-      }
-    }
-    axios
-      .post("https://excessive-chipped-nautilus.glitch.me/", request)
-      .then(
-        (result) => {
-          console.log(result);
-          window.open(result.data.paymentPageUrl, '_self');
+  const handleOrder = () => {
+    insertOrder({
+      variables: {
+        order: {
+          amount: cartTotalPrice.toFixed(2),
+          addresses: state.invoiceAddress ? {data: [{
+             city: state.invoiceAddress.il, name: state.invoiceAddress.name, 
+            street: 
+             state.invoiceAddress.firm +
+              " " +
+              state.invoiceAddress.street +
+              " VD:" +
+              state.invoiceAddress.vergid +
+              " VNo:" +
+              state.invoiceAddress.vergin
+            , town: state.invoiceAddress.ilçe, isinvoiceAddress: true 
+          },{
+           city: state.address.il, name: state.address.name, street: state.address.street, town: state.address.ilçe, isinvoiceAddress: false
+          }]} :
+          {
+            data: { city: state.address.il, name: state.address.name, street: state.address.street, town: state.address.ilçe, isinvoiceAddress: true },
+          },
+          user_ordered: {
+            data: { email: state.address.email, name: state.address.name, phone: state.address.phone }, on_conflict: {
+              constraint: 'users_pkey',
+              update_columns: ['id']
+            }
+          },
+          order_items: { data: cartItems.map((item) => ({
+            product_id: item.id,
+            qty: item.quantity
+          })), },
         },
-        (error) => {
-          console.log(error);
-        }
-      );
-    
-  };
+      },
+    });
   }
 
   return (
@@ -308,7 +373,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                     <div className='col-lg-7 '>
                       <div
                         id='cover-spin'
-                        className={loading? "d-block" : ''}
+                        className={loading ? "d-block" : ""}
                       ></div>
                       <div className='your-order-area'>
                         <div className='item-empty-area__text boxtext'>
@@ -401,12 +466,14 @@ const Checkout = ({ location, cartItems, currency }) => {
                                   </span>{" "}
                                   <span className='order-price'>
                                     {discountedPrice !== null
-                                      ? currency.currencySymbol + ' ' +
+                                      ? currency.currencySymbol +
+                                        " " +
                                         (
                                           finalDiscountedPrice *
                                           cartItem.quantity
                                         ).toFixed(2)
-                                      : currency.currencySymbol + ' ' +
+                                      : currency.currencySymbol +
+                                        " " +
                                         (
                                           finalProductPrice * cartItem.quantity
                                         ).toFixed(2)}
@@ -426,7 +493,8 @@ const Checkout = ({ location, cartItems, currency }) => {
                           <ul>
                             <li className='order-total'>Toplam</li>
                             <li>
-                              {currency.currencySymbol + ' ' +
+                              {currency.currencySymbol +
+                                " " +
                                 cartTotalPrice.toFixed(2)}
                             </li>
                           </ul>
@@ -438,7 +506,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                       <button
                         type='submit'
                         className='btn-hover'
-                        onClick={handlePost}
+                        onClick={handleOrder}
                       >
                         Ödemeye Git(IYZICO Güvencesiyle)
                       </button>
