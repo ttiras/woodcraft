@@ -120,16 +120,23 @@ function InvoiceModal(props) {
               </div>
               <div className='col-lg-6 col-md-6'>
                 <div className='billing-info mb-20'>
-                  <label className={invoiceType === "kurumsal" ? "noneed" : ""}>
+                  <label className={invoiceType === "kurumsal" ? addressType === "invoice" ? "noneed" : "" : ""}>
                     TC Kimlik Numarası
                   </label>
                   <input
-                    className={invoiceType === "kurumsal" ? "noneed" : ""}
+                    className={invoiceType === "kurumsal" ? addressType === "invoice" ? "noneed" : "" : ""}
                     type='text'
                     ref={
-                      invoiceType === "kurumsal"
-                        ? register({ required: false })
+                      invoiceType === "kurumsal" 
+                        ? addressType === "invoice" ? register({ required: false })
                         : register({
+                            required: "TC kimlik numarası boş bırakılamaz.",
+                            pattern: {
+                              value: /^((?!(0))[0-9]{11})$/,
+                              message:
+                                "11 haneli TC kimlik numaranızı boşluk bırakmadan giriniz. ",
+                            },
+                          }) : register({
                             required: "TC kimlik numarası boş bırakılamaz.",
                             pattern: {
                               value: /^((?!(0))[0-9]{11})$/,
@@ -138,7 +145,7 @@ function InvoiceModal(props) {
                             },
                           })
                     }
-                    disabled={invoiceType === "kurumsal"}
+                    disabled={invoiceType === "kurumsal" && addressType === "invoice"}
                     name='identity'
                     defaultValue={
                       addressType === "shipping" && state.address

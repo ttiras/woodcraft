@@ -53,7 +53,8 @@ const Checkout = ({ location, cartItems, currency }) => {
               gsmNumber: state.address.phone,
               email: state.address.email,
               identityNumber: state.address.identity,
-              registrationAddress: state.address.street + " " + state.address.ilçe,
+              registrationAddress:
+                state.address.street + " " + state.address.ilçe,
               city: state.address.il,
               country: "Turkey",
             },
@@ -62,7 +63,8 @@ const Checkout = ({ location, cartItems, currency }) => {
               name: item.name,
               category1: item.category[0].category.category,
               itemType: "PHYSICAL",
-              price: getDiscountPrice(item.price, item.discount) * item.quantity,
+              price:
+                getDiscountPrice(item.price, item.discount) * item.quantity,
             })),
             shippingAddress: {
               contactName: state.address.name,
@@ -79,23 +81,27 @@ const Checkout = ({ location, cartItems, currency }) => {
                 : state.address.il,
               country: "Turkey",
               address: state.invoiceAddress
-                ? state.invoiceAddress.firm +
-                  " " +
-                  state.invoiceAddress.street +
-                  " " +
-                  state.invoiceAddress.ilçe +
-                  " VD:" +
-                  state.invoiceAddress.vergid +
-                  " VNo:" +
-                  state.invoiceAddress.vergin
+                ? addressType === "invoice"
+                  ? state.invoiceAddress.firm +
+                    " " +
+                    state.invoiceAddress.street +
+                    " " +
+                    state.invoiceAddress.ilçe +
+                    " VD:" +
+                    state.invoiceAddress.vergid +
+                    " VNo:" +
+                    state.invoiceAddress.vergin
+                  : state.invoiceAddress.street +
+                    " " +
+                    state.invoiceAddress.ilçe
                 : state.address.street + " " + state.address.ilçe,
             },
           };
           axios.post("http://localhost:8000", request).then(
             (result) => {
               console.log(result);
-              
-              window.open(result.data.paymentPageUrl, '_self'); 
+
+              window.open(result.data.paymentPageUrl, "_self");
             },
             (error) => {
               console.log(error);
@@ -120,11 +126,9 @@ const Checkout = ({ location, cartItems, currency }) => {
       .signInAnonymously()
       .then(function (result) {
         const user = result.user;
-        axios
-          .post('http://localhost:8000/claims', { user })
-          .then((res) => {
-            console.log(res);
-          });
+        axios.post("http://localhost:8000/claims", { user }).then((res) => {
+          console.log(res);
+        });
         setLoading(false);
       });
   };
@@ -200,37 +204,64 @@ const Checkout = ({ location, cartItems, currency }) => {
       variables: {
         order: {
           amount: cartTotalPrice.toFixed(2),
-          addresses: state.invoiceAddress ? {data: [{
-             city: state.invoiceAddress.il, name: state.invoiceAddress.name, 
-            street: 
-             state.invoiceAddress.firm +
-              " " +
-              state.invoiceAddress.street +
-              " VD:" +
-              state.invoiceAddress.vergid +
-              " VNo:" +
-              state.invoiceAddress.vergin
-            , town: state.invoiceAddress.ilçe, isinvoiceAddress: true 
-          },{
-           city: state.address.il, name: state.address.name, street: state.address.street, town: state.address.ilçe, isinvoiceAddress: false
-          }]} :
-          {
-            data: { city: state.address.il, name: state.address.name, street: state.address.street, town: state.address.ilçe, isinvoiceAddress: true },
-          },
+          addresses: state.invoiceAddress
+            ? {
+                data: [
+                  {
+                    city: state.invoiceAddress.il,
+                    name: state.invoiceAddress.name,
+                    street:
+                      state.invoiceAddress.firm
+                        ? state.invoiceAddress.firm +
+                          " " +
+                          state.invoiceAddress.street +
+                          " VD:" +
+                          state.invoiceAddress.vergid +
+                          " VNo:" +
+                          state.invoiceAddress.vergin
+                        : state.invoiceAddress.street,
+                    town: state.invoiceAddress.ilçe,
+                    isinvoiceAddress: true,
+                  },
+                  { 
+                    city: state.address.il,
+                    name: state.address.name,
+                    street: state.address.firm ? state.address.firm + " VD:" +  state.address.vergid + " VNo:" + state.address.vergin + state.address.street :  state.address.street,
+                    town: state.address.ilçe,
+                    isinvoiceAddress: false,
+                  },
+                ],
+              }
+            : {
+                data: {
+                  city: state.address.il,
+                  name: state.address.name,
+                  street: state.address.street,
+                  town: state.address.ilçe,
+                  isinvoiceAddress: true,
+                },
+              },
           user_ordered: {
-            data: { email: state.address.email, name: state.address.name, phone: state.address.phone }, on_conflict: {
-              constraint: 'users_pkey',
-              update_columns: ['id']
-            }
+            data: {
+              email: state.address.email,
+              name: state.address.name,
+              phone: state.address.phone,
+            },
+            on_conflict: {
+              constraint: "users_pkey",
+              update_columns: ["id"],
+            },
           },
-          order_items: { data: cartItems.map((item) => ({
-            product_id: item.id,
-            qty: item.quantity
-          })), },
+          order_items: {
+            data: cartItems.map((item) => ({
+              product_id: item.id,
+              qty: item.quantity,
+            })),
+          },
         },
       },
     });
-  }
+  };
 
   return (
     <Fragment>
