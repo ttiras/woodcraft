@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export const AuthContext = React.createContext();
 export const AuthDispatch = React.createContext();
 
 const initialState = {
-  user: null,
-  isAuthenticated: false,
-  order: {},
+  address: null,
+  invoiceAddress: null
 };
 
 const reducer = (state, action) => {
@@ -65,7 +64,20 @@ const reducer = (state, action) => {
 };
 
 const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [state, dispatch] = React.useReducer(reducer, initialState, () => {
+    const address = localStorage.getItem('address') ? JSON.parse(localStorage.getItem('address')) : null
+    const invoiceAddress = localStorage.getItem('invoiceAddress') ? JSON.parse(localStorage.getItem('invoiceAddress')) : null
+    return {address, invoiceAddress}
+  });
+
+  useEffect(()=>{
+    localStorage.setItem('address', JSON.stringify(state.address))
+  }, [state.address])
+
+  useEffect(()=>{
+    localStorage.setItem('invoiceAddress', JSON.stringify(state.invoiceAddress))
+  }, [state.invoiceAddress])
+
   return (
     <AuthContext.Provider value={state}>
       <AuthDispatch.Provider value={dispatch}>{children}</AuthDispatch.Provider>

@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MetaTags from "react-meta-tags";
 import { connect } from "react-redux";
-import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouteMatch } from "react-router-dom";
 import {
@@ -14,20 +13,22 @@ import {
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import SINGLE_ORDER from '../../graphql/GetSingleOrder'
+import { useEffect } from "react";
 
 
 const Cart = ({
   location,
   currency,
 }) => {
-  const state = useAuthState();
-  const dispatch = useAuthDispatch();
   const match = useRouteMatch();
   const { loading, error, data } = useQuery(SINGLE_ORDER, {variables: {id: match.params.id} });
   const { pathname } = location;
   
  if(error) console.log(error)
  if(data) console.log(data)
+
+ console.log('render')
+
   return (
     <Fragment>
       <MetaTags>
@@ -43,11 +44,11 @@ const Cart = ({
           <div className='container'>
               <Fragment>
                   <div className="alert alert-success text-center" role="alert">
-                    {data&& `Sayın ${data.orders[0].user_ordered.name.toUpperCase()} `}
-                  Siparişiniz Başarıyla Oluşturulmuştur.
+                  Sayın <strong>{data&&  data.orders[0].user_ordered.name.toUpperCase() }</strong>{" "}
+                  Siparişiniz Başarıyla Oluşturulmuştur.{" "}
     <i className='fa fa-2x fa-smile-o mb-3'></i>
-    <h4 className='mb-3'>Kargo takip bilgileri {data&& data.orders[0].user_ordered.email} adresine gönderilecektir.</h4>
-    
+    <h4 className='mb-3'>Kargo takip bilgileri <strong>{data&& data.orders[0].user_ordered.email}</strong> adresine gönderilecektir.</h4>
+    {data&& data.orders[0].notes &&<h5> Belirtmiş olduğunuz <strong>"{data.orders[0].notes}"</strong> notunu mümkün olduğunca gerçekleştireceğiz.</h5>}
   <p className='mt-3'>Göstermiş olduğunuz ilgiye teşekkür ederiz.</p>
   <p>Ürünlerinizi en iyi şekilde ulaştırmak için çalışmalara başladık bile.</p>
 </div>
@@ -151,7 +152,21 @@ const Cart = ({
                )) 
                               
                             }
-                  
+                  {data && data.orders[0].addresses.length === 1 && 
+                  <div className='col-lg-4 col-md-12'>
+                     <div className='grand-totall'>
+                      <div className='title-wrap'>
+                        <h4 className='cart-bottom-title section-bg-gary-cart'>
+                          Fatura Adresi
+                        </h4>
+                      
+                        <h4 className='grand-totall-title mt-5'>
+                        Teslimat Adresiyle Aynı
+                    </h4>
+                      </div>
+                      </div>
+                  </div>
+                  }
                   <div className='col-lg-4 col-md-12'>
                     <div className='grand-totall'>
                       <div className='title-wrap'>

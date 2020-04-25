@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MetaTags from "react-meta-tags";
 import { connect } from "react-redux";
@@ -100,8 +100,8 @@ const Checkout = ({ location, cartItems, currency }) => {
           axios.post("http://localhost:8000", request).then(
             (result) => {
               console.log(result);
-
               window.open(result.data.paymentPageUrl, "_self");
+              localStorage.clear('cartData', 'notes')
             },
             (error) => {
               console.log(error);
@@ -111,6 +111,19 @@ const Checkout = ({ location, cartItems, currency }) => {
       },
     }
   );
+
+  const notes = localStorage.getItem('notes')
+
+  useEffect(() => {
+    const data = localStorage.getItem("invoiceAddressChecked");
+    if (data) {
+      setInvoiceAddressChecked(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("invoiceAddressChecked", invoiceAddressChecked);
+  }, [invoiceAddressChecked]);
 
   const { pathname } = location;
   let cartTotalPrice = 0;
@@ -195,7 +208,7 @@ const Checkout = ({ location, cartItems, currency }) => {
       setAddressType("shipping");
     } else if (e.target.id === "invoice") {
       setAddressType("invoice");
-    }
+    } 
     setModalShow(true);
   };
 
@@ -204,29 +217,36 @@ const Checkout = ({ location, cartItems, currency }) => {
       variables: {
         order: {
           amount: cartTotalPrice.toFixed(2),
+          notes: notes,
           addresses: state.invoiceAddress
             ? {
                 data: [
                   {
                     city: state.invoiceAddress.il,
                     name: state.invoiceAddress.name,
-                    street:
-                      state.invoiceAddress.firm
-                        ? state.invoiceAddress.firm +
-                          " " +
-                          state.invoiceAddress.street +
-                          " VD:" +
-                          state.invoiceAddress.vergid +
-                          " VNo:" +
-                          state.invoiceAddress.vergin
-                        : state.invoiceAddress.street,
+                    street: state.invoiceAddress.firm
+                      ? state.invoiceAddress.firm +
+                        " " +
+                        state.invoiceAddress.street +
+                        " VD:" +
+                        state.invoiceAddress.vergid +
+                        " VNo:" +
+                        state.invoiceAddress.vergin
+                      : state.invoiceAddress.street,
                     town: state.invoiceAddress.ilçe,
                     isinvoiceAddress: true,
                   },
-                  { 
+                  {
                     city: state.address.il,
                     name: state.address.name,
-                    street: state.address.firm ? state.address.firm + " VD:" +  state.address.vergid + " VNo:" + state.address.vergin + state.address.street :  state.address.street,
+                    street: state.address.firm
+                      ? state.address.firm +
+                        " VD:" +
+                        state.address.vergid +
+                        " VNo:" +
+                        state.address.vergin +
+                        state.address.street
+                      : state.address.street,
                     town: state.address.ilçe,
                     isinvoiceAddress: false,
                   },
@@ -286,6 +306,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <label>Fatura Adresi Farklı</label>
                         <input
                           className='checkbox'
+                          checked={invoiceAddressChecked}
                           onChange={() =>
                             setInvoiceAddressChecked(!invoiceAddressChecked)
                           }
@@ -304,7 +325,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                                   id='shipping'
                                   onClick={(e) => handleModal(e)}
                                 >
-                                  <i className='fa fa-lg fa-edit'></i>
+                                  <i id='shipping' className='fa fa-lg fa-edit'></i>
                                 </li>
                               )}
                             </ul>
@@ -315,7 +336,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                                 {state.address.name}{" "}
                                 <span className='colortext'>|</span>{" "}
                                 {state.address.email}{" "}
-                                <span className='colortext'>|</span> $
+                                <span className='colortext'>|</span>{" "} 
                                 {state.address.phone}
                               </div>
                               <div className='your-order-bottom'>
@@ -337,7 +358,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                             id='shipping'
                             onClick={(e) => handleModal(e)}
                           >
-                            <i className='fa fa-lg fa-plus'></i> Teslimat Adresi
+                            <i id='shipping' className='fa fa-lg fa-plus'></i> Teslimat Adresi
                             Ekle
                           </button>
                         )}
@@ -352,10 +373,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                                 {state.invoiceAddress && (
                                   <li
                                     className='edit'
-                                    id='invoice'
+                                    id="invoice"
                                     onClick={(e) => handleModal(e)}
                                   >
-                                    <i className='fa fa-lg fa-edit'></i>
+                                    <i id='invoice' className='fa fa-lg fa-edit'></i>
                                   </li>
                                 )}
                               </ul>
@@ -385,10 +406,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                             <button
                               type='button'
                               className='submitAddress btn-block'
-                              id='invoice'
+                              id="invoice"
                               onClick={(e) => handleModal(e)}
                             >
-                              <i className='fa fa-lg fa-plus'></i> Fatura Adresi
+                              <i id='invoice' className='fa fa-lg fa-plus'></i> Fatura Adresi
                               Ekle
                             </button>
                           )}

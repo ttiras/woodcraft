@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { multilanguage, loadLanguages } from "redux-multilanguage";
 
@@ -30,11 +30,12 @@ import { split } from "apollo-link";
 import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
+import { useState } from "react";
 
 const App = props => {
   const state = useAuthState()
-  const accessToken = state.token
   const dispatch = useAuthDispatch();
+  const [token, setToken] = useState(null)
 
   useEffect(() => {
     store.dispatch(
@@ -76,10 +77,7 @@ const App = props => {
               setTimeout(() => {
                 user.getIdTokenResult(true).then((result) => {
                   console.log('claim',result)
-                  dispatch({
-                    type: "TOKEN",
-                    payload: result.token
-                  });
+                  setToken(result.token)
                   dispatch({
                     type: "AUTHENTICATE",
                     payload: true
@@ -122,12 +120,12 @@ const App = props => {
   const httpurl = "https://woodcraft.herokuapp.com/v1/graphql";
 
   const authLink = setContext((_, { headers }) => {
-    const token = accessToken
+    const accessToken = token
     if (token) {
       return {
         headers: {
           ...headers,
-          authorization: `Bearer ${token}`,
+          authorization: `Bearer ${accessToken}`,
         },
       };
     } else {
@@ -146,7 +144,7 @@ const App = props => {
       lazy: true,
       connectionParams: {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     },

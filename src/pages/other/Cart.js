@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import MetaTags from "react-meta-tags";
 import { connect } from "react-redux";
-import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
 import { getDiscountPrice } from "../../helpers/product";
 import {
   addToCart,
@@ -24,20 +23,21 @@ const Cart = ({
   deleteFromCart,
   deleteAllFromCart,
 }) => {
-  const state = useAuthState();
-  const dispatch = useAuthDispatch();
   const [quantityCount] = useState(1);
   const [notes, setNotes] = useState("");
   const { addToast } = useToasts();
   const { pathname } = location;
   let cartTotalPrice = 0;
 
-  const handleNotes = () => {
-    dispatch({
-      type: "NOTES",
-      payload: notes,
-    });
-  };
+  console.log('render')
+  useEffect(()=>{
+    const data = localStorage.getItem('notes')
+    if (data) {setNotes(data)}
+  }, [])
+
+  useEffect(()=>{
+    localStorage.setItem('notes', notes)
+  }, [notes])
 
   return (
     <Fragment>
@@ -253,9 +253,9 @@ const Cart = ({
                         <div className='additional-info'>
                           <label>Sipariş Notları</label>
                           <textarea
-                            placeholder='Sipraişinizle ilgili belirtmek istedğiniz konular... '
+                            placeholder='Siparişinizle ilgili belirtmek istediğiniz konular... '
                             name='message'
-                            value={state.notes}
+                            value={notes}
                             rows='4'
                             onChange={(e) => setNotes(e.target.value)}
                           />
@@ -283,7 +283,7 @@ const Cart = ({
                           {currency.currencySymbol + ' ' + cartTotalPrice.toFixed(2)}
                         </span>
                       </h4>
-                      <Link onClick={handleNotes} to={process.env.PUBLIC_URL + "/checkout"}>
+                      <Link to={process.env.PUBLIC_URL + "/checkout"}>
                         Siparişi Tamamla
                       </Link>
                     </div>
