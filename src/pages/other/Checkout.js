@@ -61,10 +61,11 @@ const Checkout = ({ location, cartItems, currency }) => {
             basketItems: cartItems.map((item) => ({
               id: item.id,
               name: item.name,
+              qty: item.quantity,
               category1: item.category[0].category.category,
               itemType: "PHYSICAL",
               price:
-                getDiscountPrice(item.price, item.discount) * item.quantity,
+                (getDiscountPrice(item.price, item.discount) * item.quantity).toFixed(2),
             })),
             shippingAddress: {
               contactName: state.address.name,
@@ -101,12 +102,11 @@ const Checkout = ({ location, cartItems, currency }) => {
             (result) => {
               console.log(result);
               window.open(result.data.paymentPageUrl, "_self");
-              localStorage.clear("cartData", "notes");
-            },
-            (error) => {
-              console.log(error);
             }
-          );
+            
+          ).catch((error) => {
+            console.log(error);
+          })
         }
       },
     }

@@ -37,7 +37,6 @@ query SingleOrder ($id: uuid!) {
       }
       qty
     }
-    payment
     user_ordered {
       email
       id

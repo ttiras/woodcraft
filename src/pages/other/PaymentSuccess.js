@@ -25,7 +25,9 @@ const Cart = ({ location, currency }) => {
   if (error) console.log(error);
   if (data) console.log(data);
 
-  console.log("render");
+  useEffect(()=>{
+    localStorage.clear("cartData", "notes");
+  },[])
 
   return (
     <Fragment>
@@ -40,25 +42,24 @@ const Cart = ({ location, currency }) => {
       <LayoutOne headerTop='visible'>
         <div className='cart-main-area pt-90 pb-100'>
           <div className='container'>
-            <Fragment>
               <div className='alert alert-success text-center' role='alert'>
                 Sayın{" "}
+                {data && data.orders[0].user_ordered &&
                 <strong>
-                  {data && data.orders[0].user_ordered.name.toUpperCase()}
-                </strong>{" "}
+                    {data.orders[0].user_ordered.name.toUpperCase()}
+                </strong>}{" "}
                 Siparişiniz Başarıyla Oluşturulmuştur.{" "}
                 <i className='fa fa-2x fa-smile-o mb-3'></i>
                 <h4 className='mb-3'>
                   Kargo takip bilgileri{" "}
-                  <strong>{data && data.orders[0].user_ordered.email}</strong>{" "}
+                  <strong>{data && data.orders[0].user_ordered && data.orders[0].user_ordered.email}</strong>{" "}
                   adresine gönderilecektir.
                 </h4>
                 {data && data.orders[0].notes && (
                   <h5>
                     {" "}
                     Belirtmiş olduğunuz{" "}
-                    <strong>"{data.orders[0].notes}"</strong> notunu mümkün
-                    olduğunca gerçekleştireceğiz.
+                    <strong>"{data.orders[0].notes}"</strong> notunu dikkate alacağız.
                   </h5>
                 )}
                 <p className='mt-3'>
@@ -209,7 +210,6 @@ const Cart = ({ location, currency }) => {
                   </div>
                 </div>
               </div>
-            </Fragment>
           </div>
         </div>
       </LayoutOne>

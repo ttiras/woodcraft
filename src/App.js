@@ -173,7 +173,7 @@ const App = props => {
   return (
     <Provider store={store}>
       <ApolloProvider client={client}>
-        <ToastProvider placement='top-right'>
+        <ToastProvider placement='bottom-right'>
           <BreadcrumbsProvider>
             <Routers />
           </BreadcrumbsProvider>

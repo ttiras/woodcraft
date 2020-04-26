@@ -72,28 +72,29 @@ const iyzipay = new Iyzipay({
 });
 
 var token = 1234;
+var items ;
 
 app.post("/", function (req, res) {
+  items = req.body.basketItems
   iyzipay.checkoutFormInitialize.create(req.body, function (err, result) {
     token = result.token;
-    res.send(result);
-  });
+    res.send(result)
+    if(err)res.send(err.message)
+  })
 });
 
 app.post("/payments", function (req, res) {
-  console.log("req", req);
   iyzipay.checkoutForm.retrieve(
     {
       locale: Iyzipay.LOCALE.TR,
       token: token,
     },
     function (err, result) {
-      console.log(err, result);
       if (err) {
         res.redirect('http://localhost:3000/failure');
       }
       if (result.paymentStatus === "SUCCESS") {
-        res.redirect(`http://localhost:3000/order/${result.basketId}`)
+        res.redirect(`http://localhost:3000/success/order/${result.basketId}`)
         const variables = {
           payment: {
             amount: result.price,
@@ -124,7 +125,25 @@ app.post("/payments", function (req, res) {
   }
 }`;
         request("https://woodcraft.herokuapp.com/v1/graphql", gql, variables)
-          .then((res) => console.log('paymentMutation', res))
+          .then((res) => {
+            items.map((item)=>{
+              const mut = `mutation inc_Stock_SaleCount ($id: uuid!, $saleCount: Int!, $stock: Int!) {
+                update_products(
+                  where: {id: {_eq: $id}},
+                  _inc: {saleCount: $saleCount , stock: $stock}
+                ) {
+                  affected_rows
+                }
+              }`
+             const variables= { 
+                id: item.id,
+                saleCount: item.qty,
+                stock: -item.qty 
+          }
+              request("https://woodcraft.herokuapp.com/v1/graphql", mut, variables).then(data=>console.log('inc', data)).catch((err)=>console.log('inc', err))
+            })
+          
+        })
           .catch((err) => console.log('paymentMutation', err));
       }
     }
