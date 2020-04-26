@@ -83,7 +83,7 @@ const App = props => {
                     payload: true
                   });
                 });
-              }, 750);  
+              }, 1000);  
         } catch (err) {
           console.log("app", err);
         }

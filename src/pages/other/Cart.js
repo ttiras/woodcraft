@@ -29,20 +29,22 @@ const Cart = ({
   const { pathname } = location;
   let cartTotalPrice = 0;
 
-  console.log('render')
-  useEffect(()=>{
-    const data = localStorage.getItem('notes')
-    if (data) {setNotes(data)}
-  }, [])
+  console.log("render");
+  useEffect(() => {
+    const data = localStorage.getItem("notes");
+    if (data) {
+      setNotes(data);
+    }
+  }, []);
 
-  useEffect(()=>{
-    localStorage.setItem('notes', notes)
-  }, [notes])
+  useEffect(() => {
+    localStorage.setItem("notes", notes);
+  }, [notes]);
 
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Sepet</title>
+        <title>Micota. | Sepet</title>
         <meta
           name='description'
           content='Cart page of flone react minimalist eCommerce template.'
@@ -137,17 +139,20 @@ const Cart = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className='amount old'>
-                                        {currency.currencySymbol + ' ' +
+                                        {currency.currencySymbol +
+                                          " " +
                                           finalProductPrice}
                                       </span>
                                       <span className='amount'>
-                                        {currency.currencySymbol + ' ' +
+                                        {currency.currencySymbol +
+                                          " " +
                                           finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className='amount'>
-                                      {currency.currencySymbol + ' ' +
+                                      {currency.currencySymbol +
+                                        " " +
                                         finalProductPrice}
                                     </span>
                                   )}
@@ -195,11 +200,13 @@ const Cart = ({
                                 </td>
                                 <td className='product-subtotal'>
                                   {discountedPrice !== null
-                                    ? currency.currencySymbol + ' ' +
+                                    ? currency.currencySymbol +
+                                      " " +
                                       (
                                         finalDiscountedPrice * cartItem.quantity
                                       ).toFixed(2)
-                                    : currency.currencySymbol + ' ' +
+                                    : currency.currencySymbol +
+                                      " " +
                                       (
                                         finalProductPrice * cartItem.quantity
                                       ).toFixed(2)}
@@ -273,14 +280,18 @@ const Cart = ({
                       <h5>
                         Ürünler Toplamı (KDV Dahil){" "}
                         <span>
-                          {currency.currencySymbol + ' ' + cartTotalPrice.toFixed(2)}
+                          {currency.currencySymbol +
+                            " " +
+                            cartTotalPrice.toFixed(2)}
                         </span>
                       </h5>
 
                       <h4 className='grand-totall-title'>
                         Ödenecek Tutar{" "}
                         <span>
-                          {currency.currencySymbol + ' ' + cartTotalPrice.toFixed(2)}
+                          {currency.currencySymbol +
+                            " " +
+                            cartTotalPrice.toFixed(2)}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>

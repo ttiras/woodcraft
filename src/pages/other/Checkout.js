@@ -101,7 +101,7 @@ const Checkout = ({ location, cartItems, currency }) => {
             (result) => {
               console.log(result);
               window.open(result.data.paymentPageUrl, "_self");
-              localStorage.clear('cartData', 'notes')
+              localStorage.clear("cartData", "notes");
             },
             (error) => {
               console.log(error);
@@ -112,7 +112,7 @@ const Checkout = ({ location, cartItems, currency }) => {
     }
   );
 
-  const notes = localStorage.getItem('notes')
+  const notes = localStorage.getItem("notes");
 
   useEffect(() => {
     const data = localStorage.getItem("invoiceAddressChecked");
@@ -208,7 +208,7 @@ const Checkout = ({ location, cartItems, currency }) => {
       setAddressType("shipping");
     } else if (e.target.id === "invoice") {
       setAddressType("invoice");
-    } 
+    }
     setModalShow(true);
   };
 
@@ -286,7 +286,7 @@ const Checkout = ({ location, cartItems, currency }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Ödeme</title>
+        <title>Micota. | Ödeme</title>
         <meta
           name='description'
           content='Checkout page of flone react minimalist eCommerce template.'
@@ -325,7 +325,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                                   id='shipping'
                                   onClick={(e) => handleModal(e)}
                                 >
-                                  <i id='shipping' className='fa fa-lg fa-edit'></i>
+                                  <i
+                                    id='shipping'
+                                    className='fa fa-lg fa-edit'
+                                  ></i>
                                 </li>
                               )}
                             </ul>
@@ -336,7 +339,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                                 {state.address.name}{" "}
                                 <span className='colortext'>|</span>{" "}
                                 {state.address.email}{" "}
-                                <span className='colortext'>|</span>{" "} 
+                                <span className='colortext'>|</span>{" "}
                                 {state.address.phone}
                               </div>
                               <div className='your-order-bottom'>
@@ -358,8 +361,8 @@ const Checkout = ({ location, cartItems, currency }) => {
                             id='shipping'
                             onClick={(e) => handleModal(e)}
                           >
-                            <i id='shipping' className='fa fa-lg fa-plus'></i> Teslimat Adresi
-                            Ekle
+                            <i id='shipping' className='fa fa-lg fa-plus'></i>{" "}
+                            Teslimat Adresi Ekle
                           </button>
                         )}
                       </div>
@@ -373,10 +376,13 @@ const Checkout = ({ location, cartItems, currency }) => {
                                 {state.invoiceAddress && (
                                   <li
                                     className='edit'
-                                    id="invoice"
+                                    id='invoice'
                                     onClick={(e) => handleModal(e)}
                                   >
-                                    <i id='invoice' className='fa fa-lg fa-edit'></i>
+                                    <i
+                                      id='invoice'
+                                      className='fa fa-lg fa-edit'
+                                    ></i>
                                   </li>
                                 )}
                               </ul>
@@ -406,11 +412,11 @@ const Checkout = ({ location, cartItems, currency }) => {
                             <button
                               type='button'
                               className='submitAddress btn-block'
-                              id="invoice"
+                              id='invoice'
                               onClick={(e) => handleModal(e)}
                             >
-                              <i id='invoice' className='fa fa-lg fa-plus'></i> Fatura Adresi
-                              Ekle
+                              <i id='invoice' className='fa fa-lg fa-plus'></i>{" "}
+                              Fatura Adresi Ekle
                             </button>
                           )}
                         </div>

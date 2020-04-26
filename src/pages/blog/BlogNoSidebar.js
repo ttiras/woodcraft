@@ -13,25 +13,27 @@ const BlogNoSidebar = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Blog</title>
+        <title>Micota. | Blog</title>
         <meta
-          name="description"
-          content="Blog of flone react minimalist eCommerce template."
+          name='description'
+          content='Blog of flone react minimalist eCommerce template.'
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
+        Anasayfa
+      </BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Blog
       </BreadcrumbsItem>
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
-        <div className="blog-area pt-100 pb-100 blog-no-sidebar">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="mr-20">
-                  <div className="row">
+        <div className='blog-area pt-100 pb-100 blog-no-sidebar'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-lg-12'>
+                <div className='mr-20'>
+                  <div className='row'>
                     {/* blog posts */}
                     <BlogPostsNoSidebar />
                   </div>
@@ -49,7 +51,7 @@ const BlogNoSidebar = ({ location }) => {
 };
 
 BlogNoSidebar.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default BlogNoSidebar;

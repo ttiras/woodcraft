@@ -4,8 +4,8 @@ import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useForm } from "react-hook-form";
 import Nav from "react-bootstrap/Nav";
-import Firebase from '../../auth/firebase'
-import { withRouter } from 'react-router-dom'
+import Firebase from "../../auth/firebase";
+import { withRouter } from "react-router-dom";
 
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
@@ -13,16 +13,16 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 const PasswordReset = (props) => {
   const [error, setError] = useState(0);
   const { handleSubmit, register, errors } = useForm();
-  const { pathname } = '/reset-password'; 
+  const { pathname } = "/reset-password";
 
   const onSubmit = async (values) => {
     try {
       await Firebase.resetPassword(values.email);
-      setError(1)
-      setTimeout(function(){
-          props.history.push('/login-register')
-          setError(0)
-        }, 3000)
+      setError(1);
+      setTimeout(function () {
+        props.history.push("/login-register");
+        setError(0);
+      }, 3000);
     } catch (err) {
       setError(2);
     }
@@ -31,7 +31,7 @@ const PasswordReset = (props) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Şifre Yenile</title>
+        <title>Micota. | Şifre Yenile</title>
         <meta
           name='description'
           content='Compare page of flone react minimalist eCommerce template.'
@@ -84,15 +84,16 @@ const PasswordReset = (props) => {
                           <button type='submit'>
                             <span>Gönder</span>
                           </button>
-                          {error === 2&& (
+                          {error === 2 && (
                             <div className='alert alert-danger' role='alert'>
                               Email adresi kayıtlı değil, ya da sunucuda sorun
                               oluştu.
                             </div>
                           )}
-                          {error ===1&& (
+                          {error === 1 && (
                             <div className='alert alert-primary' role='alert'>
-                              Şifre yenileme maili gönderildi. Gereksiz klasörünü kontol etmeyi unutmayın.
+                              Şifre yenileme maili gönderildi. Gereksiz
+                              klasörünü kontol etmeyi unutmayın.
                             </div>
                           )}
                         </div>

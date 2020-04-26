@@ -10,14 +10,12 @@ import SectionTitleWithText from "../../components/section-title/SectionTitleWit
 import TabProduct from "../../wrappers/product/TabProduct";
 import ImageSliderOne from "../../wrappers/image-slider/ImageSliderOne";
 import LayoutOne from "../../layouts/LayoutOne";
-import SectionTitle from "../../components/section-title/SectionTitle";
 
 const HomeFashionFour = () => {
-    
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Wood Craft</title>
+        <title>Micota. | Wood Craft</title>
         <meta
           name='description'
           content='Fashion home of flone react minimalist eCommerce template.'
@@ -45,7 +43,6 @@ const HomeFashionFour = () => {
         <BlogFeatured spaceBottomClass='pb-55' />
         {/* image slider */}
         <ImageSliderOne />
-
       </LayoutOne>
     </Fragment>
   );

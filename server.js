@@ -43,7 +43,6 @@ const setFirebaseAuthJWTClaims = (user) => {
     .auth()
     .setCustomUserClaims(user.uid, customClaims)
     .then(() => {
-      console.log("claims updated");
       // Update real-time database to notify client to force refresh.
       const metadataRef = admin.database().ref("metadata/" + user.uid);
       // Set the refresh time to the current UTC timestamp.
@@ -51,13 +50,19 @@ const setFirebaseAuthJWTClaims = (user) => {
       return metadataRef.set({ refreshTime: new Date().getTime() });
     })
     .catch((error) => {
-      console.log(error);
+      console.log('setCustomClaim ERROR', error);
     });
 };
 
-app.post("/claims", function (req, res) {
-  setFirebaseAuthJWTClaims(req.body.user);
-  res.send(200);
+app.post("/claims", async function (req, res) {
+  try {
+    setFirebaseAuthJWTClaims(req.body.user);
+    res.sendStatus(200);
+  } catch(err){
+    console.log('claimsCall ERROR', err)
+    res.sendStatus(500).send(err.message)
+  }
+  
 });
 
 const iyzipay = new Iyzipay({
@@ -85,9 +90,10 @@ app.post("/payments", function (req, res) {
     function (err, result) {
       console.log(err, result);
       if (err) {
-        res.redirect(err);
+        res.redirect('http://localhost:3000/failure');
       }
       if (result.paymentStatus === "SUCCESS") {
+        res.redirect(`http://localhost:3000/order/${result.basketId}`)
         const variables = {
           payment: {
             amount: result.price,
@@ -118,9 +124,8 @@ app.post("/payments", function (req, res) {
   }
 }`;
         request("https://woodcraft.herokuapp.com/v1/graphql", gql, variables)
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err));
-        res.redirect(`http://localhost:3000/order/${result.basketId}`);
+          .then((res) => console.log('paymentMutation', res))
+          .catch((err) => console.log('paymentMutation', err));
       }
     }
   );

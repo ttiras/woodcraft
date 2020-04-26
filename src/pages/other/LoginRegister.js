@@ -10,7 +10,7 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import Signin from "./Signin";
 import Signup from "./Signup";
-import fire from '../../auth/firebase'
+import fire from "../../auth/firebase";
 
 const LoginRegister = ({ location, ...props }) => {
   const { pathname } = location;
@@ -18,43 +18,45 @@ const LoginRegister = ({ location, ...props }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Giriş</title>
+        <title>Micota. | Giriş</title>
         <meta
-          name="description"
-          content="Compare page of flone react minimalist eCommerce template."
+          name='description'
+          content='Compare page of flone react minimalist eCommerce template.'
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
+        Anasayfa
+      </BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Giriş Kayıt
       </BreadcrumbsItem>
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
-        <div className="login-register-area pt-100 pb-100">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-7 col-md-12 ml-auto mr-auto">
-                <div className="login-register-wrapper">
-                  <Tab.Container defaultActiveKey="login">
-                    <Nav variant="pills" className="login-register-tab-list">
+        <div className='login-register-area pt-100 pb-100'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-lg-7 col-md-12 ml-auto mr-auto'>
+                <div className='login-register-wrapper'>
+                  <Tab.Container defaultActiveKey='login'>
+                    <Nav variant='pills' className='login-register-tab-list'>
                       <Nav.Item>
-                        <Nav.Link eventKey="login">
+                        <Nav.Link eventKey='login'>
                           <h4>Giriş</h4>
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="register">
+                        <Nav.Link eventKey='register'>
                           <h4>Kayıt</h4>
                         </Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content>
-                      <Tab.Pane eventKey="login">
-                      <Signin fire={fire} history={props.history}/>
+                      <Tab.Pane eventKey='login'>
+                        <Signin fire={fire} history={props.history} />
                       </Tab.Pane>
-                      <Tab.Pane eventKey="register">
-                        <Signup fire={fire} history={props.history}/>
+                      <Tab.Pane eventKey='register'>
+                        <Signup fire={fire} history={props.history} />
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
@@ -69,7 +71,7 @@ const LoginRegister = ({ location, ...props }) => {
 };
 
 LoginRegister.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default withRouter(LoginRegister);

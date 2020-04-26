@@ -14,25 +14,27 @@ const BlogStandard = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Violet | Blog</title>
+        <title>Micota. | Blog</title>
         <meta
-          name="description"
-          content="Blog of flone react minimalist eCommerce template."
+          name='description'
+          content='Blog of flone react minimalist eCommerce template.'
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
+        Anasayfa
+      </BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Blog
       </BreadcrumbsItem>
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
-        <div className="blog-area pt-100 pb-100">
-          <div className="container">
-            <div className="row flex-row-reverse">
-              <div className="col-lg-9">
-                <div className="ml-20">
-                  <div className="row">
+        <div className='blog-area pt-100 pb-100'>
+          <div className='container'>
+            <div className='row flex-row-reverse'>
+              <div className='col-lg-9'>
+                <div className='ml-20'>
+                  <div className='row'>
                     {/* blog posts */}
                     <BlogPosts />
                   </div>
@@ -41,7 +43,7 @@ const BlogStandard = ({ location }) => {
                   <BlogPagination />
                 </div>
               </div>
-              <div className="col-lg-3">
+              <div className='col-lg-3'>
                 {/* blog sidebar */}
                 <BlogSidebar />
               </div>
@@ -54,7 +56,7 @@ const BlogStandard = ({ location }) => {
 };
 
 BlogStandard.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default BlogStandard;
