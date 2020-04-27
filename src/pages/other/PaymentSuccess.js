@@ -48,7 +48,7 @@ const Cart = ({ location, currency }) => {
                 <strong>
                     {data.orders[0].user_ordered.name.toUpperCase()}
                 </strong>}{" "}
-                Siparişiniz Başarıyla Oluşturulmuştur.{" "}
+                Siparişiniz Başarıyla Oluşturulmuştur{" "}
                 <i className='fa fa-2x fa-smile-o mb-3'></i>
                 <h4 className='mb-3'>
                   Kargo takip bilgileri{" "}

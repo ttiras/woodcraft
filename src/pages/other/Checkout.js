@@ -16,6 +16,7 @@ import "./Checkout.css";
 
 import InvoiceModal from "./InvoiceModal";
 import INSERT_ORDER from "../../graphql/InsertOrder";
+import UPDATE_ORDER from "../../graphql/UpdateOrder";
 
 const Checkout = ({ location, cartItems, currency }) => {
   const state = useAuthState();
@@ -25,6 +26,7 @@ const Checkout = ({ location, cartItems, currency }) => {
   const [error, setError] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
+  const [updateOrder] = useMutation(UPDATE_ORDER)
   const [insertOrder, { loading: ordersLoading, data }] = useMutation(
     INSERT_ORDER,
     {
@@ -100,8 +102,13 @@ const Checkout = ({ location, cartItems, currency }) => {
           };
           axios.post("http://localhost:8000", request).then(
             (result) => {
-              console.log(result);
-              window.open(result.data.paymentPageUrl, "_self");
+              updateOrder({
+                variables: {
+                  id: data.insert_orders.returning[0].id,
+                  token: result.data.token
+                }
+              })
+              window.open(result.data.paymentPageUrl, '_self');
             }
             
           ).catch((error) => {
