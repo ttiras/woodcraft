@@ -45,11 +45,13 @@
     "redux-localstorage-simple": "^2.1.6",
     "redux-multilanguage": "^0.1.2",
     "redux-thunk": "^2.3.0",
+    "source-map-explorer": "^2.4.2",
     "subscriptions-transport-ws": "^0.9.16",
     "swiper": "^5.2.0",
     "uuid": "^3.3.3"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js' ",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

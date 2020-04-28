@@ -26,7 +26,7 @@ const Checkout = ({ location, cartItems, currency }) => {
   const [error, setError] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
-  const [updateOrder] = useMutation(UPDATE_ORDER)
+  const [updateOrder] = useMutation(UPDATE_ORDER);
   const [insertOrder, { loading: ordersLoading, data }] = useMutation(
     INSERT_ORDER,
     {
@@ -66,8 +66,9 @@ const Checkout = ({ location, cartItems, currency }) => {
               qty: item.quantity,
               category1: item.category[0].category.category,
               itemType: "PHYSICAL",
-              price:
-                (getDiscountPrice(item.price, item.discount) * item.quantity).toFixed(2),
+              price: (
+                getDiscountPrice(item.price, item.discount) * item.quantity
+              ).toFixed(2),
             })),
             shippingAddress: {
               contactName: state.address.name,
@@ -100,26 +101,24 @@ const Checkout = ({ location, cartItems, currency }) => {
                 : state.address.street + " " + state.address.ilçe,
             },
           };
-          axios.post("http://localhost:8000", request).then(
-            (result) => {
+          axios
+            .post("http://localhost:8000", request)
+            .then((result) => {
               updateOrder({
                 variables: {
                   id: data.insert_orders.returning[0].id,
-                  token: result.data.token
-                }
-              })
-              window.open(result.data.paymentPageUrl, '_self');
-            }
-            
-          ).catch((error) => {
-            console.log(error);
-          })
+                  token: result.data.token,
+                },
+              });
+              window.open(result.data.paymentPageUrl, "_self");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         }
       },
     }
   );
-
-  const notes = localStorage.getItem("notes");
 
   useEffect(() => {
     const data = localStorage.getItem("invoiceAddressChecked");
@@ -224,7 +223,8 @@ const Checkout = ({ location, cartItems, currency }) => {
       variables: {
         order: {
           amount: cartTotalPrice.toFixed(2),
-          notes: notes,
+          notes: localStorage.getItem("notes"),
+          isGift: localStorage.getItem("isGift"),
           addresses: state.invoiceAddress
             ? {
                 data: [
@@ -572,6 +572,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                         type='submit'
                         className='btn-hover'
                         onClick={handleOrder}
+                        disabled={!state.address}
                       >
                         Ödemeye Git(IYZICO Güvencesiyle)
                       </button>

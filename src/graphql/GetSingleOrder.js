@@ -6,6 +6,7 @@ query SingleOrder ($id: uuid!) {
  orders(where: {id: {_eq: $id}}) {
     amount
     created
+    isGift
     id
     isCancelled
     isPaid

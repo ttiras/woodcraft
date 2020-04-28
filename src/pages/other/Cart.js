@@ -13,6 +13,7 @@ import {
   deleteAllFromCart,
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
+import './Checkout.css'
 
 const Cart = ({
   location,
@@ -25,6 +26,7 @@ const Cart = ({
 }) => {
   const [quantityCount] = useState(1);
   const [notes, setNotes] = useState("");
+  const [isGift, setIsGift] = useState(false);
   const { addToast } = useToasts();
   const { pathname } = location;
   let cartTotalPrice = 0;
@@ -35,11 +37,19 @@ const Cart = ({
     if (data) {
       setNotes(data);
     }
+    const data1 = localStorage.getItem("isGift")
+    if (data) {
+      setIsGift(JSON.parse(data1))
+    }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("notes", notes);
   }, [notes]);
+
+  useEffect(() => {
+    localStorage.setItem("isGift", isGift);
+  }, [isGift]);
 
   return (
     <Fragment>
@@ -257,13 +267,24 @@ const Cart = ({
                         </h4>
                       </div>
                       <div className='tax-wrapper'>
+                        <div className='mb-2'>
+                        <label>Hediye Paketi Olsun</label>
+                        <input
+                          className='checkbox'
+                          checked={isGift}
+                          onChange={() =>
+                            setIsGift(!isGift)
+                          }
+                          type='checkbox'
+                        />
+                        </div>
                         <div className='additional-info'>
                           <label>Sipariş Notları</label>
                           <textarea
                             placeholder='Siparişinizle ilgili belirtmek istediğiniz konular... '
                             name='message'
                             value={notes}
-                            rows='4'
+                            rows='2'
                             onChange={(e) => setNotes(e.target.value)}
                           />
                         </div>

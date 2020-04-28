@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 
 import { multilanguage, loadLanguages } from "redux-multilanguage";
 
+import  { request } from 'graphql-request';
 
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
@@ -23,6 +24,8 @@ import Routers from "./Routers";
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import GET_PRODUCTS from "./graphql/GetProducts";
+
+import queryProducts from './graphql/requestProductsQuery'
 
 import { WebSocketLink } from "apollo-link-ws";
 import { createHttpLink } from "apollo-link-http";
@@ -101,14 +104,8 @@ const App = props => {
   }, [dispatch]);
 
   useEffect(()=>{
-      client
-    .query({
-      query: GET_PRODUCTS,
-    })
-    .then((result) => {
-      store.dispatch(fetchProducts(result.data.products));
-    }).catch(err=>console.log(err))
-  },[])
+    request(httpurl, queryProducts).then(data => store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
+  })
 
   const store = createStore(
     rootReducer,

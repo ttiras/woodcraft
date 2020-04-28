@@ -26,7 +26,7 @@ const Cart = ({ location, currency }) => {
   if (data) console.log(data);
 
   useEffect(()=>{
-    localStorage.clear("cartData", "notes");
+    localStorage.clear("cartData", "notes", "isGift");
   },[])
 
   return (
@@ -62,6 +62,9 @@ const Cart = ({ location, currency }) => {
                     <strong>"{data.orders[0].notes}"</strong> notunu dikkate alacağız.
                   </h5>
                 )}
+                <p className='mt-3'>
+                {data && data.orders[0].isGift && "Kargonuz talebiniz üzerine hediye paketi içerisinde gönderilecektir."}
+                </p>
                 <p className='mt-3'>
                   Göstermiş olduğunuz ilgiye teşekkür ederiz.
                 </p>
