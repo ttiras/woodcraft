@@ -23,7 +23,6 @@ import Routers from "./Routers";
 
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "@apollo/react-hooks";
-import GET_PRODUCTS from "./graphql/GetProducts";
 
 import queryProducts from './graphql/requestProductsQuery'
 
@@ -34,11 +33,13 @@ import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
 import { useState } from "react";
+import SINGLE_USER from "./graphql/GetUser";
 
 const App = props => {
   const state = useAuthState()
   const dispatch = useAuthDispatch();
   const [token, setToken] = useState(null)
+  const [role, setRole] = useState('USER')
 
   useEffect(() => {
     store.dispatch(
@@ -60,36 +61,13 @@ const App = props => {
           type: "LOGIN",
           payload: user,
         });
-        try {
-          fire
-            .firestore()
-            .collection("users")
-            .doc(user.uid)
-            .get()
-            .then((respond) => {
-              if (respond) {
-                const user = respond.data();
-                if(user){
-                  dispatch({
-                    type: "LOGIN",
-                    payload: user,
-                  });
-                }                
-              }
-            });
-              setTimeout(() => {
-                user.getIdTokenResult(true).then((result) => {
-                  console.log('claim',result)
-                  setToken(result.token)
-                  dispatch({
-                    type: "AUTHENTICATE",
-                    payload: true
-                  });
-                });
-              }, 1000);  
-        } catch (err) {
-          console.log("app", err);
-        }
+        setTimeout(() => {
+          user.getIdTokenResult(true).then((result) => {
+            console.log('claim',result)
+            setToken(result.token)
+            
+          });
+        }, 1000); 
       } else {
         dispatch({
           type: "LOGIN",
@@ -101,11 +79,14 @@ const App = props => {
         });
       }
     });
-  }, [dispatch]);
+  }, []);
+
+  console.log('render')
 
   useEffect(()=>{
     request(httpurl, queryProducts).then(data => store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
-  })
+  },[])
+  
 
   const store = createStore(
     rootReducer,
@@ -141,6 +122,7 @@ const App = props => {
       lazy: true,
       connectionParams: {
         headers: {
+          "x-hasura-role": role === 'MANAGER' ? 'manager' : null,
           Authorization: `Bearer ${token}`,
         },
       },
@@ -166,6 +148,16 @@ const App = props => {
     credentials: "include",
     cache: new InMemoryCache(),
   });
+  
+  if(state.user&& state.user.providerData[0].providerId ){
+    client
+    .query({
+      query: SINGLE_USER,
+      variables: {id: state.user.uid}
+    })
+    .then((result) => {
+      setRole(result.data.users[0].role)
+    }).catch(err=>console.log(err))}
   
   return (
     <Provider store={store}>

@@ -1,79 +1,44 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
-import { useMutation } from "@apollo/react-hooks";
-
-import { useAuthState, useAuthDispatch } from "../../auth/auth-context";
-
-
-import axios from 'axios'
-import INSERT_USER from "../../graphql/InsertUser";
+import axios from "axios";
 
 export default function Signup({ fire, history }) {
   const { handleSubmit, register, errors, watch } = useForm();
-  const [insertUser, { loading, data }] = useMutation(
-    INSERT_USER,
-    {
-      onCompleted(data) {
-        console.log(data)
-      }
-    }
-  );
-  
-  const state = useAuthState()
-  const dispatch= useAuthDispatch()
   const [error, setError] = useState(null);
-
-
 
   const onSubmit = async (values) => {
     try {
       const result = await fire
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
-        const user = result.user
-        axios.post(`${process.env.PUBLIC_URL}:8000/claims`, { user })
-        const userRef = fire.firestore().collection("users").doc(user.uid);
-        userRef.set({name: values.username, email: values.email })
-          setTimeout(() => {
-            insertUser({
-              variables: {
-                user: {
-                  name: values.username,
-                  email: values.email
-                }
-              }
-     
-          })
-          }, 2000);
-          
-          history.goBack()
+      const user = result.user;
+      axios.post("http://localhost:8000/claims", { user });
+      history.goBack();
     } catch (err) {
       setError(err.message);
     }
   };
-  
+
   return (
     <div className='login-form-container'>
       <div className='login-register-form'>
         <form onSubmit={handleSubmit(onSubmit)}>
-          {errors.username && (
+          {errors.email && (
             <div className='alert alert-danger' role='alert'>
-              {errors.username.message}
+              {errors.email.message}
             </div>
           )}
           <input
-            type='text'
-            name='username'
-            placeholder='İsim'
+            name='email'
+            placeholder='Email'
             ref={register({
-              required: "Aşağıdaki alana isim girin.",
-              validate: (value) => value !== "admin" || "Nice try!",
+              required: "Aşağıdaki alana email adresi girin.",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "Aşağıdaki alana geçerli bir email adresi girin.",
+              },
             })}
           />
-          <div className='invalid-tooltip'>
-            Please choose a unique and valid username.
-          </div>
 
           {errors.password && (
             <div className='alert alert-danger' role='alert'>
@@ -107,23 +72,6 @@ export default function Signup({ fire, history }) {
               validate: (value) =>
                 value === watch("password") ||
                 "Aşağıdaki alana ilk şifreyi doğru giriniz",
-            })}
-          />
-
-          {errors.email && (
-            <div className='alert alert-danger' role='alert'>
-              {errors.email.message}
-            </div>
-          )}
-          <input
-            name='email'
-            placeholder='Email'
-            ref={register({
-              required: "Aşağıdaki alana email adresi girin.",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: "Aşağıdaki alana geçerli bir email adresi girin.",
-              },
             })}
           />
 

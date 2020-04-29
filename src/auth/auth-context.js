@@ -7,7 +7,7 @@ const initialState = {
   address: null,
   invoiceAddress: null
 };
-
+ 
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
@@ -38,12 +38,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         invoiceAddress: action.payload,
-      };
-
-    case "AUTHENTICATE":
-      return {
-        ...state,
-        isAuthenticated: action.payload,
       };
 
     case "TOKEN":

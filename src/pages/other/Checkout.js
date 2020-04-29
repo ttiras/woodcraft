@@ -305,7 +305,7 @@ const Checkout = ({ location, cartItems, currency }) => {
           <div className='container'>
             {cartItems && cartItems.length >= 1 ? (
               <div className='row'>
-                {state.isAuthenticated ? (
+                {state.user ? (
                   <div className='col-lg-7'>
                     <div className='your-order-area'>
                       <h3>Adres Bilgileri</h3>

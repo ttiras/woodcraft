@@ -51,7 +51,7 @@ const IconGroup = ({
           <i className="pe-7s-user-female" /> 
         </button>
         <div className="account-dropdown">
-          {state.isAuthenticated? 
+          {state.user? 
           <ul>
             <li onClick={handleLogout}>
               <Link to={''}>

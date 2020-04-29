@@ -80,9 +80,10 @@ function Signin({ fire, history }) {
         .auth()
         .signInWithEmailAndPassword(values.email, values.password)
         .then(async (respond) => {
-          const uid = respond.user.uid;
-          console.log(uid);
-          
+          const user = respond.user;
+          axios.post("http://localhost:8000/claims", { user }).then((res) => {
+          console.log(res.config.data.user);
+        });
           history.goBack();
         });
     } catch (err) {

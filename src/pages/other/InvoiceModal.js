@@ -89,15 +89,16 @@ function InvoiceModal(props) {
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='row'>
-              <div className='col-lg-6 col-md-6'>
+              <div className='col-lg-6 col-md-6 d-flex'>
+              <div className='col-lg-6 col-md-6 pl-0'>
                 <div className='billing-info mb-20'>
-                  <label>İsim | Soyisim</label>
+                  <label>İsim</label>
                   <input
                     type='text'
                     ref={register({
                       required: "İsim ve siyisim boş bırakılamaz.",
                       pattern: {
-                        value: /^[a-zA-Z\.\'\-]{2,50}(?: [a-zA-Z\.\'\-]{2,50})+$/,
+                        value: /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/,
                         message:
                           "İsim ve soyisim en az 2 karakterden oluşmalı ve arada boşluk bırakılmalıdır. ",
                       },
@@ -117,6 +118,36 @@ function InvoiceModal(props) {
                     </div>
                   )}
                 </div>
+                </div>  
+              <div className='col-lg-6 col-md-6 pl-0'>
+                <div className='billing-info mb-20'>
+                  <label>Soyisim</label>
+                  <input
+                    type='text'
+                    ref={register({
+                      required: "İsim ve siyisim boş bırakılamaz.",
+                      pattern: {
+                        value: /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/,
+                        message:
+                          "İsim ve soyisim en az 2 karakterden oluşmalı ve arada boşluk bırakılmalıdır. ",
+                      },
+                    })}
+                    name='name'
+                    defaultValue={
+                      addressType === "shipping" && state.address
+                        ? state.address.name
+                        : addressType === "invoice" && state.invoiceAddress
+                        ? state.invoiceAddress.name
+                        : ""
+                    }
+                  />
+                  {errors.name && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.name.message}
+                    </div>
+                  )}
+                </div>
+                </div>
               </div>
               <div className='col-lg-6 col-md-6'>
                 <div className='billing-info mb-20'>
@@ -126,6 +157,7 @@ function InvoiceModal(props) {
                   <input
                     className={invoiceType === "kurumsal" ? addressType === "invoice" ? "noneed" : "" : ""}
                     type='text'
+                    maxLength="11"
                     ref={
                       invoiceType === "kurumsal" 
                         ? addressType === "invoice" ? register({ required: false })
@@ -237,6 +269,7 @@ function InvoiceModal(props) {
                       <label>Vergi Numarası</label>
                       <input
                         type='text'
+                        maxlength="10"
                         ref={
                           invoiceType === "bireysel"
                             ? register({ required: false })
@@ -245,7 +278,7 @@ function InvoiceModal(props) {
                                 pattern: {
                                   value: /^((?!(0))[0-9]{0,22})$/,
                                   message:
-                                    "Vergi no rakamlardan oluşur ve 22 haneden fazla olamaz. ",
+                                    "Vergi no rakamlardan oluşur ve 10 haneden fazla olamaz. ",
                                 },
                               })
                         }
@@ -363,6 +396,7 @@ function InvoiceModal(props) {
                 <div className='billing-info mb-20'>
                   <label>Adres</label>
                   <input
+                    maxLength="120"
                     className='billing-address'
                     placeholder='Cadde, sokak, kapı numarası gibi bilgileri eksiksiz giriniz.'
                     type='text'
@@ -419,7 +453,7 @@ function InvoiceModal(props) {
                     ref={register({
                       required: "Email boş bırakılamaz ",
                       pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        value: /^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\s*$/i,
                         message: "Geçerli bir email girin.",
                       },
                     })}
