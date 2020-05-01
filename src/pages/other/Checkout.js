@@ -43,15 +43,9 @@ const Checkout = ({ location, cartItems, currency }) => {
             buyer: {
               id: state.user.uid,
               name:
-                state.address.name.split(" ").length > 2
-                  ? state.address.name.split(" ")[0] +
-                    " " +
-                    state.address.name.split(" ")[1]
-                  : state.address.name.split(" ")[0],
+                state.address.name,
               surname:
-                state.address.name.split(" ").length > 2
-                  ? state.address.name.split(" ")[2]
-                  : state.address.name.split(" ")[1],
+                state.address.surname,
               gsmNumber: state.address.phone,
               email: state.address.email,
               identityNumber: state.address.identity,
@@ -71,15 +65,15 @@ const Checkout = ({ location, cartItems, currency }) => {
               ).toFixed(2),
             })),
             shippingAddress: {
-              contactName: state.address.name,
+              contactName: `${state.address.name}  ${state.address.surname}`,
               city: state.address.il,
               country: "Turkey",
               address: state.address.street + " " + state.address.ilçe,
             },
             billingAddress: {
               contactName: state.invoiceAddress
-                ? state.invoiceAddress.name
-                : state.address.name,
+                ? `${state.invoiceAddress.name}  ${state.invoiceAddress.surname}`
+                : `${state.address.name}  ${state.address.surname}`,
               city: state.invoiceAddress
                 ? state.invoiceAddress.il
                 : state.address.il,
@@ -104,6 +98,7 @@ const Checkout = ({ location, cartItems, currency }) => {
           axios
             .post("http://localhost:8000", request)
             .then((result) => {
+              console.log(result)
               updateOrder({
                 variables: {
                   id: data.insert_orders.returning[0].id,
@@ -231,6 +226,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                   {
                     city: state.invoiceAddress.il,
                     name: state.invoiceAddress.name,
+                    surname: state.invoiceAddress.surname,
                     street: state.invoiceAddress.firm
                       ? state.invoiceAddress.firm +
                         " " +
@@ -246,6 +242,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                   {
                     city: state.address.il,
                     name: state.address.name,
+                    surname: state.address.surname,
                     street: state.address.firm
                       ? state.address.firm +
                         " VD:" +
@@ -263,6 +260,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                 data: {
                   city: state.address.il,
                   name: state.address.name,
+                  surname: state.address.surname,
                   street: state.address.street,
                   town: state.address.ilçe,
                   isinvoiceAddress: true,
@@ -272,6 +270,7 @@ const Checkout = ({ location, cartItems, currency }) => {
             data: {
               email: state.address.email,
               name: state.address.name,
+              surname: state.address.surname,
               phone: state.address.phone,
             },
             on_conflict: {

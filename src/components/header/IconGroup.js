@@ -40,6 +40,11 @@ const IconGroup = ({
     <div
       className={`header-right-wrap ${iconWhiteClass ? iconWhiteClass : ""}`}
     >
+      {state.role === 'MANAGER'&& <div>
+        <Link to={process.env.PUBLIC_URL + '/orders'}>
+        <button className='active ordersIcon'>Siparişler</button>
+        </Link>
+      </div>}
       {state&& state.user&&state.user.name&&  <span className='displayname'>{state.user.name}</span>}
       {state&& state.user&&state.user.displayName&&  <span className='displayname'>{state.user.displayName.split(' ')[0]}</span>}
       <div className="same-style account-setting d-none d-lg-block">

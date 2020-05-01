@@ -42,6 +42,7 @@ query SingleOrder ($id: uuid!) {
       email
       id
       name
+      surname
       phone
     }
 }}

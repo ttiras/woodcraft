@@ -46,6 +46,12 @@ const reducer = (state, action) => {
         token: action.payload,
       };
 
+      case "ROLE":
+        return {
+          ...state,
+          role: action.payload,
+        };
+    
     case "REGISTER":
       return {
         ...state,

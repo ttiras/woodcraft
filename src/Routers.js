@@ -83,6 +83,7 @@ const Cart = lazy(() => import("./pages/other/Cart"));
 const Wishlist = lazy(() => import("./pages/other/Wishlist"));
 const Compare = lazy(() => import("./pages/other/Compare"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
+const Orders = lazy(() => import("./pages/managerZone/Orders"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
@@ -325,6 +326,11 @@ function Routers() {
             <Route
               path={process.env.PUBLIC_URL + "/checkout"}
               component={Checkout}
+            />
+
+            <Route
+              path={process.env.PUBLIC_URL + "/orders"}
+              component={Orders}
             />
 
             <Route

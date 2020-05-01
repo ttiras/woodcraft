@@ -98,7 +98,7 @@ function InvoiceModal(props) {
                     ref={register({
                       required: "İsim ve siyisim boş bırakılamaz.",
                       pattern: {
-                        value: /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/,
+                        value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
                         message:
                           "İsim ve soyisim en az 2 karakterden oluşmalı ve arada boşluk bırakılmalıdır. ",
                       },
@@ -125,25 +125,25 @@ function InvoiceModal(props) {
                   <input
                     type='text'
                     ref={register({
-                      required: "İsim ve siyisim boş bırakılamaz.",
+                      required: "Soyisim boş bırakılamaz.",
                       pattern: {
-                        value: /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/,
+                        value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
                         message:
-                          "İsim ve soyisim en az 2 karakterden oluşmalı ve arada boşluk bırakılmalıdır. ",
+                          "Soyisim boş bırakılamaz.",
                       },
                     })}
-                    name='name'
+                    name='surname'
                     defaultValue={
                       addressType === "shipping" && state.address
-                        ? state.address.name
+                        ? state.address.surname
                         : addressType === "invoice" && state.invoiceAddress
-                        ? state.invoiceAddress.name
+                        ? state.invoiceAddress.surname
                         : ""
                     }
                   />
-                  {errors.name && (
+                  {errors.surname && (
                     <div className='alert alert-danger small' role='alert'>
-                      {errors.name.message}
+                      {errors.surname.message}
                     </div>
                   )}
                 </div>

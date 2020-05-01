@@ -1,0 +1,42 @@
+.img-orders {
+    width: auto!important;
+    height: 225px!important;
+}
+
+.product-wrap .product-img .hover-img, .product-list-image-wrap .product-img .hover-img {
+    display: none;
+}
+
+
+
+.gift{
+    color: red;
+}
+
+.orders{
+    border-bottom: 3px solid;
+    margin: 15px;
+}
+
+.order-btn {
+      
+      background-color: lightgrey!important;
+     }
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+  }
+  
+  .productName {
+    position: absolute;
+    top: 0px;
+    left: 16px;
+    font-size: smaller;
+}
+.productName2 {
+    position: absolute;
+    top: 19px;
+    left: 16px;
+    font-size: smaller;
+}

@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const GET_ORDERS = gql`
+const GET_ORDERS_NOT_SHIPPED = gql`
   query MyQuery {
-    orders {
+    orders (where: {isShipped: {_eq: false}, isPaid: {_eq: true}}){
         amount
         created
         id
@@ -22,6 +22,7 @@ const GET_ORDERS = gql`
           id
           isinvoiceAddress
           name
+          surname
           street
           town
           updated_at
@@ -77,6 +78,7 @@ const GET_ORDERS = gql`
           email
           created
           name
+          surname
           phone
           role
           updated_at
@@ -85,4 +87,4 @@ const GET_ORDERS = gql`
   }
 `;
 
-export default GET_ORDERS
+export default GET_ORDERS_NOT_SHIPPED

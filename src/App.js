@@ -39,7 +39,6 @@ const App = props => {
   const state = useAuthState()
   const dispatch = useAuthDispatch();
   const [token, setToken] = useState(null)
-  const [role, setRole] = useState('USER')
 
   useEffect(() => {
     store.dispatch(
@@ -103,6 +102,7 @@ const App = props => {
       return {
         headers: {
           ...headers,
+          "x-hasura-role": state.role === 'MANAGER' ? 'manager' : '',
           authorization: `Bearer ${accessToken}`,
         },
       };
@@ -122,7 +122,6 @@ const App = props => {
       lazy: true,
       connectionParams: {
         headers: {
-          "x-hasura-role": role === 'MANAGER' ? 'manager' : null,
           Authorization: `Bearer ${token}`,
         },
       },
@@ -149,14 +148,17 @@ const App = props => {
     cache: new InMemoryCache(),
   });
   
-  if(state.user&& state.user.providerData[0].providerId ){
+  if(state.user&& state.user.providerData[0]&& state.user.providerData[0].providerId === "password" ){
     client
     .query({
       query: SINGLE_USER,
       variables: {id: state.user.uid}
     })
     .then((result) => {
-      setRole(result.data.users[0].role)
+      if(!state.role)
+      dispatch({
+        type: 'ROLE',
+        payload:result.data.users[0].role})
     }).catch(err=>console.log(err))}
   
   return (

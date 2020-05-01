@@ -46,7 +46,7 @@ const Cart = ({ location, currency }) => {
                 Sayın{" "}
                 {data && data.orders[0].user_ordered &&
                 <strong>
-                    {data.orders[0].user_ordered.name.toUpperCase()}
+                    {data.orders[0].user_ordered.name.toUpperCase()}{" "} {data.orders[0].user_ordered.surname.toUpperCase()}
                 </strong>}{" "}
                 Siparişiniz Başarıyla Oluşturulmuştur{" "}
                 <i className='fa fa-2x fa-smile-o mb-3'></i>

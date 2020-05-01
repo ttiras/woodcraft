@@ -48,6 +48,7 @@ const setFirebaseAuthJWTClaims = (user) => {
       // Set the refresh time to the current UTC timestamp.
       // This will be captured on the client to force a token refresh.
       return metadataRef.set({ refreshTime: new Date().getTime() });
+      
     })
     .catch((error) => {
       console.log('setCustomClaim ERROR', error);
