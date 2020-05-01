@@ -145,7 +145,7 @@ const ProductDescriptionInfo = ({
               rel="noopener noreferrer"
               target="_blank"
             >
-              Buy Now
+              Hemen Al
             </a>
           </div>
         </div>
@@ -194,10 +194,10 @@ const ProductDescriptionInfo = ({
                 disabled={productCartQty >= productStock}
               >
                 {" "}
-                Add To Cart{" "}
+                Sepete EKle{" "}
               </button>
             ) : (
-              <button disabled>Out of Stock</button>
+              <button disabled>Stokta Kalmadı</button>
             )}
           </div>
           <div className="pro-details-wishlist">
@@ -206,33 +206,20 @@ const ProductDescriptionInfo = ({
               disabled={wishlistItem !== undefined}
               title={
                 wishlistItem !== undefined
-                  ? "Added to wishlist"
-                  : "Add to wishlist"
+                  ? "Favorilere Eklendi"
+                  : "Favorilere Ekle"
               }
               onClick={() => addToWishlist(product, addToast)}
             >
               <i className="pe-7s-like" />
             </button>
           </div>
-          <div className="pro-details-compare">
-            <button
-              className={compareItem !== undefined ? "active" : ""}
-              disabled={compareItem !== undefined}
-              title={
-                compareItem !== undefined
-                  ? "Added to compare"
-                  : "Add to compare"
-              }
-              onClick={() => addToCompare(product, addToast)}
-            >
-              <i className="pe-7s-shuffle" />
-            </button>
-          </div>
+          
         </div>
       )}
       {product.category ? (
         <div className="pro-details-meta">
-          <span>Categories :</span>
+          <span>Kategoriler :</span>
           <ul>
             {product.category.map((single, key) => {
               return (
@@ -250,7 +237,7 @@ const ProductDescriptionInfo = ({
       )}
       {product.tag ? (
         <div className="pro-details-meta">
-          <span>Tags :</span>
+          <span>Etiketler :</span>
           <ul>
             {product.tag.map((single, key) => {
               return (

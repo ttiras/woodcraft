@@ -250,7 +250,7 @@ function ProductModal(props) {
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        Buy Now
+                        Hemen Al
                       </a>
                     </div>
                   </div>

@@ -74,8 +74,8 @@ const ProductGridListSingle = ({
                   disabled={wishlistItem !== undefined}
                   title={
                     wishlistItem !== undefined
-                      ? "Added to wishlist"
-                      : "Add to wishlist"
+                      ? "Favorilere Eklendi"
+                      : "Favorilere Ekle"
                   }
                   onClick={() => addToWishlist(product, addToast)}
                 >
@@ -106,14 +106,14 @@ const ProductGridListSingle = ({
                     }
                     disabled={cartItem !== undefined && cartItem.quantity > 0}
                     title={
-                      cartItem !== undefined ? "Added to cart" : "Add to cart"
+                      cartItem !== undefined ? "Sepete Eklendi" : "Sepete Ekle"
                     }
                   >
                     {" "}
                     <i className="pe-7s-cart"></i>{" "}
                     {cartItem !== undefined && cartItem.quantity > 0
-                      ? "Added"
-                      : "Add to cart"}
+                      ? "Sepete Eklendi"
+                      : "Sepete Ekle"}
                   </button>
                 ) : (
                   <button disabled className="active">
@@ -122,7 +122,7 @@ const ProductGridListSingle = ({
                 )}
               </div>
               <div className="pro-same-action pro-quickview">
-                <button onClick={() => setModalShow(true)} title="Quick View">
+                <button onClick={() => setModalShow(true)} title="Hızlı Bakış">
                   <i className="pe-7s-look" />
                 </button>
               </div>
@@ -236,13 +236,13 @@ const ProductGridListSingle = ({
                         target="_blank"
                       >
                         {" "}
-                        Buy now{" "}
+                        Hemen Al{" "}
                       </a>
                     ) : product.variation && product.variation.length >= 1 ? (
                       <Link
                         to={`${process.env.PUBLIC_URL}/product/${product.id}`}
                       >
-                        Select Option
+                        Seçenekler
                       </Link>
                     ) : product.stock && product.stock > 0 ? (
                       <button
@@ -257,15 +257,15 @@ const ProductGridListSingle = ({
                         }
                         title={
                           cartItem !== undefined
-                            ? "Added to cart"
-                            : "Add to cart"
+                            ? "Sepete Eklendi"
+                            : "Sepete Ekle"
                         }
                       >
                         {" "}
                         <i className="pe-7s-cart"></i>{" "}
                         {cartItem !== undefined && cartItem.quantity > 0
-                          ? "Added"
-                          : "Add to cart"}
+                          ? "Sepete Eklendi"
+                          : "Sepete Ekle"}
                       </button>
                     ) : (
                       <button disabled className="active">
@@ -280,28 +280,15 @@ const ProductGridListSingle = ({
                       disabled={wishlistItem !== undefined}
                       title={
                         wishlistItem !== undefined
-                          ? "Added to wishlist"
-                          : "Add to wishlist"
+                          ? "Favorilere Eklendi"
+                          : "Favorilere Ekle"
                       }
                       onClick={() => addToWishlist(product, addToast)}
                     >
                       <i className="pe-7s-like" />
                     </button>
                   </div>
-                  <div className="shop-list-compare ml-10">
-                    <button
-                      className={compareItem !== undefined ? "active" : ""}
-                      disabled={compareItem !== undefined}
-                      title={
-                        compareItem !== undefined
-                          ? "Added to compare"
-                          : "Add to compare"
-                      }
-                      onClick={() => addToCompare(product, addToast)}
-                    >
-                      <i className="pe-7s-shuffle" />
-                    </button>
-                  </div>
+                 
                 </div>
               </div>
             </div>
