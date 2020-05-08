@@ -3,19 +3,11 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import firebase from "firebase";
 
-import { useMutation } from "@apollo/react-hooks";
-import INSERT_USER from "../../graphql/InsertUser";
-
 import axios from "axios";
 
 import "./Signin.css";
 
 function Signin({ fire, history }) {
-  const [insertUser] = useMutation(INSERT_USER, {
-    onCompleted(data) {
-      console.log(data);
-    },
-  });
   const { handleSubmit, register, errors } = useForm();
   const [error, setError] = useState(null);
 
@@ -91,7 +83,7 @@ function Signin({ fire, history }) {
     }
   };
 
-  return (
+  return ( 
     <div className='login-form-container'>
       <div className='login-register-form'>
         <form onSubmit={handleSubmit(onSubmit)}>

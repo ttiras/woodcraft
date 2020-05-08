@@ -96,11 +96,11 @@ function InvoiceModal(props) {
                   <input
                     type='text'
                     ref={register({
-                      required: "İsim ve siyisim boş bırakılamaz.",
+                      required: "İsim boş bırakılamaz.",
                       pattern: {
                         value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
                         message:
-                          "İsim ve soyisim en az 2 karakterden oluşmalı ve arada boşluk bırakılmalıdır. ",
+                          "İsim boş bırakılamaz. ",
                       },
                     })}
                     name='name'

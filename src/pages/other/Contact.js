@@ -1,12 +1,37 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
+import { useForm } from "react-hook-form";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 
+import { useMutation } from "@apollo/react-hooks";
+import INSERT_MESSAGE from "../../graphql/InsertMessage";
+
 const Contact = ({ location }) => {
+  const { handleSubmit, register, errors } = useForm();
+  const [messageSent, setMessageSent] = useState(false)
   const { pathname } = location;
+  const [insertMessage] = useMutation(INSERT_MESSAGE, {
+    onCompleted(data) {
+      setMessageSent(true)
+    },
+  });
+
+  const onSubmit = (values, e)=>{
+    insertMessage({
+      variables: {
+        message: {
+          name: values.name,
+          email: values.email,
+          subject: values.subject,
+          message: values.message
+        }
+      }
+    })
+    e.target.reset()
+  }
 
   return (
     <Fragment>
@@ -98,30 +123,81 @@ const Contact = ({ location }) => {
                   <div className='contact-title mb-30'>
                     <h2>Mesaj gönder</h2>
                   </div>
-                  <form className='contact-form-style'>
+                  <form onSubmit={handleSubmit(onSubmit)} className='contact-form-style'>
                     <div className='row'>
                       <div className='col-lg-6'>
-                        <input name='name' placeholder='İsim*' type='text' />
+                        <input name='name' placeholder='İsim*' type='text' ref={register({
+                      required: "İsim boş bırakılamaz.",
+                      pattern: {
+                        value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
+                        message:
+                          "İsim boş bırakılamaz. ",
+                      },
+                    })} />
+                    {errors.name && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.name.message}
+                    </div>
+                  )}
                       </div>
                       <div className='col-lg-6'>
-                        <input name='email' placeholder='Email*' type='email' />
+                        <input name='email' placeholder='Email*' type='email' ref={register({
+                      required: "Email boş bırakılamaz ",
+                      pattern: {
+                        value: /^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\s*$/i,
+                        message: "Geçerli bir email girin.",
+                      },
+                    })}/>
+                    {errors.email && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.email.message}
+                    </div>
+                  )}
                       </div>
                       <div className='col-lg-12'>
-                        <input name='subject' placeholder='Konu*' type='text' />
+                        <input name='subject' placeholder='Konu*' type='text' ref={register({
+                      required: "Konu boş bırakılamaz.",
+                      pattern: {
+                        value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
+                        message:
+                          "Konu boş bırakılamaz. ",
+                      },
+                    })} />
+                    {errors.subject && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.subject.message}
+                    </div>
+                  )}
                       </div>
                       <div className='col-lg-12'>
                         <textarea
+                          maxLength="256"
                           name='message'
                           placeholder='Mesaj*'
                           defaultValue={""}
-                        />
+                          ref={register({
+                            required: "Mesaj boş bırakılamaz.",
+                            pattern: {
+                              value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
+                              message:
+                                "Mesaj boş bırakılamaz. ",
+                            },
+                          })}
+                        />{errors.message && (
+                          <div className='alert alert-danger small' role='alert'>
+                            {errors.message.message}
+                          </div>
+                        )}
                         <button className='submit' type='submit'>
                           GÖNDER
                         </button>
                       </div>
                     </div>
                   </form>
-                  <p className='form-messege' />
+                  {messageSent&& 
+                  <div className='alert alert-success text-center' role='alert'>
+                    Mesajınız bize ulaştı<i className='fa fa-smile-o mb-3'></i> En kısa sürede email adresinize cevap göndereceğiz. 
+                  </div>}
                 </div>
               </div>
             </div>

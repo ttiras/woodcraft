@@ -27,6 +27,13 @@ const Checkout = ({ location, cartItems, currency }) => {
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
   const [updateOrder] = useMutation(UPDATE_ORDER);
+  const baskets = []
+    cartItems.map(item=>{
+        var i;
+        for(i=0; i<item.quantity; i++){
+          baskets.push(item)
+        }
+    })
   const [insertOrder, { loading: ordersLoading, data }] = useMutation(
     INSERT_ORDER,
     {
@@ -54,14 +61,14 @@ const Checkout = ({ location, cartItems, currency }) => {
               city: state.address.il,
               country: "Turkey",
             },
-            basketItems: cartItems.map((item) => ({
+            basketItems: baskets.map((item) => ({
               id: item.id,
               name: item.name,
               qty: item.quantity,
               category1: item.category[0].category.category,
               itemType: "PHYSICAL",
               price: (
-                getDiscountPrice(item.price, item.discount) * item.quantity
+                getDiscountPrice(item.price, item.discount)
               ).toFixed(2),
             })),
             shippingAddress: {
@@ -113,7 +120,7 @@ const Checkout = ({ location, cartItems, currency }) => {
         }
       },
     }
-  );
+  );    
 
   useEffect(() => {
     const data = localStorage.getItem("invoiceAddressChecked");
@@ -214,6 +221,7 @@ const Checkout = ({ location, cartItems, currency }) => {
   };
 
   const handleOrder = () => {
+    axios.post('https://spotted-pickled-conga.glitch.me/')
     insertOrder({
       variables: {
         order: {
@@ -319,7 +327,6 @@ const Checkout = ({ location, cartItems, currency }) => {
                           type='checkbox'
                         />
                       </div>
-
                       <div className='your-order-wrap gray-bg-4 mb-4'>
                         <div className='your-order-product-info'>
                           <div className='your-order-top'>

@@ -33,7 +33,7 @@ const IconGroup = ({
 
   const handleLogout = async () => {
     await fire.auth().signOut()
-    history.goBack()
+    window.location.reload()
   }
 
   return (

@@ -35,7 +35,7 @@ export default function DailyOrders() {
         data.orders.map((order) => (
           <div className='row orders p-2' key={order.id}>
             <div className='col-xl-4 col-md-5 col-sm-6'>
-              <div className='product-list-image-wrap d-flex'>
+              <div className='product-list-image-wrap d-flex overflow-auto'>
                 {order.order_items.map((item) => (
                   <div className='container' key={item.product.id}>
                     <Link
@@ -109,7 +109,7 @@ export default function DailyOrders() {
                   <div className='row border-bottom mb-3'>
                   <div className='col-xl-4 col-md-4 col-sm-4'>
                       {order.isPaid ? (
-                        <strong>ÖDENDİ</strong>
+                        <strong><span className='redPaid'>{order.amount} TL</span> ÖDENDİ</strong>
                       ) : (
                         <strong>ÖDENMEDİ</strong>
                       )}{" "}

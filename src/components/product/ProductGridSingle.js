@@ -5,7 +5,7 @@ import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
-
+ 
 import './ProductGridSingle.css'
 
 const ProductGridSingle = ({
@@ -41,11 +41,11 @@ const ProductGridSingle = ({
         >
           <div className="product-img">
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-              <img
+             {product.image&&product.image[0]&& <img
                 className="default-img"
                 src={process.env.PUBLIC_URL + product.image[0].path}
                 alt=""
-              />
+              />}
               {product.image.length > 1 ? (
                 <img
                   className="hover-img"
