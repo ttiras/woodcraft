@@ -34,94 +34,17 @@ const Checkout = ({ location, cartItems, currency }) => {
           baskets.push(item)
         }
     })
-  const [insertOrder, { loading: ordersLoading, data }] = useMutation(
+  const [insertOrder, { loading: ordersLoading, data, error: ordersError }] = useMutation(
     INSERT_ORDER,
     {
       onCompleted(data) {
         console.log(data);
-        if (state.user && state.address) {
-          const request = {
-            price: cartTotalPrice.toFixed(2),
-            paidPrice: cartTotalPrice.toFixed(2),
-            basketId: data.insert_orders.returning[0].id,
-            currency: "TRY",
-            callbackUrl: "http://localhost:8000/payments",
-            enabledInstallments: [2, 3, 6, 9],
-            buyer: {
-              id: state.user.uid,
-              name:
-                state.address.name,
-              surname:
-                state.address.surname,
-              gsmNumber: state.address.phone,
-              email: state.address.email,
-              identityNumber: state.address.identity,
-              registrationAddress:
-                state.address.street + " " + state.address.ilçe,
-              city: state.address.il,
-              country: "Turkey",
-            },
-            basketItems: baskets.map((item) => ({
-              id: item.id,
-              name: item.name,
-              qty: item.quantity,
-              category1: item.category[0].category.category,
-              itemType: "PHYSICAL",
-              price: (
-                getDiscountPrice(item.price, item.discount)
-              ).toFixed(2),
-            })),
-            shippingAddress: {
-              contactName: `${state.address.name}  ${state.address.surname}`,
-              city: state.address.il,
-              country: "Turkey",
-              address: state.address.street + " " + state.address.ilçe,
-            },
-            billingAddress: {
-              contactName: state.invoiceAddress
-                ? `${state.invoiceAddress.name}  ${state.invoiceAddress.surname}`
-                : `${state.address.name}  ${state.address.surname}`,
-              city: state.invoiceAddress
-                ? state.invoiceAddress.il
-                : state.address.il,
-              country: "Turkey",
-              address: state.invoiceAddress
-                ? addressType === "invoice"
-                  ? state.invoiceAddress.firm +
-                    " " +
-                    state.invoiceAddress.street +
-                    " " +
-                    state.invoiceAddress.ilçe +
-                    " VD:" +
-                    state.invoiceAddress.vergid +
-                    " VNo:" +
-                    state.invoiceAddress.vergin
-                  : state.invoiceAddress.street +
-                    " " +
-                    state.invoiceAddress.ilçe
-                : state.address.street + " " + state.address.ilçe,
-            },
-          };
-          axios
-            .post("http://localhost:8000", request)
-            .then((result) => {
-              console.log(result)
-              updateOrder({
-                variables: {
-                  id: data.insert_orders.returning[0].id,
-                  token: result.data.token,
-                },
-              });
-              window.open(result.data.paymentPageUrl, "_self");
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        }
+        window.open(data.OrderAction.paymentPageUrl)
+      
       },
     }
   );    
-
+  
   useEffect(() => {
     const data = localStorage.getItem("invoiceAddressChecked");
     if (data) {
@@ -221,18 +144,16 @@ const Checkout = ({ location, cartItems, currency }) => {
   };
 
   const handleOrder = () => {
-    axios.post('https://spotted-pickled-conga.glitch.me/')
     insertOrder({
-      variables: {
-        order: {
-          amount: cartTotalPrice.toFixed(2),
-          notes: localStorage.getItem("notes"),
-          isGift: localStorage.getItem("isGift"),
+      variables:{
+          notes: localStorage.getItem("notes") || "",
+          isGift: localStorage.getItem("isGift") || false,
           addresses: state.invoiceAddress
             ? {
                 data: [
                   {
                     city: state.invoiceAddress.il,
+                    identity: state.invoiceAddress.identity,
                     name: state.invoiceAddress.name,
                     surname: state.invoiceAddress.surname,
                     street: state.invoiceAddress.firm
@@ -249,6 +170,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                   },
                   {
                     city: state.address.il,
+                    identity: state.address.identity,
                     name: state.address.name,
                     surname: state.address.surname,
                     street: state.address.firm
@@ -267,6 +189,7 @@ const Checkout = ({ location, cartItems, currency }) => {
             : {
                 data: {
                   city: state.address.il,
+                  identity: state.address.identity,
                   name: state.address.name,
                   surname: state.address.surname,
                   street: state.address.street,
@@ -290,11 +213,10 @@ const Checkout = ({ location, cartItems, currency }) => {
             data: cartItems.map((item) => ({
               product_id: item.id,
               qty: item.quantity,
-            })),
-          },
-        },
-      },
-    });
+            }))
+        }}
+      }
+    );
   };
 
   return (
@@ -583,6 +505,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                         Ödemeye Git(IYZICO Güvencesiyle)
                       </button>
                     </div>
+                    {ordersError&& <span>Bir hata oluştu, lütfen tekrar deneyin.</span>}
                   </div>
                 </div>
               </div>

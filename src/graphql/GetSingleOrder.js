@@ -13,7 +13,6 @@ query SingleOrder ($id: uuid!) {
     isShipped
     notes
     status
-    token
     updated_at
     addresses {
       id

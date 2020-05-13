@@ -72,26 +72,19 @@ const App = props => {
           type: "LOGIN",
           payload: null,
         });
-        dispatch({
-          type: "AUTHENTICATE",
-          payload: false,
-        });
       }
     });
   }, []);
-
-  console.log('render')
-
-  useEffect(()=>{
-    request(httpurl, queryProducts).then(data => store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
-  },[])
-  
 
   const store = createStore(
     rootReducer,
     load(),
     composeWithDevTools(applyMiddleware(thunk, save()))
   );
+
+  useEffect(()=>{
+    request(httpurl, queryProducts).then(data => store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
+  },[])
 
   const wsurl = "https://woodcraft.herokuapp.com/v1/graphql";
   const httpurl = "https://woodcraft.herokuapp.com/v1/graphql";
