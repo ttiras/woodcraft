@@ -19,6 +19,7 @@ query SingleOrder ($id: uuid!) {
       city
       isinvoiceAddress
       name
+      surname
       street
       town
     }
@@ -28,6 +29,7 @@ query SingleOrder ($id: uuid!) {
         id
         name
         price
+        discount
         stock
         rating
         shortDescription

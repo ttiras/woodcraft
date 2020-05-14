@@ -56,7 +56,7 @@ const IconGroup = ({
           <i className="pe-7s-user-female" /> 
         </button>
         <div className="account-dropdown">
-          {state.user? 
+          {state.user&& state.user.email? 
           <ul>
             <li onClick={handleLogout}>
               <Link to={''}>

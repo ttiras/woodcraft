@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 
 import { useQuery } from "@apollo/react-hooks";
@@ -26,6 +26,7 @@ function InvoiceModal(props) {
 
   const { addressType } = props;
   const { onHide } = props;
+  
 
   const [invoiceType, setInvoiceType] = useState("bireysel");
 
@@ -56,7 +57,7 @@ function InvoiceModal(props) {
         <div className='billing-info-wrap m-4'>
           <div className='row'>
             <div className='col-lg-6 col-md-6'>
-              <h3>Teslimat Adresi</h3>
+              {addressType === 'shipping' ? <h3>Teslimat Adresi</h3> : <h3>Fatura Adresi</h3>}
             </div>
             <div className='col-lg-6 col-md-6'>
               <div className='form-check form-check-inline'>
@@ -88,13 +89,16 @@ function InvoiceModal(props) {
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='row'>
+            {state.user&&
+              <div className='row'>
+              {addressType === 'invoice' && invoiceType === 'kurumsal' ? null :
               <div className='col-lg-6 col-md-6 d-flex'>
               <div className='col-lg-6 col-md-6 pl-0'>
                 <div className='billing-info mb-20'>
                   <label>İsim</label>
                   <input
                     type='text'
+                    disabled={addressType === 'invoice' && invoiceType === 'kurumsal'}
                     ref={register({
                       required: "İsim boş bırakılamaz.",
                       pattern: {
@@ -124,6 +128,7 @@ function InvoiceModal(props) {
                   <label>Soyisim</label>
                   <input
                     type='text'
+                    disabled={addressType === 'invoice' && invoiceType === 'kurumsal'}
                     ref={register({
                       required: "Soyisim boş bırakılamaz.",
                       pattern: {
@@ -148,7 +153,8 @@ function InvoiceModal(props) {
                   )}
                 </div>
                 </div>
-              </div>
+              </div>}
+              {addressType === 'invoice' && invoiceType === 'kurumsal' ? null :
               <div className='col-lg-6 col-md-6'>
                 <div className='billing-info mb-20'>
                   <label className={invoiceType === "kurumsal" ? addressType === "invoice" ? "noneed" : "" : ""}>
@@ -193,7 +199,7 @@ function InvoiceModal(props) {
                     </div>
                   )}
                 </div>
-              </div>
+              </div>}
               {invoiceType === "kurumsal" && (
                 <>
                   <div className='col-lg-12'>
@@ -269,7 +275,7 @@ function InvoiceModal(props) {
                       <label>Vergi Numarası</label>
                       <input
                         type='text'
-                        maxlength="10"
+                        maxLength="10"
                         ref={
                           invoiceType === "bireysel"
                             ? register({ required: false })
@@ -417,11 +423,13 @@ function InvoiceModal(props) {
                   )}
                 </div>
               </div>
+              {addressType !== 'invoice'&&
               <div className='col-lg-6 col-md-6'>
-                <div className='billing-info mb-20'>
+                 <div className='billing-info mb-20'>
                   <label>Telefon</label>
                   <input
                     type='tel'
+                    disabled={addressType === 'invoice'}
                     ref={register({
                       required: "Telefon boş bırakılamaz.",
                       pattern: {
@@ -444,12 +452,14 @@ function InvoiceModal(props) {
                     </div>
                   )}
                 </div>
-              </div>
-              <div className='col-lg-6 col-md-6'>
+              </div>}
+              {addressType === 'shipping'&&
+              <div className='col-lg-6 col-md-6 nogo'>
                 <div className='billing-info mb-20'>
                   <label>Email</label>
                   <input
                     type='text'
+                    disabled={addressType === 'invoice'}
                     ref={register({
                       required: "Email boş bırakılamaz ",
                       pattern: {
@@ -463,7 +473,7 @@ function InvoiceModal(props) {
                         ? state.address.email
                         : addressType === "invoice" && state.invoiceAddress
                         ? state.invoiceAddress.email
-                        : ""
+                        : state.user.email ? state.user.email : ""
                     }
                   />
                   {errors.email && (
@@ -472,13 +482,13 @@ function InvoiceModal(props) {
                     </div>
                   )}
                 </div>
-              </div>
+              </div>}
               <div className='button-box pl-15'>
                 <button className='submitAddress' type='submit'>
                   <span>Kaydet</span>
                 </button>
               </div>
-            </div>
+            </div>}
           </form>
         </div>
       </Modal>

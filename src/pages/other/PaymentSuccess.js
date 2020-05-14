@@ -125,7 +125,7 @@ const Cart = ({ location, currency }) => {
                                 </td>
 
                                 <td className='product-price-cart'>
-                                  {product.price}
+                                  {product.price-(product.price*product.discount/100).toFixed(2) + " " + currency.currencySymbol }
                                 </td>
 
                                 <td className='product-quantity'>
@@ -134,7 +134,7 @@ const Cart = ({ location, currency }) => {
                                   </div>
                                 </td>
                                 <td className='product-subtotal'>
-                                  {product.price * item.qty}
+                                  {((product.price-(product.price*product.discount/100)) * item.qty).toFixed(2) + " " + currency.currencySymbol}
                                 </td>
 
                                 <td className='product-remove'></td>
@@ -161,7 +161,7 @@ const Cart = ({ location, currency }) => {
                               : "Teslimat Adresi"}
                           </h4>
                         </div>
-                        <h5>{address.name.toUpperCase()} </h5>
+                        <h5>{address.name.toUpperCase()} {" "} {address.surname.toUpperCase()} </h5>
                         <h5> {address.street}</h5>
 
                         <h4 className='grand-totall-title'>
@@ -196,7 +196,7 @@ const Cart = ({ location, currency }) => {
                       Ürünler Toplamı{" "}
                       <span>
                         {data &&
-                          data.orders[0].amount + currency.currencySymbol}
+                          data.orders[0].amount + " " + currency.currencySymbol}
                       </span>
                     </h5>
                     <h5>
@@ -207,7 +207,7 @@ const Cart = ({ location, currency }) => {
                       Toplam Ödenen{" "}
                       <span>
                         {data &&
-                          data.orders[0].amount + currency.currencySymbol}
+                          data.orders[0].amount + " " +currency.currencySymbol}
                       </span>
                     </h4>
                   </div>

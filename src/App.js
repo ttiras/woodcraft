@@ -54,7 +54,6 @@ const App = props => {
 
   useEffect(() => {
     fire.auth().onAuthStateChanged((user) => {
-      console.log("onauthchangecalled", user);
       if (user) {
         dispatch({
           type: "LOGIN",
@@ -62,9 +61,7 @@ const App = props => {
         });
         setTimeout(() => {
           user.getIdTokenResult(true).then((result) => {
-            console.log('claim',result)
-            setToken(result.token)
-            
+            setToken(result.token)            
           });
         }, 1000); 
       } else {
@@ -82,12 +79,10 @@ const App = props => {
     composeWithDevTools(applyMiddleware(thunk, save()))
   );
 
-  useEffect(()=>{
-    request(httpurl, queryProducts).then(data => store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
-  },[])
-
   const wsurl = "https://woodcraft.herokuapp.com/v1/graphql";
   const httpurl = "https://woodcraft.herokuapp.com/v1/graphql";
+  
+  request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
 
   const authLink = setContext((_, { headers }) => {
     const accessToken = token

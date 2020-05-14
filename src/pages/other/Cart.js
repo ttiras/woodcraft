@@ -31,7 +31,6 @@ const Cart = ({
   const { pathname } = location;
   let cartTotalPrice = 0;
 
-  console.log("render");
   useEffect(() => {
     const data = localStorage.getItem("notes");
     if (data) {

@@ -34,16 +34,14 @@ const Checkout = ({ location, cartItems, currency }) => {
           baskets.push(item)
         }
     })
-  const [insertOrder, { loading: ordersLoading, data, error: ordersError }] = useMutation(
+  const [insertOrder, { loading: ordersLoading, data: ordersData, error: ordersError }] = useMutation(
     INSERT_ORDER,
     {
-      onCompleted(data) {
-        console.log(data);
-        window.open(data.OrderAction.paymentPageUrl)
-      
+      onCompleted(ordersData) {
+        window.open(ordersData.OrderAction.paymentPageUrl)
       },
     }
-  );    
+  ); 
   
   useEffect(() => {
     const data = localStorage.getItem("invoiceAddressChecked");
@@ -72,6 +70,8 @@ const Checkout = ({ location, cartItems, currency }) => {
         const user = result.user;
         axios.post("http://localhost:8000/claims", { user }).then((res) => {
           console.log(res);
+        }).catch((err)=>{
+          console.log(err)
         });
         setLoading(false);
       });
@@ -203,6 +203,7 @@ const Checkout = ({ location, cartItems, currency }) => {
               name: state.address.name,
               surname: state.address.surname,
               phone: state.address.phone,
+              role: state.user.email ? 'USER' : 'ANONYMOUS'
             },
             on_conflict: {
               constraint: "users_pkey",
@@ -498,7 +499,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                     <div className='place-order mt-25'>
                       <button
                         type='submit'
-                        className='btn-hover'
+                        className= { !state.address ? 'btn-hover noButton':'btn-hover'}
                         onClick={handleOrder}
                         disabled={!state.address}
                       >

@@ -101,3 +101,9 @@ select:-webkit-autofill:focus {
     color: black;
     font-weight: bold;
 }
+
+.noButton {
+    background-color: lightslategrey;
+    opacity: .5;
+    pointer-events: none;
+}
