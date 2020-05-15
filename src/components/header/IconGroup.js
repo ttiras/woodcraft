@@ -33,7 +33,6 @@ const IconGroup = ({
 
   const handleLogout = async () => {
     await fire.auth().signOut()
-    window.location.reload()
   }
 
   return (
@@ -56,7 +55,7 @@ const IconGroup = ({
           <i className="pe-7s-user-female" /> 
         </button>
         <div className="account-dropdown">
-          {state.user&& state.user.email? 
+          {state.user&& !state.user.isAnonymous ?
           <ul>
             <li onClick={handleLogout}>
               <Link to={''}>

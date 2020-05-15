@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SecuredRoute from "./utils/SecuredRoute";
 import ScrollToTop from "./helpers/scroll-top";
 
 // home pages
@@ -74,7 +73,7 @@ const BlogDetailsStandard = lazy(() =>
 // other pages
 const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
-const MyAccount = lazy(() => import("./pages/other/MyAccount"));
+const MyAccount = lazy(() => import("./pages/memberZone/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
 const PaymentSuccess = lazy(() => import("./pages/other/PaymentSuccess"))
 const PasswordReset = lazy(() => import("./pages/other/PasswordReset"));
@@ -300,7 +299,7 @@ function Routers() {
               path={process.env.PUBLIC_URL + "/contact"}
               component={Contact}
             />
-            <SecuredRoute
+            <Route
               path={process.env.PUBLIC_URL + "/my-account"}
               component={MyAccount}
             />

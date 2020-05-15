@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import firebase from "firebase";
+import { anonymousLogin, socialLogin} from '../../helpers/social-auth'
 
 import axios from "axios";
 
@@ -10,62 +10,23 @@ import "./Signin.css";
 function Signin({ fire, history }) {
   const { handleSubmit, register, errors } = useForm();
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const provider = new firebase.auth.GoogleAuthProvider();
-  const providerFb = new firebase.auth.FacebookAuthProvider();
-
-  const handleGoogleSignin = () => {
-    fire
-      .auth()
-      .signInWithPopup(provider)
-      .then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = result.credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(token, user);
-        axios.post("http://localhost:8000/claims", { user }).then((res) => {
-          console.log(res);
-        });
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        setError(errorCode, errorMessage, email, credential);
-      });
-  };
-
-  const handleFacebookSignin = () => {
-    fire
-      .auth()
-      .signInWithPopup(providerFb)
-      .then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = result.credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(token, user);
-        axios.post("http://localhost:8000/claims", { user }).then((res) => {
-          console.log(res.config.data.user);
-        });
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        setError(errorCode, errorMessage, email, credential);
-      });
-  };
-
+  const handleSignin=async (e)=>{
+    setLoading(true);
+      if(e.target.value){
+        await socialLogin(e.target.value)
+        if(error)
+        setError(error)
+      }else{
+        await anonymousLogin()
+        if(error)
+        setError(error)
+      }
+    setLoading(false);
+    history.goBack();
+  }
+  
   const onSubmit = (values) => {
     try {
       fire
@@ -73,10 +34,9 @@ function Signin({ fire, history }) {
         .signInWithEmailAndPassword(values.email, values.password)
         .then(async (respond) => {
           const user = respond.user;
-          axios.post("http://localhost:8000/claims", { user }).then((res) => {
-          console.log(res.config.data.user);
-        });
-          history.goBack();
+          axios.post(`${process.env.REACT_APP_PUBLIC_URL}/claims`, { user }).then(() => {
+            history.goBack();
+        }).catch(err=>console.log(err))
         });
     } catch (err) {
       setError(err.message);
@@ -85,6 +45,10 @@ function Signin({ fire, history }) {
 
   return ( 
     <div className='login-form-container'>
+                      <div
+                        id='cover-spin'
+                        className={loading ? "d-block" : ""}
+                      ></div>
       <div className='login-register-form'>
         <form onSubmit={handleSubmit(onSubmit)}>
           {errors.email && (
@@ -147,19 +111,21 @@ function Signin({ fire, history }) {
             <div className='mb-2'>
               <button
                 type='button'
+                value='t'
                 className='btn-block'
-                onClick={handleGoogleSignin}
+                onClick={(e)=>handleSignin(e)}
               >
                 <span>
-                  <i className='fa fa-twitter'></i> TwItter Hesabınla Giriş Yap
+                  <i className='fa fa-twitter'></i> Twitter Hesabınla Giriş Yap
                 </span>
               </button>
             </div>
             <div className='mb-2'>
               <button
                 type='button'
+                value='g'
                 className='btn-block'
-                onClick={handleGoogleSignin}
+                onClick={(e)=>handleSignin(e)}
               >
                 <span>
                   <i className='fa fa-google'></i> Google Hesabınla Giriş Yap
@@ -169,8 +135,9 @@ function Signin({ fire, history }) {
             <div>
               <button
                 type='button'
+                value='f'
                 className='btn-block'
-                onClick={handleFacebookSignin}
+                onClick={(e)=>handleSignin(e)}
               >
                 <span>
                   <i className='fa fa-facebook'></i> Facebook Hesabınla Giriş

@@ -13,7 +13,6 @@ const GET_ORDERS_NOT_SHIPPED = gql`
         isShipped
         notes
         status
-        token
         updated_at
         user_id
         addresses {
@@ -61,7 +60,6 @@ const GET_ORDERS_NOT_SHIPPED = gql`
           mdStatus
           paidPrice
           paymentId
-          token
           updated_at
           itemTransactions {
             itemId

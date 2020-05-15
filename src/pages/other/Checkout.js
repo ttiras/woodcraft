@@ -6,9 +6,9 @@ import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import { useAuthState } from "../../auth/auth-context";
-import fire from "../../auth/firebase";
-import axios from "axios";
-import firebase from "firebase";
+
+import { anonymousLogin, socialLogin} from '../../helpers/social-auth'
+
 import { useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 
@@ -16,7 +16,6 @@ import "./Checkout.css";
 
 import InvoiceModal from "./InvoiceModal";
 import INSERT_ORDER from "../../graphql/InsertOrder";
-import UPDATE_ORDER from "../../graphql/UpdateOrder";
 
 const Checkout = ({ location, cartItems, currency }) => {
   const state = useAuthState();
@@ -26,7 +25,6 @@ const Checkout = ({ location, cartItems, currency }) => {
   const [error, setError] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
-  const [updateOrder] = useMutation(UPDATE_ORDER);
   const baskets = []
     cartItems.map(item=>{
         var i;
@@ -56,82 +54,6 @@ const Checkout = ({ location, cartItems, currency }) => {
 
   const { pathname } = location;
   let cartTotalPrice = 0;
-
-  const provider = new firebase.auth.GoogleAuthProvider();
-  const providerFb = new firebase.auth.FacebookAuthProvider();
-
-  const handleAnonymous = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    await fire
-      .auth()
-      .signInAnonymously()
-      .then(function (result) {
-        const user = result.user;
-        axios.post("http://localhost:8000/claims", { user }).then((res) => {
-          console.log(res);
-        }).catch((err)=>{
-          console.log(err)
-        });
-        setLoading(false);
-      });
-  };
-
-  const handleGoogleSignin = () => {
-    setLoading(true);
-    fire
-      .auth()
-      .signInWithPopup(provider)
-      .then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = result.credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(token, user);
-        axios.post(`${process.env.PUBLIC_URL}/claims`, { user }).then((res) => {
-          console.log(res);
-        });
-        setLoading(false);
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        setError(errorCode, errorMessage, email, credential);
-      });
-  };
-
-  const handleFacebookSignin = () => {
-    setLoading(true);
-    fire
-      .auth()
-      .signInWithPopup(providerFb)
-      .then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = result.credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(token, user);
-        axios.post(`${process.env.PUBLIC_URL}/claims`, { user }).then((res) => {
-          console.log(res.config.data.user);
-        });
-        setLoading(false);
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        setError(errorCode, errorMessage, email, credential);
-      });
-  };
 
   const handleModal = (e) => {
     e.preventDefault();
@@ -203,7 +125,7 @@ const Checkout = ({ location, cartItems, currency }) => {
               name: state.address.name,
               surname: state.address.surname,
               phone: state.address.phone,
-              role: state.user.email ? 'USER' : 'ANONYMOUS'
+              role: !state.user.isAnonymous ? 'USER' : 'ANONYMOUS'
             },
             on_conflict: {
               constraint: "users_pkey",
@@ -219,6 +141,20 @@ const Checkout = ({ location, cartItems, currency }) => {
       }
     );
   };
+
+  const handleSignin=async (e)=>{
+    setLoading(true);
+      if(e.target.value){
+        await socialLogin(e.target.value)
+        if(error)
+        setError(error)
+      }else{
+        await anonymousLogin()
+        if(error)
+        setError(error)
+      }
+    setLoading(false);
+  }
 
   return (
     <Fragment>
@@ -376,7 +312,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <div className='place-order mt-25 '>
                           <button
                             className='btn-hover'
-                            onClick={handleAnonymous}
+                            onClick={(e)=>handleSignin(e)}
                           >
                             ÜYE OLMADAN DEVAM ET
                           </button>
@@ -394,7 +330,11 @@ const Checkout = ({ location, cartItems, currency }) => {
 
                         <hr />
                         <div className='place-order mt-25'>
-                          <button className='btn-hover'>
+                          <button 
+                          className='btn-hover'
+                          value='t'
+                          onClick={(e)=>handleSignin(e)}
+                          >
                             {" "}
                             <i className='fa fa-twitter'></i> TwItter Hesabınla
                             Giriş Yap
@@ -403,7 +343,8 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <div className='place-order mt-25'>
                           <button
                             className='btn-hover'
-                            onClick={handleGoogleSignin}
+                            value='g'
+                            onClick={(e)=>handleSignin(e)}
                           >
                             <i className='fa fa-google'></i> Google Hesabınla
                             Giriş Yap
@@ -412,7 +353,8 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <div className='place-order mt-25'>
                           <button
                             className='btn-hover'
-                            onClick={handleFacebookSignin}
+                            value='f'
+                            onClick={(e)=>handleSignin(e)}
                           >
                             <i className='fa fa-facebook'></i> Facebook
                             Hesabınla Giriş Yap

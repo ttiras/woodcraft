@@ -1,38 +1,29 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
-import GET_ORDERS_NOT_SHIPPED from "../../graphql/GetOrders";
- 
-import "./Orders.css";
-import OrderShippingModal from "./OrderShippingModal";
-import OrderInvoiceModal from "./OrderInvoiceModal";
+import './UserOrders.css'
 
-export default function DailyOrders() {
-  const [shippingModalShow, setShippingModalShow] = useState(false);
-  const [invoiceModalShow, setInvoiceModalShow] = useState(false);
-  const [orderId, setOrderId] = useState(null)
-  const { loading, error, data } = useQuery(GET_ORDERS_NOT_SHIPPED);
-  if (error) console.log(error);
-  if (data) console.log(data);
+export default function ({orders}){
+    const [shippingModalShow, setShippingModalShow] = useState(false);
+    const [invoiceModalShow, setInvoiceModalShow] = useState(false);
 
-  const handleShippingModal = (e) => {
-    e.preventDefault();
-    setOrderId(e.target.value)
-    setShippingModalShow(true);
-  };
+    const handleShippingModal = (e) => {
+        e.preventDefault();
+        //setOrderId(e.target.value)
+        setShippingModalShow(true);
+      };
+    
+      const handleInvoiceModal = (e) => {
+        e.preventDefault();
+        //setOrderId(e.target.value)
+        setInvoiceModalShow(true);
+      };
 
-  const handleInvoiceModal = (e) => {
-    e.preventDefault();
-    setOrderId(e.target.value)
-    setInvoiceModalShow(true);
-  };
 
-  return (
-    <div className='shop-list-wrap mb-30'>
-      {data &&
-        data.orders &&
-        data.orders.map((order) => (
+    return (
+        <div className='shop-list-wrap mb-30'>
+      {orders &&
+        orders.map((order) => (
           <div className='row orders p-2' key={order.id}>
             <div className='col-xl-4 col-md-5 col-sm-6'>
               <div className='product-list-image-wrap d-flex overflow-auto'>
@@ -139,10 +130,7 @@ export default function DailyOrders() {
                 <div className='shop-list-actions d-flex align-items-center'>
                   <div className='shop-list-btn btn-hover'>
                     <button value={order.id} className='active order-btn' onClick={(e)=>handleShippingModal(e)}>
-                      Kargo Bilgileri Gir
-                    </button>
-                    <button value={order.id} className='active ml-3 order-btn' onClick={(e)=>handleInvoiceModal(e)}>
-                      Fatura Bilgileri Gİr
+                      {order.isShipped ? 'Sorun Bildir' : 'İptal Et'}
                     </button>
                   </div>
                 </div>
@@ -150,14 +138,7 @@ export default function DailyOrders() {
             </div>
           </div>
         ))}
-        <OrderShippingModal 
-        show={shippingModalShow}
-        onHide={() => setShippingModalShow(false)}
-        orderId={orderId}
-        />
-        <OrderInvoiceModal
-        show={invoiceModalShow}
-        onHide={() => setInvoiceModalShow(false)}/>
+       
     </div>
-  );
+    )
 }
