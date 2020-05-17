@@ -59,7 +59,7 @@ const IconGroup = ({
           <ul>
             <li onClick={handleLogout}>
               <Link to={''}>
-                Logout
+                Çıkış
               </Link>
               
             </li>
@@ -71,11 +71,11 @@ const IconGroup = ({
           </ul> :
           <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
+            <Link to={process.env.PUBLIC_URL + "/login-register"}>Giriş</Link>
           </li>
           <li>
             <Link to={process.env.PUBLIC_URL + "/login-register"}>
-              Register
+              Kayıt
             </Link>
           </li>
         </ul>

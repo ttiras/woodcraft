@@ -5,7 +5,6 @@ import './UserOrders.css'
 
 export default function ({orders}){
     const [shippingModalShow, setShippingModalShow] = useState(false);
-    const [invoiceModalShow, setInvoiceModalShow] = useState(false);
 
     const handleShippingModal = (e) => {
         e.preventDefault();
@@ -13,12 +12,6 @@ export default function ({orders}){
         setShippingModalShow(true);
       };
     
-      const handleInvoiceModal = (e) => {
-        e.preventDefault();
-        //setOrderId(e.target.value)
-        setInvoiceModalShow(true);
-      };
-
 
     return (
         <div className='shop-list-wrap mb-30'>
@@ -80,7 +73,7 @@ export default function ({orders}){
                       </div>
                       <div>
                         <span>
-                          {" " +
+                          {address.name&& address.surname&& " " +
                             address.name.toUpperCase() +
                             " " +
                             address.surname.toUpperCase() +

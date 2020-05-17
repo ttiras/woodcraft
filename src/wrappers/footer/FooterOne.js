@@ -94,8 +94,8 @@ const FooterOne = ({
             <div
               className={`${
                 sideMenu
-                  ? "footer-widget mb-30 ml-95"
-                  : "footer-widget mb-30 ml-50"
+                  ? "footer-widget mb-30 ml-75"
+                  : "footer-widget mb-30 ml-30"
               }`}
             >
               <div className="footer-title">
@@ -104,18 +104,21 @@ const FooterOne = ({
               <div className="footer-list">
                 <ul>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>İade ve Değişim</Link>
+                    <Link to={process.env.PUBLIC_URL + "/kosullar"}>Kullanım Koşulları</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
+                    <Link to={process.env.PUBLIC_URL + "/gizlilik"}>
                       Gizlilik İlkeleri
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Güvenlik</Link>
+                    <Link to={process.env.PUBLIC_URL + "/guvenlik"}>Güvenlik</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Sıkça Sorulan Sorular</Link>
+                    <Link to={process.env.PUBLIC_URL + "/cerezler"}>Çerez Politikası</Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/kvkk"}>Kişisel Verilerin Korunması Kanunu</Link>
                   </li>
                 </ul>
               </div>
@@ -128,8 +131,8 @@ const FooterOne = ({
           >
             <div className={`${
                 sideMenu
-                  ? "footer-widget mb-30 ml-145"
-                  : "footer-widget mb-30 ml-75"
+                  ? "footer-widget mb-30 ml-115"
+                  : "footer-widget mb-30 ml-55"
               }`}>
               <div className="footer-title">
                 <h3>TAKİP ET</h3>

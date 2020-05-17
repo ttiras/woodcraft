@@ -84,6 +84,12 @@ const Compare = lazy(() => import("./pages/other/Compare"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
 const Orders = lazy(() => import("./pages/managerZone/Orders"));
 
+const Guvenlik = lazy(() => import("./pages/documents/Guvenlik"));
+const Gizlilik = lazy(() => import("./pages/documents/Gizlilik"));
+const Kullanim = lazy(() => import("./pages/documents/Kullanim"));
+const Cerezler = lazy(() => import("./pages/documents/Cerezler"));
+const Kvkk = lazy(() => import("./pages/documents/Kvkk"));
+
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
 function Routers() {
@@ -335,6 +341,31 @@ function Routers() {
             <Route
               path={process.env.PUBLIC_URL + "/success/order/:id"}
               component={PaymentSuccess}
+            />
+
+              <Route
+              path={process.env.PUBLIC_URL + "/guvenlik"}
+              component={Guvenlik}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/gizlilik"}
+              component={Gizlilik}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/kosullar"}
+              component={Kullanim}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/cerezler"}
+              component={Cerezler}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/kvkk"}
+              component={Kvkk}
             />
 
             <Route

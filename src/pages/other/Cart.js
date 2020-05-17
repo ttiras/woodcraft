@@ -18,7 +18,6 @@ import './Checkout.css'
 const Cart = ({
   location,
   cartItems,
-  currency,
   decreaseQuantity,
   addToCart,
   deleteFromCart,
@@ -87,10 +86,10 @@ const Cart = ({
                               cartItem.discount
                             );
                             const finalProductPrice = (
-                              cartItem.price * currency.currencyRate
+                              cartItem.price
                             ).toFixed(2);
                             const finalDiscountedPrice = (
-                              discountedPrice * currency.currencyRate
+                              discountedPrice
                             ).toFixed(2);
 
                             discountedPrice != null
@@ -148,21 +147,15 @@ const Cart = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className='amount old'>
-                                        {currency.currencySymbol +
-                                          " " +
-                                          finalProductPrice}
+                                        {finalProductPrice+ " TL" }
                                       </span>
                                       <span className='amount'>
-                                        {currency.currencySymbol +
-                                          " " +
-                                          finalDiscountedPrice}
+                                        {finalDiscountedPrice+ " TL" }
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className='amount'>
-                                      {currency.currencySymbol +
-                                        " " +
-                                        finalProductPrice}
+                                      {finalProductPrice+ " TL" }
                                     </span>
                                   )}
                                 </td>
@@ -209,16 +202,13 @@ const Cart = ({
                                 </td>
                                 <td className='product-subtotal'>
                                   {discountedPrice !== null
-                                    ? currency.currencySymbol +
-                                      " " +
+                                    ? 
                                       (
                                         finalDiscountedPrice * cartItem.quantity
-                                      ).toFixed(2)
-                                    : currency.currencySymbol +
-                                      " " +
-                                      (
+                                      ).toFixed(2)+ " TL" 
+                                    : (
                                         finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)}
+                                      ).toFixed(2)+ " TL" }
                                 </td>
 
                                 <td className='product-remove'>
@@ -300,18 +290,14 @@ const Cart = ({
                       <h5>
                         Ürünler Toplamı (KDV Dahil){" "}
                         <span>
-                          {currency.currencySymbol +
-                            " " +
-                            cartTotalPrice.toFixed(2)}
+                          {cartTotalPrice.toFixed(2)+ " TL" }
                         </span>
                       </h5>
 
                       <h4 className='grand-totall-title'>
                         Ödenecek Tutar{" "}
                         <span>
-                          {currency.currencySymbol +
-                            " " +
-                            cartTotalPrice.toFixed(2)}
+                          {cartTotalPrice.toFixed(2)+ " TL" }
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>
@@ -348,7 +334,6 @@ const Cart = ({
 Cart.propTypes = {
   addToCart: PropTypes.func,
   cartItems: PropTypes.array,
-  currency: PropTypes.object,
   decreaseQuantity: PropTypes.func,
   location: PropTypes.object,
   deleteAllFromCart: PropTypes.func,
@@ -357,8 +342,7 @@ Cart.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    cartItems: state.cartData,
-    currency: state.currencyData,
+    cartItems: state.cartData
   };
 };
 

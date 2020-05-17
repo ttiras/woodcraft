@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import { Modal } from "react-bootstrap";
 
 import { useQuery } from "@apollo/react-hooks";

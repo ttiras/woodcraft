@@ -59,13 +59,14 @@ const MyAccount = ({ location }) => {
                       <Card.Header className='panel-heading'>
                         <Accordion.Toggle variant='link' eventKey='0'>
                           <h3 className='panel-title'>
-                            <span>1 .</span> Sparişlerim {" "}
+                            <span>1 .</span> Siparişlerim {" "}
                           </h3>
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
                         <Card.Body>
                           {error&& 'Siparişlere ulaşamadık. Sunucu ya da bağlantı hatası olmuş olabilir, daha sonra tekrar deneyin.'}
+                          {loading&& "Siparişler yükleniyor..."}
                           {data&& <UserOrders orders={data.orders}/>}
                         </Card.Body>
                       </Accordion.Collapse>

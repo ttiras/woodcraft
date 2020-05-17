@@ -161,7 +161,7 @@ const Cart = ({ location, currency }) => {
                               : "Teslimat Adresi"}
                           </h4>
                         </div>
-                        <h5>{address.name.toUpperCase()} {" "} {address.surname.toUpperCase()} </h5>
+                        <h5>{address.name&& address.name.toUpperCase()} {" "} {address.surname&& address.surname.toUpperCase()} </h5>
                         <h5> {address.street}</h5>
 
                         <h4 className='grand-totall-title'>

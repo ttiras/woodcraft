@@ -5,9 +5,7 @@ export default function EditAddresses ({addresses}){
 
     return(
         <div className='myaccount-info-wrapper'>
-                            <div className='account-info-wrapper'>
-                              <h4>Adresler</h4>
-                            </div>
+                            
                             <div className='entries-wrapper'>
                               {addresses && addresses.map(address=>(
                                   <div className='row' key='address.id'>
@@ -29,11 +27,7 @@ export default function EditAddresses ({addresses}){
                               )
                               }
                             </div>
-                            <div className='billing-back-btn'>
-                              <div className='billing-btn'>
-                                <button type='submit'>Continue</button>
-                              </div>
-                            </div>
+                            
                           </div>
     )
 }

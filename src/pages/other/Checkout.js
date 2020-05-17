@@ -16,14 +16,18 @@ import "./Checkout.css";
 
 import InvoiceModal from "./InvoiceModal";
 import INSERT_ORDER from "../../graphql/InsertOrder";
-
-const Checkout = ({ location, cartItems, currency }) => {
+import ContractModal from "./ContractModal";
+import DistanceModal from "./DistanceModal";
+const Checkout = ({ location, cartItems }) => {
   const state = useAuthState();
   const [loading, setLoading] = useState(false);
   const [addressType, setAddressType] = useState("shipping");
   const [invoiceAddressChecked, setInvoiceAddressChecked] = useState(false);
+  const [contractSigned, setContractSigned] = useState(false);
   const [error, setError] = useState(null);
   const [modalShow, setModalShow] = useState(false);
+  const [contractModalShow, setContractModalShow] = useState(false);
+  const [distanceModalShow, setDistanceModalShow] = useState(false);
   const history = useHistory();
   const baskets = []
     cartItems.map(item=>{
@@ -36,7 +40,7 @@ const Checkout = ({ location, cartItems, currency }) => {
     INSERT_ORDER,
     {
       onCompleted(ordersData) {
-        window.open(ordersData.OrderAction.paymentPageUrl)
+        window.open(ordersData.OrderAction.paymentPageUrl, '_self')
       },
     }
   ); 
@@ -384,10 +388,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                                 cartItem.discount
                               );
                               const finalProductPrice = (
-                                cartItem.price * currency.currencyRate
+                                cartItem.price
                               ).toFixed(2);
                               const finalDiscountedPrice = (
-                                discountedPrice * currency.currencyRate
+                                discountedPrice
                               ).toFixed(2);
 
                               discountedPrice != null
@@ -401,18 +405,17 @@ const Checkout = ({ location, cartItems, currency }) => {
                                     {cartItem.name} X {cartItem.quantity}
                                   </span>{" "}
                                   <span className='order-price'>
-                                    {discountedPrice !== null
-                                      ? currency.currencySymbol +
-                                        " " +
+                                    <strong>{discountedPrice !== null
+                                      ? 
                                         (
                                           finalDiscountedPrice *
                                           cartItem.quantity
-                                        ).toFixed(2)
-                                      : currency.currencySymbol +
-                                        " " +
+                                        ).toFixed(2) + " TL" 
+                                        
+                                      : 
                                         (
                                           finalProductPrice * cartItem.quantity
-                                        ).toFixed(2)}
+                                        ).toFixed(2) + " TL" }</strong>
                                   </span>
                                 </li>
                               );
@@ -429,21 +432,31 @@ const Checkout = ({ location, cartItems, currency }) => {
                           <ul>
                             <li className='order-total'>Toplam</li>
                             <li>
-                              {currency.currencySymbol +
-                                " " +
-                                cartTotalPrice.toFixed(2)}
+                              <strong>{cartTotalPrice.toFixed(2)+ " TL" }</strong>
                             </li>
                           </ul>
                         </div>
                       </div>
-                      <div className='payment-method'></div>
                     </div>
-                    <div className='place-order mt-25'>
+                    <div className='mt-3 d-flex'>
+                    <input
+                          className='checkbox'
+                          checked={contractSigned}
+                          onChange={() =>
+                            setContractSigned(!contractSigned)
+                          }
+                          type='checkbox'
+                        />
+                    <a><u onClick={()=>setContractModalShow(true)}>Ön Bİlgilendirme Koşulları</u>'nı ve <u onClick={()=>setDistanceModalShow(true)}>{" "} Uzaktan Satış Sözleşmesi</u>'ni okudum ve kabul ediyorum</a>
+                      </div>
+                    
+                    <div className='place-order mt-2'>
                       <button
                         type='submit'
-                        className= { !state.address ? 'btn-hover noButton':'btn-hover'}
+                        className= { !state.address || !contractSigned ? 'btn-hover noButton':'btn-hover'}
                         onClick={handleOrder}
-                        disabled={!state.address}
+                        disabled={!state.address || !contractSigned}
+                        data-toggle="tooltip" data-placement="bottom" title={!state.address ? "Adres bilgilerini giriniz." : !contractSigned ? "Ön bilgilerndirme koşullarını ve mesafeli satış sözleşmesini onaylayınız." : null}
                       >
                         Ödemeye Git(IYZICO Güvencesiyle)
                       </button>
@@ -477,20 +490,30 @@ const Checkout = ({ location, cartItems, currency }) => {
         onHide={() => setModalShow(false)}
         addressType={addressType}
       />
+      <ContractModal
+        show={contractModalShow}
+        onHide={() => setContractModalShow(false)}
+        cartItems={cartItems}
+      />
+      <DistanceModal
+        show={distanceModalShow}
+        onHide={() => setDistanceModalShow(false)}
+        cartItems={cartItems}
+        address={state.address}
+      />
+      
     </Fragment>
   );
 };
 
 Checkout.propTypes = {
   cartItems: PropTypes.array,
-  currency: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 };
 
 const mapStateToProps = (state) => {
   return {
-    cartItems: state.cartData,
-    currency: state.currencyData,
+    cartItems: state.cartData
   };
 };
 
