@@ -3,7 +3,7 @@ import React from "react";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 
-const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
+const ProductDescriptionTab = ({ spaceBottomClass, product }) => {
   return (
     <div className={`description-review-area ${spaceBottomClass}`}>
       <div className="container">
@@ -16,7 +16,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="productDescription">Özellikler</Nav.Link>
+                <Nav.Link eventKey="productDescription">Uyarılar</Nav.Link>
               </Nav.Item>
               
             </Nav>
@@ -25,23 +25,31 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                 <div className="product-anotherinfo-wrapper">
                   <ul>
                     <li>
-                      <span>Weight</span> 400 g
+                      <span>Zemin Rengi</span>{product.base_color}
                     </li>
                     <li>
-                      <span>Dimensions</span>10 x 10 x 15 cm{" "}
+                      <span>Ölçüler</span>{product.dimensions}
                     </li>
                     <li>
-                      <span>Materials</span> 60% cotton, 40% polyester
-                    </li>
-                    <li>
-                      <span>Other Info</span> American heirloom jean shorts pug
-                      seitan letterpress
+                      <span>Ağırlık</span>{product.weight}
                     </li>
                   </ul>
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="productDescription">
-                {productFullDesc}
+                
+
+                
+                <ul className='w-50'>
+                  <li className="list-group-item list-group-item-danger">
+                  Su ile direkt temas ettirmeyiniz.
+                  </li>
+                  <li className="list-group-item list-group-item-danger">
+                  Bulaşık makinesi kullanımına uygun değildir.
+                  </li>
+                  <li className="list-group-item list-group-item-danger">Nemli bez ile silerek temizleyiniz.</li>
+                  <li className="list-group-item list-group-item-danger">Uzun süre güneşte bırakmayınız. </li>
+                </ul>
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>

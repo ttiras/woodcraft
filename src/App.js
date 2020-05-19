@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { multilanguage, loadLanguages } from "redux-multilanguage";
 
@@ -32,13 +32,15 @@ import { split } from "apollo-link";
 import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
-import { useState } from "react";
+import { onError } from "apollo-link-error";
+
 import SINGLE_USER from "./graphql/GetUser";
 
 const App = props => {
   const state = useAuthState()
   const dispatch = useAuthDispatch();
   const [token, setToken] = useState(null)
+  
 
   useEffect(() => {
     store.dispatch(
@@ -120,6 +122,41 @@ const App = props => {
     uri: httpurl,
   });
 
+  const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
+    if (graphQLErrors) {
+      for (let err of graphQLErrors) {
+        switch (err.extensions.code) {
+          case "invalid-jwt":
+            // refetch the jwt
+            const oldHeaders = operation.getContext().headers;
+            state.user.getIdTokenResult(true).then((result) => {
+              operation.setContext({
+                headers: {
+                  ...oldHeaders,
+                  authorization: `Bearer ${result.token}`
+                }
+              });        
+            });
+            
+            // retry the request, returning the new observable
+            return forward(operation);
+            break;
+          default:
+            // default case
+            console.log(err.extensions.code);           
+        }
+      }
+    }
+    if (networkError) {
+      console.log(`[Network error]: ${networkError}`);
+      window.open("/networkerror", '_self');
+      // if you would also like to retry automatically on
+      // network errors, we recommend that you use
+      // apollo-link-retry
+    }
+  }
+);
+
   const link = split(
     // split based on operation type
     ({ query }) => {
@@ -131,7 +168,7 @@ const App = props => {
   );
 
   const client = new ApolloClient({
-    link,
+    link: errorLink.concat(authLink.concat(httpLink)),
     credentials: "include",
     cache: new InMemoryCache(),
   });

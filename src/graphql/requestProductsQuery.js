@@ -5,6 +5,9 @@ const queryProducts = `{
       new
       price
       id
+      base_color
+      weight
+      dimensions
       name
       rating
       saleCount

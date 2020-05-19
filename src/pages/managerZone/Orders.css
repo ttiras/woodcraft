@@ -44,3 +44,7 @@
 .redPaid{
     color: red;
 }
+
+.w-90 {
+    max-width: 99%;
+}

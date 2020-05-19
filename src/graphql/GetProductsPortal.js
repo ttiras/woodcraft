@@ -1,16 +1,13 @@
 import gql from "graphql-tag";
 
-const GET_PRODUCTS = gql`
+const GET_PRODUCTS_PORTAL = gql`
   query MyQuery {
-    products { 
+    products(order_by: {created_at: asc}) { 
       discount
       fullDescription
       new
       price
       id
-      wieght
-      base_color
-      dimensions
       name
       rating
       saleCount
@@ -37,4 +34,4 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-export default GET_PRODUCTS
+export default GET_PRODUCTS_PORTAL

@@ -30,11 +30,13 @@ export default function DailyOrders() {
 
   return (
     <div className='shop-list-wrap mb-30'>
+      <h3 className='cart-page-title ml-5'><u>Tüm Siparişler</u></h3>
       {data &&
         data.orders &&
         data.orders.map((order) => (
           <div className='row orders p-2' key={order.id}>
             <div className='col-xl-4 col-md-5 col-sm-6'>
+              <span className='ml-3'><strong>{order.order_items.length}{" ADET ÜRÜN"}</strong> </span>
               <div className='product-list-image-wrap d-flex overflow-auto'>
                 {order.order_items.map((item) => (
                   <div className='container' key={item.product.id}>
@@ -71,7 +73,7 @@ export default function DailyOrders() {
                   <span>{order.amount} TL </span>
                 </div>
                 <div className='rating-review d-block'>
-                  {order.addresses.map((address) => (
+                  {order.addresses&& order.addresses.map((address) => (
                     <div
                       className='product-list-rating d-flex border-bottom mb-2'
                       key={address.id}
@@ -89,14 +91,14 @@ export default function DailyOrders() {
                       </div>
                       <div>
                         <span>
-                          {" " +
+                          {address.name && " " +
                             address.name.toUpperCase() +
                             " " +
                             address.surname.toUpperCase() +
                             " "}
                         </span>
                         <span>
-                          {" " +
+                          {address&& " " +
                             address.street +
                             " " +
                             address.town.toUpperCase() +

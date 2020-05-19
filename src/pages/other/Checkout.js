@@ -458,7 +458,9 @@ const Checkout = ({ location, cartItems }) => {
                         disabled={!state.address || !contractSigned}
                         data-toggle="tooltip" data-placement="bottom" title={!state.address ? "Adres bilgilerini giriniz." : !contractSigned ? "Ön bilgilerndirme koşullarını ve mesafeli satış sözleşmesini onaylayınız." : null}
                       >
-                        Ödemeye Git(IYZICO Güvencesiyle)
+                        {ordersLoading ?   <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ : 'Ödemeye Git(IYZICO Güvencesiyle)'}
+                        
                       </button>
                     </div>
                     {ordersError&& <span>Bir hata oluştu, lütfen tekrar deneyin.</span>}

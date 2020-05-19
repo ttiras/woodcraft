@@ -83,12 +83,16 @@ const Wishlist = lazy(() => import("./pages/other/Wishlist"));
 const Compare = lazy(() => import("./pages/other/Compare"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
 const Orders = lazy(() => import("./pages/managerZone/Orders"));
+const ProductManage = lazy(() => import("./pages/managerZone/ProductManage"));
 
 const Guvenlik = lazy(() => import("./pages/documents/Guvenlik"));
 const Gizlilik = lazy(() => import("./pages/documents/Gizlilik"));
 const Kullanim = lazy(() => import("./pages/documents/Kullanim"));
 const Cerezler = lazy(() => import("./pages/documents/Cerezler"));
 const Kvkk = lazy(() => import("./pages/documents/Kvkk"));
+
+const NetworkError = lazy(() => import("./pages/other/NetworkError"));
+const SomethingWentWrong = lazy(() => import("./pages/other/SomethingWentWrong"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
@@ -368,9 +372,24 @@ function Routers() {
               component={Kvkk}
             />
 
+<Route
+              path={process.env.PUBLIC_URL + "/somethingwentwrong"}
+              component={SomethingWentWrong}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/networkerror"}
+              component={NetworkError}
+            />
+
             <Route
               path={process.env.PUBLIC_URL + "/not-found"}
               component={NotFound}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/productmanage"}
+              component={ProductManage}
             />
 
             <Route exact component={NotFound} />
