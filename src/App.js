@@ -143,7 +143,7 @@ const App = props => {
             break;
           default:
             // default case
-            console.log(err.extensions.code);           
+            console.log(err);           
         }
       }
     }

@@ -18,7 +18,7 @@ const TabProduct = ({
       } ${bgColorClass ? bgColorClass : ""}`}
     >
       <div className="container">
-        <SectionTitle titleText="VİTRİN!" positionClass="text-center" />
+        <SectionTitle titleText="VİTRİN" positionClass="text-center" />
         <Tab.Container defaultActiveKey="bestSeller">
           <Nav
             variant="pills"

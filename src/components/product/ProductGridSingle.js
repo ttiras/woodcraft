@@ -5,8 +5,6 @@ import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
- 
-import './ProductGridSingle.css'
 
 const ProductGridSingle = ({
   product,
@@ -32,7 +30,8 @@ const ProductGridSingle = ({
   return (
     <Fragment>
       <div
-        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 relateds ${
+        style={{width: '300px'}}
+        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${
           sliderClassName ? sliderClassName : ""
         }`}
       >

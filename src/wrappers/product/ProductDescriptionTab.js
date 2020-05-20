@@ -40,7 +40,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, product }) => {
                 
 
                 
-                <ul className='w-50'>
+                <ul>
                   <li className="list-group-item list-group-item-danger">
                   Su ile direkt temas ettirmeyiniz.
                   </li>

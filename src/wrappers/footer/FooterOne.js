@@ -131,8 +131,8 @@ const FooterOne = ({
           >
             <div className={`${
                 sideMenu
-                  ? "footer-widget mb-30 ml-115"
-                  : "footer-widget mb-30 ml-55"
+                  ? "footer-widget mb-30 ml-145"
+                  : "footer-widget mb-30 ml-75"
               }`}>
               <div className="footer-title">
                 <h3>TAKİP ET</h3>
