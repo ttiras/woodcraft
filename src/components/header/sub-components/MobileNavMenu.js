@@ -5,7 +5,7 @@ import { multilanguage } from "redux-multilanguage";
 
 const MobileNavMenu = ({ strings }) => {
   return (
-    <nav>
+    <nav className="offcanvas-navigation" id="offcanvas-navigation">
         <ul>
           <li>
             <Link to={process.env.PUBLIC_URL + "/"}>
