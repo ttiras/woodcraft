@@ -6,7 +6,6 @@ import MenuCart from "./sub-components/MenuCart";
 import { deleteFromCart } from "../../redux/actions/cartActions";
 import { useAuthState } from "../../auth/auth-context";
 import fire from "../../auth/firebase";
-import { useHistory } from "react-router-dom";
 
 import "./IconGroup.css";
 
@@ -19,7 +18,7 @@ const IconGroup = ({
   iconWhiteClass,
 }) => {
   const state = useAuthState();
-  const history = useHistory();
+  
   const handleClick = (e) => {
     e.currentTarget.nextSibling.classList.toggle("active");
   };
@@ -62,7 +61,7 @@ const IconGroup = ({
               </li>
               <li>
                 <Link to={process.env.PUBLIC_URL + "/my-account"}>
-                  my account
+                  Hesabım
                 </Link>
               </li>
               {state.role === "MANAGER" && (

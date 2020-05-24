@@ -21,7 +21,13 @@
 .order-btn {
       
       background-color: lightgrey!important;
+      color: black!important;
      }
+
+     .order-btn:hover {
+      
+        color: white!important;
+       }
 
 /* Container holding the image and the text */
 .container {
@@ -47,4 +53,9 @@
 
 .w-90 {
     max-width: 99%;
+}
+
+.newProduct{
+    background-color: cornflowerblue!important;
+    color: white!important;
 }

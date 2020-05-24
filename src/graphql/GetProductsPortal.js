@@ -2,12 +2,15 @@ import gql from "graphql-tag";
 
 const GET_PRODUCTS_PORTAL = gql`
   query MyQuery {
-    products(order_by: {created_at: asc}) { 
+    products(order_by: {created_at: desc}) { 
       discount
       fullDescription
       new
       price
       id
+      base_color
+      dimensions
+      weight
       name
       rating
       saleCount

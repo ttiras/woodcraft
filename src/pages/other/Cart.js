@@ -228,24 +228,6 @@ const Cart = ({
                     </div>
                   </div>
                 </div>
-                <div className='row'>
-                  <div className='col-lg-12'>
-                    <div className='cart-shiping-update-wrapper'>
-                      <div className='cart-shiping-update'>
-                        <Link
-                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-                        >
-                          Alışverişe Devam Et
-                        </Link>
-                      </div>
-                      <div className='cart-clear'>
-                        <button onClick={() => deleteAllFromCart(addToast)}>
-                          Sepeti Boşalt
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 <div className='row'>
                   <div className='col-lg-8 col-md-12'>
@@ -303,6 +285,24 @@ const Cart = ({
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>
                         Siparişi Tamamla
                       </Link>
+                    </div>
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='col-lg-12'>
+                    <div className='cart-shiping-update-wrapper'>
+                      <div className='cart-shiping-update'>
+                        <Link
+                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
+                        >
+                          Alışverişe Devam Et
+                        </Link>
+                      </div>
+                      <div className='cart-clear'>
+                        <button onClick={() => deleteAllFromCart(addToast)}>
+                          Sepeti Boşalt
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

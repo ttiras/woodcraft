@@ -110,3 +110,8 @@ select:-webkit-autofill:focus {
 button span {
     pointer-events: none;
   }
+
+  .uploaded{
+      width: 100px!important;
+      height: auto!important;
+  }

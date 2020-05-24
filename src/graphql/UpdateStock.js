@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-const UPDATE_PRODUCTS = gql`mutation updateStock ($id: uuid!, $stock: Int!) {
+const UPDATE_STOCK = gql`mutation updateStock ($id: uuid!, $stock: Int!) {
     update_products(
       where: {id: {_eq: $id}},
       _inc: {stock: $stock}
@@ -9,4 +9,4 @@ const UPDATE_PRODUCTS = gql`mutation updateStock ($id: uuid!, $stock: Int!) {
     }
   }`
 
-  export default UPDATE_PRODUCTS
+  export default UPDATE_STOCK
