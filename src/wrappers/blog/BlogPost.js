@@ -1,51 +1,50 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthState } from "../../auth/auth-context"
+import BlogModal from "./BlogModal";
 
-const BlogPost = () => {
+
+const BlogPost = (props) => {
+  const state = useAuthState()
+  const [blogModalShow, setBlogModalShow] = useState(false);
+  const [modalMode, setModalMode] = useState(null)
+
+  const { blog } = props
+  const { refetch } = props
+
+  const handleBlogModal=(e)=>{
+    e.preventDefault()
+    setModalMode(e.target.value)
+    setBlogModalShow(true)
+  }
+
+
   return (
     <Fragment>
       <div className="blog-details-top">
         <div className="blog-details-img">
           <img
             alt=""
-            src={process.env.PUBLIC_URL + "/assets/img/blog/blog-5.jpg"}
+            src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
           />
         </div>
         <div className="blog-details-content">
           <div className="blog-meta-2">
             <ul>
-              <li>22 April, 2018</li>
+  <li>{new Date(blog.created_at).toLocaleString("en-Gb")}</li>
               <li>
-                <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  4 <i className="fa fa-comments-o" />
-                </Link>
               </li>
             </ul>
           </div>
-          <h3>14 Emerging Fashion Influencers Who Are Going to Own 2018</h3>
+  <h3>{blog.title}</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprhendit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qei
-            officia deser mollit anim id est laborum. Sed ut perspiciatis unde
-            omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam.{" "}
+  {blog.p1}{" "}
           </p>
           <blockquote>
-            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do
-            eiusmod tempor incididunt labo dolor magna aliqua. Ut enim ad minim
-            veniam quis nostrud.
+            {blog.quote}
           </blockquote>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehendrit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            {blog.p2}
           </p>
         </div>
       </div>
@@ -55,9 +54,7 @@ const BlogPost = () => {
             <div className="dec-img mb-50">
               <img
                 alt=""
-                src={
-                  process.env.PUBLIC_URL + "/assets/img/blog/blog-details.jpg"
-                }
+                src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img2}`}
               />
             </div>
           </div>
@@ -65,39 +62,21 @@ const BlogPost = () => {
             <div className="dec-img mb-50">
               <img
                 alt=""
-                src={
-                  process.env.PUBLIC_URL + "/assets/img/blog/blog-details-2.jpg"
-                }
+                src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img3}`}
               />
             </div>
           </div>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehendrit
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          {blog.p3}
         </p>
       </div>
       <div className="tag-share">
         <div className="dec-tag">
           <ul>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                stil ,
-              </Link>
-            </li>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                yaşam ,
-              </Link>
-            </li>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                ev
-              </Link>
-            </li>
+           {blog.blog_categories.map(cat=>(
+            <li key={cat.bcat.id} >{cat.bcat.bcat}</li> 
+           ))}
           </ul>
         </div>
         <div className="blog-share">
@@ -122,6 +101,8 @@ const BlogPost = () => {
             </ul>
           </div>
         </div>
+        {state.role === "MANAGER" && <button key={blog.id} value={'edit'} className='btn btn-danger' onClick={(e)=>handleBlogModal(e)}>Düzenle</button>}
+
       </div>
       <div className="next-previous-post">
         <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
@@ -132,6 +113,13 @@ const BlogPost = () => {
           sonraki <i className="fa fa-angle-right" />
         </Link>
       </div>
+      <BlogModal
+          show={blogModalShow}
+          onHide={() => setBlogModalShow(false)}
+          blog={blog}
+          modalMode={modalMode}
+          refetch={refetch}
+          />
     </Fragment>
   );
 };

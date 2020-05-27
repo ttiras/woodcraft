@@ -5,12 +5,18 @@ import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import BlogSidebar from "../../wrappers/blog/BlogSidebar";
-import BlogComment from "../../wrappers/blog/BlogComment";
 import BlogPost from "../../wrappers/blog/BlogPost";
+import { useQuery } from "@apollo/react-hooks";
+import GET_SINGLE_BLOG from '../../graphql/GetSingleBlog'
 
-const BlogDetailsStandard = ({ location }) => {
-  const { pathname } = location;
 
+const BlogDetailsStandard = (props) => {
+  const { pathname } = props.location;
+  const { match } = props
+  const { loading, error, data, refetch } = useQuery(GET_SINGLE_BLOG, {
+    variables: { id: match.params.id },
+  });
+  if(error)console.log(error)
   return (
     <Fragment>
       <MetaTags>
@@ -35,10 +41,7 @@ const BlogDetailsStandard = ({ location }) => {
               <div className='col-lg-9'>
                 <div className='blog-details-wrapper ml-20'>
                   {/* blog post */}
-                  <BlogPost />
-
-                  {/* blog post comment */}
-                  <BlogComment />
+                  {data && <BlogPost blog={data.blogs[0]} refetch={refetch}/>}
                 </div>
               </div>
               <div className='col-lg-3'>

@@ -299,7 +299,7 @@ function Routers() {
               component={BlogRightSidebar}
             />
             <Route
-              path={process.env.PUBLIC_URL + "/blog-details-standard"}
+              path={process.env.PUBLIC_URL + "/blog/:id"}
               component={BlogDetailsStandard}
             />
 

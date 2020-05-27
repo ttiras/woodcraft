@@ -9,7 +9,6 @@ import BlogPostsNoSidebar from "../../wrappers/blog/BlogPostsNoSidebar";
 
 const BlogNoSidebar = ({ location }) => {
   const { pathname } = location;
-
   return (
     <Fragment>
       <MetaTags>

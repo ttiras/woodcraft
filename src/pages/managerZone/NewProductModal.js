@@ -293,6 +293,7 @@ function NewProductModal(props) {
                     })}
                     name='category_id'
                   >
+                    <option className='text-hide'>Seçiniz</option>
                     {queryData && queryData.categories.map(category=>{
                        return (
                         <option value={category.category_id} key={category.category_id}>
@@ -300,7 +301,6 @@ function NewProductModal(props) {
                         </option>
                       );
                     })}
-                    <option className='text-hide'>Seçiniz</option>
                   </select>
                   {errors.category_id && (
                     <div className='alert alert-danger small' role='alert'>
