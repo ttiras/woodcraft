@@ -27,7 +27,7 @@ const HeaderTop = ({
       <div className="header-offer">
         <p>
         <span>
-            {(200 * currency.currencyRate).toFixed(2) + currency.currencySymbol}
+            {150 +  ' ' +currency.currencySymbol + ' ' }
           </span>
           Üzeri alışverişlerde ücretsiz kargo{" "}          
         </p>

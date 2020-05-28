@@ -6,7 +6,6 @@ import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
 import BannerNine from "../../wrappers/banner/BannerNine";
-import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 import TabProduct from "../../wrappers/product/TabProduct";
 import ImageSliderOne from "../../wrappers/image-slider/ImageSliderOne";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -25,8 +24,6 @@ const HomeFashionFour = () => {
         {/* hero slider */}
         <HeroSliderTwelve />
         {/* product grid */}
-        {/* section title with text */}
-        <SectionTitleWithText spaceBottomClass='pb-90' />
 
         {/* tab product */}
         <TabProduct spaceBottomClass='pb-60' category='furniture' />

@@ -29,6 +29,8 @@ const Cart = ({ location, currency }) => {
     localStorage.clear("cartData", "notes", "isGift");
   },[])
 
+  const cargo = data && data.orders[0].order_payment.itemTransactions.filter(item => item.itemId === "009d7bdb-c14f-497d-9661-93a49b24585f")
+  console.log(cargo)
   return (
     <Fragment>
       <MetaTags>
@@ -202,13 +204,16 @@ const Cart = ({ location, currency }) => {
                     <h5>
                       KDV <span>Dahil</span>
                     </h5>
+                    {data &&<h5>
+                        Kargo <span>{cargo.length ? '10 TL' : 'Ücretsiz'}</span>
+                    </h5>}
 
                     <h4 className='grand-totall-title'>
                       Toplam Ödenen{" "}
-                      <span>
-                        {data &&
-                          data.orders[0].amount + " " +currency.currencySymbol}
-                      </span>
+                      {data &&<span>
+                         {cargo.length ? 
+                          (data.orders[0].amount + 10) + " " +currency.currencySymbol : data.orders[0].amount + " " +currency.currencySymbol}
+                      </span>}
                     </h4>
                   </div>
                 </div>

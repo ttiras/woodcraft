@@ -29,13 +29,7 @@ const Checkout = ({ location, cartItems }) => {
   const [contractModalShow, setContractModalShow] = useState(false);
   const [distanceModalShow, setDistanceModalShow] = useState(false);
   const history = useHistory();
-  const baskets = []
-    cartItems.map(item=>{
-        var i;
-        for(i=0; i<item.quantity; i++){
-          baskets.push(item)
-        }
-    })
+  
   const [insertOrder, { loading: ordersLoading, data: ordersData, error: ordersError }] = useMutation(
     INSERT_ORDER,
     {
@@ -425,14 +419,14 @@ const Checkout = ({ location, cartItems }) => {
                         <div className='your-order-bottom'>
                           <ul>
                             <li className='your-order-shipping'>Kargo</li>
-                            <li>Ücretsiz</li>
+                            <li><strong>{cartTotalPrice.toFixed(2) < 150 ? '10 TL': 'Ücretsiz'}</strong></li>
                           </ul>
                         </div>
                         <div className='your-order-total'>
                           <ul>
                             <li className='order-total'>Toplam</li>
                             <li>
-                              <strong>{cartTotalPrice.toFixed(2)+ " TL" }</strong>
+                              <strong>{cartTotalPrice.toFixed(2) < 150 ? (cartTotalPrice + 10).toFixed(2)+ " TL" : cartTotalPrice.toFixed(2)+ " TL" }</strong>
                             </li>
                           </ul>
                         </div>

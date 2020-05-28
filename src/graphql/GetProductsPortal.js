@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const GET_PRODUCTS_PORTAL = gql`
   query MyQuery {
-    products(order_by: {created_at: desc}) { 
+    products(where: {isActive: {_eq: true}}, order_by: {created_at: desc}) { 
       discount
       fullDescription
       new

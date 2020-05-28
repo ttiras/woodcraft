@@ -14,6 +14,11 @@ query SingleOrder ($id: uuid!) {
     notes
     status
     updated_at
+    order_payment {
+      itemTransactions {
+        itemId
+      }
+    }
     addresses {
       id
       city

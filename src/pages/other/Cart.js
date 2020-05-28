@@ -276,10 +276,17 @@ const Cart = ({
                         </span>
                       </h5>
 
+                      <h5>
+                        Kargo{" "}
+                        <span>
+                          {cartTotalPrice.toFixed(2) > 150 ? 'Ücretsiz' : '10 TL' }
+                        </span>
+                      </h5>
+
                       <h4 className='grand-totall-title'>
                         Ödenecek Tutar{" "}
                         <span>
-                          {cartTotalPrice.toFixed(2)+ " TL" }
+                          {cartTotalPrice.toFixed(2) > 150 ? cartTotalPrice.toFixed(2)+ " TL" : (cartTotalPrice + 10).toFixed(2) + " TL" }
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>

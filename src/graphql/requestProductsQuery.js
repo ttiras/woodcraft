@@ -1,5 +1,5 @@
 const queryProducts = `{
-    products { 
+    products(where: {isActive: {_eq: true}}) { 
       discount
       fullDescription
       new
