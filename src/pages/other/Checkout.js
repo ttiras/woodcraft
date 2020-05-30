@@ -69,13 +69,12 @@ const Checkout = ({ location, cartItems }) => {
           notes: localStorage.getItem("notes") || "",
           isGift: localStorage.getItem("isGift") || false,
           addresses: state.invoiceAddress
-            ? {
-                data: [
+            ? [
                   {
                     city: state.invoiceAddress.il,
-                    identity: state.invoiceAddress.identity,
-                    name: state.invoiceAddress.name,
-                    surname: state.invoiceAddress.surname,
+                    identity: state.invoiceAddress.identity || '',
+                    name: state.invoiceAddress.name || '',
+                    surname: state.invoiceAddress.surname || '',
                     street: state.invoiceAddress.firm
                       ? state.invoiceAddress.firm +
                         " " +
@@ -104,10 +103,8 @@ const Checkout = ({ location, cartItems }) => {
                     town: state.address.ilçe,
                     isinvoiceAddress: false,
                   },
-                ],
-              }
+                ]
             : {
-                data: {
                   city: state.address.il,
                   identity: state.address.identity,
                   name: state.address.name,
@@ -116,26 +113,20 @@ const Checkout = ({ location, cartItems }) => {
                   town: state.address.ilçe,
                   isinvoiceAddress: true,
                 },
-              },
-          user_ordered: {
-            data: {
+          user_ordered: 
+            {
               email: state.address.email,
               name: state.address.name,
               surname: state.address.surname,
               phone: state.address.phone,
               role: !state.user.isAnonymous ? 'USER' : 'ANONYMOUS'
             },
-            on_conflict: {
-              constraint: "users_pkey",
-              update_columns: ["id"],
-            },
-          },
-          order_items: {
-            data: cartItems.map((item) => ({
+          order_items: 
+          cartItems.map((item) => ({
               product_id: item.id,
               qty: item.quantity,
             }))
-        }}
+        }
       }
     );
   };

@@ -1,4 +1,5 @@
-const queryProducts = `{
+const queryProducts = `
+  query queryProducts{
     products(where: {isActive: {_eq: true}}) { 
       discount
       fullDescription
@@ -9,6 +10,7 @@ const queryProducts = `{
       weight
       dimensions
       name
+      isActive
       rating
       saleCount
       shortDescription

@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 const GET_PRODUCTS = gql`
-  query MyQuery {
-    products(where: {isActive: {_eq: true}}) { 
+  query GetProducts {
+    products { 
       discount
       fullDescription
       new
@@ -12,6 +12,7 @@ const GET_PRODUCTS = gql`
       base_color
       dimensions
       name
+      isActive
       rating
       saleCount
       shortDescription

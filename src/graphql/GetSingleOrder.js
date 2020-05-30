@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const SINGLE_ORDER = gql`
 
-query SingleOrder ($id: uuid!) {
+query GetSingleOrder ($id: uuid!) {
  orders(where: {id: {_eq: $id}}) {
     amount
     created

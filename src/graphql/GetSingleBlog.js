@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 const GET_SINGLE_BLOG = gql`
-  query GetBlogs($id: uuid!) {
+  query GetSingleBlog($id: uuid!) {
     blogs(where: {id: {_eq: $id}}) {
       created_at
       id

@@ -1,0 +1,550 @@
+query GetBlogTags {
+  bcat {
+    bcat
+    id
+  }
+}
+
+query GetBlogs {
+  blogs {
+    created_at
+    id
+    img1
+    img2
+    img3
+    p1
+    p2
+    p3
+    quote
+    title
+    blog_categories {
+      bcat {
+        bcat
+      }
+    }
+  }
+}
+
+query GetCategories {
+  categories {
+    category
+    category_id
+  }
+  tags {
+    tag
+    tag_id
+  }
+}
+
+query GetCities {
+  cities {
+    city
+    id
+  }
+}
+
+query GetOrders {
+  orders(order_by: {created: desc}) {
+    amount
+    created
+    id
+    invoice_id
+    isCancelled
+    isGift
+    isPaid
+    isShipped
+    notes
+    status
+    updated_at
+    user_id
+    addresses {
+      city
+      created_at
+      id
+      isinvoiceAddress
+      name
+      surname
+      street
+      town
+      updated_at
+    }
+    order_items {
+      qty
+      product_id
+      product {
+        discount
+        fullDescription
+        id
+        name
+        isActive
+        new
+        price
+        saleCount
+        shortDescription
+        sku
+        stock
+        updated_at
+        rating
+        image {
+          path
+        }
+      }
+    }
+    order_payment {
+      amount
+      binNumber
+      created_at
+      fraudStatus
+      installments
+      iyziCommissionFee
+      iyziCommissionRateAmount
+      lastFourDigits
+      mdStatus
+      paidPrice
+      paymentId
+      updated_at
+      itemTransactions {
+        itemId
+        paidPrice
+        paymentTransactionId
+        payment_id
+        price
+      }
+    }
+    order_status {
+      value
+    }
+    shipping {
+      track
+    }
+    user_ordered {
+      email
+      created
+      name
+      surname
+      phone
+      role
+      updated_at
+    }
+  }
+}
+
+query GetProducts {
+  products {
+    discount
+    fullDescription
+    new
+    price
+    id
+    wieght
+    base_color
+    dimensions
+    name
+    isActive
+    rating
+    saleCount
+    shortDescription
+    sku
+    stock
+    category {
+      category {
+        category
+        category_id
+      }
+    }
+    tag {
+      tag {
+        tag
+        tag_id
+      }
+    }
+    image {
+      path
+      image_id
+    }
+  }
+}
+
+query GetProductsPortal {
+  products(order_by: { created_at: desc }) {
+    discount
+    fullDescription
+    new
+    isActive
+    price
+    id
+    base_color
+    dimensions
+    weight
+    name
+    rating
+    saleCount
+    shortDescription
+    sku
+    stock
+    category {
+      category {
+        category
+        category_id
+      }
+    }
+    tag {
+      tag {
+        tag
+        tag_id
+      }
+    }
+    image {
+      path
+      image_id
+    }
+  }
+}
+
+query GetSingleBlog($id: uuid!) {
+  blogs(where: { id: { _eq: $id } }) {
+    created_at
+    id
+    img1
+    img2
+    img3
+    p1
+    p2
+    p3
+    quote
+    title
+    blog_categories {
+      bcat {
+        bcat
+        id
+      }
+    }
+  }
+}
+
+query GetSingleOrder($id: uuid!) {
+  orders(where: { id: { _eq: $id } }) {
+    amount
+    created
+    isGift
+    id
+    isCancelled
+    isPaid
+    isShipped
+    notes
+    status
+    updated_at
+    order_payment {
+      itemTransactions {
+        itemId
+      }
+    }
+    addresses {
+      id
+      city
+      isinvoiceAddress
+      name
+      surname
+      street
+      town
+    }
+    order_items {
+      product {
+        fullDescription
+        id
+        name
+        price
+        discount
+        stock
+        rating
+        shortDescription
+        image {
+          path
+        }
+      }
+      qty
+    }
+    user_ordered {
+      email
+      id
+      name
+      surname
+      phone
+    }
+  }
+}
+
+query GetTowns($city: String!) {
+  towns(where: { city: { _eq: $city } }, order_by: { town: asc }) {
+    town
+    id
+  }
+}
+
+query SingleUser($id: String!) {
+  users(where: { id: { _eq: $id } }) {
+    role
+  }
+}
+
+query SingleOrder($user_id: String!) {
+  orders(where: { user_id: { _eq: $user_id } }) {
+    amount
+    created
+    isGift
+    id
+    isCancelled
+    isPaid
+    isShipped
+    notes
+    status
+    updated_at
+    addresses {
+      id
+      city
+      isinvoiceAddress
+      name
+      surname
+      street
+      town
+    }
+    order_items {
+      product {
+        fullDescription
+        id
+        name
+        price
+        discount
+        stock
+        rating
+        shortDescription
+        image {
+          path
+        }
+      }
+      qty
+    }
+    user_ordered {
+      email
+      id
+      name
+      surname
+      phone
+    }
+  }
+}
+
+query GetUsers {
+  users {
+    name
+  }
+}
+
+mutation AddProduct($product: products_insert_input!) {
+  insert_products_one(object: $product) {
+    id
+  }
+}
+
+mutation AddBlog($blog: blogs_insert_input!) {
+  insert_blogs_one(object: $blog) {
+    id
+  }
+}
+
+mutation AddBlogCat($bcat: [blog_categories_insert_input!]!) {
+  insert_blog_categories(objects: $bcat) {
+    returning {
+      category_id
+    }
+  }
+}
+
+mutation AddMessage($message: [messages_insert_input!]!) {
+  insert_messages(objects: $message) {
+    affected_rows
+  }
+}
+
+mutation OrderAction(
+  $addresses: [addressInput]
+  $user_ordered: userInput
+  $order_items: [itemInput]
+  $notes: String!
+  $isGift: Boolean!
+) {
+  OrderAction(
+    addresses: $addresses
+    user_ordered: $user_ordered
+    order_items: $order_items
+    notes: $notes
+    isGift: $isGift
+  ) {
+    token
+    paymentPageUrl
+  }
+}
+
+mutation insertProductTagsImages(
+  $product_tags: [product_tags_insert_input!]!
+  $images: [images_insert_input!]!
+) {
+  insert_product_tags(objects: $product_tags) {
+    affected_rows
+  }
+  insert_images(objects: $images) {
+    returning {
+      path
+    }
+  }
+}
+
+mutation AddShipping($shipping: [shippings_insert_input!]!) {
+  insert_shippings(objects: $shipping) {
+    affected_rows
+  }
+}
+
+mutation AddUser($user: [users_insert_input!]!) {
+  insert_users(objects: $user) {
+    affected_rows
+  }
+}
+
+query queryProducts {
+  products(where: { isActive: { _eq: true } }) {
+    discount
+    fullDescription
+    new
+    price
+    id
+    base_color
+    weight
+    dimensions
+    name
+    isActive
+    rating
+    saleCount
+    shortDescription
+    sku
+    stock
+    category {
+      category {
+        category
+      }
+    }
+    tag {
+      tag {
+        tag
+      }
+    }
+    image {
+      path
+    }
+  }
+}
+
+mutation UpdateBlog($id: uuid!, $vars: blogs_set_input!) {
+  update_blogs_by_pk(pk_columns: { id: $id }, _set: $vars) {
+    id
+  }
+}
+
+mutation UpdateProduct($id: uuid!, $vars: products_set_input!) {
+  update_products_by_pk(pk_columns: { id: $id }, _set: $vars) {
+    id
+  }
+}
+
+mutation updateStock($id: uuid!, $stock: Int!) {
+  update_products(where: { id: { _eq: $id } }, _inc: { stock: $stock }) {
+    affected_rows
+  }
+}
+
+query ProductBackend($_in: [uuid!]!) {
+  products(where: { id: { _in: $_in } }) {
+    discount
+    price
+    id
+  }
+}
+
+mutation AddOrderBackend($order: orders_insert_input!) {
+  insert_orders_one(object: $order) {
+    id
+  }
+}
+
+query OrderforEmailBackend($id: uuid!) {
+  orders_by_pk(id: $id) {
+    amount
+    created
+    id
+    isGift
+    isPaid
+    notes
+    status
+    updated_at
+    user_id
+    addresses {
+      city
+      created_at
+      isinvoiceAddress
+      name
+      surname
+      street
+      town
+      updated_at
+    }
+    order_items {
+      qty
+      product_id
+      product {
+        discount
+        id
+        name
+        new
+        price
+        image {
+          path
+        }
+      }
+    }
+    user_ordered {
+      email
+      created
+      name
+      surname
+      phone
+      role
+      updated_at
+    }
+  }
+}
+
+mutation addPaymentBackend($payment: payments_insert_input!) {
+  insert_payments_one(object: $payment) {
+    paymentId
+  }
+}
+
+query OrderItemsBackend($id: uuid!) {
+  order_items(where: { order_id: { _eq: $id } }) {
+    product_id
+    qty
+  }
+}
+
+mutation inc_Stock_SaleCountBackend(
+  $id: uuid!
+  $saleCount: Int!
+  $stock: Int!
+) {
+  update_products(
+    where: { id: { _eq: $id } }
+    _inc: { saleCount: $saleCount, stock: $stock }
+  ) {
+    affected_rows
+  }
+}

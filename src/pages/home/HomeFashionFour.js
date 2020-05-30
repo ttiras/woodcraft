@@ -26,7 +26,7 @@ const HomeFashionFour = () => {
         {/* product grid */}
 
         {/* tab product */}
-        <TabProduct spaceBottomClass='pb-60' category='furniture' />
+        <TabProduct spaceBottomClass='pb-60' />
         {/* feature icon */}
         <FeatureIconThree
           spaceBottomClass='pb-70'

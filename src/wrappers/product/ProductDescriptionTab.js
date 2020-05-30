@@ -18,7 +18,6 @@ const ProductDescriptionTab = ({ spaceBottomClass, product }) => {
               <Nav.Item>
                 <Nav.Link eventKey="productDescription">Uyarılar</Nav.Link>
               </Nav.Item>
-              
             </Nav>
             <Tab.Content className="description-review-bottom">
               <Tab.Pane eventKey="additionalInfo">
@@ -37,9 +36,6 @@ const ProductDescriptionTab = ({ spaceBottomClass, product }) => {
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="productDescription">
-                
-
-                
                 <ul>
                   <li className="list-group-item list-group-item-danger">
                   Su ile direkt temas ettirmeyiniz.

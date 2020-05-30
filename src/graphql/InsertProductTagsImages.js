@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 const INSERT_PRODUCT_TAGS_IMAGES = gql `
-mutation insertProductTags($product_tags: [product_tags_insert_input!]!, $images: [images_insert_input!]!) {
+mutation insertProductTagsImages($product_tags: [product_tags_insert_input!]!, $images: [images_insert_input!]!) {
     insert_product_tags(objects: $product_tags){
       affected_rows
     }

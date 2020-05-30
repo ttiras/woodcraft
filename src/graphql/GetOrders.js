@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 const GET_ORDERS_NOT_SHIPPED = gql`
-  query MyQuery {
-    orders (where: {isShipped: {_eq: false}, isPaid: {_eq: true}}){
+  query GetOrders {
+    orders (order_by: {created: desc}){
         amount
         created
         id
@@ -71,6 +71,9 @@ const GET_ORDERS_NOT_SHIPPED = gql`
         }
         order_status {
           value
+        }
+        shipping {
+          track
         }
         user_ordered {
           email

@@ -19,8 +19,6 @@ function ProductModal(props) {
     }
   );
 
-  const [isNew, setIsNew] = useState(true);
-  const [isActive, setIsActive] = useState(true);
   const { handleSubmit, register, errors } = useForm();
   const { productId } = props;
   const { type } = props;
@@ -35,6 +33,7 @@ function ProductModal(props) {
         vars
       },
     });
+    console.log(vars)
     onHide();
   };
 
@@ -220,22 +219,20 @@ function ProductModal(props) {
                     <label>Yeni</label>
                     <input
                       className='checkbox'
-                      checked={isNew}
-                      onChange={() => setIsNew(!isNew)}
                       type='checkbox'
-                      name='isNew'
-                      defaultValue={product.isNew}
+                      name='new'
+                      defaultValue={true}
+                      ref={register}
                     />
                   </div>
                   <div className='d-flex'>
                     <label>Aktif</label>
                     <input
                       className='checkbox'
-                      checked={isActive}
-                      onChange={() => setIsActive(!isActive)}
                       type='checkbox'
                       name='isActive'
-                      defaultValue={product.isActive}
+                      defaultValue={true}
+                      ref={register}
                     />
                   </div>
                 </div>

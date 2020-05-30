@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 const INSERT_SHIPPING = gql`
-  mutation AddUser($shipping: [shippings_insert_input!]!) {
+  mutation AddShipping($shipping: [shippings_insert_input!]!) {
     insert_shippings(objects: $shipping)
     {
       affected_rows
