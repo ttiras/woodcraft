@@ -548,3 +548,39 @@ mutation inc_Stock_SaleCountBackend(
     affected_rows
   }
 }
+
+subscription OrdersAggregate {
+    orders_aggregate {
+      aggregate {
+        count
+        sum {
+          amount
+        }
+      }
+    }
+  }
+
+subscription OrdersChart {
+  dailysales(order_by: {day: asc}) {
+    label: day
+    data: sum
+  }
+}
+
+subscription ProductSales {
+    products(order_by: {saleCount: asc}) {
+      data: saleCount
+      label: name
+    }
+  }
+
+subscription PaymentsAggregate {
+    payments_aggregate {
+      aggregate {
+        count
+        sum {
+          amount
+        }
+      }
+    }
+  }

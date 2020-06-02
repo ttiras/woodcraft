@@ -24,7 +24,6 @@ export default function FilteredOrders({data, type}){
       };
 
       const filteredOrders = data && data.orders && data.orders.filter(item=>item.isShipped === type)
-      console.log(filteredOrders)
     return(
         <Fragment>
         {filteredOrders&& filteredOrders.map((order) => (

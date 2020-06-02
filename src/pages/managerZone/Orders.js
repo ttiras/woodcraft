@@ -4,7 +4,9 @@ import LayoutOne from "../../layouts/LayoutOne";
 
 import DailyOrders from "./DailyOrders";
 
+
 export default function Orders() {
+  
   return (
     <LayoutOne>
       <div className='shop-bottom-area mt-35 w-90'>
@@ -14,7 +16,7 @@ export default function Orders() {
               <DailyOrders />
             </div>
           </Fragment>
-        </div>
+        </div> 
       </div>
     </LayoutOne>
   );

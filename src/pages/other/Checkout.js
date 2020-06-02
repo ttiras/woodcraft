@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import MetaTags from "react-meta-tags";
+import {Helmet} from "react-helmet";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import { useAuthState } from "../../auth/auth-context";
 
-import { anonymousLogin, socialLogin} from '../../helpers/social-auth'
+import { anonymousLogin, socialLogin } from "../../helpers/social-auth";
 
 import { useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
@@ -29,16 +29,16 @@ const Checkout = ({ location, cartItems }) => {
   const [contractModalShow, setContractModalShow] = useState(false);
   const [distanceModalShow, setDistanceModalShow] = useState(false);
   const history = useHistory();
-  
-  const [insertOrder, { loading: ordersLoading, data: ordersData, error: ordersError }] = useMutation(
-    INSERT_ORDER,
-    {
-      onCompleted(ordersData) {
-        window.open(ordersData.OrderAction.paymentPageUrl, '_self')
-      },
-    }
-  ); 
-  
+
+  const [
+    insertOrder,
+    { loading: ordersLoading, data: ordersData, error: ordersError },
+  ] = useMutation(INSERT_ORDER, {
+    onCompleted(ordersData) {
+      window.open(ordersData.OrderAction.paymentPageUrl, "_self");
+    },
+  });
+
   useEffect(() => {
     const data = localStorage.getItem("invoiceAddressChecked");
     if (data) {
@@ -65,95 +65,90 @@ const Checkout = ({ location, cartItems }) => {
 
   const handleOrder = () => {
     insertOrder({
-      variables:{
-          notes: localStorage.getItem("notes") || "",
-          isGift: localStorage.getItem("isGift") || false,
-          addresses: state.invoiceAddress
-            ? [
-                  {
-                    city: state.invoiceAddress.il,
-                    identity: state.invoiceAddress.identity || '',
-                    name: state.invoiceAddress.name || '',
-                    surname: state.invoiceAddress.surname || '',
-                    street: state.invoiceAddress.firm
-                      ? state.invoiceAddress.firm +
-                        " " +
-                        state.invoiceAddress.street +
-                        " VD:" +
-                        state.invoiceAddress.vergid +
-                        " VNo:" +
-                        state.invoiceAddress.vergin
-                      : state.invoiceAddress.street,
-                    town: state.invoiceAddress.ilçe,
-                    isinvoiceAddress: true,
-                  },
-                  {
-                    city: state.address.il,
-                    identity: state.address.identity,
-                    name: state.address.name,
-                    surname: state.address.surname,
-                    street: state.address.firm
-                      ? state.address.firm +
-                        " VD:" +
-                        state.address.vergid +
-                        " VNo:" +
-                        state.address.vergin +
-                        state.address.street
-                      : state.address.street,
-                    town: state.address.ilçe,
-                    isinvoiceAddress: false,
-                  },
-                ]
-            : {
-                  city: state.address.il,
-                  identity: state.address.identity,
-                  name: state.address.name,
-                  surname: state.address.surname,
-                  street: state.address.street,
-                  town: state.address.ilçe,
-                  isinvoiceAddress: true,
-                },
-          user_ordered: 
-            {
-              email: state.address.email,
+      variables: {
+        notes: localStorage.getItem("notes") || "",
+        isGift: localStorage.getItem("isGift") || false,
+        addresses: state.invoiceAddress
+          ? [
+              {
+                city: state.invoiceAddress.il,
+                identity: state.invoiceAddress.identity || "",
+                name: state.invoiceAddress.name || "",
+                surname: state.invoiceAddress.surname || "",
+                street: state.invoiceAddress.firm
+                  ? state.invoiceAddress.firm +
+                    " " +
+                    state.invoiceAddress.street +
+                    " VD:" +
+                    state.invoiceAddress.vergid +
+                    " VNo:" +
+                    state.invoiceAddress.vergin
+                  : state.invoiceAddress.street,
+                town: state.invoiceAddress.ilçe,
+                isinvoiceAddress: true,
+              },
+              {
+                city: state.address.il,
+                identity: state.address.identity,
+                name: state.address.name,
+                surname: state.address.surname,
+                street: state.address.firm
+                  ? state.address.firm +
+                    " VD:" +
+                    state.address.vergid +
+                    " VNo:" +
+                    state.address.vergin +
+                    state.address.street
+                  : state.address.street,
+                town: state.address.ilçe,
+                isinvoiceAddress: false,
+              },
+            ]
+          : {
+              city: state.address.il,
+              identity: state.address.identity,
               name: state.address.name,
               surname: state.address.surname,
-              phone: state.address.phone,
-              role: !state.user.isAnonymous ? 'USER' : 'ANONYMOUS'
+              street: state.address.street,
+              town: state.address.ilçe,
+              isinvoiceAddress: true,
             },
-          order_items: 
-          cartItems.map((item) => ({
-              product_id: item.id,
-              qty: item.quantity,
-            }))
-        }
-      }
-    );
+        user_ordered: {
+          email: state.address.email,
+          name: state.address.name,
+          surname: state.address.surname,
+          phone: state.address.phone,
+          role: !state.user.isAnonymous ? "USER" : "ANONYMOUS",
+        },
+        order_items: cartItems.map((item) => ({
+          product_id: item.id,
+          qty: item.quantity,
+        })),
+      },
+    });
   };
 
-  const handleSignin=async (e)=>{
+  const handleSignin = async (e) => {
     setLoading(true);
-      if(e.target.value){
-        await socialLogin(e.target.value)
-        if(error)
-        setError(error)
-      }else{
-        await anonymousLogin()
-        if(error)
-        setError(error)
-      }
+    if (e.target.value) {
+      await socialLogin(e.target.value);
+      if (error) setError(error);
+    } else {
+      await anonymousLogin();
+      if (error) setError(error);
+    }
     setLoading(false);
-  }
+  };
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Micota. | Ödeme</title>
         <meta
           name='description'
           content='Checkout page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
       <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <div className='checkout-area pt-95 pb-100'>
@@ -301,7 +296,7 @@ const Checkout = ({ location, cartItems }) => {
                         <div className='place-order mt-25 '>
                           <button
                             className='btn-hover'
-                            onClick={(e)=>handleSignin(e)}
+                            onClick={(e) => handleSignin(e)}
                           >
                             ÜYE OLMADAN DEVAM ET
                           </button>
@@ -319,10 +314,10 @@ const Checkout = ({ location, cartItems }) => {
 
                         <hr />
                         <div className='place-order mt-25'>
-                          <button 
-                          className='btn-hover'
-                          value='t'
-                          onClick={(e)=>handleSignin(e)}
+                          <button
+                            className='btn-hover'
+                            value='t'
+                            onClick={(e) => handleSignin(e)}
                           >
                             {" "}
                             <i className='fa fa-twitter'></i> TwItter Hesabınla
@@ -333,7 +328,7 @@ const Checkout = ({ location, cartItems }) => {
                           <button
                             className='btn-hover'
                             value='g'
-                            onClick={(e)=>handleSignin(e)}
+                            onClick={(e) => handleSignin(e)}
                           >
                             <i className='fa fa-google'></i> Google Hesabınla
                             Giriş Yap
@@ -343,7 +338,7 @@ const Checkout = ({ location, cartItems }) => {
                           <button
                             className='btn-hover'
                             value='f'
-                            onClick={(e)=>handleSignin(e)}
+                            onClick={(e) => handleSignin(e)}
                           >
                             <i className='fa fa-facebook'></i> Facebook
                             Hesabınla Giriş Yap
@@ -372,12 +367,12 @@ const Checkout = ({ location, cartItems }) => {
                                 cartItem.price,
                                 cartItem.discount
                               );
-                              const finalProductPrice = (
-                                cartItem.price
-                              ).toFixed(2);
-                              const finalDiscountedPrice = (
-                                discountedPrice
-                              ).toFixed(2);
+                              const finalProductPrice = cartItem.price.toFixed(
+                                2
+                              );
+                              const finalDiscountedPrice = discountedPrice.toFixed(
+                                2
+                              );
 
                               discountedPrice != null
                                 ? (cartTotalPrice +=
@@ -390,17 +385,17 @@ const Checkout = ({ location, cartItems }) => {
                                     {cartItem.name} X {cartItem.quantity}
                                   </span>{" "}
                                   <span className='order-price'>
-                                    <strong>{discountedPrice !== null
-                                      ? 
-                                        (
-                                          finalDiscountedPrice *
-                                          cartItem.quantity
-                                        ).toFixed(2) + " TL" 
-                                        
-                                      : 
-                                        (
-                                          finalProductPrice * cartItem.quantity
-                                        ).toFixed(2) + " TL" }</strong>
+                                    <strong>
+                                      {discountedPrice !== null
+                                        ? (
+                                            finalDiscountedPrice *
+                                            cartItem.quantity
+                                          ).toFixed(2) + " TL"
+                                        : (
+                                            finalProductPrice *
+                                            cartItem.quantity
+                                          ).toFixed(2) + " TL"}
+                                    </strong>
                                   </span>
                                 </li>
                               );
@@ -410,45 +405,83 @@ const Checkout = ({ location, cartItems }) => {
                         <div className='your-order-bottom'>
                           <ul>
                             <li className='your-order-shipping'>Kargo</li>
-                            <li><strong>{cartTotalPrice.toFixed(2) < 150 ? '10 TL': 'Ücretsiz'}</strong></li>
+                            <li>
+                              <strong>
+                                {cartTotalPrice.toFixed(2) < 150
+                                  ? "10 TL"
+                                  : "Ücretsiz"}
+                              </strong>
+                            </li>
                           </ul>
                         </div>
                         <div className='your-order-total'>
                           <ul>
                             <li className='order-total'>Toplam</li>
                             <li>
-                              <strong>{cartTotalPrice.toFixed(2) < 150 ? (cartTotalPrice + 10).toFixed(2)+ " TL" : cartTotalPrice.toFixed(2)+ " TL" }</strong>
+                              <strong>
+                                {cartTotalPrice.toFixed(2) < 150
+                                  ? (cartTotalPrice + 10).toFixed(2) + " TL"
+                                  : cartTotalPrice.toFixed(2) + " TL"}
+                              </strong>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
                     <div className='mt-3 d-flex'>
-                    <input
-                          className='checkbox'
-                          checked={contractSigned}
-                          onChange={() =>
-                            setContractSigned(!contractSigned)
-                          }
-                          type='checkbox'
-                        />
-                    <a><u onClick={()=>setContractModalShow(true)}>Ön Bİlgilendirme Koşulları</u>'nı ve <u onClick={()=>setDistanceModalShow(true)}>{" "} Uzaktan Satış Sözleşmesi</u>'ni okudum ve kabul ediyorum</a>
-                      </div>
-                    
+                      <input
+                        className='checkbox'
+                        checked={contractSigned}
+                        onChange={() => setContractSigned(!contractSigned)}
+                        type='checkbox'
+                      />
+                      <a>
+                        <u onClick={() => setContractModalShow(true)}>
+                          Ön Bİlgilendirme Koşulları
+                        </u>
+                        'nı ve{" "}
+                        <u onClick={() => setDistanceModalShow(true)}>
+                          {" "}
+                          Uzaktan Satış Sözleşmesi
+                        </u>
+                        'ni okudum ve kabul ediyorum
+                      </a>
+                    </div>
+
                     <div className='place-order mt-2'>
                       <button
                         type='submit'
-                        className= { !state.address || !contractSigned ? 'btn-hover noButton':'btn-hover'}
+                        className={
+                          !state.address || !contractSigned
+                            ? "btn-hover noButton"
+                            : "btn-hover"
+                        }
                         onClick={handleOrder}
                         disabled={!state.address || !contractSigned}
-                        data-toggle="tooltip" data-placement="bottom" title={!state.address ? "Adres bilgilerini giriniz." : !contractSigned ? "Ön bilgilerndirme koşullarını ve mesafeli satış sözleşmesini onaylayınız." : null}
+                        data-toggle='tooltip'
+                        data-placement='bottom'
+                        title={
+                          !state.address
+                            ? "Adres bilgilerini giriniz."
+                            : !contractSigned
+                            ? "Ön bilgilerndirme koşullarını ve mesafeli satış sözleşmesini onaylayınız."
+                            : null
+                        }
                       >
-                        {ordersLoading ?   <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
- : 'Ödemeye Git(IYZICO Güvencesiyle)'}
-                        
+                        {ordersLoading ? (
+                          <span
+                            className='spinner-border spinner-border-sm'
+                            role='status'
+                            aria-hidden='true'
+                          ></span>
+                        ) : (
+                          "Ödemeye Git(IYZICO Güvencesiyle)"
+                        )}
                       </button>
                     </div>
-                    {ordersError&& <span>Bir hata oluştu, lütfen tekrar deneyin.</span>}
+                    {ordersError && (
+                      <span>Bir hata oluştu, lütfen tekrar deneyin.</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -488,19 +521,18 @@ const Checkout = ({ location, cartItems }) => {
         cartItems={cartItems}
         address={state.address}
       />
-      
     </Fragment>
   );
 };
 
 Checkout.propTypes = {
   cartItems: PropTypes.array,
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 const mapStateToProps = (state) => {
   return {
-    cartItems: state.cartData
+    cartItems: state.cartData,
   };
 };
 

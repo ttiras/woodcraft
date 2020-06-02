@@ -10,7 +10,6 @@ export default function DailyOrders() {
   const { loading, error, data } = useQuery(GET_ORDERS_NOT_SHIPPED);
   const [type, setType] = useState(false)
   if (error) console.log(error);
-  if (data) console.log(data);
 
   return (
     <div className="container">

@@ -81,7 +81,7 @@ const App = props => {
     composeWithDevTools(applyMiddleware(thunk, save()))
   );
 
-  const wsurl = "https://woodcraft.herokuapp.com/v1/graphql";
+  const wsurl = "wss://woodcraft.herokuapp.com/v1/graphql";
   const httpurl = "https://woodcraft.herokuapp.com/v1/graphql";
   
   request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
@@ -112,6 +112,7 @@ const App = props => {
       lazy: true,
       connectionParams: {
         headers: {
+          "x-hasura-role": state.role === 'MANAGER' ? 'manager' : '',
           Authorization: `Bearer ${token}`,
         },
       },
@@ -164,11 +165,11 @@ const App = props => {
       return kind === "OperationDefinition" && operation === "subscription";
     },
     wsLink,
-    authLink.concat(httpLink)
+    errorLink.concat(authLink.concat(httpLink))
   );
 
   const client = new ApolloClient({
-    link: errorLink.concat(authLink.concat(httpLink)),
+    link,
     credentials: "include",
     cache: new InMemoryCache(),
   });

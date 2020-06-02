@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/actions/cartActions";
@@ -18,51 +19,51 @@ const Compare = ({
   compareItems,
   addToCart,
   deleteFromCompare,
-  currency
+  currency,
 }) => {
   const { pathname } = location;
   const { addToast } = useToasts();
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Flone | Compare</title>
         <meta
-          name="description"
-          content="Compare page of flone react minimalist eCommerce template."
+          name='description'
+          content='Compare page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Compare
       </BreadcrumbsItem>
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
-        <div className="compare-main-area pt-90 pb-100">
-          <div className="container">
+        <div className='compare-main-area pt-90 pb-100'>
+          <div className='container'>
             {compareItems && compareItems.length >= 1 ? (
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="compare-page-content">
-                    <div className="compare-table table-responsive">
-                      <table className="table table-bordered mb-0">
+              <div className='row'>
+                <div className='col-lg-12'>
+                  <div className='compare-page-content'>
+                    <div className='compare-table table-responsive'>
+                      <table className='table table-bordered mb-0'>
                         <tbody>
                           <tr>
-                            <th className="title-column">Product Info</th>
+                            <th className='title-column'>Product Info</th>
                             {compareItems.map((compareItem, key) => {
                               const cartItem = cartItems.filter(
-                                item => item.id === compareItem.id
+                                (item) => item.id === compareItem.id
                               )[0];
                               return (
-                                <td className="product-image-title" key={key}>
-                                  <div className="compare-remove">
+                                <td className='product-image-title' key={key}>
+                                  <div className='compare-remove'>
                                     <button
                                       onClick={() =>
                                         deleteFromCompare(compareItem, addToast)
                                       }
                                     >
-                                      <i className="pe-7s-trash" />
+                                      <i className='pe-7s-trash' />
                                     </button>
                                   </div>
                                   <Link
@@ -71,18 +72,18 @@ const Compare = ({
                                       "/product/" +
                                       compareItem.id
                                     }
-                                    className="image"
+                                    className='image'
                                   >
                                     <img
-                                      className="img-fluid"
+                                      className='img-fluid'
                                       src={
                                         process.env.PUBLIC_URL +
                                         compareItem.image[0]
                                       }
-                                      alt=""
+                                      alt=''
                                     />
                                   </Link>
-                                  <div className="product-title">
+                                  <div className='product-title'>
                                     <Link
                                       to={
                                         process.env.PUBLIC_URL +
@@ -93,12 +94,12 @@ const Compare = ({
                                       {compareItem.name}
                                     </Link>
                                   </div>
-                                  <div className="compare-btn">
+                                  <div className='compare-btn'>
                                     {compareItem.affiliateLink ? (
                                       <a
                                         href={compareItem.affiliateLink}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
+                                        rel='noopener noreferrer'
+                                        target='_blank'
                                       >
                                         {" "}
                                         Buy now{" "}
@@ -138,7 +139,7 @@ const Compare = ({
                                           : "Add to cart"}
                                       </button>
                                     ) : (
-                                      <button disabled className="active">
+                                      <button disabled className='active'>
                                         Out of Stock
                                       </button>
                                     )}
@@ -148,7 +149,7 @@ const Compare = ({
                             })}
                           </tr>
                           <tr>
-                            <th className="title-column">Price</th>
+                            <th className='title-column'>Price</th>
                             {compareItems.map((compareItem, key) => {
                               const discountedPrice = getDiscountPrice(
                                 compareItem.price,
@@ -161,20 +162,20 @@ const Compare = ({
                                 discountedPrice * currency.currencyRate
                               ).toFixed(2);
                               return (
-                                <td className="product-price" key={key}>
+                                <td className='product-price' key={key}>
                                   {discountedPrice !== null ? (
                                     <Fragment>
-                                      <span className="amount old">
+                                      <span className='amount old'>
                                         {currency.currencySymbol +
                                           finalProductPrice}
                                       </span>
-                                      <span className="amount">
+                                      <span className='amount'>
                                         {currency.currencySymbol +
                                           finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
-                                    <span className="amount">
+                                    <span className='amount'>
                                       {currency.currencySymbol +
                                         finalProductPrice}
                                     </span>
@@ -185,10 +186,10 @@ const Compare = ({
                           </tr>
 
                           <tr>
-                            <th className="title-column">Description</th>
+                            <th className='title-column'>Description</th>
                             {compareItems.map((compareItem, key) => {
                               return (
-                                <td className="product-desc" key={key}>
+                                <td className='product-desc' key={key}>
                                   <p>
                                     {compareItem.shortDescription
                                       ? compareItem.shortDescription
@@ -200,10 +201,10 @@ const Compare = ({
                           </tr>
 
                           <tr>
-                            <th className="title-column">Rating</th>
+                            <th className='title-column'>Rating</th>
                             {compareItems.map((compareItem, key) => {
                               return (
-                                <td className="product-rating" key={key}>
+                                <td className='product-rating' key={key}>
                                   <Rating ratingValue={compareItem.rating} />
                                 </td>
                               );
@@ -216,13 +217,13 @@ const Compare = ({
                 </div>
               </div>
             ) : (
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="item-empty-area text-center">
-                    <div className="item-empty-area__icon mb-30">
-                      <i className="pe-7s-shuffle"></i>
+              <div className='row'>
+                <div className='col-lg-12'>
+                  <div className='item-empty-area text-center'>
+                    <div className='item-empty-area__icon mb-30'>
+                      <i className='pe-7s-shuffle'></i>
                     </div>
-                    <div className="item-empty-area__text">
+                    <div className='item-empty-area__text'>
                       No items found in compare <br />{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                         Add Items
@@ -245,18 +246,18 @@ Compare.propTypes = {
   compareItems: PropTypes.array,
   currency: PropTypes.object,
   location: PropTypes.object,
-  deleteFromCompare: PropTypes.func
+  deleteFromCompare: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
     compareItems: state.compareData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item, addToast, quantityCount) => {
       dispatch(addToCart(item, addToast, quantityCount));
@@ -264,7 +265,7 @@ const mapDispatchToProps = dispatch => {
 
     deleteFromCompare: (item, addToast) => {
       dispatch(deleteFromCompare(item, addToast));
-    }
+    },
   };
 };
 

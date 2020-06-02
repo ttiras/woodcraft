@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
-import MetaTags from "react-meta-tags";
+import {Helmet} from "react-helmet";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import {
@@ -13,7 +13,7 @@ import {
   deleteAllFromCart,
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
-import './Checkout.css'
+import "./Checkout.css";
 
 const Cart = ({
   location,
@@ -35,9 +35,9 @@ const Cart = ({
     if (data) {
       setNotes(data);
     }
-    const data1 = localStorage.getItem("isGift")
+    const data1 = localStorage.getItem("isGift");
     if (data) {
-      setIsGift(JSON.parse(data1))
+      setIsGift(JSON.parse(data1));
     }
   }, []);
 
@@ -51,13 +51,13 @@ const Cart = ({
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Micota. | Sepet</title>
         <meta
           name='description'
           content='Cart page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
 
       <LayoutOne headerTop='visible'>
         <div className='cart-main-area pt-90 pb-100'>
@@ -85,12 +85,10 @@ const Cart = ({
                               cartItem.price,
                               cartItem.discount
                             );
-                            const finalProductPrice = (
-                              cartItem.price
-                            ).toFixed(2);
-                            const finalDiscountedPrice = (
-                              discountedPrice
-                            ).toFixed(2);
+                            const finalProductPrice = cartItem.price.toFixed(2);
+                            const finalDiscountedPrice = discountedPrice.toFixed(
+                              2
+                            );
 
                             discountedPrice != null
                               ? (cartTotalPrice +=
@@ -147,15 +145,15 @@ const Cart = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className='amount old'>
-                                        {finalProductPrice+ " TL" }
+                                        {finalProductPrice + " TL"}
                                       </span>
                                       <span className='amount'>
-                                        {finalDiscountedPrice+ " TL" }
+                                        {finalDiscountedPrice + " TL"}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className='amount'>
-                                      {finalProductPrice+ " TL" }
+                                      {finalProductPrice + " TL"}
                                     </span>
                                   )}
                                 </td>
@@ -202,13 +200,12 @@ const Cart = ({
                                 </td>
                                 <td className='product-subtotal'>
                                   {discountedPrice !== null
-                                    ? 
-                                      (
+                                    ? (
                                         finalDiscountedPrice * cartItem.quantity
-                                      ).toFixed(2)+ " TL" 
+                                      ).toFixed(2) + " TL"
                                     : (
                                         finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)+ " TL" }
+                                      ).toFixed(2) + " TL"}
                                 </td>
 
                                 <td className='product-remove'>
@@ -239,15 +236,13 @@ const Cart = ({
                       </div>
                       <div className='tax-wrapper'>
                         <div className='mb-2'>
-                        <label>Hediye Paketi Olsun</label>
-                        <input
-                          className='checkbox'
-                          checked={isGift}
-                          onChange={() =>
-                            setIsGift(!isGift)
-                          }
-                          type='checkbox'
-                        />
+                          <label>Hediye Paketi Olsun</label>
+                          <input
+                            className='checkbox'
+                            checked={isGift}
+                            onChange={() => setIsGift(!isGift)}
+                            type='checkbox'
+                          />
                         </div>
                         <div className='additional-info'>
                           <label>Sipariş Notları</label>
@@ -271,22 +266,24 @@ const Cart = ({
                       </div>
                       <h5>
                         Ürünler Toplamı (KDV Dahil){" "}
-                        <span>
-                          {cartTotalPrice.toFixed(2)+ " TL" }
-                        </span>
+                        <span>{cartTotalPrice.toFixed(2) + " TL"}</span>
                       </h5>
 
                       <h5>
                         Kargo{" "}
                         <span>
-                          {cartTotalPrice.toFixed(2) > 150 ? 'Ücretsiz' : '10 TL' }
+                          {cartTotalPrice.toFixed(2) > 150
+                            ? "Ücretsiz"
+                            : "10 TL"}
                         </span>
                       </h5>
 
                       <h4 className='grand-totall-title'>
                         Ödenecek Tutar{" "}
                         <span>
-                          {cartTotalPrice.toFixed(2) > 150 ? cartTotalPrice.toFixed(2)+ " TL" : (cartTotalPrice + 10).toFixed(2) + " TL" }
+                          {cartTotalPrice.toFixed(2) > 150
+                            ? cartTotalPrice.toFixed(2) + " TL"
+                            : (cartTotalPrice + 10).toFixed(2) + " TL"}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>
@@ -349,7 +346,7 @@ Cart.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    cartItems: state.cartData
+    cartItems: state.cartData,
   };
 };
 

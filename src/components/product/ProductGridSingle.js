@@ -6,6 +6,8 @@ import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
 
+import './Product.css'
+
 const ProductGridSingle = ({
   product,
   currency,
@@ -30,8 +32,7 @@ const ProductGridSingle = ({
   return (
     <Fragment>
       <div
-        style={{width: '300px'}}
-        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${
+        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 prods ${
           sliderClassName ? sliderClassName : ""
         }`}
       >

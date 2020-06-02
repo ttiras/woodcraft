@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useForm } from "react-hook-form";
 import Nav from "react-bootstrap/Nav";
@@ -30,13 +31,13 @@ const PasswordReset = (props) => {
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Micota. | Şifre Yenile</title>
         <meta
           name='description'
           content='Compare page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

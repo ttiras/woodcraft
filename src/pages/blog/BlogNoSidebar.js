@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
@@ -11,13 +12,13 @@ const BlogNoSidebar = ({ location }) => {
   const { pathname } = location;
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Micota. | Blog</title>
         <meta
           name='description'
           content='Blog of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

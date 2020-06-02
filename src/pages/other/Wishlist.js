@@ -2,14 +2,15 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import {
   addToWishlist,
   deleteFromWishlist,
-  deleteAllFromWishlist
+  deleteAllFromWishlist,
 } from "../../redux/actions/wishlistActions";
 import { addToCart } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -22,37 +23,37 @@ const Wishlist = ({
   addToCart,
   wishlistItems,
   deleteFromWishlist,
-  deleteAllFromWishlist
+  deleteAllFromWishlist,
 }) => {
   const { addToast } = useToasts();
   const { pathname } = location;
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Flone | Wishlist</title>
         <meta
-          name="description"
-          content="Wishlist page of flone react minimalist eCommerce template."
+          name='description'
+          content='Wishlist page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
 
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Wishlist
       </BreadcrumbsItem>
 
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
-        <div className="cart-main-area pt-90 pb-100">
-          <div className="container">
+        <div className='cart-main-area pt-90 pb-100'>
+          <div className='container'>
             {wishlistItems && wishlistItems.length >= 1 ? (
               <Fragment>
-                <h3 className="cart-page-title">Your wishlist items</h3>
-                <div className="row">
-                  <div className="col-12">
-                    <div className="table-content table-responsive cart-table-content">
+                <h3 className='cart-page-title'>Your wishlist items</h3>
+                <div className='row'>
+                  <div className='col-12'>
+                    <div className='table-content table-responsive cart-table-content'>
                       <table>
                         <thead>
                           <tr>
@@ -76,11 +77,11 @@ const Wishlist = ({
                               discountedPrice * currency.currencyRate
                             ).toFixed(2);
                             const cartItem = cartItems.filter(
-                              item => item.id === wishlistItem.id
+                              (item) => item.id === wishlistItem.id
                             )[0];
                             return (
                               <tr key={key}>
-                                <td className="product-thumbnail">
+                                <td className='product-thumbnail'>
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
@@ -89,17 +90,17 @@ const Wishlist = ({
                                     }
                                   >
                                     <img
-                                      className="img-fluid"
+                                      className='img-fluid'
                                       src={
                                         process.env.PUBLIC_URL +
                                         wishlistItem.image[0]
                                       }
-                                      alt=""
+                                      alt=''
                                     />
                                   </Link>
                                 </td>
 
-                                <td className="product-name text-center">
+                                <td className='product-name text-center'>
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
@@ -111,32 +112,32 @@ const Wishlist = ({
                                   </Link>
                                 </td>
 
-                                <td className="product-price-cart">
+                                <td className='product-price-cart'>
                                   {discountedPrice !== null ? (
                                     <Fragment>
-                                      <span className="amount old">
+                                      <span className='amount old'>
                                         {currency.currencySymbol +
                                           finalProductPrice}
                                       </span>
-                                      <span className="amount">
+                                      <span className='amount'>
                                         {currency.currencySymbol +
                                           finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
-                                    <span className="amount">
+                                    <span className='amount'>
                                       {currency.currencySymbol +
                                         finalProductPrice}
                                     </span>
                                   )}
                                 </td>
 
-                                <td className="product-wishlist-cart">
+                                <td className='product-wishlist-cart'>
                                   {wishlistItem.affiliateLink ? (
                                     <a
                                       href={wishlistItem.affiliateLink}
-                                      rel="noopener noreferrer"
-                                      target="_blank"
+                                      rel='noopener noreferrer'
+                                      target='_blank'
                                     >
                                       {" "}
                                       Buy now{" "}
@@ -176,19 +177,19 @@ const Wishlist = ({
                                         : "Add to cart"}
                                     </button>
                                   ) : (
-                                    <button disabled className="active">
+                                    <button disabled className='active'>
                                       Out of stock
                                     </button>
                                   )}
                                 </td>
 
-                                <td className="product-remove">
+                                <td className='product-remove'>
                                   <button
                                     onClick={() =>
                                       deleteFromWishlist(wishlistItem, addToast)
                                     }
                                   >
-                                    <i className="fa fa-times"></i>
+                                    <i className='fa fa-times'></i>
                                   </button>
                                 </td>
                               </tr>
@@ -200,17 +201,17 @@ const Wishlist = ({
                   </div>
                 </div>
 
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="cart-shiping-update-wrapper">
-                      <div className="cart-shiping-update">
+                <div className='row'>
+                  <div className='col-lg-12'>
+                    <div className='cart-shiping-update-wrapper'>
+                      <div className='cart-shiping-update'>
                         <Link
                           to={process.env.PUBLIC_URL + "/shop-grid-standard"}
                         >
                           Continue Shopping
                         </Link>
                       </div>
-                      <div className="cart-clear">
+                      <div className='cart-clear'>
                         <button onClick={() => deleteAllFromWishlist(addToast)}>
                           Clear Wishlist
                         </button>
@@ -220,13 +221,13 @@ const Wishlist = ({
                 </div>
               </Fragment>
             ) : (
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="item-empty-area text-center">
-                    <div className="item-empty-area__icon mb-30">
-                      <i className="pe-7s-like"></i>
+              <div className='row'>
+                <div className='col-lg-12'>
+                  <div className='item-empty-area text-center'>
+                    <div className='item-empty-area__icon mb-30'>
+                      <i className='pe-7s-like'></i>
                     </div>
-                    <div className="item-empty-area__text">
+                    <div className='item-empty-area__text'>
                       No items found in wishlist <br />{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                         Add Items
@@ -250,18 +251,18 @@ Wishlist.propTypes = {
   location: PropTypes.object,
   deleteAllFromWishlist: PropTypes.func,
   deleteFromWishlist: PropTypes.func,
-  wishlistItems: PropTypes.array
+  wishlistItems: PropTypes.array,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
     wishlistItems: state.wishlistData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item, addToast, quantityCount) => {
       dispatch(addToCart(item, addToast, quantityCount));
@@ -272,9 +273,9 @@ const mapDispatchToProps = dispatch => {
     deleteFromWishlist: (item, addToast, quantityCount) => {
       dispatch(deleteFromWishlist(item, addToast, quantityCount));
     },
-    deleteAllFromWishlist: addToast => {
+    deleteAllFromWishlist: (addToast) => {
       dispatch(deleteAllFromWishlist(addToast));
-    }
+    },
   };
 };
 

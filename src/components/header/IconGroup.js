@@ -67,14 +67,8 @@ const IconGroup = ({
               {state.role === "MANAGER" && (
                 <>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/orders"}>
-                      Siparişler
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/productmanage"}>
-                      Stok Takibi
+                  <Link to={process.env.PUBLIC_URL + "/dashboard"}>
+                      Dashboard
                     </Link>
                   </li>
                 </>

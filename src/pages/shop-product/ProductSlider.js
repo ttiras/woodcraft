@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { connect } from "react-redux";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -14,39 +15,39 @@ const ProductSlider = ({ location, product }) => {
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Flone | Product Page</title>
         <meta
-          name="description"
-          content="Product page of flone react minimalist eCommerce template."
+          name='description'
+          content='Product page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
 
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Shop Product
       </BreadcrumbsItem>
 
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
 
         {/* product description with image */}
         <ProductImageDescriptionSlider
-          spaceTopClass="pt-100"
-          spaceBottomClass="pb-100"
+          spaceTopClass='pt-100'
+          spaceBottomClass='pb-100'
           product={product}
         />
 
         {/* product description tab */}
         <ProductDescriptionTab
-          spaceBottomClass="pb-90"
+          spaceBottomClass='pb-90'
           productFullDesc={product.fullDescription}
         />
 
         {/* related product slider */}
         <RelatedProductSlider
-          spaceBottomClass="pb-95"
+          spaceBottomClass='pb-95'
           category={product.category[0].category.category}
         />
       </LayoutOne>
@@ -56,15 +57,15 @@ const ProductSlider = ({ location, product }) => {
 
 ProductSlider.propTypes = {
   location: PropTypes.object,
-  product: PropTypes.object
+  product: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => {
   const itemId = ownProps.match.params.id;
   return {
     product: state.productData.products.filter(
-      single => single.id === itemId
-    )[0]
+      (single) => single.id === itemId
+    )[0],
   };
 };
 

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import Paginator from "react-hooks-paginator";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { connect } from "react-redux";
@@ -53,13 +54,13 @@ const ShopGridStandard = ({ location, products }) => {
 
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Micota. | Ürünler</title>
         <meta
           name='description'
           content='Shop page of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
 
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa

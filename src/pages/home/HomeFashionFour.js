@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
+
 import HeroSliderTwelve from "../../wrappers/hero-slider/HeroSliderTwelve";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
@@ -13,13 +14,13 @@ import LayoutOne from "../../layouts/LayoutOne";
 const HomeFashionFour = () => {
   return (
     <Fragment>
-      <MetaTags>
+      <Helmet>
         <title>Micota. | Wood Craft</title>
         <meta
           name='description'
           content='Fashion home of flone react minimalist eCommerce template.'
         />
-      </MetaTags>
+      </Helmet>
       <LayoutOne>
         {/* hero slider */}
         <HeroSliderTwelve />

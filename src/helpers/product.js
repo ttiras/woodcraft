@@ -73,9 +73,8 @@ export const getSortedProducts = (products, sortType, sortValue) => {
     if (sortType === "color") {
       return products.filter(
         product =>
-          product.variation &&
-          product.variation.filter(single => single.color === sortValue)[0]
-      );
+         product.base_color === sortValue)
+      ;
     }
     if (sortType === "size") {
       return products.filter(
@@ -151,12 +150,9 @@ export const getIndividualColors = products => {
   let productColors = [];
   products &&
     products.map(product => {
-      return (
-        product.variation &&
-        product.variation.map(single => {
-          return productColors.push(single.color);
-        })
-      );
+      
+          return productColors.push(product.base_color);
+
     });
   const individualProductColors = getIndividualItemArray(productColors);
   return individualProductColors;

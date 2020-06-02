@@ -42,6 +42,7 @@ const Wishlist = lazy(() => import("./pages/other/Wishlist"));
 const Compare = lazy(() => import("./pages/other/Compare"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
 const Orders = lazy(() => import("./pages/managerZone/Orders"));
+const Dashboard = lazy(() => import("./pages/managerZone/Dashboard"));
 const ProductManage = lazy(() => import("./pages/managerZone/ProductManage"));
 
 const Guvenlik = lazy(() => import("./pages/documents/Guvenlik"));
@@ -167,6 +168,11 @@ function Routers() {
             <Route
               path={process.env.PUBLIC_URL + "/orders"}
               component={Orders}
+            />
+
+<Route
+              path={process.env.PUBLIC_URL + "/dashboard"}
+              component={Dashboard}
             />
 
             <Route
