@@ -57,7 +57,7 @@ export default function ProductsList() {
                         src={
                           process.env.PUBLIC_URL + image.path
                         }
-                        alt=''
+                        alt={image.name}
                         
                       />
                 

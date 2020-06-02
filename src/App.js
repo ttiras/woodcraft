@@ -131,9 +131,11 @@ const App = props => {
             // refetch the jwt
             const oldHeaders = operation.getContext().headers;
             state.user.getIdTokenResult(true).then((result) => {
+              console.log('invalid', result.token)
               operation.setContext({
                 headers: {
                   ...oldHeaders,
+                  "x-hasura-role": state.role === 'MANAGER' ? 'manager' : '',
                   authorization: `Bearer ${result.token}`
                 }
               });        

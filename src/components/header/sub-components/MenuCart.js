@@ -33,7 +33,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                   <div className="shopping-cart-img">
                     <Link to={process.env.PUBLIC_URL + "/product/" + single.id}>
                       <img
-                        alt=""
+                        alt={single.image[0].name}
                         src={process.env.PUBLIC_URL + single.image[0].path}
                         className="img-fluid"
                       />

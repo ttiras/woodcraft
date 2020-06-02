@@ -44,13 +44,13 @@ const ProductGridSingle = ({
              {product.image&&product.image[0]&& <img
                 className="default-img"
                 src={process.env.PUBLIC_URL + product.image[0].path}
-                alt=""
+                alt={product.image[0].name}
               />}
               {product.image.length > 1 ? (
                 <img
                   className="hover-img"
                   src={process.env.PUBLIC_URL + product.image[1].path}
-                  alt=""
+                  alt={product.image[1].name}
                 />
               ) : (
                 ""

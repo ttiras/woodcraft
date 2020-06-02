@@ -103,7 +103,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
                           <img
                             src={process.env.PUBLIC_URL + single.path}
                             className="img-fluid"
-                            alt=""
+                            alt={single.name}
                           />
                         </div>
                       </div>
@@ -130,7 +130,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
                         <img
                           src={process.env.PUBLIC_URL + single.path}
                           className="img-fluid"
-                          alt=""
+                          alt={single.name}
                         />
                       </div>
                     </div>

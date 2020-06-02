@@ -43,7 +43,7 @@ const ProductGridSingleFour = ({
               <img
                 className="default-img"
                 src={process.env.PUBLIC_URL + product.image[0]}
-                alt=""
+                alt={product.image[0].name}
               />
             </Link>
             {product.discount || product.new ? (

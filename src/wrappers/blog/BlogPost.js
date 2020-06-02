@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthState } from "../../auth/auth-context"
 import BlogModal from "./BlogModal";
+import { Helmet } from "react-helmet";
+
 
 
 const BlogPost = (props) => {
@@ -21,10 +23,17 @@ const BlogPost = (props) => {
 
   return (
     <Fragment>
+      <Helmet>
+        <title>Micota | Blog</title>
+        <meta
+          name='description'
+          content={ "Alışveriş sitemiz micota.com.tr bloğu." + blog.quote}
+        />
+      </Helmet>
       <div className="blog-details-top">
         <div className="blog-details-img">
           <img
-            alt=""
+            alt={blog.img1.split('.')[0]}
             src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
           />
         </div>
@@ -53,7 +62,7 @@ const BlogPost = (props) => {
           <div className="col-md-6">
             <div className="dec-img mb-50">
               <img
-                alt=""
+                alt={blog.img2.split('.')[0]}
                 src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img2}`}
               />
             </div>
@@ -61,7 +70,7 @@ const BlogPost = (props) => {
           <div className="col-md-6">
             <div className="dec-img mb-50">
               <img
-                alt=""
+                alt={blog.img3.split('.')[0]}
                 src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img3}`}
               />
             </div>

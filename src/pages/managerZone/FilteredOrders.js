@@ -45,7 +45,7 @@ export default function FilteredOrders({data, type}){
                             src={
                               process.env.PUBLIC_URL + item.product.image[0].path
                             }
-                            alt=''
+                            alt={item.product.image[0].name}
                             
                           />
                         </Link>

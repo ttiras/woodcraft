@@ -21,7 +21,7 @@ const BlogPostsNoSidebar = () => {
             <Link to={process.env.PUBLIC_URL + `/blog/${blog.id}`}>
               <img
                 src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
-                alt=""
+                alt={blog.img1.split('.')[0]}
               />
             </Link>
           </div>
@@ -72,11 +72,10 @@ const BlogPostsNoSidebar = () => {
             </div>
           </div>
         </div>
-        {state.role === "MANAGER" && <button className='btn btn-secondary mb-5' onClick={()=>setBlogModalShow(true)}>Yeni Blog Ekle</button>}
-
         </div>
         ))}
-      
+              {state.role === "MANAGER" && <button className='btn btn-secondary mb-5' onClick={()=>setBlogModalShow(true)}>Yeni Blog Ekle</button>}
+
       <BlogModal 
           show={blogModalShow}
           onHide={() => setBlogModalShow(false)}

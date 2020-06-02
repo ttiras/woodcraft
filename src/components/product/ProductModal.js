@@ -109,7 +109,7 @@ function ProductModal(props) {
                             <img
                               src={process.env.PUBLIC_URL + single.path}
                               className="img-fluid"
-                              alt=""
+                              alt={single.name}
                             />
                           </div>
                         </div>
@@ -127,7 +127,7 @@ function ProductModal(props) {
                             <img
                               src={process.env.PUBLIC_URL + single.path}
                               className="img-fluid"
-                              alt=""
+                              alt={single.name}
                             />
                           </div>
                         </div>

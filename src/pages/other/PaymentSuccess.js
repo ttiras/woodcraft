@@ -124,7 +124,7 @@ const Cart = ({ location, currency }) => {
                                       process.env.PUBLIC_URL +
                                       product.image[0].path
                                     }
-                                    alt=''
+                                    alt={product.image[0].name}
                                   />
                                 </Link>
                               </td>

@@ -111,7 +111,7 @@ const Cart = ({
                                         process.env.PUBLIC_URL +
                                         cartItem.image[0].path
                                       }
-                                      alt=''
+                                      alt={cartItem.image[0].name}
                                     />
                                   </Link>
                                 </td>
