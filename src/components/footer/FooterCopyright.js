@@ -12,7 +12,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass }) => {
       </div>
       <p>
       Copyright
-        <a href="//hasthemes.com" rel="noopener noreferrer" target="_blank">
+        <a href="//micota.com.tr" rel="noopener noreferrer" target="_blank">
           
         </a>
         .<br /> © 2020{" "}

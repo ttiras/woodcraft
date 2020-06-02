@@ -15,7 +15,7 @@ const NetworkError = ({ location }) => {
         <title>Micota | Bağlantı Hatası</title>
         <meta
           name='description'
-          content='404 page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr 404 sayfası.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

@@ -40,7 +40,7 @@ const Contact = ({ location }) => {
         <title>Micota. | İletişim</title>
         <meta
           name='description'
-          content='Contact of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr iletişim bilgilerine bu sayfada ulaşabilirsiniz.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

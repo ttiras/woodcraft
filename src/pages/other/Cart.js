@@ -55,7 +55,7 @@ const Cart = ({
         <title>Micota. | Sepet</title>
         <meta
           name='description'
-          content='Cart page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr sepetinizi bu sayfada düzenleyebilirsiniz.'
         />
       </Helmet>
 

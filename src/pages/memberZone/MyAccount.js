@@ -37,7 +37,7 @@ const MyAccount = ({ location }) => {
         <title>Micota. | Hesabım</title>
         <meta
           name='description'
-          content='Compare page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr hesab bilgileriniz.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

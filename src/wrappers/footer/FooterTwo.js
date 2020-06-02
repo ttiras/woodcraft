@@ -104,11 +104,11 @@ const FooterTwo = ({
             <p>
               © 2020{" "}
               <a
-                href="//www.hasthemes.com"
+                href="//www.micota.com.tr"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Flone
+                Micota
               </a>
               . All Rights Reserved.
             </p>

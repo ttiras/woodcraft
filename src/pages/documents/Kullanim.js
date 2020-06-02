@@ -15,7 +15,7 @@ export default function Kullanim({ location }) {
         <title>Micota | Kullanım Koşulları</title>
         <meta
           name='description'
-          content='About page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr kullanım koşulları.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

@@ -22,7 +22,7 @@ const LoginRegister = ({ location, ...props }) => {
         <title>Micota. | Giriş</title>
         <meta
           name='description'
-          content='Compare page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr giriş işlemlerine bu sayfada ulaşabilirsiniz.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

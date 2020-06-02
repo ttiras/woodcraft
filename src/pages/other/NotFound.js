@@ -13,15 +13,15 @@ const NotFound = ({ location }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Flone | Not Found</title>
+        <title>Micota |Sayfa Bulunamadı</title>
         <meta
           name='description'
-          content='404 page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr 404 sayfası.'
         />
       </Helmet>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        404 page
+        Sayfa Bulunamadı
       </BreadcrumbsItem>
       <LayoutOne headerTop='visible'>
         {/* breadcrumb */}

@@ -16,10 +16,10 @@ const ProductSticky = ({ location, product }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Flone | Product Page</title>
+        <title>Micota | Ürün Sayfası</title>
         <meta
           name='description'
-          content='Product page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr anasayfası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tahtasıdır.'
         />
       </Helmet>
 

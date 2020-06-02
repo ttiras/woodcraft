@@ -146,7 +146,7 @@ const Checkout = ({ location, cartItems }) => {
         <title>Micota. | Ödeme</title>
         <meta
           name='description'
-          content='Checkout page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr ödemelerinizi bu sayfada gerçekleştirebilirsiniz.'
         />
       </Helmet>
       <LayoutOne headerTop='visible'>

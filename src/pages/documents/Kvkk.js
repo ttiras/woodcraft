@@ -16,7 +16,7 @@ export default function Guvenlik({ location }) {
         <title>Micota | KVKK</title>
         <meta
           name='description'
-          content='About page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr kvkk hakkında bilgilendirme.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

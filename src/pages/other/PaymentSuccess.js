@@ -42,7 +42,7 @@ const Cart = ({ location, currency }) => {
         <title>Micota. | Ödeme Başarılı</title>
         <meta
           name='description'
-          content='Cart page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr ödeme başarılı sayfası.'
         />
       </Helmet>
 

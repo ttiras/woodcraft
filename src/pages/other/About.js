@@ -19,7 +19,7 @@ const About = ({ location }) => {
         <title>Micota | Biz</title>
         <meta
           name='description'
-          content='About page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr hakkında. Keyifle tasarladığımız ve ürettiğimiz doğal ahşap ve doğal boya kullanılan ürünlerimizi nerde ve nasıl hazrıladığımız hakkında kısa bilgiler.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

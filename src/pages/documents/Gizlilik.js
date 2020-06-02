@@ -14,7 +14,7 @@ export default function Gizlilik({ location }) {
         <title>Micota | Gizlilik İlkeleri</title>
         <meta
           name='description'
-          content='About page of flone react minimalist eCommerce template.'
+          content='Alışverii gizlilik sözleşmesi.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

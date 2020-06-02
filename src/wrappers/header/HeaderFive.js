@@ -18,11 +18,11 @@ const HeaderFive = () => {
           <p>
             ©2020{" "}
             <a
-              href="//www.hasthemes.com"
+              href="//www.micota.com.tr"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Flone
+              Micota
             </a>
             .All Rights Reserved.
           </p>

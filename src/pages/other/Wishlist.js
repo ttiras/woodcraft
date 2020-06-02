@@ -31,14 +31,14 @@ const Wishlist = ({
   return (
     <Fragment>
       <Helmet>
-        <title>Flone | Wishlist</title>
+        <title>Micota | Wishlist</title>
         <meta
           name='description'
-          content='Wishlist page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr Wishlist sayfası.'
         />
       </Helmet>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Wishlist
       </BreadcrumbsItem>

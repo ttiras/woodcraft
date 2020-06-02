@@ -58,7 +58,7 @@ const ShopGridStandard = ({ location, products }) => {
         <title>Micota. | Ürünler</title>
         <meta
           name='description'
-          content='Shop page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr mağazası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tahtasıdır.'
         />
       </Helmet>
 

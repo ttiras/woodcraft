@@ -27,15 +27,15 @@ const Compare = ({
   return (
     <Fragment>
       <Helmet>
-        <title>Flone | Compare</title>
+        <title>Micota | Ürün Karşılaştırma</title>
         <meta
           name='description'
-          content='Compare page of flone react minimalist eCommerce template.'
+          content='Alışveriş sitemiz micota.com.tr ürün karşılaştırma sayfası.'
         />
       </Helmet>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Compare
+        Karşılaştır
       </BreadcrumbsItem>
       <LayoutOne headerTop='visible'>
         {/* breadcrumb */}

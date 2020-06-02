@@ -14,7 +14,7 @@ export default function Guvenlik({ location }) {
         <title>Micota | Güvenlik</title>
         <meta
           name='description'
-          content='About page of flone react minimalist eCommerce template.'
+          content='Alışveriş güvenlik protokolleri.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

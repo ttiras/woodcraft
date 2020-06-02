@@ -22,7 +22,7 @@ const BlogDetailsStandard = (props) => {
         <title>Micota. | Blog</title>
         <meta
           name='description'
-          content='Blog post page of flone react minimalist eCommerce template.'
+          content='Micota blog sayfası. Ahşap, kahve sunumları, yuvarlak tepsi, supla ve ev dizayn fikirleri ve ürünleriyle ilgili blog yazıları. Ev aksesuarları alışverişi yapmadan önce muhakkak okuyun.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
