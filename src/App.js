@@ -81,8 +81,8 @@ const App = props => {
     composeWithDevTools(applyMiddleware(thunk, save()))
   );
 
-  const wsurl = "wss://woodcraft.herokuapp.com/v1/graphql";
-  const httpurl = "https://woodcraft.herokuapp.com/v1/graphql";
+  const wsurl = "ws://157.230.101.229/v1/graphql";
+  const httpurl = "http://157.230.101.229/v1/graphql";
   
   request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
 
