@@ -13,7 +13,7 @@ export const anonymousLogin = async () => {
     .then(function (result) {
       const user = result.user;
       axios
-        .post(`${process.env.REACT_APP_PUBLIC_URL}/claims`, { user })
+        .post("https://backend.rover.micota.com.tr/claims", { user })
         .then(() => {
           return;
         })
@@ -36,7 +36,7 @@ export const socialLogin = (value) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       // The signed-in user info.
       const user = result.user;
-      await axios.post(`${process.env.REACT_APP_PUBLIC_URL}/claims`, { user });
+      await axios.post("https://backend.rover.micota.com.tr/claims", { user });
     })
     .catch(function (error) {
       // Handle Errors here.

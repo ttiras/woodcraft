@@ -12,7 +12,7 @@ export default function Signup({ fire, history }) {
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
       const user = result.user;
-      axios.post(`${process.env.REACT_APP_PUBLIC_URL}/claims`, { user });
+      axios.post("https://backend.rover.micota.com.tr/claims", { user });
       history.goBack();
     } catch (err) {
       setError(err.message);

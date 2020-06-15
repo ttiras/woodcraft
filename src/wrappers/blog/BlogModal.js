@@ -106,7 +106,7 @@ function BlogModal(props) {
     for(var x = 0; x<selectedFile.length; x++) {
       data.append('file', selectedFile[x])
     }
-    axios.post("http://localhost:8000/upload", data, {
+    axios.post("https://backend.rover.micota.com.tr/upload", data, {
       onUploadProgress: ProgressEvent => {
         setLoaded(
           (ProgressEvent.loaded / ProgressEvent.total*100),
@@ -154,7 +154,7 @@ function BlogModal(props) {
                 <input placeholder='görsel seç' type="file" className="form-control" multiple onChange={onChangeHandler}/>
               </div>           <button disabled={!selectedFile} type="button" className="btn btn-success btn-block" onClick={handleImages}>Yükle</button>
  </div>  <div className='d-flex'>
-            {loaded === 100 && uploaded.map((item, index)=>(<img className="default-img uploaded" key={index} src={`http://localhost:8000/build/img/${item}`} alt="" />
+            {loaded === 100 && uploaded.map((item, index)=>(<img className="default-img uploaded" key={index} src={`https://backend.rover.micota.com.tr/build/img/${item}`} alt="" />
             ))
               }
           </div></div>

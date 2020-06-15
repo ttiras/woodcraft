@@ -30,7 +30,7 @@ function NewProductModal(props) {
             })),
             images : 
               uploaded.map(item=>({
-                path: `http://localhost:8000/build/img/${item}`,
+                path: `https://backend.rover.micota.com.tr/build/img/${item}`,
                 product_id: product_id
               }))
         }
@@ -97,7 +97,7 @@ function NewProductModal(props) {
     for(var x = 0; x<selectedFile.length; x++) {
       data.append('file', selectedFile[x])
     }
-    axios.post("http://localhost:8000/upload", data, {
+    axios.post("https://backend.rover.micota.com.tr/upload", data, {
       onUploadProgress: ProgressEvent => {
         setLoaded(
           (ProgressEvent.loaded / ProgressEvent.total*100),
@@ -145,7 +145,7 @@ function NewProductModal(props) {
               </div>           <button disabled={!selectedFile} type="button" className="btn btn-success btn-block" onClick={handleImages}>Yükle</button>
  </div>  
           <div className='d-flex'>
-            {loaded === 100 && uploaded.map((item, index)=>(<img className="default-img uploaded" key={index} src={`http://localhost:8000/build/img/${item}`} alt="" />
+            {loaded === 100 && uploaded.map((item, index)=>(<img className="default-img uploaded" key={index} src={`https://backend.rover.micota.com.tr/build/img/${item}`} alt="" />
             ))
               }
           </div>
