@@ -1,18 +1,57 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Modal } from "react-bootstrap";
+import { useMutation } from "@apollo/react-hooks";
+import axios from 'axios';
 
 import { useForm } from "react-hook-form";
+import INSERT_INVOICE from "../../graphql/InsertInvoice";
 
 function OrderInvoiceModal(props) {
- 
+  const [
+    insertInvoice,
+    { loading, data, error },
+  ] = useMutation(INSERT_INVOICE, {
+    onCompleted(data) {
+      onHide();
+      alert('Fatura Gönderildi')
+    },
+  });
 
   const { handleSubmit, register, errors } = useForm();
+  const [selectedFile, setSelectedFile] = useState(null)
+  const [loaded, setLoaded] = useState(0)
 
-  const { onHide } = props;
+  const { onHide, orderId } = props;
+  
 
-  const onSubmit = (data) => {
-    onHide();
-  };
+  const onChangeHandler= event=>{
+    var files = event.target.files
+    setSelectedFile(files)
+  }
+
+  const handleFiles = () => {
+    const data = new FormData() 
+    for(var x = 0; x<selectedFile.length; x++) {
+      data.append('file', selectedFile[x])
+    }
+    axios.post("https://backend.rover.micota.com.tr/file", data, {
+      onUploadProgress: ProgressEvent => {
+        setLoaded(
+          (ProgressEvent.loaded / ProgressEvent.total*100),
+        )
+      },
+    })
+      .then(res => { // then print response status
+        insertInvoice({variables: {
+          fileName: selectedFile[0].name,
+          order_id: orderId,
+          path: `https://backend.rover.micota.com.tr/build/files/${selectedFile[0].name}`
+        }})
+      })
+      .catch(err => { // then print response status
+        console.log(err)
+      })
+    }
 
   return (
     <Fragment>
@@ -30,43 +69,24 @@ function OrderInvoiceModal(props) {
             </div>
             <div className='col-lg-6 col-md-6'></div>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='row'>
-              <div className='col-lg-6 col-md-6 d-flex'>
-                <div className='col-lg-6 col-md-6 pl-0'></div>
-                <div className='col-lg-6 col-md-6 pl-0'></div>
-              </div>
-              <div className='col-lg-6 col-md-6'></div>
-
-              <div className='col-lg-12'></div>
-              <div className='col-lg-12'></div>
-              <div className='col-lg-12'>
-                <div className='billing-info mb-20'>
-                  <label>Fatura</label>
-                  <input
-                    maxLength='120'
-                    className='billing-address'
-                    placeholder='Cadde, sokak, kapı numarası gibi bilgileri eksiksiz giriniz.'
-                    type='text'
-                    ref={register({ required: true, minLength: 7 })}
-                    name='street'
-                  />
-                  {errors.street && (
-                    <div className='alert alert-danger small' role='alert'>
-                      Adres en az 7 karakter olmalı.
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className='col-lg-6 col-md-6'></div>
-              <div className='col-lg-6 col-md-6'></div>
-              <div className='button-box pl-15'>
-                <button className='submitAddress' type='submit'>
-                  <span>Kaydet</span>
-                </button>
-              </div>
+          <div className='row'>
+            <div className='col-lg-6 col-md-6'>
+              <h3>Fatura Yükle</h3>
             </div>
-          </form>
+            <div className='col-lg-6 col-md-6'>
+            <div className="offset-md-3 col-md-6">
+               <div className="form-group files">
+                <label>Ürün görsellerini ekle </label>
+                <input placeholder='görsel seç' type="file" className="form-control" multiple onChange={onChangeHandler}/>
+              </div>           <button disabled={!selectedFile} type="button" className="btn btn-success btn-block" onClick={handleFiles}>{loading? 'Mail gönderiliyor...' : 'Yükle'}</button>
+ </div>  
+          <div className='d-flex'>
+            {loaded === 100 && 'Fatura Yüklendi'
+              }
+          </div>
+            </div>
+          </div>
+          
         </div>
       </Modal>
     </Fragment>

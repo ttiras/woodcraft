@@ -81,8 +81,8 @@ const App = props => {
     composeWithDevTools(applyMiddleware(thunk, save()))
   );
 
-  const wsurl = "ws://157.230.101.229/v1/graphql";
-  const httpurl = "http://157.230.101.229/v1/graphql";
+  const wsurl = "wss://engine.rover.micota.com.tr/v1/graphql";
+  const httpurl = "https://engine.rover.micota.com.tr/v1/graphql";
   
   request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
 
@@ -152,7 +152,7 @@ const App = props => {
     }
     if (networkError) {
       console.log(`[Network error]: ${networkError}`);
-      window.open("/networkerror", '_self');
+      
       // if you would also like to retry automatically on
       // network errors, we recommend that you use
       // apollo-link-retry

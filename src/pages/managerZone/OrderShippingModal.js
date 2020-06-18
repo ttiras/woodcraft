@@ -8,7 +8,10 @@ import INSERT_SHIPPING from "../../graphql/InsertShipping";
 
 function OrderShippingModal(props) {
   const [insertShipping, { loading: ordersLoading, data }] = useMutation(
-    INSERT_SHIPPING
+    INSERT_SHIPPING, {onCompleted(data){
+      onHide();
+    window.location.reload();
+    }}
   );
   
   const { handleSubmit, register, errors } = useForm();
@@ -25,8 +28,7 @@ function OrderShippingModal(props) {
         }
       }
     })
-    onHide();
-    window.location.reload();
+    
   };
 
   return (

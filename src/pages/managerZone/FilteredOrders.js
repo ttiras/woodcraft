@@ -159,7 +159,9 @@ export default function FilteredOrders({data, type}){
         />
         <OrderInvoiceModal
         show={invoiceModalShow}
-        onHide={() => setInvoiceModalShow(false)}/>
+        onHide={() => setInvoiceModalShow(false)}
+        orderId={orderId}
+        />
             </Fragment>
     )
 }
