@@ -144,7 +144,7 @@ export default function FilteredOrders({data, type}){
                           Kargo Bilgilerini Gir
                         </button>}
                         <button value={order.id} className='active ml-3 order-btn' onClick={(e)=>handleInvoiceModal(e)}>
-                          {order.invoice.path ? 'Tekrar Gönder' : 'Fatura Bilgileri Gİr'}
+                          {order.invoice && order.invoice.path ? 'Faturayı Tekrar Gönder' : 'Faturayı Gönder'}
                         </button>
                       </div>
                     </div>
