@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "title": "Stylish",
-    "subtitle": "Male Clothes",
-    "text": "30% off Summer Vacation",
-    "image": "/assets/img/slider/slider-2.jpg",
+    "title": "Tarz",
+    "subtitle": "Kahve Sunumları",
+    "text": "50% İndirim FIrsatı",
+    "image": "/assets/img/slider/sliderMico.webp",
     "url": "/shop-grid-standard"
   },
   {
     "id": 2,
-    "title": "Stylish",
-    "subtitle": "Female Clothes",
-    "text": "30% off Summer Vacation",
-    "image": "/assets/img/slider/slider-2-2.jpg",
+    "title": "Gösterişli",
+    "subtitle": "Tepsi ve Suplalar",
+    "text": "50% İndirim Fırsatı",
+    "image": "/assets/img/slider/sliderMico2.webp",
     "url": "/shop-grid-standard"
   }
 ]

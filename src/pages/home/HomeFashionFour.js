@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { Helmet } from "react-helmet";
 
-import HeroSliderTwelve from "../../wrappers/hero-slider/HeroSliderTwelve";
+import HeroSliderTen from "../../wrappers/hero-slider/HeroSliderTen";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
@@ -23,7 +23,7 @@ const HomeFashionFour = () => {
       </Helmet>
       <LayoutOne>
         {/* hero slider */}
-        <HeroSliderTwelve />
+        <HeroSliderTen />
         {/* product grid */}
 
         {/* tab product */}

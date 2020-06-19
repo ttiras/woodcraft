@@ -82,13 +82,6 @@ const Cart = ({ location, currency }) => {
                   data.orders[0].isGift &&
                   "Kargonuz talebiniz üzerine hediye paketi içerisinde gönderilecektir."}
               </p>
-              <p className='mt-3'>
-                Göstermiş olduğunuz ilgiye teşekkür ederiz.
-              </p>
-              <p>
-                Ürünlerinizi en iyi şekilde ulaştırmak için çalışmalara başladık
-                bile.
-              </p>
             </div>
             <h3 className='cart-page-title'>Sipariş Özeti</h3>
             <div className='row'>
