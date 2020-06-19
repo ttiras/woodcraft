@@ -117,6 +117,9 @@ query GetOrders {
     shipping {
       track
     }
+    invoice {
+      path
+    }
     user_ordered {
       email
       created
@@ -584,3 +587,24 @@ subscription PaymentsAggregate {
       }
     }
   }
+
+query UserInvoice($id: uuid!) {
+    orders_by_pk(id: $id) {
+      user_ordered {
+        email
+        name
+      }
+    }
+  }
+
+mutation InsertInvoice($order_id: uuid!, $path: String!) {
+  insert_invoices_one(object: {order_id: $order_id, path: $path}){
+    id
+  }
+}
+
+mutation InvoiceAction($order_id: uuid!, $path: String!, $fileName: String!) {
+  InvoiceAction(order_id: $order_id, path: $path, fileName: $fileName){
+    success
+  }
+}

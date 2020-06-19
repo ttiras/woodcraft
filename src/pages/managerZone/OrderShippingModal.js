@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Modal } from "react-bootstrap";
 
 import { useMutation } from "@apollo/react-hooks";
@@ -7,8 +7,8 @@ import INSERT_SHIPPING from "../../graphql/InsertShipping";
 
 
 function OrderShippingModal(props) {
-  const [insertShipping, { loading: ordersLoading, data }] = useMutation(
-    INSERT_SHIPPING, {onCompleted(data){
+  const [insertShipping, { loading, error }] = useMutation(
+    INSERT_SHIPPING, {onCompleted(){
       onHide();
     window.location.reload();
     }}
@@ -81,7 +81,7 @@ function OrderShippingModal(props) {
                     name='track'
                     
                   />
-                  {errors.street && (
+                  {errors.track && (
                     <div className='alert alert-danger small' role='alert'>
                       Takip no en az 7 karakter olmalı.
                     </div>
@@ -96,8 +96,9 @@ function OrderShippingModal(props) {
               </div>
               <div className='button-box pl-15'>
                 <button className='submitAddress' type='submit'>
-                  <span>Kaydet</span>
+                  <span>{loading ? 'Gönderiliyor...' : 'Gönder'}</span>
                 </button>
+                {error&& 'Bir hata oluştu, tekrar dene'}
               </div>
             </div>
           </form>

@@ -75,6 +75,9 @@ const GET_ORDERS_NOT_SHIPPED = gql`
         shipping {
           track
         }
+        invoice {
+          path
+        }
         user_ordered {
           email
           created
