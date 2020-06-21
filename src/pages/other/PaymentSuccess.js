@@ -58,8 +58,8 @@ const Cart = ({ location, currency }) => {
                 </strong>
               )}{" "}
               Siparişiniz Başarıyla Oluşturulmuştur{" "}
-              <i className='fa fa-2x fa-smile-o mb-3'></i>
-              <h4 className='mb-3'>
+              <p><i className='fa fa-2x fa-smile-o mb-3'></i></p>
+              <h5 className='mb-3'>
                 Kargo takip bilgileri{" "}
                 <strong>
                   {data &&
@@ -67,7 +67,7 @@ const Cart = ({ location, currency }) => {
                     data.orders[0].user_ordered.email}
                 </strong>{" "}
                 adresine gönderilecektir.
-              </h4>
+              </h5>
               {data && data.orders[0].notes && (
                 <h5>
                   {" "}
