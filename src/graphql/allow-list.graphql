@@ -608,3 +608,9 @@ mutation InvoiceAction($order_id: uuid!, $path: String!, $fileName: String!) {
     success
   }
 }
+
+query GetInsta {
+    insta(limit: 10) {
+      link
+    }
+}

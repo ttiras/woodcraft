@@ -115,3 +115,7 @@ button span {
       width: 100px!important;
       height: auto!important;
   }
+
+.errors {
+    border:1px solid red;
+}

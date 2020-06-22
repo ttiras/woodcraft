@@ -52,19 +52,11 @@ const MobileNavMenu = ({ strings }) => {
                 </Link>
               </li>
               {state.role === "MANAGER" && (
-                <>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/orders"}>
-                      Siparişler
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/productmanage"}>
-                      Stok Takibi
-                    </Link>
-                  </li>
-                </>
+                <li>
+                <Link to={process.env.PUBLIC_URL + "/dashboard"}>
+                    Dashboard
+                  </Link>
+                </li>
               )}
             </ul>
           ) : (

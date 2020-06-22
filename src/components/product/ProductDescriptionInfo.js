@@ -7,6 +7,7 @@ import { addToCart } from "../../redux/actions/cartActions";
 import { addToWishlist } from "../../redux/actions/wishlistActions";
 import { addToCompare } from "../../redux/actions/compareActions";
 import Rating from "./sub-components/ProductRating";
+import { WhatsappShareButton } from "react-share";
 
 const ProductDescriptionInfo = ({
   product,
@@ -201,18 +202,15 @@ const ProductDescriptionInfo = ({
             )}
           </div>
           <div className="pro-details-wishlist">
-            <button
-              className={wishlistItem !== undefined ? "active" : ""}
-              disabled={wishlistItem !== undefined}
-              title={
-                wishlistItem !== undefined
-                  ? "Favorilere Eklendi"
-                  : "Favorilere Ekle"
-              }
-              onClick={() => addToWishlist(product, addToast)}
-            >
-              <i className="pe-7s-like" />
-            </button>
+          <WhatsappShareButton
+                        url={`${process.env.PUBLIC_URL}/product/${product.id}`}
+                        title='MiCoTa'
+                        seperator=' - '
+                      >
+                        <a title="Whatsapp'ta paylaş">
+                          <i className='fa fa-whatsapp' />
+                        </a>
+                      </WhatsappShareButton>
           </div>
           
         </div>

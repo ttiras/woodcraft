@@ -5,6 +5,7 @@ import { getProductCartQuantity } from "../../helpers/product";
 import { Modal } from "react-bootstrap";
 import Rating from "./sub-components/ProductRating";
 import { connect } from "react-redux";
+import { WhatsappShareButton } from "react-share";
 
 function ProductModal(props) {
   const { product } = props;
@@ -59,7 +60,7 @@ function ProductModal(props) {
     getSwiper: getGallerySwiper,
     spaceBetween: 10,
     loopedSlides: 4,
-    loop: true
+    loop: true,
   };
 
   const thumbnailSwiperParams = {
@@ -73,18 +74,18 @@ function ProductModal(props) {
     slideToClickedSlide: true,
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-button-prev",
     },
     renderPrevButton: () => (
-      <button className="swiper-button-prev ht-swiper-button-nav">
-        <i className="pe-7s-angle-left" />
+      <button className='swiper-button-prev ht-swiper-button-nav'>
+        <i className='pe-7s-angle-left' />
       </button>
     ),
     renderNextButton: () => (
-      <button className="swiper-button-next ht-swiper-button-nav">
-        <i className="pe-7s-angle-right" />
+      <button className='swiper-button-next ht-swiper-button-nav'>
+        <i className='pe-7s-angle-right' />
       </button>
-    )
+    ),
   };
 
   return (
@@ -92,23 +93,23 @@ function ProductModal(props) {
       <Modal
         show={props.show}
         onHide={props.onHide}
-        className="product-quickview-modal-wrapper"
+        className='product-quickview-modal-wrapper'
       >
         <Modal.Header closeButton></Modal.Header>
 
-        <div className="modal-body">
-          <div className="row">
-            <div className="col-md-5 col-sm-12 col-xs-12">
-              <div className="product-large-image-wrapper">
+        <div className='modal-body'>
+          <div className='row'>
+            <div className='col-md-5 col-sm-12 col-xs-12'>
+              <div className='product-large-image-wrapper'>
                 <Swiper {...gallerySwiperParams}>
                   {product.image &&
                     product.image.map((single, key) => {
                       return (
                         <div key={key}>
-                          <div className="single-image">
+                          <div className='single-image'>
                             <img
                               src={process.env.PUBLIC_URL + single.path}
-                              className="img-fluid"
+                              className='img-fluid'
                               alt={single.name}
                             />
                           </div>
@@ -117,16 +118,16 @@ function ProductModal(props) {
                     })}
                 </Swiper>
               </div>
-              <div className="product-small-image-wrapper mt-15">
+              <div className='product-small-image-wrapper mt-15'>
                 <Swiper {...thumbnailSwiperParams}>
                   {product.image &&
                     product.image.map((single, key) => {
                       return (
                         <div key={key}>
-                          <div className="single-image">
+                          <div className='single-image'>
                             <img
                               src={process.env.PUBLIC_URL + single.path}
-                              className="img-fluid"
+                              className='img-fluid'
                               alt={single.name}
                             />
                           </div>
@@ -136,16 +137,16 @@ function ProductModal(props) {
                 </Swiper>
               </div>
             </div>
-            <div className="col-md-7 col-sm-12 col-xs-12">
-              <div className="product-details-content quickview-content">
+            <div className='col-md-7 col-sm-12 col-xs-12'>
+              <div className='product-details-content quickview-content'>
                 <h2>{product.name}</h2>
-                <div className="product-details-price">
+                <div className='product-details-price'>
                   {discountedprice !== null ? (
                     <Fragment>
                       <span>
                         {currency.currencySymbol + finaldiscountedprice}
                       </span>{" "}
-                      <span className="old">
+                      <span className='old'>
                         {currency.currencySymbol + finalproductprice}
                       </span>
                     </Fragment>
@@ -154,23 +155,23 @@ function ProductModal(props) {
                   )}
                 </div>
                 {product.rating && product.rating > 0 ? (
-                  <div className="pro-details-rating-wrap">
-                    <div className="pro-details-rating">
+                  <div className='pro-details-rating-wrap'>
+                    <div className='pro-details-rating'>
                       <Rating ratingValue={product.rating} />
                     </div>
                   </div>
                 ) : (
                   ""
                 )}
-                <div className="pro-details-list">
+                <div className='pro-details-list'>
                   <p>{product.fullDescription}</p>
                 </div>
 
                 {product.variation ? (
-                  <div className="pro-details-size-color">
-                    <div className="pro-details-color-wrap">
+                  <div className='pro-details-size-color'>
+                    <div className='pro-details-color-wrap'>
                       <span>Color</span>
-                      <div className="pro-details-color-content">
+                      <div className='pro-details-color-content'>
                         {product.variation.map((single, key) => {
                           return (
                             <label
@@ -178,9 +179,9 @@ function ProductModal(props) {
                               key={key}
                             >
                               <input
-                                type="radio"
+                                type='radio'
                                 value={single.color}
-                                name="product-color"
+                                name='product-color'
                                 checked={
                                   single.color === selectedProductColor
                                     ? "checked"
@@ -193,17 +194,17 @@ function ProductModal(props) {
                                   setQuantityCount(1);
                                 }}
                               />
-                              <span className="checkmark"></span>
+                              <span className='checkmark'></span>
                             </label>
                           );
                         })}
                       </div>
                     </div>
-                    <div className="pro-details-size">
+                    <div className='pro-details-size'>
                       <span>Size</span>
-                      <div className="pro-details-size-content">
+                      <div className='pro-details-size-content'>
                         {product.variation &&
-                          product.variation.map(single => {
+                          product.variation.map((single) => {
                             return single.color === selectedProductColor
                               ? single.size.map((singleSize, key) => {
                                   return (
@@ -212,7 +213,7 @@ function ProductModal(props) {
                                       key={key}
                                     >
                                       <input
-                                        type="radio"
+                                        type='radio'
                                         value={singleSize.name}
                                         checked={
                                           singleSize.name ===
@@ -228,7 +229,7 @@ function ProductModal(props) {
                                           setQuantityCount(1);
                                         }}
                                       />
-                                      <span className="size-name">
+                                      <span className='size-name'>
                                         {singleSize.name}
                                       </span>
                                     </label>
@@ -243,33 +244,33 @@ function ProductModal(props) {
                   ""
                 )}
                 {product.affiliateLink ? (
-                  <div className="pro-details-quality">
-                    <div className="pro-details-cart btn-hover">
+                  <div className='pro-details-quality'>
+                    <div className='pro-details-cart btn-hover'>
                       <a
                         href={product.affiliateLink}
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        rel='noopener noreferrer'
+                        target='_blank'
                       >
                         Hemen Al
                       </a>
                     </div>
                   </div>
                 ) : (
-                  <div className="pro-details-quality">
-                    <div className="cart-plus-minus">
+                  <div className='pro-details-quality'>
+                    <div className='cart-plus-minus'>
                       <button
                         onClick={() =>
                           setQuantityCount(
                             quantityCount > 1 ? quantityCount - 1 : 1
                           )
                         }
-                        className="dec qtybutton"
+                        className='dec qtybutton'
                       >
                         -
                       </button>
                       <input
-                        className="cart-plus-minus-box"
-                        type="text"
+                        className='cart-plus-minus-box'
+                        type='text'
                         value={quantityCount}
                         readOnly
                       />
@@ -281,12 +282,12 @@ function ProductModal(props) {
                               : quantityCount
                           )
                         }
-                        className="inc qtybutton"
+                        className='inc qtybutton'
                       >
                         +
                       </button>
                     </div>
-                    <div className="pro-details-cart btn-hover">
+                    <div className='pro-details-cart btn-hover'>
                       {productStock && productStock > 0 ? (
                         <button
                           onClick={() =>
@@ -307,21 +308,17 @@ function ProductModal(props) {
                         <button disabled>Stokta Yok</button>
                       )}
                     </div>
-                    <div className="pro-details-wishlist">
-                      <button
-                        className={wishlistItem !== undefined ? "active" : ""}
-                        disabled={wishlistItem !== undefined}
-                        title={
-                          wishlistItem !== undefined
-                            ? "Favorilere Eklendi"
-                            : "Favorilere Ekle"
-                        }
-                        onClick={() => addToWishlist(product, addToast)}
+                    <div className='pro-details-wishlist'>
+                      <WhatsappShareButton
+                        url={`${process.env.PUBLIC_URL}/product/${product.id}`}
+                        title='MiCoTa'
+                        seperator=' - '
                       >
-                        <i className="pe-7s-like" />
-                      </button>
+                        <a title="Whatsapp'ta paylaş">
+                          <i className='fa fa-whatsapp' />
+                        </a>
+                      </WhatsappShareButton>
                     </div>
-                    
                   </div>
                 )}
               </div>
@@ -347,12 +344,12 @@ ProductModal.propTypes = {
   onHide: PropTypes.func,
   product: PropTypes.object,
   show: PropTypes.bool,
-  wishlistitem: PropTypes.object
+  wishlistitem: PropTypes.object,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    cartitems: state.cartData
+    cartitems: state.cartData,
   };
 };
 

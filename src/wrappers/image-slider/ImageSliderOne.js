@@ -2,8 +2,15 @@ import React from "react";
 import Swiper from "react-id-swiper";
 import ImageSliderOneSingle from "../../components/image-slider/ImageSliderOneSingle";
 import imageData from "../../data/image-slider/image-slider-one.json";
+import { useQuery } from "@apollo/react-hooks";
+import GET_INSTA from "../../graphql/GetInsta";
+import Instagram from "../../components/image-slider/Instagram";
 
 const ImageSliderOne = () => {
+  const { loading, error, data } = useQuery(GET_INSTA);
+
+  if(data)console.log(data)
+
   const settings = {
     loop: false,
     grabCursor: true,
@@ -27,14 +34,10 @@ const ImageSliderOne = () => {
     <div className="image-slider-area">
       <div className="image-slider-active">
         <Swiper {...settings}>
-          {imageData &&
-            imageData.map((single, key) => {
+          {data &&
+            data.insta.map((single, key) => {
               return (
-                <ImageSliderOneSingle
-                  data={single}
-                  sliderClass="swiper-slide"
-                  key={key}
-                />
+                <Instagram url={single.link} key={key}/>
               );
             })}
         </Swiper>

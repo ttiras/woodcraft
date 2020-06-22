@@ -4,7 +4,7 @@
     "title": "Tarz",
     "subtitle": "Kahve Sunumları",
     "text": "50% İndirim FIrsatı",
-    "image": "/assets/img/slider/sliderMico.jpeg",
+    "image": "/assets/img/slider/sunum.jpeg",
     "url": "/shop-grid-standard"
   },
   {
@@ -12,7 +12,7 @@
     "title": "Gösterişli",
     "subtitle": "Tepsi ve Suplalar",
     "text": "50% İndirim Fırsatı",
-    "image": "/assets/img/slider/sliderMico2.jpeg",
+    "image": "/assets/img/slider/yuvarlak_tepsi.jpeg",
     "url": "/shop-grid-standard"
   }
 ]

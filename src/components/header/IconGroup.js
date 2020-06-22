@@ -65,13 +65,11 @@ const IconGroup = ({
                 </Link>
               </li>
               {state.role === "MANAGER" && (
-                <>
                   <li>
                   <Link to={process.env.PUBLIC_URL + "/dashboard"}>
                       Dashboard
                     </Link>
                   </li>
-                </>
               )}
             </ul>
           ) : (

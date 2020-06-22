@@ -170,7 +170,7 @@ const Checkout = ({ location, cartItems }) => {
                           type='checkbox'
                         />
                       </div>
-                      <div className='your-order-wrap gray-bg-4 mb-4'>
+                      <div className={state.address ? 'your-order-wrap gray-bg-4 mb-4' : 'your-order-wrap gray-bg-4 mb-4 errors'}>
                         <div className='your-order-product-info'>
                           <div className='your-order-top'>
                             <ul>
@@ -428,7 +428,7 @@ const Checkout = ({ location, cartItems }) => {
                         </div>
                       </div>
                     </div>
-                    <div className='mt-3 d-flex'>
+                    <div className={contractSigned ? 'mt-3 d-flex' : 'mt-3 d-flex errors'}>
                       <input
                         className='checkbox'
                         checked={contractSigned}
@@ -442,7 +442,7 @@ const Checkout = ({ location, cartItems }) => {
                         'nı ve{" "}
                         <u onClick={() => setDistanceModalShow(true)}>
                           {" "}
-                          Uzaktan Satış Sözleşmesi
+                          Mesafeli Satış Sözleşmesi
                         </u>
                         'ni okudum ve kabul ediyorum
                       </a>

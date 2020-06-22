@@ -5,8 +5,9 @@ import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
+import { WhatsappShareButton } from "react-share";
 
-import './Product.css'
+import "./Product.css";
 
 const ProductGridSingle = ({
   product,
@@ -18,7 +19,7 @@ const ProductGridSingle = ({
   wishlistItem,
   compareItem,
   sliderClassName,
-  spaceBottomClass
+  spaceBottomClass,
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const { addToast } = useToasts();
@@ -39,16 +40,18 @@ const ProductGridSingle = ({
         <div
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
         >
-          <div className="product-img">
+          <div className='product-img'>
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-             {product.image&&product.image[0]&& <img
-                className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0].path}
-                alt={product.image[0].name}
-              />}
+              {product.image && product.image[0] && (
+                <img
+                  className='default-img'
+                  src={process.env.PUBLIC_URL + product.image[0].path}
+                  alt={product.image[0].name}
+                />
+              )}
               {product.image.length > 1 ? (
                 <img
-                  className="hover-img"
+                  className='hover-img'
                   src={process.env.PUBLIC_URL + product.image[1].path}
                   alt={product.image[1].name}
                 />
@@ -57,39 +60,36 @@ const ProductGridSingle = ({
               )}
             </Link>
             {product.discount || product.new ? (
-              <div className="product-img-badges">
+              <div className='product-img-badges'>
                 {product.discount ? (
-                  <span className="pink">-%{product.discount}</span>
+                  <span className='pink'>-%{product.discount}</span>
                 ) : (
                   ""
                 )}
-                {product.new ? <span className="purple">Yeni</span> : ""}
+                {product.new ? <span className='purple'>Yeni</span> : ""}
               </div>
             ) : (
               ""
             )}
 
-            <div className="product-action">
-              <div className="pro-same-action pro-wishlist">
-                <button
-                  className={wishlistItem !== undefined ? "active" : ""}
-                  disabled={wishlistItem !== undefined}
-                  title={
-                    wishlistItem !== undefined
-                      ? "Favorilere Eklendi"
-                      : "Favorilere Ekle"
-                  }
-                  onClick={() => addToWishlist(product, addToast)}
+            <div className='product-action'>
+              <div className='pro-same-action pro-wishlist'>
+                <WhatsappShareButton
+                  url={`https://******************.com/p/`}
+                  title='**************.'
+                  seperator=' - '
                 >
-                  <i className="pe-7s-like" />
-                </button>
+                  <a title="Whatsapp'ta paylaş">
+                    <i className='fa fa-whatsapp' />
+                  </a>
+                </WhatsappShareButton>
               </div>
-              <div className="pro-same-action pro-cart">
+              <div className='pro-same-action pro-cart'>
                 {product.affiliateLink ? (
                   <a
                     href={product.affiliateLink}
-                    rel="noopener noreferrer"
-                    target="_blank"
+                    rel='noopener noreferrer'
+                    target='_blank'
                   >
                     {" "}
                     Hemen Al{" "}
@@ -112,42 +112,42 @@ const ProductGridSingle = ({
                     }
                   >
                     {" "}
-                    <i className="pe-7s-cart"></i>{" "}
+                    <i className='pe-7s-cart'></i>{" "}
                     {cartItem !== undefined && cartItem.quantity > 0
                       ? "Sepete Eklendi"
                       : "Sepete Ekle"}
                   </button>
                 ) : (
-                  <button disabled className="active">
+                  <button disabled className='active'>
                     Stokta Kalmadı
                   </button>
                 )}
               </div>
-              <div className="pro-same-action pro-quickview">
-                <button onClick={() => setModalShow(true)} title="Hızlı Bakış">
-                  <i className="pe-7s-look" />
+              <div className='pro-same-action pro-quickview'>
+                <button onClick={() => setModalShow(true)} title='Hızlı Bakış'>
+                  <i className='pe-7s-look' />
                 </button>
               </div>
             </div>
           </div>
-          <div className="product-content text-center">
+          <div className='product-content text-center'>
             <h3>
               <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                 {product.name}
               </Link>
             </h3>
             {product.rating && product.rating > 0 ? (
-              <div className="product-rating">
+              <div className='product-rating'>
                 <Rating ratingValue={product.rating} />
               </div>
             ) : (
               ""
             )}
-            <div className="product-price">
+            <div className='product-price'>
               {discountedPrice !== null ? (
                 <Fragment>
                   <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
-                  <span className="old">
+                  <span className='old'>
                     {currency.currencySymbol + finalProductPrice}
                   </span>
                 </Fragment>
@@ -189,7 +189,7 @@ ProductGridSingle.propTypes = {
   product: PropTypes.object,
   sliderClassName: PropTypes.string,
   spaceBottomClass: PropTypes.string,
-  wishlistItem: PropTypes.object
+  wishlistItem: PropTypes.object,
 };
 
 export default ProductGridSingle;
