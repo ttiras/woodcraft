@@ -20,7 +20,18 @@ const Product = ({ location, product }) => {
         <meta
           name='description'
           content='Alışveriş sitemiz micota.com.tr ürün detay. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tahtasıdır.'
+
         />
+        <meta property="og:url" content={`https://micota.com.tr/product/${product.id}`} />
+      <meta property="og:title" content={product.name} />
+      <meta property="og:description" content={product.shortDescription} />
+      <meta property="og:image:secure_url" itemprop="image" content={`https://micota.com.tr${product.image[0].path}`} />
+      <meta property="og:type" content="website" />
+      {/* Twitter Card tags */}
+      <meta property="twitter:title" content={`https://micota.com.tr/product/${product.id}`} />
+      <meta property="twitter:description" content={product.name} />
+      <meta property="twitter:image" content={`https://micota.com.tr${product.image[0].path}`} />
+      <meta property="twitter:card" content="summary" />
       </Helmet>
 
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

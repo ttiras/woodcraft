@@ -8,7 +8,6 @@ import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
 import BannerNine from "../../wrappers/banner/BannerNine";
 import TabProduct from "../../wrappers/product/TabProduct";
-import ImageSliderOne from "../../wrappers/image-slider/ImageSliderOne";
 import LayoutOne from "../../layouts/LayoutOne";
 
 const HomeFashionFour = () => {
@@ -40,7 +39,7 @@ const HomeFashionFour = () => {
         {/* blog featured */}
         <BlogFeatured spaceBottomClass='pb-55' />
         {/* image slider */}
-        <ImageSliderOne />
+        
       </LayoutOne>
     </Fragment>
   );

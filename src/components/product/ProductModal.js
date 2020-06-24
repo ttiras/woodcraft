@@ -310,9 +310,7 @@ function ProductModal(props) {
                     </div>
                     <div className='pro-details-wishlist'>
                       <WhatsappShareButton
-                        url={`${process.env.PUBLIC_URL}/product/${product.id}`}
-                        title='MiCoTa'
-                        seperator=' - '
+                        url={`https://micota.com.tr/product/${product.id}`}
                       >
                         <a title="Whatsapp'ta paylaş">
                           <i className='fa fa-whatsapp' />

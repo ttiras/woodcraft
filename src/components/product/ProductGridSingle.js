@@ -75,9 +75,7 @@ const ProductGridSingle = ({
             <div className='product-action'>
               <div className='pro-same-action pro-wishlist'>
                 <WhatsappShareButton
-                  url={`https://******************.com/p/`}
-                  title='**************.'
-                  seperator=' - '
+                  url={`https://micota.com.tr/product/${product.id}`}
                 >
                   <a title="Whatsapp'ta paylaş">
                     <i className='fa fa-whatsapp' />
