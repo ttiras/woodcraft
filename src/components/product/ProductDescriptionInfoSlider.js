@@ -20,7 +20,7 @@ const ProductDescriptionInfoSlider = ({
   addToast,
   addToCart,
   addToWishlist,
-  addToCompare
+  addToCompare,
 }) => {
   const [selectedProductColor, setSelectedProductColor] = useState(
     product.variation ? product.variation[0].color : ""
@@ -41,13 +41,13 @@ const ProductDescriptionInfoSlider = ({
   );
 
   return (
-    <div className="product-details-content pro-details-slider-content">
+    <div className='product-details-content pro-details-slider-content'>
       <h2>{product.name}</h2>
-      <div className="product-details-price justify-content-center">
+      <div className='product-details-price justify-content-center'>
         {discountedPrice !== null ? (
           <Fragment>
             <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
-            <span className="old">
+            <span className='old'>
               {currency.currencySymbol + finalProductPrice}
             </span>
           </Fragment>
@@ -56,23 +56,23 @@ const ProductDescriptionInfoSlider = ({
         )}
       </div>
       {product.rating && product.rating > 0 ? (
-        <div className="pro-details-rating-wrap justify-content-center">
-          <div className="pro-details-rating mr-0">
+        <div className='pro-details-rating-wrap justify-content-center'>
+          <div className='pro-details-rating mr-0'>
             <Rating ratingValue={product.rating} />
           </div>
         </div>
       ) : (
         ""
       )}
-      <div className="pro-details-list">
+      <div className='pro-details-list'>
         <p>{product.shortDescription}</p>
       </div>
 
       {product.variation ? (
-        <div className="pro-details-size-color justify-content-center">
-          <div className="pro-details-color-wrap">
+        <div className='pro-details-size-color justify-content-center'>
+          <div className='pro-details-color-wrap'>
             <span>Color</span>
-            <div className="pro-details-color-content">
+            <div className='pro-details-color-content'>
               {product.variation.map((single, key) => {
                 return (
                   <label
@@ -80,9 +80,9 @@ const ProductDescriptionInfoSlider = ({
                     key={key}
                   >
                     <input
-                      type="radio"
+                      type='radio'
                       value={single.color}
-                      name="product-color"
+                      name='product-color'
                       checked={
                         single.color === selectedProductColor ? "checked" : ""
                       }
@@ -93,17 +93,17 @@ const ProductDescriptionInfoSlider = ({
                         setQuantityCount(1);
                       }}
                     />
-                    <span className="checkmark"></span>
+                    <span className='checkmark'></span>
                   </label>
                 );
               })}
             </div>
           </div>
-          <div className="pro-details-size">
+          <div className='pro-details-size'>
             <span>Size</span>
-            <div className="pro-details-size-content">
+            <div className='pro-details-size-content'>
               {product.variation &&
-                product.variation.map(single => {
+                product.variation.map((single) => {
                   return single.color === selectedProductColor
                     ? single.size.map((singleSize, key) => {
                         return (
@@ -112,7 +112,7 @@ const ProductDescriptionInfoSlider = ({
                             key={key}
                           >
                             <input
-                              type="radio"
+                              type='radio'
                               value={singleSize.name}
                               checked={
                                 singleSize.name === selectedProductSize
@@ -125,7 +125,7 @@ const ProductDescriptionInfoSlider = ({
                                 setQuantityCount(1);
                               }}
                             />
-                            <span className="size-name">{singleSize.name}</span>
+                            <span className='size-name'>{singleSize.name}</span>
                           </label>
                         );
                       })
@@ -138,31 +138,31 @@ const ProductDescriptionInfoSlider = ({
         ""
       )}
       {product.affiliateLink ? (
-        <div className="pro-details-quality justify-content-center">
-          <div className="pro-details-cart btn-hover ml-0">
+        <div className='pro-details-quality justify-content-center'>
+          <div className='pro-details-cart btn-hover ml-0'>
             <a
               href={product.affiliateLink}
-              rel="noopener noreferrer"
-              target="_blank"
+              rel='noopener noreferrer'
+              target='_blank'
             >
               Buy Now
             </a>
           </div>
         </div>
       ) : (
-        <div className="pro-details-quality justify-content-center">
-          <div className="cart-plus-minus">
+        <div className='pro-details-quality justify-content-center'>
+          <div className='cart-plus-minus'>
             <button
               onClick={() =>
                 setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
               }
-              className="dec qtybutton"
+              className='dec qtybutton'
             >
               -
             </button>
             <input
-              className="cart-plus-minus-box"
-              type="text"
+              className='cart-plus-minus-box'
+              type='text'
               value={quantityCount}
               readOnly
             />
@@ -174,12 +174,12 @@ const ProductDescriptionInfoSlider = ({
                     : quantityCount
                 )
               }
-              className="inc qtybutton"
+              className='inc qtybutton'
             >
               +
             </button>
           </div>
-          <div className="pro-details-cart btn-hover">
+          <div className='pro-details-cart btn-hover'>
             {productStock && productStock > 0 ? (
               <button
                 onClick={() =>
@@ -200,7 +200,7 @@ const ProductDescriptionInfoSlider = ({
               <button disabled>Out of Stock</button>
             )}
           </div>
-          <div className="pro-details-wishlist">
+          <div className='pro-details-wishlist'>
             <button
               className={wishlistItem !== undefined ? "active" : ""}
               disabled={wishlistItem !== undefined}
@@ -211,10 +211,10 @@ const ProductDescriptionInfoSlider = ({
               }
               onClick={() => addToWishlist(product, addToast)}
             >
-              <i className="pe-7s-like" />
+              <i className='pe-7s-like' />
             </button>
           </div>
-          <div className="pro-details-compare">
+          <div className='pro-details-compare'>
             <button
               className={compareItem !== undefined ? "active" : ""}
               disabled={compareItem !== undefined}
@@ -225,21 +225,19 @@ const ProductDescriptionInfoSlider = ({
               }
               onClick={() => addToCompare(product, addToast)}
             >
-              <i className="pe-7s-shuffle" />
+              <i className='pe-7s-shuffle' />
             </button>
           </div>
         </div>
       )}
       {product.category ? (
-        <div className="pro-details-meta justify-content-center">
+        <div className='pro-details-meta justify-content-center'>
           <span>Categories :</span>
           <ul>
             {product.category.map((single, key) => {
               return (
                 <li key={key}>
-                  <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                    {single}
-                  </Link>
+                  <Link to={process.env.PUBLIC_URL + "/shop"}>{single}</Link>
                 </li>
               );
             })}
@@ -249,15 +247,13 @@ const ProductDescriptionInfoSlider = ({
         ""
       )}
       {product.tag ? (
-        <div className="pro-details-meta justify-content-center">
+        <div className='pro-details-meta justify-content-center'>
           <span>Tags :</span>
           <ul>
             {product.tag.map((single, key) => {
               return (
                 <li key={key}>
-                  <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                    {single}
-                  </Link>
+                  <Link to={process.env.PUBLIC_URL + "/shop"}>{single}</Link>
                 </li>
               );
             })}
@@ -267,31 +263,31 @@ const ProductDescriptionInfoSlider = ({
         ""
       )}
 
-      <div className="pro-details-social">
-        <ul className="justify-content-center">
+      <div className='pro-details-social'>
+        <ul className='justify-content-center'>
           <li>
-            <a href="//facebook.com">
-              <i className="fa fa-facebook" />
+            <a href='//facebook.com'>
+              <i className='fa fa-facebook' />
             </a>
           </li>
           <li>
-            <a href="//dribbble.com">
-              <i className="fa fa-dribbble" />
+            <a href='//dribbble.com'>
+              <i className='fa fa-dribbble' />
             </a>
           </li>
           <li>
-            <a href="//pinterest.com">
-              <i className="fa fa-pinterest-p" />
+            <a href='//pinterest.com'>
+              <i className='fa fa-pinterest-p' />
             </a>
           </li>
           <li>
-            <a href="//twitter.com">
-              <i className="fa fa-twitter" />
+            <a href='//twitter.com'>
+              <i className='fa fa-twitter' />
             </a>
           </li>
           <li>
-            <a href="//linkedin.com">
-              <i className="fa fa-linkedin" />
+            <a href='//linkedin.com'>
+              <i className='fa fa-linkedin' />
             </a>
           </li>
         </ul>
@@ -312,10 +308,10 @@ ProductDescriptionInfoSlider.propTypes = {
   finalDiscountedPrice: PropTypes.number,
   finalProductPrice: PropTypes.number,
   product: PropTypes.object,
-  wishlistItem: PropTypes.object
+  wishlistItem: PropTypes.object,
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (
       item,
@@ -339,7 +335,7 @@ const mapDispatchToProps = dispatch => {
     },
     addToCompare: (item, addToast) => {
       dispatch(addToCompare(item, addToast));
-    }
+    },
   };
 };
 

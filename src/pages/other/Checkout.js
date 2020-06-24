@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -170,7 +170,13 @@ const Checkout = ({ location, cartItems }) => {
                           type='checkbox'
                         />
                       </div>
-                      <div className={state.address ? 'your-order-wrap gray-bg-4 mb-4' : 'your-order-wrap gray-bg-4 mb-4 errors'}>
+                      <div
+                        className={
+                          state.address
+                            ? "your-order-wrap gray-bg-4 mb-4"
+                            : "your-order-wrap gray-bg-4 mb-4 errors"
+                        }
+                      >
                         <div className='your-order-product-info'>
                           <div className='your-order-top'>
                             <ul>
@@ -428,7 +434,11 @@ const Checkout = ({ location, cartItems }) => {
                         </div>
                       </div>
                     </div>
-                    <div className={contractSigned ? 'mt-3 d-flex' : 'mt-3 d-flex errors'}>
+                    <div
+                      className={
+                        contractSigned ? "mt-3 d-flex" : "mt-3 d-flex errors"
+                      }
+                    >
                       <input
                         className='checkbox'
                         checked={contractSigned}
@@ -494,7 +504,7 @@ const Checkout = ({ location, cartItems }) => {
                     </div>
                     <div className='item-empty-area__text'>
                       Sepette ürün yok. <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop"}>
                         Alışverişe Başla
                       </Link>
                     </div>

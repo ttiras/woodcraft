@@ -21,7 +21,7 @@ const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
 const MyAccount = lazy(() => import("./pages/memberZone/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
-const PaymentSuccess = lazy(() => import("./pages/other/PaymentSuccess"))
+const PaymentSuccess = lazy(() => import("./pages/other/PaymentSuccess"));
 const PasswordReset = lazy(() => import("./pages/other/PasswordReset"));
 
 const Cart = lazy(() => import("./pages/other/Cart"));
@@ -37,7 +37,9 @@ const Cerezler = lazy(() => import("./pages/documents/Cerezler"));
 const Kvkk = lazy(() => import("./pages/documents/Kvkk"));
 
 const NetworkError = lazy(() => import("./pages/other/NetworkError"));
-const SomethingWentWrong = lazy(() => import("./pages/other/SomethingWentWrong"));
+const SomethingWentWrong = lazy(() =>
+  import("./pages/other/SomethingWentWrong")
+);
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
@@ -70,7 +72,7 @@ function Routers() {
 
             {/* Shop pages */}
             <Route
-              path={process.env.PUBLIC_URL + "/shop-grid-standard"}
+              path={process.env.PUBLIC_URL + "/shop"}
               component={ShopGridStandard}
             />
 
@@ -81,15 +83,15 @@ function Routers() {
                 <Product {...routeProps} key={routeProps.match.params.id} />
               )}
             />
-            
+
             {/* Blog pages */}
-            
+
             <Route
-              path={process.env.PUBLIC_URL + "/blog-no-sidebar"}
+              path={process.env.PUBLIC_URL + "/blog"}
               component={BlogNoSidebar}
             />
             <Route
-              path={process.env.PUBLIC_URL + "/blog/:id"}
+              path={process.env.PUBLIC_URL + "/post/:id"}
               component={BlogDetailsStandard}
             />
 
@@ -124,7 +126,7 @@ function Routers() {
               component={Orders}
             />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/dashboard"}
               component={Dashboard}
             />
@@ -134,37 +136,34 @@ function Routers() {
               component={PaymentSuccess}
             />
 
-              <Route
+            <Route
               path={process.env.PUBLIC_URL + "/guvenlik"}
               component={Guvenlik}
             />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/gizlilik"}
               component={Gizlilik}
             />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/kosullar"}
               component={Kullanim}
             />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/cerezler"}
               component={Cerezler}
             />
 
-<Route
-              path={process.env.PUBLIC_URL + "/kvkk"}
-              component={Kvkk}
-            />
+            <Route path={process.env.PUBLIC_URL + "/kvkk"} component={Kvkk} />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/somethingwentwrong"}
               component={SomethingWentWrong}
             />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/networkerror"}
               component={NetworkError}
             />
@@ -174,7 +173,7 @@ function Routers() {
               component={NotFound}
             />
 
-<Route
+            <Route
               path={process.env.PUBLIC_URL + "/productmanage"}
               component={ProductManage}
             />

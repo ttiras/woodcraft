@@ -29,13 +29,13 @@ const BlogPost = (props) => {
           name='description'
           content={ "Alışveriş sitemiz micota.com.tr bloğu." + blog.quote}
         />
-        <meta property="og:url" content={`https://micota.com.tr/blog/${blog.id}`} />
+        <meta property="og:url" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="og:title" content={blog.title} />
       <meta property="og:description" content={blog.quote} />
       <meta property="og:image:secure_url" itemprop="image" content={`https://backend.rover.micota.com.tr/build/img/${blog.img1}`} />
       <meta property="og:type" content="website" />
       {/* Twitter Card tags */}
-      <meta property="twitter:title" content={`https://micota.com.tr/blog/${blog.id}`} />
+      <meta property="twitter:title" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="twitter:description" content={blog.title} />
       <meta property="twitter:image" itemprop="image" content={`https://backend.rover.micota.com.tr/build/img/${blog.img1}`} />
       <meta property="twitter:card" content="summary" />

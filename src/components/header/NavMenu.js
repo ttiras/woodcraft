@@ -15,21 +15,16 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
       <nav>
         <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/"}>
-              {strings["anasayfa"]}
-              
-            </Link>
-            
+            <Link to={process.env.PUBLIC_URL + "/"}>{strings["anasayfa"]}</Link>
           </li>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+            <Link to={process.env.PUBLIC_URL + "/shop"}>
               {" "}
               {strings["ürünler"]}
-              
             </Link>
           </li>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/blog-no-sidebar"}>
+            <Link to={process.env.PUBLIC_URL + "/blog"}>
               {strings["blog"]}
             </Link>
           </li>
@@ -47,7 +42,7 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
 NavMenu.propTypes = {
   menuWhiteClass: PropTypes.string,
   sidebarMenu: PropTypes.bool,
-  strings: PropTypes.object
+  strings: PropTypes.object,
 };
 
 export default multilanguage(NavMenu);

@@ -5,7 +5,7 @@
     "subtitle": "Kahve Sunumları",
     "text": "50% İndirim FIrsatı",
     "image": "/assets/img/slider/sunum.jpeg",
-    "url": "/shop-grid-standard"
+    "url": "/shop"
   },
   {
     "id": 2,
@@ -13,6 +13,6 @@
     "subtitle": "Tepsi ve Suplalar",
     "text": "50% İndirim Fırsatı",
     "image": "/assets/img/slider/yuvarlak_tepsi.jpeg",
-    "url": "/shop-grid-standard"
+    "url": "/shop"
   }
 ]

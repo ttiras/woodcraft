@@ -4,15 +4,15 @@
     "image": "/assets/img/banner/banner-16.png",
     "title": "Sunum Ürünleri",
     "subtitle": "",
-    "price": "39-99 TL",
-    "link": "/shop-grid-standard"
+    "price": "29-99 TL",
+    "link": "/shop"
   },
   {
     "id": 2,
     "image": "/assets/img/banner/banner-17.png",
-    "title": "Aksesuar ve Tablolar",
+    "title": "Tepsi ve Soplalar",
     "subtitle": "",
-    "price": "49-699 TL",
-    "link": "/shop-grid-standard"
+    "price": "39-129 TL",
+    "link": "/shop"
   }
 ]

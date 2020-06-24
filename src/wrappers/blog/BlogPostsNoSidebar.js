@@ -18,7 +18,7 @@ const BlogPostsNoSidebar = () => {
         <div className="col-lg-4 col-md-6 col-sm-12" key={blog.id}>
         <div className="blog-wrap-2 mb-30" >
           <div className="blog-img-2">
-            <Link to={process.env.PUBLIC_URL + `/blog/${blog.id}`}>
+            <Link to={process.env.PUBLIC_URL + `/post/${blog.id}`}>
               <img
                 src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
                 alt={blog.img1.split('.')[0]}
@@ -34,7 +34,7 @@ const BlogPostsNoSidebar = () => {
               </ul>
             </div>
             <h4>
-              <Link to={process.env.PUBLIC_URL + `/blog/${blog.id}`}>
+              <Link to={process.env.PUBLIC_URL + `/post/${blog.id}`}>
                 {blog.title}
               </Link>
             </h4>
@@ -43,7 +43,7 @@ const BlogPostsNoSidebar = () => {
             </p>
             <div className="blog-share-comment">
               <div className="blog-btn-2">
-                <Link to={process.env.PUBLIC_URL + `/blog/${blog.id}`}>
+                <Link to={process.env.PUBLIC_URL + `/post/${blog.id}`}>
                   devamını oku
                 </Link>
               </div>

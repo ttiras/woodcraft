@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import {
@@ -296,9 +296,7 @@ const Cart = ({
                   <div className='col-lg-12'>
                     <div className='cart-shiping-update-wrapper'>
                       <div className='cart-shiping-update'>
-                        <Link
-                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-                        >
+                        <Link to={process.env.PUBLIC_URL + "/shop"}>
                           Alışverişe Devam Et
                         </Link>
                       </div>
@@ -320,7 +318,7 @@ const Cart = ({
                     </div>
                     <div className='item-empty-area__text'>
                       Sepet Boş <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop"}>
                         Alışverişe Başla
                       </Link>
                     </div>
