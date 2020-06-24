@@ -23,12 +23,10 @@ const ProductFixedImage = lazy(() =>
 );
 
 // blog pages
-const BlogStandard = lazy(() => import("./pages/blog/BlogStandard"));
 const BlogNoSidebar = lazy(() => import("./pages/blog/BlogNoSidebar"));
 const BlogDetailsStandard = lazy(() =>
   import("./pages/blog/BlogDetailsStandard")
 );
-
 // other pages
 const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
@@ -118,10 +116,7 @@ function Routers() {
             />
 
             {/* Blog pages */}
-            <Route
-              path={process.env.PUBLIC_URL + "/blog-standard"}
-              component={BlogStandard}
-            />
+            
             <Route
               path={process.env.PUBLIC_URL + "/blog-no-sidebar"}
               component={BlogNoSidebar}
