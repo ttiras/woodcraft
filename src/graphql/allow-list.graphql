@@ -609,8 +609,23 @@ mutation InvoiceAction($order_id: uuid!, $path: String!, $fileName: String!) {
   }
 }
 
-query GetInsta {
-    insta(limit: 10) {
-      link
+query GetFeaturedBlogs {
+  blogs(limit: 3, order_by: {created_at: asc}) {
+    created_at
+    id
+    img1
+    img2
+    img3
+    p1
+    p2
+    p3
+    quote
+    title
+    blog_categories {
+      bcat {
+        bcat
+      }
     }
+  }
 }
+

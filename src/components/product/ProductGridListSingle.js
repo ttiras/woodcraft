@@ -5,6 +5,7 @@ import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
+import { WhatsappShareButton } from "react-share";
 
 const ProductGridListSingle = ({
   product,
@@ -69,18 +70,13 @@ const ProductGridListSingle = ({
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
-                <button
-                  className={wishlistItem !== undefined ? "active" : ""}
-                  disabled={wishlistItem !== undefined}
-                  title={
-                    wishlistItem !== undefined
-                      ? "Favorilere Eklendi"
-                      : "Favorilere Ekle"
-                  }
-                  onClick={() => addToWishlist(product, addToast)}
-                >
-                  <i className="pe-7s-like" />
-                </button>
+                <WhatsappShareButton
+              url={`https://micota.com.tr/product/${product.id}`}
+            >
+              <a title="Whatsapp'ta paylaş">
+                <i className='fa fa-whatsapp' />
+              </a>
+            </WhatsappShareButton>
               </div>
               <div className="pro-same-action pro-cart">
                 {product.affiliateLink ? (

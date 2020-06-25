@@ -5,7 +5,11 @@ import { getProductCartQuantity } from "../../helpers/product";
 import { Modal } from "react-bootstrap";
 import Rating from "./sub-components/ProductRating";
 import { connect } from "react-redux";
-import { WhatsappShareButton } from "react-share";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 function ProductModal(props) {
   const { product } = props;
@@ -308,17 +312,39 @@ function ProductModal(props) {
                         <button disabled>Stokta Yok</button>
                       )}
                     </div>
-                    <div className='pro-details-wishlist'>
+                  </div>
+                )}
+                <div className='pro-details-social'>
+                  <ul>
+                    <li>
                       <WhatsappShareButton
                         url={`https://micota.com.tr/product/${product.id}`}
                       >
-                        <a title="Whatsapp'ta paylaş">
+                        <a title="Whatsapp'da paylaş">
                           <i className='fa fa-whatsapp' />
                         </a>
                       </WhatsappShareButton>
-                    </div>
-                  </div>
-                )}
+                    </li>
+                    <li>
+                      <FacebookShareButton
+                        url={`https://micota.com.tr/product/${product.id}`}
+                      >
+                        <a title="Facebook'da paylaş">
+                          <i className='fa fa-facebook' />
+                        </a>
+                      </FacebookShareButton>
+                    </li>
+                    <li>
+                      <TwitterShareButton
+                        url={`https://micota.com.tr/product/${product.id}`}
+                      >
+                        <a title="Twitter'da paylaş">
+                          <i className='fa fa-twitter' />
+                        </a>
+                      </TwitterShareButton>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

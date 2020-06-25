@@ -7,7 +7,11 @@ import { addToCart } from "../../redux/actions/cartActions";
 import { addToWishlist } from "../../redux/actions/wishlistActions";
 import { addToCompare } from "../../redux/actions/compareActions";
 import Rating from "./sub-components/ProductRating";
-import { WhatsappShareButton } from "react-share";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 const ProductDescriptionInfo = ({
   product,
@@ -201,15 +205,6 @@ const ProductDescriptionInfo = ({
               <button disabled>Stokta Kalmadı</button>
             )}
           </div>
-          <div className='pro-details-wishlist'>
-            <WhatsappShareButton
-              url={`https://micota.com.tr/product/${product.id}`}
-            >
-              <a title="Whatsapp'ta paylaş">
-                <i className='fa fa-whatsapp' />
-              </a>
-            </WhatsappShareButton>
-          </div>
         </div>
       )}
       {product.category ? (
@@ -252,29 +247,31 @@ const ProductDescriptionInfo = ({
       <div className='pro-details-social'>
         <ul>
           <li>
-            <a href='//facebook.com'>
-              <i className='fa fa-facebook' />
-            </a>
+            <WhatsappShareButton
+              url={`https://micota.com.tr/product/${product.id}`}
+            >
+              <a title="Whatsapp'da paylaş">
+                <i className='fa fa-whatsapp' />
+              </a>
+            </WhatsappShareButton>
           </li>
           <li>
-            <a href='//dribbble.com'>
-              <i className='fa fa-dribbble' />
-            </a>
+            <FacebookShareButton
+              url={`https://micota.com.tr/product/${product.id}`}
+            >
+              <a title="Facebook'da paylaş">
+                <i className='fa fa-facebook' />
+              </a>
+            </FacebookShareButton>
           </li>
           <li>
-            <a href='//pinterest.com'>
-              <i className='fa fa-pinterest-p' />
-            </a>
-          </li>
-          <li>
-            <a href='//twitter.com'>
-              <i className='fa fa-twitter' />
-            </a>
-          </li>
-          <li>
-            <a href='//linkedin.com'>
-              <i className='fa fa-linkedin' />
-            </a>
+            <TwitterShareButton
+              url={`https://micota.com.tr/product/${product.id}`}
+            >
+              <a title="Twitter'da paylaş">
+                <i className='fa fa-twitter' />
+              </a>
+            </TwitterShareButton>
           </li>
         </ul>
       </div>
