@@ -99,7 +99,7 @@ export default function ({orders}){
                       )}{" "}
                       |{" "}
                       {order.isShipped ? (
-                        <strong>KARGLANDI</strong>
+                        <strong>KARGOLANDI</strong>
                       ) : (
                         <strong>KARGOLANMADI</strong>
                       )}{" "}

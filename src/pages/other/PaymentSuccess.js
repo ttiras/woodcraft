@@ -1,30 +1,22 @@
-import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { connect } from "react-redux";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouteMatch } from "react-router-dom";
-import {
-  addToCart,
-  decreaseQuantity,
-  deleteFromCart,
-  deleteAllFromCart,
-} from "../../redux/actions/cartActions";
+
 import LayoutOne from "../../layouts/LayoutOne";
 import SINGLE_ORDER from "../../graphql/GetSingleOrder";
 import { useEffect } from "react";
 
-const Cart = ({ location, currency }) => {
+import "./Checkout.css";
+
+const PaymentSuccess = ({ location, currency }) => {
   const match = useRouteMatch();
   const { loading, error, data } = useQuery(SINGLE_ORDER, {
     variables: { id: match.params.id },
   });
   const { pathname } = location;
-
-  if (error) console.log(error);
-  if (data) console.log(data);
 
   useEffect(() => {
     localStorage.clear("cartData", "notes", "isGift");
@@ -35,7 +27,7 @@ const Cart = ({ location, currency }) => {
     data.orders[0].order_payment.itemTransactions.filter(
       (item) => item.itemId === "009d7bdb-c14f-497d-9661-93a49b24585f"
     );
-  console.log(cargo);
+  
   return (
     <Fragment>
       <Helmet>
@@ -48,7 +40,17 @@ const Cart = ({ location, currency }) => {
 
       <LayoutOne headerTop='visible'>
         <div className='cart-main-area pt-90 pb-100'>
+          {error? <div>'Ödeme sonucu alınırken bağlantı koptu. Ama merak etmeyin ödemeniz geçekleştiyse siparişinizle ilgili emailiniz gelmek üzeredir. Eğer bir aksaklık olduğunu düşünüyorsanız bize whatsapp üzerinden mesaj bırakabilirsiniz:' 
+           <div className="same-language-currency">
+           <span>
+         <a href="https://wa.me/5302225663" title="İletişime Geç">
+           <i className="fa fa-whatsapp" /></a></span>
+           </div></div> : 
           <div className='container'>
+          {loading&& <div
+                        id='cover-spin'
+                        className="loading"
+                      ></div>}
             <div className='alert alert-success text-center' role='alert'>
               Sayın{" "}
               {data && data.orders[0].user_ordered && (
@@ -252,44 +254,12 @@ const Cart = ({ location, currency }) => {
               </div>
             </div>
           </div>
+          }
         </div>
       </LayoutOne>
     </Fragment>
   );
 };
 
-Cart.propTypes = {
-  addToCart: PropTypes.func,
-  cartItems: PropTypes.array,
-  currency: PropTypes.object,
-  decreaseQuantity: PropTypes.func,
-  location: PropTypes.object,
-  deleteAllFromCart: PropTypes.func,
-  deleteFromCart: PropTypes.func,
-};
 
-const mapStateToProps = (state) => {
-  return {
-    cartItems: state.cartData,
-    currency: state.currencyData,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (item, addToast, quantityCount) => {
-      dispatch(addToCart(item, addToast, quantityCount));
-    },
-    decreaseQuantity: (item, addToast) => {
-      dispatch(decreaseQuantity(item, addToast));
-    },
-    deleteFromCart: (item, addToast) => {
-      dispatch(deleteFromCart(item, addToast));
-    },
-    deleteAllFromCart: (addToast) => {
-      dispatch(deleteAllFromCart(addToast));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default PaymentSuccess;

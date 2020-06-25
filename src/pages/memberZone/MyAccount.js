@@ -19,7 +19,6 @@ const MyAccount = ({ location }) => {
   const { pathname } = "Hesabım";
   const state = useAuthState();
   const [getOrders, { loading, error, data }] = useLazyQuery(GET_USER_ORDERS);
-  if (error) console.log(error);
 
   useEffect(() => {
     if (state.user) {

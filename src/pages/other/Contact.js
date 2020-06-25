@@ -71,10 +71,10 @@ const Contact = ({ location }) => {
                     </div>
                     <div className='contact-info-dec'>
                       <p>
-                        <a href='mailto:urname@email.com'>urname@email.com</a>
+                        <a href='mailto:hello@micota.com.tr'>hello@micota.com.tr</a>
                       </p>
                       <p>
-                        <a href='//urwebsitenaem.com'>urwebsitenaem.com</a>
+                        <a href='//urwebsitenaem.com'>micota.com.tr</a>
                       </p>
                     </div>
                   </div>
@@ -83,8 +83,18 @@ const Contact = ({ location }) => {
                       <i className='fa fa-map-marker' />
                     </div>
                     <div className='contact-info-dec'>
-                      <p>Küçüksu Mah. Asma Sok. No: 10 C-4</p>
+                      <p>Küçüksu Mah. Asma Sok. No: 10</p>
                       <p>Kandilli Üsküdar</p>
+                    </div>
+                  </div>
+                  <div className='single-contact-info'>
+                    <div className='contact-icon'>
+                      <i className='fa fa-whatsapp' />
+                    </div>
+                    <div className='contact-info-dec'>
+                      <p>
+                        <a href='https://wa.me/5302225663'>Whatsapp İletişim</a>
+                      </p>
                     </div>
                   </div>
                   <div className='contact-social text-center'>
@@ -96,23 +106,13 @@ const Contact = ({ location }) => {
                         </a>
                       </li>
                       <li>
-                        <a href='//pinterest.com'>
-                          <i className='fa fa-pinterest-p' />
+                        <a href='//instagram.com'>
+                          <i className='fa fa-instagram' />
                         </a>
                       </li>
                       <li>
-                        <a href='//thumblr.com'>
-                          <i className='fa fa-tumblr' />
-                        </a>
-                      </li>
-                      <li>
-                        <a href='//vimeo.com'>
-                          <i className='fa fa-vimeo' />
-                        </a>
-                      </li>
-                      <li>
-                        <a href='//twitter.com'>
-                          <i className='fa fa-twitter' />
+                        <a href='//youtube.com'>
+                          <i className='fa fa-youtube' />
                         </a>
                       </li>
                     </ul>

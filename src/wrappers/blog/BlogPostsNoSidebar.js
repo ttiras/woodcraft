@@ -9,11 +9,11 @@ const BlogPostsNoSidebar = () => {
   const state = useAuthState()
   const [blogModalShow, setBlogModalShow] = useState(false);
   const { loading, error, data, refetch } = useQuery(GET_BLOGS);
-  if(error)console.log(error)
-
 
   return (
     <Fragment>
+      {loading&& 'Loading...'}
+      {error&& 'Bağlantı hatası. Blog yazıları yüklenemedi.'}
       {data&& data.blogs.map(blog=>(
         <div className="col-lg-4 col-md-6 col-sm-12" key={blog.id}>
         <div className="blog-wrap-2 mb-30" >

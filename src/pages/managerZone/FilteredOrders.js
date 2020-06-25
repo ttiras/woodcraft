@@ -63,7 +63,7 @@ export default function FilteredOrders({data, type}){
                         </h4>
     
                     <div className='product-list-price m-0'>
-                      <span>{order.amount} TL </span>
+                          <span><strong>Tarih:</strong> {new Date(order.created).toLocaleString("en-Gb")} </span><span><strong>Toplam Tutar: </strong>{order.amount} TL </span>
                     </div>
                     <div className='rating-review d-block'>
                       {order.addresses&& order.addresses.map((address) => (
@@ -108,7 +108,7 @@ export default function FilteredOrders({data, type}){
                           )}{" "}
                           |{" "}
                           {order.isShipped ? (
-                            <strong>KARGLANDI</strong>
+                            <strong>KARGOLANDI</strong>
                           ) : (
                             <strong>KARGOLANMADI</strong>
                           )}{" "}

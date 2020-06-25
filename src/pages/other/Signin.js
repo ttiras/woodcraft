@@ -36,7 +36,7 @@ function Signin({ fire, history }) {
           const user = respond.user;
           axios.post(`https://backend.rover.micota.com.tr/claims`, { user }).then(() => {
             history.goBack();
-        }).catch(err=>console.log(err))
+        }).catch(err=>setError(err.message))
         });
     } catch (err) {
       setError(err.message);

@@ -33,7 +33,6 @@ function ProductModal(props) {
         vars
       },
     });
-    console.log(vars)
     onHide();
   };
 

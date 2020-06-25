@@ -18,7 +18,7 @@ export const anonymousLogin = async () => {
           return;
         })
         .catch((err) => {
-          console.log(err);
+          return err;
         });
     });
 };

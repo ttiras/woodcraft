@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
-import { multilanguage, loadLanguages } from "redux-multilanguage";
+import { loadLanguages } from "redux-multilanguage";
 
 import  { request } from 'graphql-request';
 
@@ -32,7 +32,6 @@ import { split } from "apollo-link";
 import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
-import { onError } from "apollo-link-error";
 
 import SINGLE_USER from "./graphql/GetUser";
 
@@ -84,7 +83,7 @@ const App = props => {
   const wsurl = "wss://engine.rover.micota.com.tr/v1/graphql";
   const httpurl = "https://engine.rover.micota.com.tr/v1/graphql";
   
-  request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>console.log(err))
+  request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>{})
 
   const authLink = setContext((_, { headers }) => {
     const accessToken = token
@@ -123,43 +122,6 @@ const App = props => {
     uri: httpurl,
   });
 
-  const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
-    if (graphQLErrors) {
-      for (let err of graphQLErrors) {
-        switch (err.extensions.code) {
-          case "invalid-jwt":
-            // refetch the jwt
-            const oldHeaders = operation.getContext().headers;
-            state.user.getIdTokenResult(true).then((result) => {
-              console.log('invalid', result.token)
-              operation.setContext({
-                headers: {
-                  ...oldHeaders,
-                  "x-hasura-role": state.role === 'MANAGER' ? 'manager' : '',
-                  authorization: `Bearer ${result.token}`
-                }
-              });        
-            });
-            
-            // retry the request, returning the new observable
-            return forward(operation);
-            break;
-          default:
-            // default case
-            console.log(err);           
-        }
-      }
-    }
-    if (networkError) {
-      console.log(`[Network error]: ${networkError}`);
-      
-      // if you would also like to retry automatically on
-      // network errors, we recommend that you use
-      // apollo-link-retry
-    }
-  }
-);
-
   const link = split(
     // split based on operation type
     ({ query }) => {
@@ -167,7 +129,7 @@ const App = props => {
       return kind === "OperationDefinition" && operation === "subscription";
     },
     wsLink,
-    errorLink.concat(authLink.concat(httpLink))
+    authLink.concat(httpLink)
   );
 
   const client = new ApolloClient({
@@ -187,7 +149,7 @@ const App = props => {
       dispatch({
         type: 'ROLE',
         payload:result.data.users[0].role})
-    }).catch(err=>console.log(err))}
+    }).catch(err=>{})}
   
   return (
     <Provider store={store}>
@@ -206,4 +168,4 @@ App.propTypes = {
   dispatch: PropTypes.func,
 };
 
-export default  App;
+export default App;
