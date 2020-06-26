@@ -108,15 +108,6 @@ const BlogPost = (props) => {
           <div className="share-social">
           <ul>
           <li>
-            <WhatsappShareButton
-              url={`https://micota.com.tr/post/${blog.id}`}
-            >
-              <a title="Whatsapp'da paylaş">
-                <i className='fa fa-whatsapp' />
-              </a>
-            </WhatsappShareButton>
-          </li>
-          <li>
             <FacebookShareButton
               url={`https://micota.com.tr/post/${blog.id}`}
             >
@@ -134,20 +125,20 @@ const BlogPost = (props) => {
               </a>
             </TwitterShareButton>
           </li>
+          <li>
+            <WhatsappShareButton
+              url={`https://micota.com.tr/post/${blog.id}`}
+            >
+              <a title="Whatsapp'da paylaş">
+                <i className='fa fa-whatsapp' />
+              </a>
+            </WhatsappShareButton>
+          </li>
         </ul>
           </div>
         </div>
         {state.role === "MANAGER" && <button key={blog.id} value={'edit'} className='btn btn-danger' onClick={(e)=>handleBlogModal(e)}>Düzenle</button>}
 
-      </div>
-      <div className="next-previous-post">
-        <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-          {" "}
-          <i className="fa fa-angle-left" /> önceki 
-        </Link>
-        <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-          sonraki <i className="fa fa-angle-right" />
-        </Link>
       </div>
       <BlogModal
           show={blogModalShow}

@@ -4,6 +4,11 @@ import { useQuery } from "@apollo/react-hooks";
 import GET_BLOGS from "../../graphql/GetBlogs";
 import { useAuthState } from "../../auth/auth-context"
 import BlogModal from "./BlogModal";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 const BlogPostsNoSidebar = () => {
   const state = useAuthState()
@@ -20,7 +25,7 @@ const BlogPostsNoSidebar = () => {
           <div className="blog-img-2">
             <Link to={process.env.PUBLIC_URL + `/post/${blog.id}`}>
               <img
-                src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
+                src={process.env.PUBLIC_URL + `/build/img/${blog.img1}`}
                 alt={blog.img1.split('.')[0]}
               />
             </Link>
@@ -51,20 +56,33 @@ const BlogPostsNoSidebar = () => {
                 <span>paylaş :</span>
                 <div className="share-social">
                   <ul>
+                    
                     <li>
-                      <a className="facebook" href="//facebook.com">
+                    <FacebookShareButton
+              url={`https://micota.com.tr/post/${blog.id}`}
+            >
+                      <a className="facebook" title="Facebook'da paylaş">
                         <i className="fa fa-facebook" />
                       </a>
+                      </FacebookShareButton>
                     </li>
                     <li>
-                      <a className="twitter" href="//twitter.com">
+                    <TwitterShareButton
+              url={`https://micota.com.tr/post/${blog.id}`}
+            >
+                      <a className="twitter" title="Twitter'da paylaş">
                         <i className="fa fa-twitter" />
                       </a>
+                      </TwitterShareButton>
                     </li>
                     <li>
+                    <WhatsappShareButton
+                     url={`https://micota.com.tr/post/${blog.id}`}
+                     >
                       <a className="instagram" href="//instagram.com">
-                        <i className="fa fa-instagram" />
+                        <i className="fa fa-whatsapp" />
                       </a>
+                      </WhatsappShareButton>
                     </li>
                   </ul>
                 </div>
