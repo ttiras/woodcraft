@@ -173,7 +173,7 @@ function BlogModal(props) {
               <div className='billing-info mb-20'>
                     <label>Başlık</label>
                     <input
-                      maxLength='55'
+                      maxLength='255'
                       className='billing-address'
                       placeholder='Başlık'
                       type='text'
@@ -190,7 +190,7 @@ function BlogModal(props) {
                   <div className='billing-info mb-20'>
                     <label>Paragraf 1</label>
                     <input
-                      maxLength='256'
+                      maxLength='1256'
                       className='billing-address'
                       placeholder='Paragraf 1'
                       type='text'
@@ -208,7 +208,7 @@ function BlogModal(props) {
                   <div className='billing-info mb-20'>
                     <label>Paragraf 2</label>
                     <input
-                      maxLength='256'
+                      maxLength='1256'
                       className='billing-address'
                       placeholder='Paragraf 2'
                       type='text'
@@ -226,7 +226,7 @@ function BlogModal(props) {
                   <div className='billing-info mb-20'>
                     <label>Paragraf 3</label>
                     <input
-                      maxLength='256'
+                      maxLength='1256'
                       className='billing-address'
                       placeholder='Paragraf 3'
                       type='text'
@@ -244,16 +244,15 @@ function BlogModal(props) {
                   <div className='billing-info mb-20'>
                     <label>Öne çıkan</label>
                     <input
-                      maxLength='256'
+                      maxLength='556'
                       className='billing-address'
                       placeholder='Öne çıkan'
                       type='quote'
                       ref={register({ required: true, minLength: 10 })}
                       name='quote'
                       defaultValue={modalMode === 'edit' ? blog.quote : ''}
-
                     />
-                    {errors.p1 && (
+                    {errors.quote && (
                       <div className='alert alert-danger small' role='alert'>
                     Öne çıkan boş bırakılamaz.
                       </div>
@@ -277,16 +276,11 @@ function BlogModal(props) {
                       );
                     })}
                   </select>
-                  {errors.category_id && (
-                    <div className='alert alert-danger small' role='alert'>
-                      {errors.cateory_id.message}
-                    </div>
-                  )}{
+                  {
                     category&& category.map((item, index)=>(
                     <div key={index}>{item}
                     <span onClick={(e)=>handleRemoveCat(e)} key={index} id={item} className='ml-1' style={{color: 'red', cursor: 'pointer'}} >x</span></div>
                     )
-                      
                     )
                   }
                 </div>}

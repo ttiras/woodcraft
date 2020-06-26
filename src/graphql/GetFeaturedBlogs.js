@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const GET_FEATURED_BLOGS = gql`
   query GetFeaturedBlogs {
-    blogs(limit: 3, order_by: {created_at: asc}) {
+    blogs(limit: 3, order_by: {created_at: desc}) {
       created_at
       id
       img1

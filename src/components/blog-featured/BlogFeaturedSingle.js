@@ -27,12 +27,6 @@ const BlogFeaturedSingle = ({ singlePost }) => {
                 {singlePost.title}
               </Link>
             </h3>
-            <span>
-              By{" "}
-              <Link to={`${process.env.PUBLIC_URL}/post/${singlePost.id}`}>
-                Editor
-              </Link>
-            </span>
           </div>
         </div>
       </div>

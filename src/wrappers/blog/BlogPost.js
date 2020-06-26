@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "../../auth/auth-context"
 import BlogModal from "./BlogModal";
 import { Helmet } from "react-helmet";
-
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 
 const BlogPost = (props) => {
@@ -102,23 +106,35 @@ const BlogPost = (props) => {
         <div className="blog-share">
           <span>paylaş :</span>
           <div className="share-social">
-            <ul>
-              <li>
-                <a className="facebook" href="//facebook.com">
-                  <i className="fa fa-facebook" />
-                </a>
-              </li>
-              <li>
-                <a className="twitter" href="//twitter.com">
-                  <i className="fa fa-twitter" />
-                </a>
-              </li>
-              <li>
-                <a className="instagram" href="//instagram.com">
-                  <i className="fa fa-instagram" />
-                </a>
-              </li>
-            </ul>
+          <ul>
+          <li>
+            <WhatsappShareButton
+              url={`https://micota.com.tr/post/${blog.id}`}
+            >
+              <a title="Whatsapp'da paylaş">
+                <i className='fa fa-whatsapp' />
+              </a>
+            </WhatsappShareButton>
+          </li>
+          <li>
+            <FacebookShareButton
+              url={`https://micota.com.tr/post/${blog.id}`}
+            >
+              <a title="Facebook'da paylaş">
+                <i className='fa fa-facebook' />
+              </a>
+            </FacebookShareButton>
+          </li>
+          <li>
+            <TwitterShareButton
+              url={`https://micota.com.tr/post/${blog.id}`}
+            >
+              <a title="Twitter'da paylaş">
+                <i className='fa fa-twitter' />
+              </a>
+            </TwitterShareButton>
+          </li>
+        </ul>
           </div>
         </div>
         {state.role === "MANAGER" && <button key={blog.id} value={'edit'} className='btn btn-danger' onClick={(e)=>handleBlogModal(e)}>Düzenle</button>}

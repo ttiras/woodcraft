@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 import "./Checkout.css";
 
-const PaymentSuccess = ({ location, currency }) => {
+const PaymentSuccess = ({ location }) => {
   const match = useRouteMatch();
   const { loading, error, data } = useQuery(SINGLE_ORDER, {
     variables: { id: match.params.id },
@@ -40,7 +40,11 @@ const PaymentSuccess = ({ location, currency }) => {
 
       <LayoutOne headerTop='visible'>
         <div className='cart-main-area pt-90 pb-100'>
-          {error? <div>'Ödeme sonucu alınırken bağlantı koptu. Ama merak etmeyin ödemeniz geçekleştiyse siparişinizle ilgili emailiniz gelmek üzeredir. Eğer bir aksaklık olduğunu düşünüyorsanız bize whatsapp üzerinden mesaj bırakabilirsiniz:' 
+          {error? <div>
+            <div class="alert alert-danger" role="alert">
+            Ödeme sonucu alınırken bağlantı koptu. Ama merak etmeyin ödemeniz geçekleştiyse sipariş sonucuyla ilgili email gelmek üzeredir.
+            </div>
+            <p>Eğer bir aksaklık olduğunu düşünüyorsanız bize whatsapp üzerinden mesaj bırakabilirsiniz:</p>
            <div className="same-language-currency">
            <span>
          <a href="https://wa.me/5302225663" title="İletişime Geç">
@@ -143,7 +147,7 @@ const PaymentSuccess = ({ location, currency }) => {
                                     100
                                   ).toFixed(2) +
                                   " " +
-                                  currency.currencySymbol}
+                                  'TL'}
                               </td>
 
                               <td className='product-quantity'>
@@ -158,7 +162,7 @@ const PaymentSuccess = ({ location, currency }) => {
                                   item.qty
                                 ).toFixed(2) +
                                   " " +
-                                  currency.currencySymbol}
+                                  'TL'}
                               </td>
 
                               <td className='product-remove'></td>
@@ -223,7 +227,7 @@ const PaymentSuccess = ({ location, currency }) => {
                     Ürünler Toplamı{" "}
                     <span>
                       {data &&
-                        data.orders[0].amount + " " + currency.currencySymbol}
+                        data.orders[0].amount + " " + 'TL'}
                     </span>
                   </h5>
                   <h5>
@@ -243,10 +247,10 @@ const PaymentSuccess = ({ location, currency }) => {
                           ? data.orders[0].amount +
                             10 +
                             " " +
-                            currency.currencySymbol
+                            'TL'
                           : data.orders[0].amount +
                             " " +
-                            currency.currencySymbol}
+                            'TL'}
                       </span>
                     )}
                   </h4>
