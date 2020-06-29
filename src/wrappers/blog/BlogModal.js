@@ -57,8 +57,6 @@ function BlogModal(props) {
 
   const { handleSubmit, register, errors } = useForm();
   const { onHide } = props;
-  const [loaded, setLoaded] = useState(0)
-  const [selectedFile, setSelectedFile] = useState(null)
   const [category, setCategory] = useState([])
 
 
@@ -79,47 +77,14 @@ function BlogModal(props) {
           p2: data.p2,
           p3: data.p3,
           quote: data.quote,
-          img1: uploaded[0],
-          img2: uploaded[1],
-          img3: uploaded[2] }
+          img1: data.title + 1 + '.webp',
+          img2: data.title + 2 + '.webp',
+          img3: data.title + 3 + '.webp'}
         }
       });}
     
     onHide();
   };
-
-  const onChangeHandler= event=>{
-    var files = event.target.files
-    setSelectedFile(files)
-  }
-
-  var uploaded = [];
-
-  if(selectedFile){
-    for (var i = 0; i < selectedFile.length; i++){
-      uploaded.push(selectedFile[i].name)
-    }
-  }
-
-  const handleImages = () => {
-    const data = new FormData() 
-    for(var x = 0; x<selectedFile.length; x++) {
-      data.append('file', selectedFile[x])
-    }
-    axios.post("https://backend.rover.micota.com.tr/upload", data, {
-      onUploadProgress: ProgressEvent => {
-        setLoaded(
-          (ProgressEvent.loaded / ProgressEvent.total*100),
-        )
-      },
-    })
-      .then(res => { // then print response status
-        console.log(res)
-      })
-      .catch(err => { // then print response status
-        console.log(err)
-      })
-    }
 
     const handleCat = (e) => {
       e.preventDefault()
@@ -148,16 +113,6 @@ function BlogModal(props) {
                 Yeni Blog
               </h3>
             </div>
-            <div className='col-lg-6 col-md-6'><div className="offset-md-3 col-md-6">
-               <div className="form-group files">
-                <label>Ürün görsellerini ekle </label>
-                <input placeholder='görsel seç' type="file" className="form-control" multiple onChange={onChangeHandler}/>
-              </div>           <button disabled={!selectedFile} type="button" className="btn btn-success btn-block" onClick={handleImages}>Yükle</button>
- </div>  <div className='d-flex'>
-            {loaded === 100 && uploaded.map((item, index)=>(<img className="default-img uploaded" key={index} src={`https://backend.rover.micota.com.tr/build/img/${item}`} alt="" />
-            ))
-              }
-          </div></div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='row'>

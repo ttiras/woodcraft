@@ -19,7 +19,7 @@ const BlogSidebar = () => {
               <Link to={process.env.PUBLIC_URL + "/post/" + blog.id}>
                 <img
                   src={
-                    `https://backend.rover.micota.com.tr/build/img/${blog.img1}`
+                    process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`
                   }
                   alt={blog.img1}
                 />

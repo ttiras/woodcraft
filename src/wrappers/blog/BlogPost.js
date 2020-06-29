@@ -36,12 +36,12 @@ const BlogPost = (props) => {
         <meta property="og:url" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="og:title" content={blog.title} />
       <meta property="og:description" content={blog.quote} />
-      <meta property="og:image:secure_url" itemprop="image" content={`https://backend.rover.micota.com.tr/build/img/${blog.img1}`} />
+      <meta property="og:image:secure_url" itemprop="image" content={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`} />
       <meta property="og:type" content="website" />
       {/* Twitter Card tags */}
       <meta property="twitter:title" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="twitter:description" content={blog.title} />
-      <meta property="twitter:image" itemprop="image" content={`https://backend.rover.micota.com.tr/build/img/${blog.img1}`} />
+      <meta property="twitter:image" itemprop="image" content={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`} />
       <meta property="twitter:card" content="summary" />
       
       </Helmet>
@@ -49,7 +49,7 @@ const BlogPost = (props) => {
         <div className="blog-details-img">
           <img
             alt={blog.img1.split('.')[0]}
-            src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
+            src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`}
           />
         </div>
         <div className="blog-details-content">
@@ -78,7 +78,7 @@ const BlogPost = (props) => {
             <div className="dec-img mb-50">
               <img
                 alt={blog.img2.split('.')[0]}
-                src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img2}`}
+                src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img2}`}
               />
             </div>
           </div>
@@ -86,7 +86,7 @@ const BlogPost = (props) => {
             <div className="dec-img mb-50">
               <img
                 alt={blog.img3.split('.')[0]}
-                src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img3}`}
+                src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img3}`}
               />
             </div>
           </div>

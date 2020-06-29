@@ -8,7 +8,7 @@ const BlogFeaturedSingle = ({ singlePost }) => {
       <div className="blog-wrap mb-30 scroll-zoom">
         <div className="blog-img">
           <Link to={process.env.PUBLIC_URL + 'post/' + singlePost.id}>
-            <img src={"https://backend.rover.micota.com.tr/build/img/" + singlePost.img1} alt="" />
+            <img src={process.env.PUBLIC_URL + 'assets/img/blog/' + singlePost.img1} alt="" />
           </Link>
           <div className="blog-category-names">
             {singlePost.blog_categories.map((singleCategory, key) => {
