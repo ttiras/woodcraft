@@ -25,7 +25,7 @@ const BlogPostsNoSidebar = () => {
           <div className="blog-img-2">
             <Link to={process.env.PUBLIC_URL + `/post/${blog.id}`}>
               <img
-                src={process.env.PUBLIC_URL + `/build/img/${blog.img1}`}
+                src={process.env.REACT_APP_PUBLIC_URL + `/build/img/${blog.img1}`}
                 alt={blog.img1.split('.')[0]}
               />
             </Link>

@@ -31,7 +31,7 @@ const BlogSidebar = () => {
                 </Link>
               <h4>
                 <Link to={process.env.PUBLIC_URL + "/post/" + blog.id}>
-                {blog.blog_categories[0].bcat.bcat + " " + blog.blog_categories[1].bcat.bcat}
+                {blog.blog_categories[0].bcat.bcat}
                 </Link>
               </h4>
             </div>
