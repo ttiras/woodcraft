@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 import './UserOrders.css'
 
@@ -29,13 +30,10 @@ export default function ({orders}){
                     >
                       <span className="badge badge-secondary productName">{item.product.name}</span>
                       <span className="badge badge-secondary productName2">Adet: {item.qty}</span>
-                      <img
-                        className='img-orders img-responsive'
-                        src={
-                          process.env.PUBLIC_URL + item.product.image[0].path
-                        }
-                        alt={item.product.image[0].name}
-                        
+                      <ProductImgFallback
+                        path={item.product.image[0].path}
+                        className="img-orders img-responsive"
+                        name={item.product.name}
                       />
                     </Link>
                   </div>

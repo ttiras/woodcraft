@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import { Modal } from "react-bootstrap";
-import axios from 'axios';
 
 import './Blog.css'
 
@@ -77,9 +76,9 @@ function BlogModal(props) {
           p2: data.p2,
           p3: data.p3,
           quote: data.quote,
-          img1: data.title + 1 + '.webp',
-          img2: data.title + 2 + '.webp',
-          img3: data.title + 3 + '.webp'}
+          img1: data.title.replace(/\s+/g, '_') + 1,
+          img2: data.title.replace(/\s+/g, '_') + 2,
+          img3: data.title.replace(/\s+/g, '_') + 3}
         }
       });}
     

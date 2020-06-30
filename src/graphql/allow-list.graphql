@@ -346,6 +346,7 @@ query GetUsers {
 mutation AddProduct($product: products_insert_input!) {
   insert_products_one(object: $product) {
     id
+    name
   }
 }
 

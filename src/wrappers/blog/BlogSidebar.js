@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import GET_SIDEBAR_BLOGS from "../../graphql/GetSidebarBlogs";
+import BlogImageFallback from "../../helpers/BlogImageFallback";
 
 const BlogSidebar = () => {
   const { loading, error, data, } = useQuery(GET_SIDEBAR_BLOGS);
@@ -17,12 +18,7 @@ const BlogSidebar = () => {
           <div className="single-sidebar-blog" key={blog.id}>
             <div className="sidebar-blog-img">
               <Link to={process.env.PUBLIC_URL + "/post/" + blog.id}>
-                <img
-                  src={
-                    process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`
-                  }
-                  alt={blog.img1}
-                />
+                <BlogImageFallback name={blog.title} path={blog.img1}/>
               </Link>
             </div>
             <div className="sidebar-blog-content">

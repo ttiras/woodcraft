@@ -445,7 +445,7 @@ const Checkout = ({ location, cartItems }) => {
                         onChange={() => setContractSigned(!contractSigned)}
                         type='checkbox'
                       />
-                      <a>
+                      <a >
                         <u onClick={() => setContractModalShow(true)}>
                           Ön Bİlgilendirme Koşulları
                         </u>

@@ -10,6 +10,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 function ProductModal(props) {
   const { product } = props;
@@ -31,13 +32,7 @@ function ProductModal(props) {
   );
   const [quantityCount, setQuantityCount] = useState(1);
 
-  const wishlistItem = props.wishlistitem;
-  const compareItem = props.compareitem;
-
   const addToCart = props.addtocart;
-  const addToWishlist = props.addtowishlist;
-  const addToCompare = props.addtocompare;
-
   const addToast = props.addtoast;
   const cartItems = props.cartitems;
 
@@ -111,11 +106,11 @@ function ProductModal(props) {
                       return (
                         <div key={key}>
                           <div className='single-image'>
-                            <img
-                              src={process.env.PUBLIC_URL + single.path}
-                              className='img-fluid'
-                              alt={single.name}
-                            />
+                          <ProductImgFallback
+                        path={single.path}
+                        className="img-fluid"
+                        name={product.name}
+                      />
                           </div>
                         </div>
                       );
@@ -320,27 +315,21 @@ function ProductModal(props) {
                       <WhatsappShareButton
                         url={`https://micota.com.tr/product/${product.id}`}
                       >
-                        <a title="Whatsapp'da paylaş">
-                          <i className='fa fa-whatsapp' />
-                        </a>
+                          <i title="Whatsapp'ta paylaş" className='fa fa-whatsapp' />
                       </WhatsappShareButton>
                     </li>
                     <li>
                       <FacebookShareButton
                         url={`https://micota.com.tr/product/${product.id}`}
                       >
-                        <a title="Facebook'da paylaş">
-                          <i className='fa fa-facebook' />
-                        </a>
+                          <i title="Facebook'da paylaş" className='fa fa-facebook' />
                       </FacebookShareButton>
                     </li>
                     <li>
                       <TwitterShareButton
                         url={`https://micota.com.tr/product/${product.id}`}
                       >
-                        <a title="Twitter'da paylaş">
-                          <i className='fa fa-twitter' />
-                        </a>
+                          <i title="Twitter'da paylaş" className='fa fa-twitter' />
                       </TwitterShareButton>
                     </li>
                   </ul>

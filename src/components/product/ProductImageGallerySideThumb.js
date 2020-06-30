@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Fragment, useEffect, useState } from "react";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
 import Swiper from "react-id-swiper";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
@@ -100,11 +101,11 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
                           </button>
                         </LightgalleryItem>
                         <div className="single-image">
-                          <img
-                            src={process.env.PUBLIC_URL + single.path}
-                            className="img-fluid"
-                            alt={single.name}
-                          />
+                        <ProductImgFallback
+                        path={single.path}
+                        className="img-fluid"
+                        name={product.name}
+                      />
                         </div>
                       </div>
                     );
@@ -127,11 +128,11 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
                   return (
                     <div key={key}>
                       <div className="single-image">
-                        <img
-                          src={process.env.PUBLIC_URL + single.path}
-                          className="img-fluid"
-                          alt={single.name}
-                        />
+                      <ProductImgFallback
+                        path={single.path}
+                        className="img-fluid"
+                        name={product.name}
+                      />
                       </div>
                     </div>
                   );

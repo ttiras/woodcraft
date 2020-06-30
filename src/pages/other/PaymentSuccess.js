@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 import { useQuery } from "@apollo/react-hooks";
 import { useRouteMatch } from "react-router-dom";
@@ -47,7 +48,7 @@ const PaymentSuccess = ({ location }) => {
             <p>Eğer bir aksaklık olduğunu düşünüyorsanız bize whatsapp üzerinden mesaj bırakabilirsiniz:</p>
            <div className="same-language-currency">
            <span>
-         <a href="https://wa.me/5302225663" title="İletişime Geç">
+         <a href="https://wa.me/5302225663" target="blank" title="İletişime Geç">
            <i className="fa fa-whatsapp" /></a></span>
            </div></div> : 
           <div className='container'>
@@ -117,14 +118,11 @@ const PaymentSuccess = ({ location }) => {
                                     product.id
                                   }
                                 >
-                                  <img
-                                    className='img-fluid'
-                                    src={
-                                      process.env.PUBLIC_URL +
-                                      product.image[0].path
-                                    }
-                                    alt={product.image[0].name}
-                                  />
+                                  <ProductImgFallback
+                        path={product.image[0].path}
+                        className="img-fluid"
+                        name={product.name}
+                      />
                                 </Link>
                               </td>
 
@@ -227,7 +225,7 @@ const PaymentSuccess = ({ location }) => {
                     Ürünler Toplamı{" "}
                     <span>
                       {data &&
-                        data.orders[0].amount + " " + 'TL'}
+                        data.orders[0].amount + " TL"}
                     </span>
                   </h5>
                   <h5>

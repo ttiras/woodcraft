@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import { useAuthState } from "../../auth/auth-context"
 import BlogModal from "./BlogModal";
 import { Helmet } from "react-helmet";
@@ -8,6 +7,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import BlogImageFallback from "../../helpers/BlogImageFallback";
 
 
 const BlogPost = (props) => {
@@ -36,21 +36,18 @@ const BlogPost = (props) => {
         <meta property="og:url" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="og:title" content={blog.title} />
       <meta property="og:description" content={blog.quote} />
-      <meta property="og:image:secure_url" itemprop="image" content={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`} />
+      <meta property="og:image:secure_url" itemprop="image" content={process.env.PUBLIC_URL + blog.img1} />
       <meta property="og:type" content="website" />
       {/* Twitter Card tags */}
       <meta property="twitter:title" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="twitter:description" content={blog.title} />
-      <meta property="twitter:image" itemprop="image" content={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`} />
+      <meta property="twitter:image" itemprop="image" content={process.env.PUBLIC_URL + blog.img1} />
       <meta property="twitter:card" content="summary" />
       
       </Helmet>
       <div className="blog-details-top">
         <div className="blog-details-img">
-          <img
-            alt={blog.img1.split('.')[0]}
-            src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`}
-          />
+          <BlogImageFallback name={blog.title} path={blog.img1}/>
         </div>
         <div className="blog-details-content">
           <div className="blog-meta-2">
@@ -76,18 +73,12 @@ const BlogPost = (props) => {
         <div className="row">
           <div className="col-md-6">
             <div className="dec-img mb-50">
-              <img
-                alt={blog.img2.split('.')[0]}
-                src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img2}`}
-              />
+            <BlogImageFallback name={blog.title} path={blog.img2}/>
             </div>
           </div>
           <div className="col-md-6">
             <div className="dec-img mb-50">
-              <img
-                alt={blog.img3.split('.')[0]}
-                src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img3}`}
-              />
+            <BlogImageFallback name={blog.title} path={blog.img3}/>
             </div>
           </div>
         </div>
@@ -111,27 +102,21 @@ const BlogPost = (props) => {
             <FacebookShareButton
               url={`https://micota.com.tr/post/${blog.id}`}
             >
-              <a title="Facebook'da paylaş">
-                <i className='fa fa-facebook' />
-              </a>
+                <i title="Facebook'da paylaş" className='fa fa-facebook' />
             </FacebookShareButton>
           </li>
           <li>
             <TwitterShareButton
               url={`https://micota.com.tr/post/${blog.id}`}
             >
-              <a title="Twitter'da paylaş">
-                <i className='fa fa-twitter' />
-              </a>
+                <i title="Twitter'da paylaş" className='fa fa-twitter' />
             </TwitterShareButton>
           </li>
           <li>
             <WhatsappShareButton
               url={`https://micota.com.tr/post/${blog.id}`}
             >
-              <a title="Whatsapp'da paylaş">
-                <i className='fa fa-whatsapp' />
-              </a>
+                <i title="Whatsapp'da paylaş" className='fa fa-whatsapp' />
             </WhatsappShareButton>
           </li>
         </ul>

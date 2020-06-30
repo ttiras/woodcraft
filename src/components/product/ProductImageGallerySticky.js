@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 const productImageGallerySticky = ({ product }) => {
   return (
@@ -21,11 +22,11 @@ const productImageGallerySticky = ({ product }) => {
           product.image.map((single, key) => {
             return (
               <div className="product-sticky-image__single mb-10" key={key}>
-                <img
-                  src={process.env.PUBLIC_URL + single.path}
-                  alt={single.name}
-                  className="img-fluid"
-                />
+                <ProductImgFallback
+                        path={single.path}
+                        className="img-fluid"
+                        name={product.name}
+                      />
               </div>
             );
           })}

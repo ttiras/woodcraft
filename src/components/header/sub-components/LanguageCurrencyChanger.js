@@ -22,19 +22,19 @@ const LanguageCurrencyChanger = ({
     <div className="language-currency-wrap">
       <div className="same-language-currency language-style">
         <span>
-          <i className="fa fa-instagram" />
+          <i className="fa fa-instagram" title="MiCoTa Instagram"/>
         </span>
        
       </div>
       <div className="same-language-currency use-style">
         <span>
-         <i className="fa fa-facebook" />
+         <i className="fa fa-facebook" title="MiCoTa Facebook" />
         </span>
         
       </div>
       <div className="same-language-currency">
       <span>
-    <a href="https://wa.me/5302225663" title="İletişime Geç">
+    <a href="https://wa.me/5302225663" target="blank" title="İletişime Geç">
       <i className="fa fa-whatsapp" /></a></span>
       </div>
     </div>

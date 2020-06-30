@@ -1,13 +1,12 @@
 import React, { Fragment, useState } from "react";
 import { Modal } from "react-bootstrap";
-import axios from "axios";
 
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/react-hooks";
 
 import "../other/Checkout.css";
-import INSERT_PRODUCT from "../../graphql/InserProduct";
+import INSERT_PRODUCT from "../../graphql/InsertProduct";
 import GET_CATEGORIES_TAGS from "../../graphql/GetCategoriesandTags";
 import INSERT_PRODUCT_TAGS_IMAGES from "../../graphql/InsertProductTagsImages";
 
@@ -25,7 +24,7 @@ function NewProductModal(props) {
     {
       onCompleted(data) {
         const product_id = data.insert_products_one.id;
-        const name = data.inset_products_one.name;
+        const name = data.insert_products_one.name.replace(/\s+/g, '_');
         insertProductTagsImages({
           variables: {
             product_tags: tags.map((tag) => ({
@@ -34,15 +33,15 @@ function NewProductModal(props) {
             })),
             images: [
               {
-                path: `/assets/img/product${name}1.webp`,
+                path: `${name}1`,
                 product_id: product_id,
               },
               {
-                path: `/assets/img/product${name}2.webp`,
+                path: `${name}2`,
                 product_id: product_id,
               },
               {
-                path: `/assets/img/product${name}3.webp`,
+                path: `${name}3`,
                 product_id: product_id,
               },
             ],

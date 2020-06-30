@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 const ProductImageFixed = ({ product }) => {
   return (
@@ -19,9 +20,8 @@ const ProductImageFixed = ({ product }) => {
 
       <div className="product-fixed-image">
         {product.image ? (
-          <img
-            src={process.env.PUBLIC_URL + product.image[0].path}
-            alt={product.image[0].name}
+          <ProductImgFallback
+            path={ product.image[0].path}
             className="img-fluid"
           />
         ) : (

@@ -35,7 +35,7 @@ const HeaderOne = ({
     >
       <div
         className={`${headerPaddingClass ? headerPaddingClass : ""} ${
-          top === "visible" ? "d-none d-lg-block" : "d-none"
+          top === "visible" ? "d-lg-block" : "d-none"
         } header-top-area ${
           borderStyle === "fluid-border" ? "border-none" : ""
         }`}

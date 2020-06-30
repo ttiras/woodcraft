@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../../helpers/product";
+import ProductImgFallback from "../../../helpers/ProductImgFallback";
 
 const MenuCart = ({ cartData, currency, deleteFromCart }) => {
   let cartTotalPrice = 0;
@@ -32,11 +33,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                 <li className="single-shopping-cart" key={key}>
                   <div className="shopping-cart-img">
                     <Link to={process.env.PUBLIC_URL + "/product/" + single.id}>
-                      <img
-                        alt={single.image[0].name}
-                        src={process.env.PUBLIC_URL + single.image[0].path}
-                        className="img-fluid"
-                      />
+                      <ProductImgFallback name={single.name} className="img-fluid" path={single.image[0].path}/>
                     </Link>
                   </div>
                   <div className="shopping-cart-title">

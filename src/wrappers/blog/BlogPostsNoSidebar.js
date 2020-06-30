@@ -9,6 +9,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import BlogImageFallback from "../../helpers/BlogImageFallback";
 
 const BlogPostsNoSidebar = () => {
   const state = useAuthState()
@@ -24,10 +25,7 @@ const BlogPostsNoSidebar = () => {
         <div className="blog-wrap-2 mb-30" >
           <div className="blog-img-2">
             <Link to={process.env.PUBLIC_URL + `/post/${blog.id}`}>
-              <img
-                src={process.env.PUBLIC_URL + `/assets/img/blog/${blog.img1}`}
-                alt={blog.img1.split('.')[0]}
-              />
+              <BlogImageFallback name={blog.title} path={blog.img1}/>
             </Link>
           </div>
           <div className="blog-content-2">
@@ -61,7 +59,7 @@ const BlogPostsNoSidebar = () => {
                     <FacebookShareButton
               url={`https://micota.com.tr/post/${blog.id}`}
             >
-                      <a className="facebook" title="Facebook'da paylaş">
+                      <a className="facebook" title="Facebook'da paylaş" href="//micota.com.tr">
                         <i className="fa fa-facebook" />
                       </a>
                       </FacebookShareButton>
@@ -70,7 +68,7 @@ const BlogPostsNoSidebar = () => {
                     <TwitterShareButton
               url={`https://micota.com.tr/post/${blog.id}`}
             >
-                      <a className="twitter" title="Twitter'da paylaş">
+                      <a className="twitter" title="Twitter'da paylaş" href="//micota.com.tr">
                         <i className="fa fa-twitter" />
                       </a>
                       </TwitterShareButton>
@@ -79,7 +77,7 @@ const BlogPostsNoSidebar = () => {
                     <WhatsappShareButton
                      url={`https://micota.com.tr/post/${blog.id}`}
                      >
-                      <a className="instagram" href="//instagram.com">
+                      <a className="instagram" title="Whatsapp'da paylaş" href="//micota.com.tr">
                         <i className="fa fa-whatsapp" />
                       </a>
                       </WhatsappShareButton>

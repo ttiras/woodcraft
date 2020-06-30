@@ -6,6 +6,7 @@ import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
 import { WhatsappShareButton } from "react-share";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 const ProductGridListSingle = ({
   product,
@@ -40,17 +41,12 @@ const ProductGridListSingle = ({
         >
           <div className="product-img">
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-              <img
-                className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0].path}
-                alt={product.image[0].name}
-              />
+              <ProductImgFallback name={product.name} path={product.image[0].path} className="default-img"/>
+             
               {product.image.length > 1 ? (
-                <img
-                  className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1].path}
-                  alt={product.image[1].name}
-                />
+                <ProductImgFallback className="hover-img"
+                path={product.image[1].path} name={product.name}/>
+                
               ) : (
                 ""
               )}
@@ -73,9 +69,7 @@ const ProductGridListSingle = ({
                 <WhatsappShareButton
               url={`https://micota.com.tr/product/${product.id}`}
             >
-              <a title="Whatsapp'ta paylaş">
-                <i className='fa fa-whatsapp' />
-              </a>
+                <i title="Whatsapp'ta paylaş" className='fa fa-whatsapp' />
             </WhatsappShareButton>
               </div>
               <div className="pro-same-action pro-cart">
@@ -157,20 +151,15 @@ const ProductGridListSingle = ({
               <div className="product-list-image-wrap">
                 <div className="product-img">
                   <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-                    <img
-                      className="default-img img-fluid"
-                      src={process.env.PUBLIC_URL + product.image[0].path}
-                      alt={product.image[0].name}
-                    />
-                    {product.image.length > 1 ? (
-                      <img
-                        className="hover-img img-fluid"
-                        src={process.env.PUBLIC_URL + product.image[1].path}
-                        alt={product.image[1].name}
-                      />
-                    ) : (
-                      ""
-                    )}
+                  <ProductImgFallback name={product.name} path={product.image[0].path} className="default-img img-fluid"/>
+             
+             {product.image.length > 1 ? (
+               <ProductImgFallback className="hover-img img-fluid"
+               path={product.image[1].path} name={product.name}/>
+               
+             ) : (
+               ""
+             )}
                   </Link>
                   {product.discount || product.new ? (
                     <div className="product-img-badges">

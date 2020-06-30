@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 import "./Orders.css";
 import StockModal from "./StockModal";
@@ -59,10 +60,10 @@ export default function ProductsList() {
                 <div className='product-list-image-wrap d-flex overflow-auto'>
                   {product.image.map((image) => (
                     <div className='container' key={image.image_id}>
-                      <img
-                        className='img-orders img-responsive'
-                        src={process.env.PUBLIC_URL + image.path}
-                        alt={image.name}
+                      <ProductImgFallback
+                        path={image.path}
+                        className="img-orders img-responsive"
+                        name={product.name}
                       />
                     </div>
                   ))}

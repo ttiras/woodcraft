@@ -14,6 +14,7 @@ import {
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import "./Checkout.css";
+import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 const Cart = ({
   location,
@@ -105,14 +106,11 @@ const Cart = ({
                                       cartItem.id
                                     }
                                   >
-                                    <img
-                                      className='img-fluid'
-                                      src={
-                                        process.env.PUBLIC_URL +
-                                        cartItem.image[0].path
-                                      }
-                                      alt={cartItem.image[0].name}
-                                    />
+                                    <ProductImgFallback
+                        path={cartItem.image[0].path}
+                        className="img-fluid"
+                        name={cartItem.name}
+                      />
                                   </Link>
                                 </td>
 

@@ -5,6 +5,7 @@ const INSERT_PRODUCT = gql`
     insert_products_one(object: $product)
     {
       id
+      name
     }
   }
 `; 

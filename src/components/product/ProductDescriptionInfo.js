@@ -250,27 +250,21 @@ const ProductDescriptionInfo = ({
             <WhatsappShareButton
               url={`https://micota.com.tr/product/${product.id}`}
             >
-              <a title="Whatsapp'da paylaş">
-                <i className='fa fa-whatsapp' />
-              </a>
+                <i title="Whatsapp'ta paylaş" className='fa fa-whatsapp' />
             </WhatsappShareButton>
           </li>
           <li>
             <FacebookShareButton
               url={`https://micota.com.tr/product/${product.id}`}
             >
-              <a title="Facebook'da paylaş">
-                <i className='fa fa-facebook' />
-              </a>
+                <i title="Facebook'da paylaş" className='fa fa-facebook' />
             </FacebookShareButton>
           </li>
           <li>
             <TwitterShareButton
               url={`https://micota.com.tr/product/${product.id}`}
             >
-              <a title="Twitter'da paylaş">
-                <i className='fa fa-twitter' />
-              </a>
+                <i title="Twitter'da paylaş" className='fa fa-twitter' />
             </TwitterShareButton>
           </li>
         </ul>
