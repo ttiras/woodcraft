@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./helpers/scroll-top";
 
 // home page
-const HomeFashionFour = lazy(() => import("./pages/home/HomeFashionFour"));
+const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
 
 // shop pages
 const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
@@ -61,14 +61,11 @@ function Routers() {
             <Route
               exact
               path={process.env.PUBLIC_URL + "/"}
-              component={HomeFashionFour}
+              component={HomeFashion}
             />
 
             {/* Homepages */}
-            <Route
-              path={process.env.PUBLIC_URL + "/home-fashion-four"}
-              component={HomeFashionFour}
-            />
+            
 
             {/* Shop pages */}
             <Route
