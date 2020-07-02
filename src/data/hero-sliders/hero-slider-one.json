@@ -3,21 +3,21 @@
     "id": 1,
     "title": "Supla",
     "subtitle": "sofralarınızı canlandırın",
-    "image": "/assets/img/slider/Supla_Beyaz1.png",
-    "url": "/shop-grid-standard"
+    "image": "/assets/img/slider/Supla_Beyaz1",
+    "url": "/shop"
   },
   {
     "id": 2,
     "title": "MiCoTa",
     "subtitle": "tarz güvenli kahve sunumları",
-    "image": "/assets/img/slider/Coffee_Time_MiCoTa1.png",
-    "url": "/shop-grid-standard"
+    "image": "/assets/img/slider/Coffee_Time_MiCoTa2",
+    "url": "/shop"
   },
   {
     "id": 3,
     "title": "Tepsi",
     "subtitle": "ahşabın sıcaklığı",
-    "image": "/assets/img/slider/Yuvarlak_Tepsi_Beyaz1.png",
-    "url": "/shop-grid-standard"
+    "image": "/assets/img/slider/Yuvarlak_Tepsi_Beyaz1",
+    "url": "/shop"
   }
 ]

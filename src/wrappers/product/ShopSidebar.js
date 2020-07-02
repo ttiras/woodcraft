@@ -20,23 +20,13 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
 
   return (
     <div className={`sidebar-style ${sideSpaceClass ? sideSpaceClass : ""}`}>
-      {/* shop search */}
-      <ShopSearch />
 
       {/* filter by categories */}
       <ShopCategories
         categories={uniqueCategories}
         getSortParams={getSortParams}
       />
-
-      {/* filter by color */}
-      <ShopColor colors={uniqueColors} getSortParams={getSortParams} />
-
-      {/* filter by size */}
-      <ShopSize sizes={uniqueSizes} getSortParams={getSortParams} />
-
-      {/* filter by tag */}
-      <ShopTag tags={uniqueTags} getSortParams={getSortParams} />
+      
     </div>
   );
 };

@@ -69,11 +69,13 @@ const ProductGridSingle = ({
 
             <div className='product-action'>
               <div className='pro-same-action pro-wishlist'>
+              <a>
                 <WhatsappShareButton
                   url={`https://micota.com.tr/product/${product.id}`}
                 >
                     <i title="Whatsapp'ta paylaş" className='fa fa-whatsapp' />
                 </WhatsappShareButton>
+                </a>
               </div>
               <div className='pro-same-action pro-cart'>
                 {product.affiliateLink ? (
@@ -137,13 +139,13 @@ const ProductGridSingle = ({
             <div className='product-price'>
               {discountedPrice !== null ? (
                 <Fragment>
-                  <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+                  <span>{finalDiscountedPrice + currency.currencySymbol}</span>{" "}
                   <span className='old'>
-                    {currency.currencySymbol + finalProductPrice}
+                    {finalProductPrice + currency.currencySymbol}
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>{finalProductPrice + currency.currencySymbol} </span>
               )}
             </div>
           </div>

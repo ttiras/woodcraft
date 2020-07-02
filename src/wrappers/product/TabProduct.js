@@ -74,6 +74,9 @@ const TabProduct = ({
           </Tab.Content>
         </Tab.Container>
       </div>
+      <div className="view-more text-center mt-20 toggle-btn6 col-12">
+      <a className="loadMore6" href="/shop">TÜM ÜRÜNLERİ GÖR</a>
+      </div>
     </div>
   );
 };

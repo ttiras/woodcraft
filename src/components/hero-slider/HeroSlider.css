@@ -1,8 +1,8 @@
 .foreText {
-    color: #5f6267!important;
+    color: #717c80!important;
 }
 
 .bGround {
-    background:linear-gradient(#fae2e8,transparent);
-    background-color:#E4717A;
+    background:linear-gradient(#fdecf2,transparent);
+    background-color: pink;
 }
