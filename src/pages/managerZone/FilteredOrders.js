@@ -5,12 +5,14 @@ import ProductImgFallback from "../../helpers/ProductImgFallback";
 import "./Orders.css";
 import OrderShippingModal from "./OrderShippingModal";
 import OrderInvoiceModal from "./OrderInvoiceModal";
+import PaymentsModal from './PaymentsModal';
 
 export default function FilteredOrders({data, type}){
-    const [shippingModalShow, setShippingModalShow] = useState(false);
+  const [shippingModalShow, setShippingModalShow] = useState(false);
   const [invoiceModalShow, setInvoiceModalShow] = useState(false);
+  const [paymentsModalShow, setPaymentsModalShow] = useState(false);
   const [orderId, setOrderId] = useState(null)
-    
+  const [orderPayment, setOrderPayment] = useState({})
     
     const handleShippingModal = (e) => {
         e.preventDefault();
@@ -22,6 +24,13 @@ export default function FilteredOrders({data, type}){
         e.preventDefault();
         setOrderId(e.target.value)
         setInvoiceModalShow(true);
+      };
+
+      const handlePaymentsModal = (e) => {
+        e.preventDefault();
+        const filteredPayments = filteredOrders.filter(order=>order.id === e.target.value)[0].order_payment
+        setOrderPayment(filteredPayments)
+        setPaymentsModalShow(true);
       };
 
       const filteredOrders = data && data.orders && data.orders.filter(item=>item.isShipped === type)
@@ -63,6 +72,11 @@ export default function FilteredOrders({data, type}){
     
                     <div className='product-list-price m-0'>
                           <span><strong>Tarih:</strong> {new Date(order.created).toLocaleString("en-Gb")} </span><span><strong>Toplam Tutar: </strong>{order.amount} TL </span>
+                    </div>
+                    <div className='product-list-price m-0'>
+                          <span><strong>İsim:</strong> {order.user_ordered.name}{" "}{order.user_ordered.surname} </span>
+                          <span><strong> Email: </strong>{order.user_ordered.email}</span>
+                          <span><strong> Tel: </strong>{order.user_ordered.phone}</span>
                     </div>
                     <div className='rating-review d-block'>
                       {order.addresses&& order.addresses.map((address) => (
@@ -145,6 +159,9 @@ export default function FilteredOrders({data, type}){
                         <button value={order.id} className='active ml-3 order-btn' onClick={(e)=>handleInvoiceModal(e)}>
                           {order.invoice && order.invoice.path ? 'Faturayı Tekrar Gönder' : 'Faturayı Gönder'}
                         </button>
+                        <button value={order.id} className='active ml-3 order-btn' onClick={(e)=>handlePaymentsModal(e)}>
+                          Ödeme Detayları
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -161,6 +178,11 @@ export default function FilteredOrders({data, type}){
         onHide={() => setInvoiceModalShow(false)}
         orderId={orderId}
         />
-            </Fragment>
+        <PaymentsModal
+        show={paymentsModalShow}
+        onHide={() => setPaymentsModalShow(false)}
+        orderPayment={orderPayment}
+        />
+        </Fragment>
     )
 }
