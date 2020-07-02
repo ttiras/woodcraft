@@ -6,7 +6,7 @@ import ScrollToTop from "./helpers/scroll-top";
 const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
 
 // shop pages
-const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
+const ShopGridTwoColumn = lazy(() => import("./pages/shop/ShopGridTwoColumn"));
 
 // product pages
 const Product = lazy(() => import("./pages/shop-product/Product"));
@@ -70,7 +70,7 @@ function Routers() {
             {/* Shop pages */}
             <Route
               path={process.env.PUBLIC_URL + "/shop"}
-              component={ShopGridStandard}
+              component={ShopGridTwoColumn}
             />
 
             {/* Shop product pages */}

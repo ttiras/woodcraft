@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-
 import Paginator from "react-hooks-paginator";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { connect } from "react-redux";

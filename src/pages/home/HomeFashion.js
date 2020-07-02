@@ -26,7 +26,7 @@ const HomeFashion = () => {
         <HeroSliderOne />
 
         {/* tab product */}
-        <TabProduct spaceBottomClass="pb-60" category="fashion" />
+        <TabProduct spaceBottomClass="pb-60" />
 
         {/* feature icon */}
         <FeatureIconThree

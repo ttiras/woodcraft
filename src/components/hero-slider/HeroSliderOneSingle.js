@@ -6,7 +6,7 @@ import './HeroSlider.css'
 const HeroSliderOneSingle = ({ data, sliderClassName }) => {
   return (
     <div
-      className={`single-slider slider-height-1 bg-purple ${
+      className={`single-slider slider-height-1 bGround ${
         sliderClassName ? sliderClassName : ""
       }`}
     >
