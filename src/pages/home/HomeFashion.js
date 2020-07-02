@@ -12,10 +12,10 @@ const HomeFashion = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Flone | Fashion Home</title>
+        <title>Micota. | Wood Craft</title>
         <meta
-          name="description"
-          content="Fashion home of flone react minimalist eCommerce template."
+          name='description'
+          content='Alışveriş sitemiz micota.com.tr anasayfası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tahtasıdır.'
         />
       </Helmet>
       <LayoutOne
