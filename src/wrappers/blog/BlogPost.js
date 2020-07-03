@@ -28,7 +28,7 @@ const BlogPost = (props) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota | Blog</title>
+        <title>Micota | Blog</title> 
         <meta
           name='description'
           content={ "Alışveriş sitemiz micota.com.tr bloğu." + blog.quote}
@@ -36,12 +36,12 @@ const BlogPost = (props) => {
         <meta property="og:url" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="og:title" content={blog.title} />
       <meta property="og:description" content={blog.quote} />
-      <meta property="og:image:secure_url" itemprop="image" content={process.env.PUBLIC_URL + blog.img1} />
+      <meta property="og:image" itemprop="image" content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img1}.jpeg?alt=media`} />
       <meta property="og:type" content="website" />
       {/* Twitter Card tags */}
-      <meta property="twitter:title" content={`https://micota.com.tr/post/${blog.id}`} />
-      <meta property="twitter:description" content={blog.title} />
-      <meta property="twitter:image" itemprop="image" content={process.env.PUBLIC_URL + blog.img1} />
+      <meta property="twitter:title" content={blog.title} />
+      <meta property="twitter:description" content={blog.quote} />
+      <meta property="twitter:image" itemprop="image" content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img1}.jpeg?alt=media`} />
       <meta property="twitter:card" content="summary" />
       
       </Helmet>

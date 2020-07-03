@@ -46,7 +46,7 @@ const TabProduct = ({
                 <ProductGrid
                   category={category}
                   type="new"
-                  limit={8}
+                  limit={4}
                   spaceBottomClass="mb-25"
                 />
               </div>
@@ -56,7 +56,7 @@ const TabProduct = ({
                 <ProductGrid
                   category={category}
                   type="bestSeller"
-                  limit={8}
+                  limit={4}
                   spaceBottomClass="mb-25"
                 />
               </div>
@@ -66,7 +66,7 @@ const TabProduct = ({
                 <ProductGrid
                   category={category}
                   type="saleItems"
-                  limit={8}
+                  limit={4}
                   spaceBottomClass="mb-25"
                 />
               </div>
@@ -74,8 +74,8 @@ const TabProduct = ({
           </Tab.Content>
         </Tab.Container>
       </div>
-      <div className="view-more text-center mt-20 toggle-btn6 col-12">
-      <a className="loadMore6" href="/shop">TÜM ÜRÜNLERİ GÖR</a>
+      <div className="view-more text-center mt-20 mb-15 toggle-btn6 col-12">
+      <a className="loadMore6" href="/shop"><strong>TÜM ÜRÜNLERİ GÖR</strong></a>
       </div>
     </div>
   );

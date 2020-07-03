@@ -73,9 +73,6 @@ const Contact = ({ location }) => {
                       <p>
                         <a href='mailto:hello@micota.com.tr'>hello@micota.com.tr</a>
                       </p>
-                      <p>
-                        <a href='//urwebsitenaem.com'>micota.com.tr</a>
-                      </p>
                     </div>
                   </div>
                   <div className='single-contact-info'>
@@ -138,7 +135,7 @@ const Contact = ({ location }) => {
                             required: "İsim boş bırakılamaz.",
                             pattern: {
                               value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
-                              message: "İsim boş bırakılamaz. ",
+                              message: "İsim sadece harflerden oluşur. ",
                             },
                           })}
                         />
@@ -181,8 +178,8 @@ const Contact = ({ location }) => {
                           ref={register({
                             required: "Konu boş bırakılamaz.",
                             pattern: {
-                              value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
-                              message: "Konu boş bırakılamaz. ",
+                              value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ0-9._%+-,;:?()&$@  ]+$/,
+                              message: "Geçersiz karakterleri siliniz. ",
                             },
                           })}
                         />
@@ -204,8 +201,8 @@ const Contact = ({ location }) => {
                           ref={register({
                             required: "Mesaj boş bırakılamaz.",
                             pattern: {
-                              value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
-                              message: "Mesaj boş bırakılamaz. ",
+                              value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ0-9._%+-,;:?()&$@ ]+$/,
+                              message: "Geçersiz karakterleri siliniz. ",
                             },
                           })}
                         />

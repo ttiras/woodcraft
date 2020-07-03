@@ -66,11 +66,12 @@ const ProductGridListSingle = ({
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
+                <a>
                 <WhatsappShareButton
               url={`https://micota.com.tr/product/${product.id}`}
             >
                 <i title="Whatsapp'ta paylaş" className='fa fa-whatsapp' />
-            </WhatsappShareButton>
+            </WhatsappShareButton></a>
               </div>
               <div className="pro-same-action pro-cart">
                 {product.affiliateLink ? (

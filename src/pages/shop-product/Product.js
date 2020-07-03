@@ -25,12 +25,12 @@ const Product = ({ location, product }) => {
         <meta property="og:url" content={`https://micota.com.tr/product/${product.id}`} />
       <meta property="og:title" content={product.name} />
       <meta property="og:description" content={product.shortDescription} />
-      <meta property="og:image:secure_url" itemprop="image" content={`https://micota.com.tr${product.image[0].path}`} />
+      <meta property="og:image" itemprop="image" content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[0].path}.jpeg?alt=media`} /> 
       <meta property="og:type" content="website" />
       {/* Twitter Card tags */}
-      <meta property="twitter:title" content={`https://micota.com.tr/product/${product.id}`} />
-      <meta property="twitter:description" content={product.name} />
-      <meta property="twitter:image" content={`https://micota.com.tr${product.image[0].path}`} />
+      <meta property="twitter:title" content={product.name} />
+      <meta property="twitter:description" content={product.shortDescription} />
+      <meta property="twitter:image" content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[0].path}.jpeg?alt=media`} />
       <meta property="twitter:card" content="summary" />
       </Helmet>
 
