@@ -40,7 +40,7 @@ const ShopCategories = ({ categories, getSortParams }) => {
             })}
           </ul>
         ) : (
-          "No categories found"
+          "Kategori bulunamadı"
         )}
       </div>
     </div>

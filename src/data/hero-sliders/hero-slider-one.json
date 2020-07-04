@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "title": "Supla",
-    "subtitle": "sofralarınızı canlandırın",
+    "title": "SUPLA",
+    "subtitle": "tüm ürünlerde %50 indirim",
     "image": "/assets/img/slider/Supla_Beyaz1",
     "url": "/shop"
   },
@@ -15,8 +15,8 @@
   },
   {
     "id": 3,
-    "title": "Tepsi",
-    "subtitle": "ahşabın sıcaklığı",
+    "title": "TEPSİ",
+    "subtitle": "%50 indirim fırsatını kaçırma",
     "image": "/assets/img/slider/Yuvarlak_Tepsi_Beyaz1",
     "url": "/shop"
   }

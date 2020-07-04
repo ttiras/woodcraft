@@ -3,6 +3,14 @@
 }
 
 .bGround {
-    background:linear-gradient(#fdecf2,transparent);
     background-color: pink;
+}
+
+.mainButton {
+    border: 1px solid #717c80!important;
+    color: #717c80!important;
+}
+
+.mainButton:hover {
+    color: white!important;
 }

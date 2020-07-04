@@ -21,6 +21,9 @@ const FeatureIconThreeSingle = ({
           />
           <h5>{data.title}</h5>
           <p>{data.subtitle}</p>
+          {data.extra&& <span>
+    <a href="https://wa.me/905302225663" target="blank" title="İletişime Geç">
+      <i className="fa fa-whatsapp fa-lg" /></a></span>}
         </div>
       </div>
     </div>

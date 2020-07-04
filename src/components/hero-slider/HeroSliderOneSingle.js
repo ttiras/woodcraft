@@ -20,7 +20,7 @@ const HeroSliderOneSingle = ({ data, sliderClassName }) => {
               <h1 className="animated foreText">{data.subtitle}</h1>
               <div className="slider-btn btn-hover">
                 <Link
-                  className="animated"
+                  className="animated mainButton"
                   to={process.env.PUBLIC_URL + data.url}
                 >
                   HEMEN AL

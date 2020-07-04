@@ -34,7 +34,7 @@ const LanguageCurrencyChanger = ({
       </div>
       <div className="same-language-currency">
       <span>
-    <a href="https://wa.me/5302225663" target="blank" title="İletişime Geç">
+    <a href="https://wa.me/905302225663" target="blank" title="İletişime Geç">
       <i className="fa fa-whatsapp" /></a></span>
       </div>
     </div>

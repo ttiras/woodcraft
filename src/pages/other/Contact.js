@@ -90,7 +90,7 @@ const Contact = ({ location }) => {
                     </div>
                     <div className='contact-info-dec'>
                       <p>
-                        <a href='https://wa.me/5302225663'>Whatsapp İletişim</a>
+                        <a href='https://wa.me/905302225663'>Whatsapp İletişim</a>
                       </p>
                     </div>
                   </div>

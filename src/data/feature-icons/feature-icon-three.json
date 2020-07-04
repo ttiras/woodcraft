@@ -9,7 +9,8 @@
     "id": 2,
     "image": "/assets/img/icon-img/support-2.png",
     "title": "Premium Destek",
-    "subtitle": "Tüm sorularınız için destek ekibimize aşağıdaki bağlantılaırı kullanarak ulaşabilirsiniz."
+    "subtitle": "Tüm sorularınız için destek ekibimize whatsapp üzerinden ulaşabilirsiniz.",
+    "extra": true
   },
   {
     "id": 3,
