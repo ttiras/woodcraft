@@ -32,7 +32,7 @@ const Checkout = ({ location, cartItems }) => {
 
   const [
     insertOrder,
-    { loading: ordersLoading, data: ordersData, error: ordersError },
+    { loading: ordersLoading, error: ordersError },
   ] = useMutation(INSERT_ORDER, {
     onCompleted(ordersData) {
       window.open(ordersData.OrderAction.paymentPageUrl, "_self");
@@ -50,7 +50,6 @@ const Checkout = ({ location, cartItems }) => {
     localStorage.setItem("invoiceAddressChecked", invoiceAddressChecked);
   }, [invoiceAddressChecked]);
 
-  const { pathname } = location;
   let cartTotalPrice = 0;
 
   const handleModal = (e) => {
@@ -445,7 +444,8 @@ const Checkout = ({ location, cartItems }) => {
                         onChange={() => setContractSigned(!contractSigned)}
                         type='checkbox'
                       />
-                      <a >
+                      {/* eslint-disable-next-line */}
+                      <a>
                         <u onClick={() => setContractModalShow(true)}>
                           Ön Bİlgilendirme Koşulları
                         </u>

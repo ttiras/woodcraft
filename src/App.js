@@ -72,7 +72,7 @@ const App = props => {
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   const store = createStore(
     rootReducer,

@@ -66,6 +66,7 @@ const ProductGridListSingle = ({
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
+                {/* eslint-disable-next-line */}
                 <a>
                 <WhatsappShareButton
               url={`https://micota.com.tr/product/${product.id}`}

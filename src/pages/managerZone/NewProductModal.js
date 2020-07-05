@@ -19,7 +19,7 @@ function NewProductModal(props) {
 
   const { refetch } = props;
 
-  const [insertProducts, { loading, error, data }] = useMutation(
+  const [insertProducts, { loading, error }] = useMutation(
     INSERT_PRODUCT,
     {
       onCompleted(data) {
@@ -54,7 +54,7 @@ function NewProductModal(props) {
 
   const [
     insertProductTagsImages,
-    { loading: tagsLoading, error: tagsError, data: tagsData },
+    { loading: tagsLoading, error: tagsError },
   ] = useMutation(INSERT_PRODUCT_TAGS_IMAGES, {
     onCompleted(data) {
       refetch();
@@ -63,8 +63,6 @@ function NewProductModal(props) {
 
   const [tags, setTags] = useState([]);
   const [category, setCategory] = useState(null);
-  const [loaded, setLoaded] = useState(0);
-  const [selectedFile, setSelectedFile] = useState(null);
   const { handleSubmit, register, errors } = useForm();
   const { onHide } = props;
 
@@ -256,6 +254,8 @@ function NewProductModal(props) {
                     name='category_id'
                   >
                     <option className='text-hide'>Seçiniz</option>
+                    {queryLoading&& 'Kategoriler Yükleniyor...'}
+                    {queryError&& 'Kategoriler yüklenemdi'}
                     {queryData &&
                       queryData.categories.map((category) => {
                         return (
@@ -284,7 +284,8 @@ function NewProductModal(props) {
                     })}
                     name='tag_id'
                     className='selectpicker'
-                  >
+                  >{tagsLoading&& 'Tagler yükleniyor...'}
+                    {tagsError&& 'Tagler Yüklenemedi.'}
                     {queryData &&
                       queryData.tags.map((tag) => {
                         return (
@@ -350,9 +351,10 @@ function NewProductModal(props) {
               </div>
               <div className='button-box pl-15'>
                 <button className='submitAddress' type='submit'>
-                  <span>Kaydet</span>
+                  <span>{loading? 'Ekleniyor...' : 'Ekle'}</span>
                 </button>
               </div>
+              {error&& 'Ürün eklenemedi, daha sonra tekrar deneyin.'}
             </div>
           </form>
         </div>

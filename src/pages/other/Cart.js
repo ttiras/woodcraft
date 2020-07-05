@@ -28,7 +28,6 @@ const Cart = ({
   const [notes, setNotes] = useState("");
   const [isGift, setIsGift] = useState(false);
   const { addToast } = useToasts();
-  const { pathname } = location;
   let cartTotalPrice = 0;
 
   useEffect(() => {

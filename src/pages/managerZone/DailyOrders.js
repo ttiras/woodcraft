@@ -28,6 +28,7 @@ export default function DailyOrders() {
         </Nav>
         <Tab.Content className="description-review-bottom">
           <Tab.Pane eventKey="notShipped">
+            {loading&& 'Yükleniyor...'}
             <FilteredOrders data={data} type={type} />
           </Tab.Pane>
           <Tab.Pane eventKey="shipped">

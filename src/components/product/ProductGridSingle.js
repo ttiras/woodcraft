@@ -35,7 +35,7 @@ const ProductGridSingle = ({
   return (
     <Fragment>
       <div
-        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 prods ${
+        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 col-6 prods ${
           sliderClassName ? sliderClassName : ""
         }`}
       >
@@ -69,6 +69,7 @@ const ProductGridSingle = ({
 
             <div className='product-action'>
               <div className='pro-same-action pro-wishlist'>
+              {/* eslint-disable-next-line */}
               <a>
                 <WhatsappShareButton
                   url={`https://micota.com.tr/product/${product.id}`}

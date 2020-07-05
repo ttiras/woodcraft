@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Modal } from "react-bootstrap";
 
 function PaymentsModal(props) {
-  const { onHide, orderPayment } = props;
-  console.log(orderPayment);
+  const { orderPayment } = props;
   return (
     <Fragment>
       <Modal

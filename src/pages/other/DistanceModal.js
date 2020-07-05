@@ -1,10 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Modal } from "react-bootstrap";
 import { getDiscountPrice } from "../../helpers/product";
 
-export default function DistancetModal(props) {
+export default function DistanceModal(props) {
   const { cartItems } = props;
-  const { onHide } = props;
   const { address } = props;
   let cartTotalPrice = 0;
   const today = new Date();
@@ -14,9 +13,8 @@ export default function DistancetModal(props) {
       onHide={props.onHide}
       className='product-quickview-modal-wrapper'
     >
-      <Modal.Header closeButton></Modal.Header>
+      <Modal.Header closeButton><h3 className='cart-page-title'>Mesafeli Satış Sözleşmesi</h3></Modal.Header>
       <div className='cart-main-area pt-40 pb-70 m-3'>
-        <h3 className='cart-page-title'>Mesafeli Satış Sözleşmesi</h3>
         <h4>1. TARAFLAR</h4>
         <h5>SATICI</h5>
         <p>MICOTA AHŞAP ÜRÜNLERİ</p>

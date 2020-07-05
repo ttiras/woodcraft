@@ -1,20 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 import './UserOrders.css'
 
-export default function ({orders}){
-    const [shippingModalShow, setShippingModalShow] = useState(false);
-
-    const handleShippingModal = (e) => {
-        e.preventDefault();
-        //setOrderId(e.target.value)
-        setShippingModalShow(true);
-      };
-    
-
-    return (
+export default function UserOrders ({orders}){
+   return (
         <div className='shop-list-wrap mb-30'>
       {orders &&
         orders.map((order) => (
@@ -116,13 +107,6 @@ export default function ({orders}){
                       )}
                     </div>
                     
-                  </div>
-                </div>
-                <div className='shop-list-actions d-flex align-items-center'>
-                  <div className='shop-list-btn btn-hover'>
-                    <button value={order.id} className='active order-btn' onClick={(e)=>handleShippingModal(e)}>
-                      {order.isShipped ? 'Sorun Bildir' : 'İptal Et'}
-                    </button>
                   </div>
                 </div>
               </div>

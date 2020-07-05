@@ -1,10 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Modal } from "react-bootstrap";
 import { getDiscountPrice } from "../../helpers/product";
 
 export default function ContractModal(props){
 const {cartItems} = props
-const { onHide } = props;
     let cartTotalPrice = 0;
     const today = new Date()
     return(
@@ -14,9 +13,8 @@ const { onHide } = props;
         onHide={props.onHide}
         className='product-quickview-modal-wrapper'
       >
-          <Modal.Header closeButton></Modal.Header>
+          <Modal.Header closeButton><h3 className='cart-page-title'>Ön Bilgilendirme Formu</h3></Modal.Header>
            <div className='cart-main-area pt-40 pb-70 m-3'>
-           <h3 className='cart-page-title'>Ön Bilgilendirme Formu</h3>
            <p>1) Sözleşme konusu mal veya hizmetin adı, adedi, KDV dahil satış fiyatı, ödeme şekli ve kısaca temel nitelikleri</p>
            <h4>SÖZLEŞME KONUSU ÜRÜN/ÜRÜNLER BİLGİLERİ</h4>
           <div className='container'>

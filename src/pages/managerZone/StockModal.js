@@ -8,7 +8,7 @@ import UPDATE_STOCK from "../../graphql/UpdateStock";
 function StockModal(props) {
   const { refetch } = props
 
-  const [updateProducts, { loading, error, data }] = useMutation(
+  const [updateProducts, { loading, error }] = useMutation(
     UPDATE_STOCK, {
       onCompleted(){refetch()} 
     }
@@ -85,13 +85,12 @@ function StockModal(props) {
                   )}
                 </div>
               </div>
-              <div className='col-lg-6 col-md-6'></div>
-              <div className='col-lg-6 col-md-6'></div>
               <div className='button-box pl-15'>
                 <button className='submitAddress' type='submit'>
-                  <span>Kaydet</span>
+                  <span>{loading? 'Güncelleniyor...' : 'Kaydet'}</span>
                 </button>
               </div>
+              {error&& 'Stok bilgisi güncellenemedi, daha sonra tekrar deneyin.'}
             </div>
           </form>
         </div>

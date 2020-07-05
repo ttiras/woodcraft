@@ -52,14 +52,10 @@ function InvoiceModal(props) {
         onHide={props.onHide}
         className='product-quickview-modal-wrapper'
       >
-        <Modal.Header closeButton></Modal.Header>
-
-        <div className='billing-info-wrap m-4'>
-          <div className='row'>
-            <div className='col-lg-6 col-md-6'>
+        <Modal.Header closeButton> <div className='col-lg-3 col-md-3'>
               {addressType === 'shipping' ? <h3>Teslimat Adresi</h3> : <h3>Fatura Adresi</h3>}
             </div>
-            <div className='col-lg-6 col-md-6'>
+            <div className='col-lg-3 col-md-3'>
               <div className='form-check form-check-inline'>
                 <input
                   type='radio'
@@ -86,8 +82,9 @@ function InvoiceModal(props) {
                   <strong>Kurumsal</strong>
                 </label>
               </div>
-            </div>
-          </div>
+            </div></Modal.Header>
+
+        <div className='billing-info-wrap m-4'>
           <form onSubmit={handleSubmit(onSubmit)}>
             {state.user&&
               <div className='row'>
@@ -433,7 +430,7 @@ function InvoiceModal(props) {
                     ref={register({
                       required: "Telefon boş bırakılamaz.",
                       pattern: {
-                        value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+                        value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
                         message: "Telefon numarası rakamlardan oluşur.",
                       },
                     })}
@@ -484,7 +481,7 @@ function InvoiceModal(props) {
                 </div>
               </div>}
               <div className='button-box pl-15'>
-                <button className='submitAddress' type='submit'>
+                <button className='submitAddress border' type='submit'>
                   <span>Kaydet</span>
                 </button>
               </div>

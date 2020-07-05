@@ -18,6 +18,7 @@ const BlogDetailsStandard = lazy(() =>
 );
 // other pages
 const About = lazy(() => import("./pages/other/About"));
+const Atelier = lazy(() => import("./pages/other/Atelier"));
 const Contact = lazy(() => import("./pages/other/Contact"));
 const MyAccount = lazy(() => import("./pages/memberZone/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
@@ -94,6 +95,8 @@ function Routers() {
 
             {/* Other pages */}
             <Route path={process.env.PUBLIC_URL + "/about"} component={About} />
+            <Route path={process.env.PUBLIC_URL + "/atolye"} component={Atelier} />
+
             <Route
               path={process.env.PUBLIC_URL + "/contact"}
               component={Contact}

@@ -58,6 +58,7 @@ export default function ProductsList() {
             <div className='row orders p-2' key={product.id}>
               <div className='col-xl-4 col-md-5 col-sm-6'>
                 <div className='product-list-image-wrap d-flex overflow-auto'>
+                  {loading&& 'Yükleniyor...'}
                   {product.image.map((image) => (
                     <div className='container' key={image.image_id}>
                       <ProductImgFallback

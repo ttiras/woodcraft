@@ -68,7 +68,7 @@ const FooterOne = ({
                     <Link to={process.env.PUBLIC_URL + "/about"}>Hakkımızda</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
+                    <Link to={process.env.PUBLIC_URL + "/atolye"}>
                       Üretim Atölyesi
                     </Link>
                   </li>

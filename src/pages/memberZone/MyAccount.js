@@ -28,7 +28,7 @@ const MyAccount = ({ location }) => {
         },
       });
     }
-  }, [state.user]);
+  }, [state.user, getOrders]);
 
   return (
     <Fragment>

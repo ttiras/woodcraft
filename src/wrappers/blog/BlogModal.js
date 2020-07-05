@@ -18,7 +18,7 @@ function BlogModal(props) {
   const { modalMode } = props
   const { error: caterror, data:catdata } = useQuery(GET_BLOG_CATS);
 
-  const [updateBlog, { error: uperror, data: updata }] = useMutation(
+  const [updateBlog, { error: uperror }] = useMutation(
     UPDATE_BLOG,
     {
       onCompleted() {
@@ -27,10 +27,10 @@ function BlogModal(props) {
     }
   );
 
-  const [insertBlogCat, { error: muterror, data: mutdata }] = useMutation(
+  const [insertBlogCat, { error: muterror }] = useMutation(
     INSERT_BLOG_CAT);
 
-  const [insertBlog, { error, data }] = useMutation(
+  const [insertBlog, { loading, error }] = useMutation(
     INSERT_BLOG, {
       onCompleted(data)
       {insertBlogCat({
@@ -243,7 +243,7 @@ function BlogModal(props) {
               <div className='col-lg-6 col-md-6'></div>
               <div className='button-box pl-15'>
                 <button className='submitAddress' type='submit'>
-                  <span>Kaydet</span>
+                  <span>{loading? 'Yükleniyor...' : 'Kaydet'}</span>
                 </button>
               </div>
             </div>

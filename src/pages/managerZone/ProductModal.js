@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Modal } from "react-bootstrap";
 
 import { useForm } from "react-hook-form";
@@ -10,7 +10,7 @@ import "../other/Checkout.css";
 function ProductModal(props) {
   const { refetch } = props;
 
-  const [updateProducts, { loading, error, data }] = useMutation(
+  const [updateProducts, { loading, error }] = useMutation(
     UPDATE_PRODUCT,
     {
       onCompleted() {
@@ -21,7 +21,6 @@ function ProductModal(props) {
 
   const { handleSubmit, register, errors } = useForm();
   const { productId } = props;
-  const { type } = props;
   const { onHide } = props;
   const { productData } = props;
 
@@ -48,12 +47,11 @@ function ProductModal(props) {
         onHide={props.onHide}
         className='product-quickview-modal-wrapper'
       >
-        <Modal.Header closeButton></Modal.Header>
+        <Modal.Header closeButton><h4>Ürün Bilgilerini Güncelle</h4></Modal.Header>
 
         <div className='billing-info-wrap m-4'>
           <div className='row'>
             <div className='col-lg-6 col-md-6'>
-              <h3>Ürün Bilgilerini Güncelle</h3>
             </div>
             <div className='col-lg-6 col-md-6'></div>
           </div>
@@ -237,9 +235,10 @@ function ProductModal(props) {
                 </div>
                 <div className='button-box pl-15'>
                   <button className='submitAddress' type='submit'>
-                    <span>Kaydet</span>
+                    <span>{loading? 'Güncelleniyor...' : 'Güncelle'}</span>
                   </button>
                 </div>
+                {error&& 'Ürün güncellenemedi, daha sonra tekrar deneyin.'}
               </div>
             )}
           </form>
