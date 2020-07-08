@@ -80,8 +80,8 @@ const App = props => {
     composeWithDevTools(applyMiddleware(thunk, save()))
   );
 
-  const wsurl = "wss://engine.rover.micota.com.tr/v1/graphql";
-  const httpurl = "https://engine.rover.micota.com.tr/v1/graphql";
+  const wsurl = process.env.REACT_APP_DB_WSS;
+  const httpurl = process.env.REACT_APP_DB_HTTP;
   
   request(httpurl, queryProducts).then(async data => await store.dispatch(fetchProducts(data.products))).catch((err)=>{})
 

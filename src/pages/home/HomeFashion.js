@@ -6,13 +6,14 @@ import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
 import TabProduct from "../../wrappers/product/TabProduct";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
-import BannerNine from "../../wrappers/banner/BannerNine";
+import BannerOne from "../../wrappers/banner/BannerOne";
+import SectionTitleIyzico from "../../components/section-title/SectionTitleIyzico";
 
 const HomeFashion = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota. | Wood Craft</title>
+        <title>Micota. | Mini Coffee Table</title>
         <meta
           name='description'
           content='Alışveriş sitemiz micota.com.tr anasayfası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tahtasıdır.'
@@ -25,6 +26,11 @@ const HomeFashion = () => {
         {/* hero slider */}
         <HeroSliderOne />
 
+        <SectionTitleIyzico />
+        
+        {/* banner */}
+        <BannerOne spaceBottomClass='pb-70' />
+
         {/* tab product */}
         <TabProduct spaceBottomClass="pb-60" />
 
@@ -34,8 +40,6 @@ const HomeFashion = () => {
           featureShapeClass='support-shape-3'
         />
 
-        {/* banner */}
-        <BannerNine spaceBottomClass='pb-70' />
 
         {/* brand logo slider */}
         <BrandLogoSliderOne spaceBottomClass='pb-95' />

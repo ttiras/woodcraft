@@ -113,7 +113,7 @@ function ProductModal(props) {
                   <div className='billing-info mb-20'>
                     <label>Detaylı Bilgi</label>
                     <textarea
-                      maxLength='255'
+                      maxLength='1255'
                       className='billing-address'
                       placeholder='Detaylı Bilgi'
                       rows='3'
@@ -130,7 +130,7 @@ function ProductModal(props) {
                   <div className='billing-info mb-20'>
                     <label>Kısa Açıklama</label>
                     <input
-                      maxLength='55'
+                      maxLength='755'
                       className='billing-address'
                       placeholder='Kısa açıklama'
                       type='text'

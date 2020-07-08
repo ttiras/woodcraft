@@ -14,7 +14,7 @@ const Atelier = ({ location }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota | Atölyemiz</title>
+        <title>Micota | Atölye</title>
         <meta
           name='description'
           content='Alışveriş sitemiz micota.com.tr hakkında. Keyifle tasarladığımız ve ürettiğimiz doğal ahşap ve doğal boya kullanılan ürünlerimizi nerde ve nasıl hazrıladığımız hakkında kısa bilgiler.'
@@ -24,7 +24,7 @@ const Atelier = ({ location }) => {
         Anasayfa
       </BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Atölyemiz
+        Atölye
       </BreadcrumbsItem>
       <LayoutOne headerTop='visible'>
         {/* breadcrumb */}

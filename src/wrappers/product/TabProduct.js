@@ -66,7 +66,7 @@ const TabProduct = ({
                 <ProductGrid
                   category={category}
                   type="saleItems"
-                  limit={6}
+                  limit={8}
                   spaceBottomClass="mb-25"
                 />
               </div>

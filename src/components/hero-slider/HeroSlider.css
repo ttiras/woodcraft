@@ -12,5 +12,10 @@
 }
 
 .mainButton:hover {
-    color: white!important;
+    color: pink!important;
+}
+
+h1 span {
+    background-color: #717c80!important;
+    color: pink!important;
 }

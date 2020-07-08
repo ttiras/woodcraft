@@ -78,7 +78,7 @@ const ProductImageGallery = ({ product }) => {
                   <div key={key}>
                     <LightgalleryItem
                       group="any"
-                      src={process.env.PUBLIC_URL + single.path}
+                      src={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${single.path}.jpeg?alt=media`}
                     >
                       <button>
                         <i className="pe-7s-expand1"></i>

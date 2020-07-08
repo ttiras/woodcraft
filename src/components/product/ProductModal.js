@@ -124,11 +124,11 @@ function ProductModal(props) {
                       return (
                         <div key={key}>
                           <div className='single-image'>
-                            <img
-                              src={process.env.PUBLIC_URL + single.path}
-                              className='img-fluid'
-                              alt={single.name}
-                            />
+                            <ProductImgFallback
+                        path={single.path}
+                        className="img-fluid"
+                        name={product.name}
+                      />
                           </div>
                         </div>
                       );
