@@ -25,7 +25,7 @@ const ProductImageGallery = ({ product }) => {
   const gallerySwiperParams = {
     getSwiper: getGallerySwiper,
     spaceBetween: 10,
-    loopedSlides: 4,
+    loopedSlides: 3,
     loop: true,
     effect: "fade"
   };
@@ -33,8 +33,8 @@ const ProductImageGallery = ({ product }) => {
   const thumbnailSwiperParams = {
     getSwiper: getThumbnailSwiper,
     spaceBetween: 10,
-    slidesPerView: 4,
-    loopedSlides: 4,
+    slidesPerView: 3,
+    loopedSlides: 3,
     touchRatio: 0.2,
     freeMode: true,
     loop: true,

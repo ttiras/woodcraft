@@ -7,7 +7,7 @@ const ProductImageGallerySlider = ({ product }) => {
   // swiper slider settings
   const gallerySwiperParams = {
     spaceBetween: 15,
-    slidesPerView: 3,
+    slidesPerView: 4,
     loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
