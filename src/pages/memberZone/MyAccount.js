@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { useEffect, Fragment } from "react";
-import {Helmet} from "react-helmet";
 import { useLazyQuery } from "@apollo/react-hooks";
 import { useAuthState } from "../../auth/auth-context";
 
@@ -32,13 +31,6 @@ const MyAccount = ({ location }) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota. | Hesabım</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr hesab bilgileriniz.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -12,13 +11,6 @@ export default function Guvenlik({ location }) {
   const { pathname } = location;
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota | KVKK</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr kvkk hakkında bilgilendirme.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

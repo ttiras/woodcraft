@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -10,13 +9,6 @@ export default function Gizlilik({ location }) {
   const { pathname } = location;
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota | Gizlilik İlkeleri</title>
-        <meta
-          name='description'
-          content='Alışverii gizlilik sözleşmesi.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import ProductImgFallback from "../../helpers/ProductImgFallback";
 
 import { useQuery } from "@apollo/react-hooks";
@@ -14,7 +13,7 @@ import "./Checkout.css";
 
 const PaymentSuccess = ({ location }) => {
   const match = useRouteMatch();
-  const { loading, error, data } = useQuery(SINGLE_ORDER, {
+  const { loading, data } = useQuery(SINGLE_ORDER, {
     variables: { id: match.params.id },
   });
 
@@ -30,41 +29,9 @@ const PaymentSuccess = ({ location }) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota. | Ödeme Başarılı</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr ödeme başarılı sayfası.'
-        />
-      </Helmet>
-
       <LayoutOne headerTop='visible'>
         <div className='cart-main-area pt-90 pb-100'>
-          {error ? (
-            <div className='text-center'>
-              <div className='alert alert-danger' role='alert'>
-                Ödeme sonucu alınırken bağlantı koptu. Ama merak etmeyin
-                ödemeniz geçekleştiyse sipariş sonucuyla ilgili email gelmek
-                üzeredir.
-              </div>
-              <p>
-                Eğer bir aksaklık olduğunu düşünüyorsanız bize whatsapp
-                üzerinden mesaj bırakabilirsiniz:
-              </p>
-              <div className='same-language-currency'>
-                <span>
-                  <a
-                    href='https://wa.me/905302225663'
-                    target='blank'
-                    title='İletişime Geç'
-                  >
-                    <i className='fa fa-whatsapp' />
-                  </a>
-                </span>
-              </div>
-            </div>
-          ) : (
-            <div className='container'>
+          <div className='container'>
               {loading && <div id='cover-spin' className='loading'></div>}
               <div className='alert alert-success text-center' role='alert'>
                 Sayın{" "}
@@ -260,7 +227,6 @@ const PaymentSuccess = ({ location }) => {
                 </div>
               </div>
             </div>
-          )}
         </div>
       </LayoutOne>
     </Fragment>

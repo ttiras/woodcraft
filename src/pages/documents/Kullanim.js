@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -11,13 +10,6 @@ export default function Kullanim({ location }) {
   const { pathname } = location;
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota | Kullanım Koşulları</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr kullanım koşulları.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

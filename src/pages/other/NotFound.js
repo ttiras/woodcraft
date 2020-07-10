@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -12,13 +11,6 @@ const NotFound = ({ location }) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota |Sayfa Bulunamadı</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr 404 sayfası.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Sayfa Bulunamadı

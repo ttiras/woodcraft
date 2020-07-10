@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -141,13 +140,6 @@ const Checkout = ({ location, cartItems }) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota. | Ödeme</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr ödemelerinizi bu sayfada gerçekleştirebilirsiniz.'
-        />
-      </Helmet>
       <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <div className='checkout-area pt-95 pb-100'>

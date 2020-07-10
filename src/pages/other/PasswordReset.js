@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useForm } from "react-hook-form";
@@ -31,13 +30,6 @@ const PasswordReset = (props) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota. | Şifre Yenile</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr şifre işlemlerine bu sayfada ulaşabilirsiniz.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

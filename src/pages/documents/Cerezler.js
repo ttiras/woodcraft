@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -12,13 +11,6 @@ export default function Cerezler({ location }) {
   const { pathname } = location;
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota | Cerezler</title>
-        <meta
-          name='description'
-          content='About page of flone react minimalist eCommerce template.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

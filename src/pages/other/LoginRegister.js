@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
 
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Tab from "react-bootstrap/Tab";
@@ -18,13 +17,6 @@ const LoginRegister = ({ location, ...props }) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota. | Giriş</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr giriş işlemlerine bu sayfada ulaşabilirsiniz.'
-        />
-      </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
         Anasayfa
       </BreadcrumbsItem>

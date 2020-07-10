@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
-import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import {
@@ -51,14 +50,6 @@ const Cart = ({
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Micota. | Sepet</title>
-        <meta
-          name='description'
-          content='Alışveriş sitemiz micota.com.tr sepetinizi bu sayfada düzenleyebilirsiniz.'
-        />
-      </Helmet>
-
       <LayoutOne headerTop='visible'>
         <div className='cart-main-area pt-90 pb-100'>
           <div className='container'>
