@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "title": "SUPLA",
-    "subtitle": "tüm ürünlerde %50 indirim",
-    "image": "/assets/img/slider/Supla_Beyaz1",
+    "title": "MiCoTa",
+    "subtitle": "mini coffee table",
+    "image": "/assets/img/slider/Just_Married_MiCoTa2",
     "url": "/shop"
   },
   {
     "id": 2,
-    "title": "MiCoTa",
-    "subtitle": "mini coffee table",
-    "image": "/assets/img/slider/Coffee_Time_MiCoTa2",
+    "title": "SUPLA",
+    "subtitle": "tüm ürünlerde %50 indirim",
+    "image": "/assets/img/slider/Supla_Beyaz1",
     "url": "/shop"
   },
   {

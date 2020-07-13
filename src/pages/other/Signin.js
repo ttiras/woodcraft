@@ -34,7 +34,7 @@ function Signin({ fire, history }) {
         .signInWithEmailAndPassword(values.email, values.password)
         .then(async (respond) => {
           const user = respond.user;
-          axios.post(`https://backend.rover.micota.com.tr/claims`, { user }).then(() => {
+          axios.post('https://backend.rover.micota.com.tr/claims', { user }).then(() => {
             history.goBack();
         }).catch(err=>setError(err.message))
         });

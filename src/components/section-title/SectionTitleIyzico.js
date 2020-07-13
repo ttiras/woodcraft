@@ -29,13 +29,7 @@ const SectionTitleIyzico = ({ spaceTopClass, spaceBottomClass }) => {
             MiCoTa üzerinde gerçekleştirdiğiniz ödeme işlemlerinizde, hiçbir
             kart bilginizi paylaşmanıza gerek kalmadan, iyzico ödeme
             sistemlerine yönlendirilirsiniz. Tüm ödeme işlemlerinizi saniyeler
-            içinde sadece birkaç tıkla tamamlayabilirsiniz.
-          </p>
-          <p>
-            {" "}
-            Türkiye’nin online ödeme sistemleri iyzico, 29.000’den fazla web
-            sitesinde alışverişlerinizin altyapısını üstleniyor ve çok daha
-            hızlı, güvenli bir alışveriş deneyimi yaşamanız için çalışıyor.{" "}
+            içinde sadece birkaç tıkla tamamlayabilirsiniz.{" "}
           </p>
         </div>
       </div>
