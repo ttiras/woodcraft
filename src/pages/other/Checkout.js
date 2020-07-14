@@ -463,7 +463,9 @@ const Checkout = ({ location, cartItems }) => {
                         data-toggle='tooltip'
                         data-placement='bottom'
                         title={
-                          !state.address
+                          !state.user 
+                            ? "Giriş Yap"
+                            : !state.address
                             ? "Adres bilgilerini giriniz."
                             : !contractSigned
                             ? "Ön bilgilerndirme koşullarını ve mesafeli satış sözleşmesini onaylayınız."
@@ -477,7 +479,7 @@ const Checkout = ({ location, cartItems }) => {
                             aria-hidden='true'
                           ></span>
                         ) : (
-                          "Ödemeye Git(IYZICO Güvencesiyle)"
+                          "iyzico ile Öde"
                         )}
                       </button>
                     </div>
