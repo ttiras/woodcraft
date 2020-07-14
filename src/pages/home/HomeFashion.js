@@ -16,7 +16,7 @@ const HomeFashion = () => {
         <title>Micota. | Mini Coffee Table</title>
         <meta
           name='description'
-          content='Alışveriş sitemiz micota.com.tr anasayfası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tahtasıdır.'
+          content='Alışveriş sitemiz micota.com.tr anasayfası. Kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, ev hediyesi, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidir.'
         />
       </Helmet>
       <LayoutOne

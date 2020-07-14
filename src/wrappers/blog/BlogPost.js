@@ -31,7 +31,8 @@ const BlogPost = (props) => {
         <title>Micota | Blog</title> 
         <meta
           name='description'
-          content={ "Alışveriş sitemiz micota.com.tr bloğu." + blog.quote}
+          content='Alışveriş sitemiz micota.com.tr blog detay. Kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, ev hediyesi, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidir.'
+
         />
         <meta property="og:url" content={`https://micota.com.tr/post/${blog.id}`} />
       <meta property="og:title" content={blog.title} />
