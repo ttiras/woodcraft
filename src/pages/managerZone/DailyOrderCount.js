@@ -31,7 +31,7 @@ if(payloading)return 'Loading...'
 if(payerror)console.log(error)
 
   return (
-    <div className='mb-5 col-lg-2 col-md-2 col-sm-2 charts'>
+    <div className='mb-5 charts'>
       {data && (
         <div className='m-auto text-center border-bottom'>
           <h5 className='mb-2 mt-4 border-bottom titles'><strong>Bugüne Kadar Toplam</strong></h5>

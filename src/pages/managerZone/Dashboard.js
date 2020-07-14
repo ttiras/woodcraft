@@ -12,16 +12,17 @@ export default function Dashboard(){
             <div className='text-center'>
             <h3><u>Dashboard</u></h3>
             </div>
-        <div className='contact-area pt-100 pb-100'>
-            
-            <div className='inCharts d-flex'>
+        <div className='container'>
+            <div className="row justify-content-md-center">
+            <div className='col-sm'>
               <DailyOrderCount />
-              <div className='col-lg-5 col-md-4 border ml-3'>
+              <div className='col-sm mt-5'>
                 <DailyOrderCharts />
               </div>
-              <div className='col-lg-5 col-md-4 border ml-3'>
+              <div className='col-sm mt-5'>
                 <ProductCharts />
               </div>
+          </div>
           </div>
           </div>
           </LayoutOne>
