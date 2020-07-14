@@ -17,6 +17,9 @@ const FooterNewsletter = ({ spaceBottomClass, spaceLeftClass, sideMenu }) => {
         {/* subscribe email */}
         <SubscribeEmail mailchimpUrl="//devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" />
       </div>
+      <div className="mt-3">
+        <img className="mw-100" alt="iyzico ödeme sistemleri" src="/assets/logo-band.png" />
+      </div>
     </div>
   );
 };

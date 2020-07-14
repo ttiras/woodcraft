@@ -12,7 +12,7 @@ export default function Signup({ fire, history }) {
         .auth()
         .createUserWithEmailAndPassword(values.email, values.password);
       const user = result.user;
-      axios.post("https://backend.rover.micota.com.tr/claims", { user });
+      axios.post("https://backend.rover.micota.com.tr/claims", { user: user, name: values.name, surname: values.surname, phone: values.phone });
       history.goBack();
     } catch (err) {
       setError(err.message);
@@ -23,6 +23,46 @@ export default function Signup({ fire, history }) {
     <div className='login-form-container'>
       <div className='login-register-form'>
         <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='billing-info mb-20'>
+        {errors.name && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.name.message}
+                    </div>
+                  )}
+                  <input
+                    type='text'
+                    placeholder='İsim'
+                    ref={register({
+                      required: "Aşağıdaki alana isminizi girin.",
+                      pattern: {
+                        value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
+                        message:
+                          "Harflerden oluşan geçerli bir isim girin. ",
+                      },
+                    })}
+                    name='name'
+                  />
+                </div>
+                <div className='billing-info mb-20'>
+        {errors.surname && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.name.message}
+                    </div>
+                  )}
+                  <input
+                    type='text'
+                    placeholder='Soyisim'
+                    ref={register({
+                      required: "Aşağıdaki alana soyisminizi girin.",
+                      pattern: {
+                        value: /^[a-zA-ZğüşöçıİĞÜŞÖÇ ]+$/,
+                        message:
+                          "Harflerden oluşan geçerli bir soyisim girin. ",
+                      },
+                    })}
+                    name='surname'
+                  />
+                </div>
           {errors.email && (
             <div className='alert alert-danger' role='alert'>
               {errors.email.message}
@@ -39,6 +79,26 @@ export default function Signup({ fire, history }) {
               },
             })}
           />
+{errors.phone && (
+                    <div className='alert alert-danger small' role='alert'>
+                      {errors.phone.message}
+                    </div>
+                  )}
+                 <div className='billing-info mb-20'>
+                  <input
+                    type='tel'
+                    placeholder='Telefon'
+                    ref={register({
+                      required: "Aşağıdaki alana telefon numarası giriniz.",
+                      pattern: {
+                        value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
+                        message: "Telefon numarası rakamlardan oluşur.",
+                      },
+                    })}
+                    name='phone'
+                  />
+                  
+                </div>
 
           {errors.password && (
             <div className='alert alert-danger' role='alert'>

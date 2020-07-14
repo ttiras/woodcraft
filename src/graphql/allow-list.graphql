@@ -287,6 +287,9 @@ query GetTowns($city: String!) {
 query SingleUser($id: String!) {
   users(where: { id: { _eq: $id } }) {
     role
+    name
+    surname
+    phone
   }
 }
 
@@ -648,6 +651,12 @@ query GetSidebarBlogs {
           id
         }
       }
+    }
+  }
+
+mutation AddUserBackend($object: users_insert_input!) {
+    insert_users_one(object: $object){
+      id
     }
   }
 

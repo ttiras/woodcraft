@@ -17,9 +17,6 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass }) => {
         </a>
         .<br /> © 2020{" "}
       </p>
-      <p>
-      <img alt="iyzico ödeme sistemleri" src="/assets/logo-band.png" />
-      </p>
     </div>
   );
 };
