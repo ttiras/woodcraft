@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN));
@@ -10,5 +10,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-console.log(process.env.PRERENDER_TOKEN)
-app.listen(port);
+
+app.listen(PORT, () => {
+  console.log(`App is running on port ${PORT}`);
+  console.log('pretoken', process.env.PRERENDER_TOKEN)
+});
