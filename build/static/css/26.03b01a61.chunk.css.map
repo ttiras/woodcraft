@@ -1,0 +1,1 @@
+{"version":3,"sources":["documents.css"],"names":[],"mappings":"AAAA,UACI,sBAAuB,CACvB,0BAA2B,CAC3B,qBACF,CAEA,EACE,oBAAqB,CACrB,4BACF","file":"26.03b01a61.chunk.css","sourcesContent":[".kosullar {\n    list-style-type: square;\n    list-style-position: inside;\n    list-style-image: none;\n  }\n\n  p{\n    width: 100%!important;\n    margin-bottom: 10px!important;\n  }"]}
