@@ -15,15 +15,15 @@ const BannerOne = ({ spaceTopClass, spaceBottomClass }) => {
     >
       <div className="container">
         <div className="row">
-         <BannerOneSingle
-                  spaceBottomClass="mb-30"
-                />
-                <BannerOneSingle1
-                  spaceBottomClass="mb-30"
-                />
-                <BannerOneSingle2
-                  spaceBottomClass="mb-30"
-                />
+          <BannerOneSingle
+            spaceBottomClass="mb-30"
+          />
+          <BannerOneSingle1
+            spaceBottomClass="mb-30"
+          />
+          <BannerOneSingle2
+            spaceBottomClass="mb-30"
+          />
         </div>
       </div>
     </div>
