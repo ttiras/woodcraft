@@ -5,7 +5,9 @@ const LanguageCurrencyChanger = () => {
     <div className="language-currency-wrap">
       <div className="same-language-currency language-style">
         <span>
+        <a href="//www.instagram.com/micotastore" title="Instagram">
           <i className="fa fa-instagram" title="MiCoTa Instagram"/>
+          </a>
         </span>
        
       </div>
