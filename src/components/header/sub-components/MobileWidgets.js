@@ -19,7 +19,7 @@ const MobileWidgets = () => {
       </div>
       {/*Off Canvas Widget Social Start*/}
       <div className="off-canvas-widget-social">
-        <a href="//instagram.com" title="Instagram">
+        <a href="instagram.com/micotastore" title="Instagram">
           <i className="fa fa-instagram"></i>
         </a>
         <a href="//facebook.com" title="Facebook">

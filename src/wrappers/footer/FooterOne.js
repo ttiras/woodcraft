@@ -159,7 +159,7 @@ const FooterOne = ({
                   </li>
                   <li>
                     <a
-                      href="//www.instagram.com"
+                      href="instagram.com/micotastore"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

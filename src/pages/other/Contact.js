@@ -103,7 +103,7 @@ const Contact = ({ location }) => {
                         </a>
                       </li>
                       <li>
-                        <a href='//instagram.com'>
+                        <a href='instagram.com/micotastore'>
                           <i className='fa fa-instagram' />
                         </a>
                       </li>

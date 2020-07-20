@@ -25,6 +25,7 @@ const GET_ORDERS_NOT_SHIPPED = gql`
           street
           town
           updated_at
+          identity
         }
         order_items {
           qty

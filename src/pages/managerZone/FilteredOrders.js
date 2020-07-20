@@ -109,6 +109,7 @@ export default function FilteredOrders({data, type}){
                                 " " +
                                 address.city.toUpperCase()}
                             </span>
+                            <span><strong> TC: </strong>{address.identity}</span>
                           </div>
                         </div>
                       ))}

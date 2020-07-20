@@ -67,6 +67,7 @@ query GetOrders {
       street
       town
       updated_at
+      identity
     }
     order_items {
       qty
