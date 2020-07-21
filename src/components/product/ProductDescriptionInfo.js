@@ -20,12 +20,8 @@ const ProductDescriptionInfo = ({
   finalDiscountedPrice,
   finalProductPrice,
   cartItems,
-  wishlistItem,
-  compareItem,
   addToast,
   addToCart,
-  addToWishlist,
-  addToCompare,
 }) => {
   const [selectedProductColor, setSelectedProductColor] = useState(
     product.variation ? product.variation[0].color : ""

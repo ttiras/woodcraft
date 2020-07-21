@@ -36,6 +36,7 @@ const Gizlilik = lazy(() => import("./pages/documents/Gizlilik"));
 const Kullanim = lazy(() => import("./pages/documents/Kullanim"));
 const Cerezler = lazy(() => import("./pages/documents/Cerezler"));
 const Kvkk = lazy(() => import("./pages/documents/Kvkk"));
+const Returns = lazy(() => import("./pages/documents/Returns"));
 
 const NetworkError = lazy(() => import("./pages/other/NetworkError"));
 const SomethingWentWrong = lazy(() =>
@@ -154,6 +155,11 @@ function Routers() {
             <Route
               path={process.env.PUBLIC_URL + "/cerezler"}
               component={Cerezler}
+            />
+
+            <Route
+              path={process.env.PUBLIC_URL + "/iade"}
+              component={Returns}
             />
 
             <Route path={process.env.PUBLIC_URL + "/kvkk"} component={Kvkk} />

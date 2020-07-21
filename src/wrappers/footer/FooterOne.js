@@ -112,6 +112,9 @@ const FooterOne = ({
                     </Link>
                   </li>
                   <li>
+                    <Link to={process.env.PUBLIC_URL + "/iade"}>İade ve Değişim</Link>
+                  </li>
+                  <li>
                     <Link to={process.env.PUBLIC_URL + "/guvenlik"}>Güvenlik</Link>
                   </li>
                   <li>
