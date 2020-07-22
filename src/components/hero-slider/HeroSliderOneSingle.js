@@ -16,6 +16,7 @@ const HeroSliderOneSingle = ({ data, sliderClassName }) => {
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
             <div className="slider-content slider-animated-1">
+            <h3 className="animated foreText">{data.subtitle2}</h3>
               <h3 className="animated foreText">{data.subtitle}</h3>
               <h1 className="animated foreText"><span>{data.title}</span></h1>
               <div className="slider-btn btn-hover">

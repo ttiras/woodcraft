@@ -6,8 +6,8 @@ import FeatureIconThree from "../../wrappers/feature-icon/FeatureIconThree";
 import TabProduct from "../../wrappers/product/TabProduct";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
-import BannerOne from "../../wrappers/banner/BannerOne";
 import SectionTitleIyzico from "../../components/section-title/SectionTitleIyzico";
+import SectionTitleMicota from "../../components/section-title/SectionTitleMicota";
 
 const HomeFashion = () => {
   return (
@@ -27,10 +27,9 @@ const HomeFashion = () => {
         {/* hero slider */}
         <HeroSliderOne />
 
+        <SectionTitleMicota />
+
         <SectionTitleIyzico />
-        
-        {/* banner */}
-        <BannerOne spaceBottomClass='pb-70' />
 
         {/* tab product */}
         <TabProduct spaceBottomClass="pb-60" />

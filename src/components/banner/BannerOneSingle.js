@@ -12,7 +12,7 @@ const BannerOneSingle = ({ spaceBottomClass }) => {
           <source src="/assets/MiCoTa_konforu.m4v" />
         </video>
         <div className="banner-content fixed">
-          <span>Orta sehpa keyfini kaçırıyorsa</span>
+          <span>Orta sehpa çok uzak geliyorsa</span>
         </div>
       </div>
     </div>
