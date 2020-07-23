@@ -1,7 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
+		<loc>https://www.micota.com.tr/blog</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/kvkk</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/about</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/atolye</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/contact</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/cerezler</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/kosullar</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/gizlilik</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/guvenlik</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/login-register</loc>
+	</url>
+	<url>
+		<loc>https://micota.com.tr/post/6e144506-c9d0-4d46-b31a-36a207f7d83c</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/post/fe2012a1-eba5-47a5-b65b-7de1eee0daad</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/post/86c3e333-e89a-4c56-8a76-ba6b8cda0515</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/08a8d023-59d4-4e35-8482-9d73a273fd31</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/post/630ab9d5-7764-4e46-a6bd-40cb04df524f</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/6ac7deb2-e36d-4f0f-834a-d522f534de0e</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/2e30ec12-9c69-4a12-a182-7970adbaf22f</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/6831ba12-dcb0-49f8-80dc-e773eaf00162</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/4988b487-8b66-478d-9c0c-f854f979b613</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/91b2926e-7481-4b0d-badc-c354ca394793</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/8dccc5b8-bffd-480d-9af3-1a30e8454753</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/44192585-820d-4b92-b978-c3b3b074a1f5</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/3eead587-3ccf-45cc-975a-5d0733bf45a2</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/e5c732fe-ca6d-47d7-9f18-bbd8c1a996fd</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/8337f358-cd19-442f-b633-0c9a4d9cbe13</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/product/d620bad6-0d49-4b23-a22f-dd901d4f0253</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/iade</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/reset-password</loc>
+	</url>
+	<url>
+		<loc>https://micota.com.tr/post/3e879f08-495e-4a41-89e2-c927264ff0f3</loc>
+	</url>
+	<url>
+		<loc>https://micota.com.tr/post/d10d08eb-ce92-4b52-a5a3-ac3c3a9577d1</loc>
+	</url>
+	<url>
 		<loc>https://micota.com.tr</loc>
+	</url>
+	<url>
+		<loc>https://micota.com.tr/shop</loc>
 	</url>
 	<url>
 		<loc>https://micota.com.tr/post/86c3e333-e89a-4c56-8a76-ba6b8cda0515</loc>
@@ -31,9 +124,6 @@
 		<loc>https://micota.com.tr/product/4988b487-8b66-478d-9c0c-f854f979b613</loc>
 	</url>
 	<url>
-		<loc>https://micota.com.tr/blog</loc>
-	</url>
-	<url>
 		<loc>https://www.micota.com.tr/</loc>
 	</url>
 	<url>
@@ -61,6 +151,18 @@
 		<loc>http://test.rover.micota.com.tr/shop</loc>
 	</url>
 	<url>
-		<loc>https://micota.com.tr/</loc>
+		<loc>https://www.micota.com.tr/assets/img/iyzico_guvenli_odeme.webp</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/assets/img/slider/Just_Married_MiCoTa2.webp</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/assets/img/slider/Supla_Beyaz1.webp</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/assets/img/slider/Yuvarlak_Tepsi_Beyaz1.webp</loc>
+	</url>
+	<url>
+		<loc>https://www.micota.com.tr/assets/Kol%C3%A7ak_Tepsisi.webp</loc>
 	</url>
 </urlset>
