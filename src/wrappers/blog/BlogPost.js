@@ -35,18 +35,6 @@ const BlogPost = (props) => {
      ],
     "datePublished": blog.created_at,
     "dateModified": blog.created_at,
-    "author": {
-      "@type": "Person",
-      "name": "Team MiCoTa"
-    },
-     "publisher": {
-      "@type": "Organization",
-      "name": "MiCoTa",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2Flogo.png?alt=media"
-      }
-    }
   }
 
 
