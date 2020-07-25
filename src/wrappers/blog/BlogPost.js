@@ -24,10 +24,38 @@ const BlogPost = (props) => {
     setBlogModalShow(true)
   }
 
+  const ldJson = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": blog.title,
+    "image": [
+      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img1}.jpeg?alt=media`,
+      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img2}.jpeg?alt=media`,
+      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img3}.jpeg?alt=media`
+     ],
+    "datePublished": blog.created_at,
+    "dateModified": blog.created_at,
+    "author": {
+      "@type": "Person",
+      "name": "Team MiCoTa"
+    },
+     "publisher": {
+      "@type": "Organization",
+      "name": "MiCoTa",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2Flogo.png?alt=media"
+      }
+    }
+  }
+
 
   return (
     <Fragment>
       <Helmet>
+      <script type="application/ld+json">
+          {JSON.stringify(ldJson)}
+        </script>
         <title>Micota | Blog</title> 
         <meta
           name='description'

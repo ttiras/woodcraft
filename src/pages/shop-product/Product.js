@@ -19,9 +19,9 @@ const Product = ({ location, product }) => {
   "@type": "Product",
   "name": product.name,
   "image": [
-    product.image[0].path,
-    product.image[1].path,
-    product.image[2].path
+    `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[0].path}.jpeg?alt=media`,
+    `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`,
+    `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[2].path}.jpeg?alt=media`
    ],
   "description": product.fullDescription,
   "sku": product.sku,
