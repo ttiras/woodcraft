@@ -30,8 +30,6 @@ const BlogPost = (props) => {
     "headline": blog.title,
     "image": [
       `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img1}.jpeg?alt=media`,
-      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img2}.jpeg?alt=media`,
-      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/blog%2F${blog.img3}.jpeg?alt=media`
      ],
     "datePublished": blog.created_at,
     "dateModified": blog.created_at,
