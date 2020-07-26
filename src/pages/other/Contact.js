@@ -40,7 +40,7 @@ const Contact = ({ location }) => {
         <title>Micota. | İletişim</title>
         <meta
           name='description'
-          content='Alışveriş sitemiz micota.com.tr iletişim bilgilerine bu sayfada ulaşabilirsiniz.'
+          content='Alışveriş sitemiz micota.com.tr iletişim bilgilerine bu sayfada ulaşabilirsiniz. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

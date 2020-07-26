@@ -10,7 +10,7 @@ const BannerOneSingle1 = ({ spaceBottomClass }) => {
       >
                 <picture>
       <source type="image/webp" srcSet="/assets/Kolçak_Tepsisi.webp"/>
-      <img src="/assets/Kolçak_Tepsisi.jpeg" alt='kolçak tepsisi kahve çay sunumu ahşap yuvarlak tepsi ve supla'/>
+      <img src="/assets/Kolçak_Tepsisi.jpeg" alt=' kolçak tepsisi, sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table'/>
     </picture>
         <div className="banner-content fixed">
           <span>Kolçak tepsisi tüm koltuğu kaplıyorsa</span>

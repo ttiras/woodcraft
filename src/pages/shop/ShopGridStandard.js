@@ -57,7 +57,7 @@ const ShopGridStandard = ({ location, products }) => {
         <title>Micota. | Ürünler</title>
         <meta
           name='description'
-          content='Alışveriş sitemiz micota.com.tr mağazası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidir.'
+          content='Alışveriş sitemiz micota.com.tr mağazası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidir. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
         />
       </Helmet>
 

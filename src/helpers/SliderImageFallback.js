@@ -6,7 +6,7 @@ const SliderImgFallback = ({
     return (
       <picture>
         <source type="image/webp" srcSet={`${path}.webp`} />
-        <img src={`${path}.png`} {...delegated} alt='kahve çay sunumu ahşap yuvarlak tepsi ve supla'/>
+        <img src={`${path}.png`} {...delegated} alt=' sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table'/>
       </picture>
     );
   };

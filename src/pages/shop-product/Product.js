@@ -53,7 +53,7 @@ const Product = ({ location, product }) => {
         <title>Micota | Ürün Sayfası</title>
         <meta
           name='description'
-          content='Alışveriş sitemiz micota.com.tr ürün detay. Kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, ev hediyesi, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidr.'
+          content='Alışveriş sitemiz micota.com.tr ürün detay. Kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, ev hediyesi, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidr. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
         />
         <meta property="og:url" content={`https://micota.com.tr/product/${product.id}`} />
         <meta property="og:title" content={product.name} />
