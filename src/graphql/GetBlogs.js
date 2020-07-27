@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const GET_BLOGS = gql`
   query GetBlogs {
-    blogs {
+    blogs(order_by: {created_at: desc}) {
       created_at
       id
       img1
