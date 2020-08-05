@@ -11,6 +11,7 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
+  PinterestShareButton
 } from "react-share";
 
 const ProductDescriptionInfo = ({
@@ -244,10 +245,21 @@ const ProductDescriptionInfo = ({
         <ul>
           <li>
             <WhatsappShareButton
+              title={product.name}
               url={`https://micota.com.tr/product/${product.id}`}
             >
                 <i title="Whatsapp'ta paylaş" className='fa fa-whatsapp' />
             </WhatsappShareButton>
+          </li>
+          <li>
+            <PinterestShareButton
+              media={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`}
+              title={product.name}
+              description={product.fullDescription}
+              url={`https://micota.com.tr/product/${product.id}`}
+            >
+                <i title="Pinterest'te paylaş" className='fa fa-pinterest' />
+            </PinterestShareButton>
           </li>
           <li>
             <FacebookShareButton
@@ -258,6 +270,7 @@ const ProductDescriptionInfo = ({
           </li>
           <li>
             <TwitterShareButton
+              title={product.name}
               url={`https://micota.com.tr/product/${product.id}`}
             >
                 <i title="Twitter'da paylaş" className='fa fa-twitter' />

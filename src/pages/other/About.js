@@ -15,7 +15,7 @@ const About = ({ location }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota | Biz</title>
+        <title>MiCoTa | Biz</title>
         <meta
           name='description'
           content='Alışveriş sitemiz micota.com.tr hakkında. Keyifle tasarladığımız ve ürettiğimiz doğal ahşap ve doğal boya kullanılan ürünlerimizi nerde ve nasıl hazrıladığımız hakkında kısa bilgiler. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'

@@ -21,13 +21,13 @@ export default function Kullanim({ location }) {
         <div className='container mt-5'>
           <div className='welcome-content text-center'>
             <h5>
-              İşbu https://micota.com.tr sitesinin (“Site”) tüm hakları Micota
-              Ahşap Ürünleri'ne (Micota) aittir.
+              İşbu https://micota.com.tr sitesinin (“Site”) tüm hakları MiCoTa
+              Ahşap Ürünleri'ne (MiCoTa) aittir.
             </h5>
             <h1 className='mt-3'>KULLANIM KOŞULLARI</h1>
             <div className='text-left'>
               <p className='w-100'>
-                Micota webssitesinin Kullanıcılar ve Üyeler tarafından kullanımı
+                MiCoTa webssitesinin Kullanıcılar ve Üyeler tarafından kullanımı
                 aşağıdaki hüküm ve şartlara tabidir. Lütfen Siteyi kullanmadan
                 önce aşağıdaki Site Kullanım Koşullarını (“Kullanım Koşulları”)
                 dikkatlice okuyunuz.
@@ -36,25 +36,25 @@ export default function Kullanim({ location }) {
               <p className='w-100'>
                 Site’ye üyelik, aşağıda yazılı koşulların tarafınızca kabulüne
                 bağlıdır. Site'nin kullanımı, bu koşulları kabul ettiğiniz
-                anlamına gelir. Kullanım Koşulları da dahil olmak üzere Micota,
+                anlamına gelir. Kullanım Koşulları da dahil olmak üzere MiCoTa,
                 Site ve Site uzantısı kapsamında sunulan hizmetleri, ürünleri,
                 fikir ve sanat eserlerini, Sitede sunulan herhangi bir bilgi ve
                 veriyi, önceden herhangi bir ihtar veya ihbar yapmaya gerek
                 olmaksızın değiştirme, Site yayınına ara verme, Site yayını
                 tamamen durdurma ve Siteyi en geniş kapsamda yeniden düzenleme
-                haklarını saklı tutmaktadır. Micota’nun Site Kullanım Şartları
+                haklarını saklı tutmaktadır. MiCoTa’nun Site Kullanım Şartları
                 üzerinde yapacağı değişiklikler, Sitede yayımlanmalarıyla
                 birlikte yürülüğe girer ve bu değişiklikler, kullanıcı
                 tarafından Site’ye girilmesi, herhangi bir şekilde erişim
                 yapılması veya Site’nin kullanılması ile birlikte kabul edilmiş
-                addolunur. Site’ye üyelik formunu eksiksiz dolduran ve Micota
+                addolunur. Site’ye üyelik formunu eksiksiz dolduran ve MiCoTa
                 tarafından üyelikleri uygun bulunan gerçek ya da tüzel kişiler
                 "ÜYE" olarak kabul edilir. Üyelik için 18 yaşını doldurmuş olmak
                 zorunludur. Tüzel kişiler, ancak yasal temsilcileri kanalı ile
                 üyelik başvurusu yapabilirler. Site’ye giriş yapan, Site’yi
                 ziyaret eden, herhangi bir şekilde kullanan, Siteye erişen
                 ve/veya herhangi başkaca bir şekilde bağlanan tüm üye ve
-                ziyaretçiler(“Kullanıcı”), bu sayfada düzenlenmiş olan Micota
+                ziyaretçiler(“Kullanıcı”), bu sayfada düzenlenmiş olan MiCoTa
                 Web Sitesi Kullanım Şartları’na uyacaklarını peşinen beyan,
                 kabul ve taahhüt ederler. İşbu Yukarıda anılan "Kullanıcı"
                 ifadesi, üye girişi yapmak suretiyle veya herhangi bir şekilde
@@ -66,9 +66,9 @@ export default function Kullanim({ location }) {
               </p>
               <h4>II. Hizmet İçeriği</h4>
               <p className='w-100'>
-                Micota'nun, Site üzerinden vereceği hizmet; Micota online shop
+                MiCoTa'nun, Site üzerinden vereceği hizmet; MiCoTa online shop
                 sitesinde satışa sunulan ürünlerin; üye tarafından bedeli
-                ödendikten sonra, Micota'nun stok durumunun uygun olması halinde
+                ödendikten sonra, MiCoTa'nun stok durumunun uygun olması halinde
                 taahhüt edilen sürede malın müşteriye kargo firması tarafından
                 ayıpsız ve hasarsız olarak teslimidir.
               </p>
@@ -76,19 +76,19 @@ export default function Kullanim({ location }) {
 
               <ul className='kosullar'>
                 <li>
-                  Micota, Sitede mevcut bilgilerin doğruluk ve güncelliğini
+                  MiCoTa, Sitede mevcut bilgilerin doğruluk ve güncelliğini
                   sürekli olarak kontrol etmektedir. Ancak bu bilgilerin her
                   zaman güncel olmayabileceği Üyeler ve Kullanıcılar tarafından
                   gözetilmelidir.
                 </li>
                 <li>
-                  Micota, dilediği takdirde, hiçbir gerekçe göstermeksizin
+                  MiCoTa, dilediği takdirde, hiçbir gerekçe göstermeksizin
                   üyeliği iptal etme hakkına sahiptir.
                 </li>
                 <li>
                   Site’ye ait her türlü fikri mülkiyet hakkı(sitede bulunan
                   bilgiler, yazılar, resimler, markalar, slogan ve diğer
-                  işaretler, sayfa düzeni vb) münhasıran Micota'nun
+                  işaretler, sayfa düzeni vb) münhasıran MiCoTa'nun
                   mülkiyetindedir. Sitede sunulan fikri mülkiyetin kısmen ya da
                   tamamen kopyalanması, değiştirilmesi, yayınlanması, online ya
                   da diğer bir medya kullanılmak suretiyle gönderimi, dağıtımı,
@@ -98,17 +98,17 @@ export default function Kullanim({ location }) {
                 </li>
                 <li>
                   Üye, kredi kartını güvenli bir şekilde kullanmakla yükümlüdür.
-                  Micota, sözleşmeye aykırılık, haksız fiil, ya da başkaca
+                  MiCoTa, sözleşmeye aykırılık, haksız fiil, ya da başkaca
                   sebeplere binaen, doğabilecek doğrudan ya da dolaylı hiçbir
                   zarardan sorumlu değildir.
                 </li>
                 <li>
-                  Micota, dilediği tarihte, işbu sözleşmeyi bildirimsiz olarak
+                  MiCoTa, dilediği tarihte, işbu sözleşmeyi bildirimsiz olarak
                   feshedebilir, kısmen ya da tamamen devredebilir. Kullanıcı
                   veya üyenin sözleşmeyi devri, hükümsüzdür.
                 </li>
                 <li>
-                  Micota mücbir sebeple ya da tümü ile kendi takdir ve
+                  MiCoTa mücbir sebeple ya da tümü ile kendi takdir ve
                   değerlendirmesine bağlı olarak Site’yi yayından kaldırma,
                   içeriğini değiştirme hakkına sahiptir.
                 </li>
@@ -138,12 +138,12 @@ export default function Kullanim({ location }) {
                   ve ziyandan kendilerinin sorumlu olacağını kabul, beyan ve
                   taahhüt etmektedir. Üyelik başvurusu yapılırken üye tarafından
                   verilen bilgilerin doğruluğu ve eksiksizliğinin tespiti
-                  Micota’nun sorumluluğunda değildir. Yanlış üyelik bilgisi
-                  verilmesi sebebiyle doğacak zararlardan dolayı Micota’nun
+                  MiCoTa’nun sorumluluğunda değildir. Yanlış üyelik bilgisi
+                  verilmesi sebebiyle doğacak zararlardan dolayı MiCoTa’nun
                   hiçbir hukuki sorumluluğu yoktur.
                 </li>
                 <li>
-                  Micota, Site Kullanım Koşulları’na ve yukarıda anılan
+                  MiCoTa, Site Kullanım Koşulları’na ve yukarıda anılan
                   kuralları aykırı şekilde hareket eden Kullanıcıların Siteye
                   erişiminin engellenmesi ve üyeliklerinin iptal edilmesi de
                   dahil olmak üzere her türlü güvenlik tedbirini almak, ve
@@ -159,9 +159,9 @@ export default function Kullanim({ location }) {
                   olmamak üzere, Kullanıcıların, Üyelerin veya diğer üçüncü
                   kişilerin herhangi bir sebepten ötürü uğrayabilecekleri her
                   türlü ve tüm doğrudan ve dolaylı zarar, ziyan, hasar ve/veya
-                  kayıplar ile ilgili Micota’nun hiçbir hukuki veya cezai
+                  kayıplar ile ilgili MiCoTa’nun hiçbir hukuki veya cezai
                   sorumluluğu bulunmamaktadır. Kullanıcılar, yukarıda anılan
-                  zararlar sebebiyle Micota’dan her ne isim altında olursa olsun
+                  zararlar sebebiyle MiCoTa’dan her ne isim altında olursa olsun
                   herhangi bir talep veya iddiada bulunmayacaklarını peşinen
                   kabul, beyan ve taahhüt etmektedir.
                 </li>
@@ -175,7 +175,7 @@ export default function Kullanim({ location }) {
                   verdiğim bilgiler ve fakat bunlarla sınırlı olmamak üzere her
                   şekilde tarafınıza sağladığım tüm kişisel verilerimin; 6563
                   Sayılı Elektronik Ticaretin Düzenlenmesi kapsamında, kampanya,
-                  indirim gibi bilgilendirme maksatlı olmak üzere ve Micota
+                  indirim gibi bilgilendirme maksatlı olmak üzere ve MiCoTa
                   Holding Anonim Şirketi ile grup şirketleri, iş ortakları,
                   çalıştığı tüm kurumlara 6698 sayılı Kişisel Verilerin
                   Korunması Kanunu (“Kanun”) uyarınca, satış tarihçesi
@@ -186,20 +186,20 @@ export default function Kullanim({ location }) {
                   hakkında bilgilendirmek, pazarlama iletişimi yapmak, müşteri
                   analizi yapmak, müşteri sadakatini artırmak, özel üretim
                   yapmak ve benzeri amaçlar için işlenmesine ve söz konusu veri
-                  işleme amaçlarının gerçekleştirilmesi ve Micota Şirketler
+                  işleme amaçlarının gerçekleştirilmesi ve MiCoTa Şirketler
                   Topluluğunun ilke, operasyon, süreç, hedef ve stratejilerine
-                  uygun olarak yürütülmesi ile Micota’nun hak ve menfaatleri ile
+                  uygun olarak yürütülmesi ile MiCoTa’nun hak ve menfaatleri ile
                   itibarının korunması amacıyla işlenmesine, kullanılmasına,
-                  gerekli görülmesi halinde, tüm Micota Holding Anonim Şirketi
+                  gerekli görülmesi halinde, tüm MiCoTa Holding Anonim Şirketi
                   iştirakleri ile yalnızca veri işleme amacının gerektirdiği
                   ve/veya arşivleme amacı ve sunulan hizmetin gerektirdiği
-                  durumlar kapsamında aktarılmasına Micota Holding A.Ş. ve
+                  durumlar kapsamında aktarılmasına MiCoTa Holding A.Ş. ve
                   iştiraklerinin ilke, operasyon, süreç, hedef ve
                   stratejilerinin gerektirdiği durumlarda üçüncü kişi iş
                   ortakları, hizmet / destek / danışmanlık alınan ya da
                   işbirliği yapılan ya da proje / program / finansman ortağı
                   olunan kamu / özel kurum ve kuruluşlar / şirketler,
-                  tedarikçiler, tüm Micota Holding A.Ş. iştiraklerinin
+                  tedarikçiler, tüm MiCoTa Holding A.Ş. iştiraklerinin
                   ortakları, şirket yetkilileri, bankalar, fonlar, şirketler ve
                   sair üçüncü kişi ya da kuruluşlar ile paylaşılmasına; (i)
                   kişisel verilerimin işlenip işlenmediğini öğrenme, (ii)
@@ -250,11 +250,11 @@ export default function Kullanim({ location }) {
 
               <p className='w-100 mb-5'>
                 İlgili kişi olarak yukarıda sıralanan haklarınıza yönelik
-                taleplerinizi ‘’KVKK@Micota.com.tr” e-posta adresi üzerinden
-                Micota’ya iletebilirsiniz. Micota, gelen talepleri en geç 30
+                taleplerinizi ‘’KVKK@MiCoTa.com.tr” e-posta adresi üzerinden
+                MiCoTa’ya iletebilirsiniz. MiCoTa, gelen talepleri en geç 30
                 (otuz) gün içerisinde değerlendirerek sonuçlandıracaktır.
                 Taleplere ilişkin olarak herhangi bir ücret talep edilmemesi
-                esas olmakla birlikte, Micota Kişisel Verileri Koruma Kurulu
+                esas olmakla birlikte, MiCoTa Kişisel Verileri Koruma Kurulu
                 tarafından belirlenen ücret tarifesi üzerinden ücret talep etme
                 hakkını saklı tutmaktadır.
               </p>

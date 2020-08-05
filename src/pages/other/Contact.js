@@ -37,7 +37,7 @@ const Contact = ({ location }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota. | İletişim</title>
+        <title>MiCoTa. | İletişim</title>
         <meta
           name='description'
           content='Alışveriş sitemiz micota.com.tr iletişim bilgilerine bu sayfada ulaşabilirsiniz. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'

@@ -19,10 +19,10 @@ const BlogDetailsStandard = (props) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota. | Blog</title>
+        <title>MiCoTa. | Blog</title>
         <meta
           name='description'
-          content='Micota blog sayfası. Ahşap, kahve sunumları, yuvarlak tepsi, ev hediyesi, supla ve ev dizayn fikirleri ve ürünleriyle ilgili blog yazıları. Ev aksesuarları alışverişi yapmadan önce muhakkak okuyun. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
+          content='MiCoTa blog sayfası. Ahşap, kahve sunumları, yuvarlak tepsi, ev hediyesi, supla ve ev dizayn fikirleri ve ürünleriyle ilgili blog yazıları. Ev aksesuarları alışverişi yapmadan önce muhakkak okuyun. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
         />
       </Helmet>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

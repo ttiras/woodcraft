@@ -23,7 +23,7 @@ export default function Gizlilik({ location }) {
             <h1 className='mt-3'>GİZLİLİK POLİTİKASİ</h1>
             <div className='text-left'>
               <p className='w-100'>
-                Micota, alışveriş yaparken kullanmış olduğunuz kişisel
+              MiCoTa, alışveriş yaparken kullanmış olduğunuz kişisel
                 bilgilerinizi (teslimat/fatura adresleri, telefon numaraları,
                 vs.) başka kurum ve kuruluşlarla kesinlikle paylaşmayacaktır.
               </p>
@@ -32,7 +32,7 @@ export default function Gizlilik({ location }) {
                 sizin onayınız doğrultusunda, size ait üyelik hesabınızda
                 saklanmaktadır. Bu bilgiler sadece sipariş takibinizin daha
                 hızlı ve güvenli bir şekilde ulaşmasını sağlamak için
-                kullanılacaktır. Micota, kişisel bilgileri kesinlikle özel ve
+                kullanılacaktır. MiCoTa, kişisel bilgileri kesinlikle özel ve
                 gizli tutmayı; bunu bir sır saklama yükümlülüğü olarak addetmeyi
                 ve gizliliğin sağlanması ve sürdürülmesi, gizli bilginin
                 tamamının veya herhangi bir kısmının kamu alanına girmesini veya
@@ -41,7 +41,7 @@ export default function Gizlilik({ location }) {
                 taahhüt etmektedir.{" "}
               </p>
               <p className='w-100 mb-5'>
-                Micota’nın yürürlükteki yasalar uyarınca ve idari, adli ve diğer
+              MiCoTa yürürlükteki yasalar uyarınca ve idari, adli ve diğer
                 resmi makamların talebi üzerine bu bilgileri kanunlar
                 çerçevesinde ifşa etme hakkı saklıdır.{" "}
               </p>

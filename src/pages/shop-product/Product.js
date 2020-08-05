@@ -12,59 +12,71 @@ import ProductImageDescription from "../../wrappers/product/ProductImageDescript
 
 const Product = ({ location, product }) => {
   const { pathname } = location;
-  const price = product.price-(product.price*product.discount/100)
+  const price = product.price - (product.price * product.discount) / 100;
 
+  const pageContent = product.name + " " + product.fullDescription + " " + product.shortDescription + " " + product.dimensions
   const ldJson = {
-  "@context": "https://schema.org/",
-  "@type": "Product",
-  "name": product.name,
-  "image": [
-    `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[0].path}.jpeg?alt=media`,
-    `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`,
-    `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[2].path}.jpeg?alt=media`
-   ],
-  "description": product.fullDescription,
-  "sku": product.sku,
-  "brand": {
-    "@type": "Brand",
-    "name": "MiCoTa"
-  },
-  "author": {
-      "@type": "Person",
-      "name": "Team MiCoTa"
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.name,
+    image: [
+      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[0].path}.jpeg?alt=media`,
+      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`,
+      `https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[2].path}.jpeg?alt=media`,
+    ],
+    description: product.fullDescription,
+    sku: product.sku,
+    brand: {
+      "@type": "Brand",
+      name: "MiCoTa",
     },
-  "offers": {
-    "@type": "Offer",
-    "url": `https://micota.com.tr/product/${product.id}`,
-    "priceCurrency": "TRY",
-    "price": price,
-    "priceValidUntil": "2023-11-20",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock",
-  }
-}
+    author: {
+      "@type": "Person",
+      name: "Team MiCoTa",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `https://micota.com.tr/product/${product.id}`,
+      priceCurrency: "TRY",
+      price: price,
+      priceValidUntil: "2023-11-20",
+      itemCondition: "https://schema.org/NewCondition",
+      availability: "https://schema.org/InStock",
+    },
+  };
 
   return (
     <Fragment>
       <Helmet>
-      <script type="application/ld+json">
-          {JSON.stringify(ldJson)}
-        </script>
-        <title>Micota | Ürün Sayfası</title>
+        <script type='application/ld+json'>{JSON.stringify(ldJson)}</script>
+        <title>MiCoTa | Ürün Sayfası</title>
         <meta
           name='description'
-          content='Alışveriş sitemiz micota.com.tr ürün detay. Kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, ev hediyesi, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidr. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
+          content={pageContent}
         />
-        <meta property="og:url" content={`https://micota.com.tr/product/${product.id}`} />
-        <meta property="og:title" content={product.name} />
-        <meta property="og:description" content={product.shortDescription} />
-        <meta property="og:image" itemprop="image" content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`} /> 
-        <meta property="og:type" content="website" />
+        <meta
+          property='og:url'
+          content={`https://micota.com.tr/product/${product.id}`}
+        />
+        <meta property='og:title' content={product.name} />
+        <meta property='og:description' content={product.shortDescription} />
+        <meta
+          property='og:image'
+          itemprop='image'
+          content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`}
+        />
+        <meta property='og:type' content='website' />
         {/* Twitter Card tags */}
-        <meta property="twitter:title" content={product.name} />
-        <meta property="twitter:description" content={product.shortDescription} />
-        <meta property="twitter:image" content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`} />
-        <meta property="twitter:card" content="summary" />
+        <meta property='twitter:title' content={product.name} />
+        <meta
+          property='twitter:description'
+          content={product.shortDescription}
+        />
+        <meta
+          property='twitter:image'
+          content={`https://firebasestorage.googleapis.com/v0/b/woodcraft-auth-41aa7.appspot.com/o/product%2F${product.image[1].path}.jpeg?alt=media`}
+        />
+        <meta property='twitter:card' content='summary' />
       </Helmet>
 
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>

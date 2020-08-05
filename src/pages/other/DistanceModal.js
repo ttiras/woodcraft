@@ -13,7 +13,9 @@ export default function DistanceModal(props) {
       onHide={props.onHide}
       className='product-quickview-modal-wrapper'
     >
-      <Modal.Header closeButton><h3 className='cart-page-title'>Mesafeli Satış Sözleşmesi</h3></Modal.Header>
+      <Modal.Header closeButton>
+        <h3 className='cart-page-title'>Mesafeli Satış Sözleşmesi</h3>
+      </Modal.Header>
       <div className='cart-main-area pt-40 pb-70 m-3'>
         <h4>1. TARAFLAR</h4>
         <h5>SATICI</h5>
@@ -21,13 +23,14 @@ export default function DistanceModal(props) {
         <p>Küçüksu Mah. Asma sok. no:10 C-4 Üsküdar İstanbul</p>
         <p>05302225663 / info@micota.com.tr</p>
         <h5>ALICI</h5>
-        {address && 
-        <>
-        <p>{address.name + " " + address.surname}</p>
-        <p>{address.identity}</p>
-        <p>{address.street + " " + address.ilçe + " " + address.il}</p>
-        <p>{address.phone + " / " + address.email}</p>
-        </>}
+        {address && (
+          <>
+            <p>{address.name + " " + address.surname}</p>
+            <p>{address.identity}</p>
+            <p>{address.street + " " + address.ilçe + " " + address.il}</p>
+            <p>{address.phone + " / " + address.email}</p>
+          </>
+        )}
         <p>
           1) Sözleşme konusu mal veya hizmetin adı, adedi, KDV dahil satış
           fiyatı, ödeme şekli ve kısaca temel nitelikleri
@@ -153,7 +156,7 @@ export default function DistanceModal(props) {
         </div>
         <h4>4. TESLİMAT</h4>
         <p>
-          Teslimat, Micota tarafından kargo aracılığı yukarıda belirtilen
+          Teslimat, MiCoTa tarafından kargo aracılığı yukarıda belirtilen
           teslimat adresine sipariş onaylandıktan sonra 10 iş günü, her
           hâlükârda 30 günlük yasal süresi içinde yapılacaktır. Resmi tatiller
           ve dini/milli bayram günleri bu süreden sayılmaz. Teslimat sırasında
@@ -220,19 +223,19 @@ export default function DistanceModal(props) {
           6.7. Kargo iade kodunuz irsaliyenin alt bölümünde yer almaktadır.
           Ürününüzü geri gönderirken iade formu doldurulmuş şekilde, sevk
           irsaliyesi kargo paketinin içine konulmalıdır. 6.8. Gelen ürün
-          öncelikle Micota tarafından incelenir. Yukarıdaki şartlara uygun ise
+          öncelikle MiCoTa tarafından incelenir. Yukarıdaki şartlara uygun ise
           iade işlemi başlatılır. İade işlemi onaylandığında alıcıya İADE
           TALEBİNİZ ONAYLANMIŞTIR konulu mail gönderilerek bilgilendirme
           yapılır. Bu bilgilendirmeden sonra yasal süre olan 14 gün ( ondört )
           içerisinde ürün ücreti kredi kartınıza iade edilir. 6.9. Alıcı ürünü
-          isterse Micota mağazalarında iade yapabilir. Mağazalardan yapılan iade
-          durumunda ürünün ücreti Micota Tekstil ve Hazır Giyim Sanayi
+          isterse MiCoTa mağazalarında iade yapabilir. Mağazalardan yapılan iade
+          durumunda ürünün ücreti MiCoTa Tekstil ve Hazır Giyim Sanayi
           İşletmeleri tarafından alıcının kredi kartına yasal süre 10 iş günü
           içerisinde iade edilir. Alıcı isterse ürünün ücreti tutarında iade
-          kartı ( exchange card ) alabilir. İade kartı tüm Micota mağazalarında
+          kartı ( exchange card ) alabilir. İade kartı tüm MiCoTa mağazalarında
           geçerlidir. 6.10. Alıcı satın aldığı ürünü, ürün gammı uygun olduğu
-          takdirde Micota mağazalarından değişim yapabilir. 6.11. Micota
-          kuruluşlarına ait mağazalardan alınan ürünler Micota Online Shop’tan
+          takdirde MiCoTa mağazalarından değişim yapabilir. 6.11. MiCoTa
+          kuruluşlarına ait mağazalardan alınan ürünler MiCoTa Online Shop’tan
           değiştirilemez ve iade edilemez. 6.12.Online sayfamızda OUTLET
           bölümünden alınan ürünlerin değişimi veya iadesi sadece MICOTA OUTLET
           mağazalarımızdan yapılabilir. Outlet ürünlerimizin hediye paketlerine

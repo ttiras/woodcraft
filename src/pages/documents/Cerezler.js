@@ -62,7 +62,7 @@ export default function Cerezler({ location }) {
                 sizlere sunulan hizmetleri geliştirmek. Platform&#39;u
                 iyileştirmek ve Platform &uuml;zerinden yeni &ouml;zellikler
                 sunmak ve sunulan &ouml;zellikleri sizlerin tercihlerine
-                g&ouml;re kişiselleştirmek. Platform&#39;un, sizin ve Micota
+                g&ouml;re kişiselleştirmek. Platform&#39;un, sizin ve MiCoTa
                 Kuruluşları&#39;nın hukuki ve ticari g&uuml;venliğinin teminini
                 sağlamak.
               </p>

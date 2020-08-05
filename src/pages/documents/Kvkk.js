@@ -76,11 +76,11 @@ export default function Guvenlik({ location }) {
               </p>
               <p className='w-100'>
                 rmişilgi akışının güvHaklarınızı kullanabilmek için Kişisel
-                Verileri Micota Şirketleri tarafından işlenen Veri Sahipleri
-                tarafından yapılacak şikâyetler, Micota Şirketleri tarafından en
+                Verileri MiCoTa Şirketleri tarafından işlenen Veri Sahipleri
+                tarafından yapılacak şikâyetler, MiCoTa Şirketleri tarafından en
                 kısa süre içerisinde ve en geç 30 gün içerisinde
                 cevaplandırılacak ve sonuçlandırılacaktır. Veri Sahibi, talep ve
-                şikâyetlerini Micota Holding A.Ş. Şirketi Micota KVK Komitesi
+                şikâyetlerini MiCoTa Holding A.Ş. Şirketi MiCoTa KVK Komitesi
                 tarafından kimlik kontrolü yapılmak kaydıyla şahsen veya noter
                 onaylı vekâlet sunulması kaydıyla vekaleten yapılan başvurular,
                 noter kanalı ile yapılan başvurular ve güvenli elektronik imza
@@ -91,7 +91,7 @@ export default function Guvenlik({ location }) {
               <h5>Güncellenme Tarihi: 19 Mayıs 2020</h5>
               <h4>GİRİŞ</h4>
               <p>
-                İşbu Politika, Micota Holding A.Ş. ve bünyesindeki şirketler
+                İşbu Politika, MiCoTa Holding A.Ş. ve bünyesindeki şirketler
                 tarafından kişisel verilerin korunması ve hukuka uygun işlenmesi
                 için benimsenecek ve içselleştirilecek idari yapı, süreç ve
                 prosedürleri ifade etmektedir. İşbu Politika’nın amacı, kişisel
@@ -103,13 +103,13 @@ export default function Guvenlik({ location }) {
                 yaratılarak Kanun’a uyum sağlanmasıdır.
               </p>
               <p>
-                Micota Şirketleri iş ve işlemleri süresince kişisel verilerin
+                MiCoTa Şirketleri iş ve işlemleri süresince kişisel verilerin
                 yasal gerekliliklere uygun olarak ele alınması ve uygunluğun
                 sağlanması amacıyla hem kendi içinde hem de mümkün olduğu sürece
-                Micota Şirketleri’nin verileri dahil bunlar tarafından sağlanan
+                MiCoTa Şirketleri’nin verileri dahil bunlar tarafından sağlanan
                 verileri işleyen üçüncü kişiler tarafından makul adımların
                 atılmasını sağlama sorumluluğu altındadır. Bu sorumluluğunun
-                bilincinde olan Micota, bu konuda yetkin idari ve hukuki
+                bilincinde olan MiCoTa, bu konuda yetkin idari ve hukuki
                 görüşler almakta ve verilerin Kanun’un gerekliliklerinin
                 ötesinde güvenle korunması için gereken adımları uygulamaktadır.
               </p>
@@ -119,39 +119,39 @@ export default function Guvenlik({ location }) {
                 süreçlerini Kanun’a ve kişisel verilerin korunmasına ilişkin tüm
                 uluslararası düzenlemelere uygun hale getirmek üzere her tür
                 idari ve teknik süreci başlatmıştır. İşbu Politika’da ifade
-                edilen pek çok adım halihazırda Micota Şirketleri bünyesinde
+                edilen pek çok adım halihazırda MiCoTa Şirketleri bünyesinde
                 uygulanmakta olan sistemi yansıtmakta ve Kanun’un
-                gerektirdikleri halihazırda Micota Şirketleri tarafından yerine
-                getirilmektedir. Micota, Kanun ve kişisel verilerin korunmasına
+                gerektirdikleri halihazırda MiCoTa Şirketleri tarafından yerine
+                getirilmektedir. MiCoTa, Kanun ve kişisel verilerin korunmasına
                 ilişkin başlattığı uyum çalışmasını, kişisel verilerin
                 korunmasına ilişkin en üst düzey standartların belirlenmesi ve
                 uygulanabilmesini sağlamak üzere iş yapış sürecinde bir
                 iyileştirme fırsatı olarak görmektedir.
               </p>
               <p>
-                İşbu Politika, Micota Şirketleri tarafından tutulan ve
+                İşbu Politika, MiCoTa Şirketleri tarafından tutulan ve
                 çalışanlarına, müşterilerine, tedarikçilerine ve diğer tüm
                 bireylere ait kişisel verilerin hukuka uygun bir biçimde
                 işlendiğinden, Kanun ve buna ait değişiklikler kapsamında
                 öngörülen gereklilikler de dâhil olmak üzere, ilgili tüm yasal
-                gerekliliklere uyulduğundan ve Micota Şirketleri’nin iç
+                gerekliliklere uyulduğundan ve MiCoTa Şirketleri’nin iç
                 prosedürlerinin dürüstlük kurallarına ve hukuka uygunluğu
                 sağlamak için periyodik olarak denetlendiğinden emin olmak için
                 gerekli tüm adımların atılması amacıyla hazırlanmıştır.
               </p>
               <p>
-                Micota Şirketleri tarafından bu Politika’ya tam bir uyum ile
-                hareket edilecek olup tüm Micota Şirketleri bu Politika uyarınca
-                denetlenecek ve uyum devamlılığı ile Micota ailesinin her bir
+                MiCoTa Şirketleri tarafından bu Politika’ya tam bir uyum ile
+                hareket edilecek olup tüm MiCoTa Şirketleri bu Politika uyarınca
+                denetlenecek ve uyum devamlılığı ile MiCoTa ailesinin her bir
                 ferdi bakımından içselleştirilmesi temin edilecektir.
               </p>
               <h4>TANIMLAR</h4>
-              <p>Micota Ahşap Ürünleri Şirket olarak anılacaktır.</p>
+              <p>MiCoTa Ahşap Ürünleri Şirket olarak anılacaktır.</p>
               <p>
                 Veri: Elektronik olarak bilgisayarda ya da bir takım kâğıt bazlı
                 dosyalama sistemlerinde saklanan bilgileri ifade etmektedir.
                 Kişisel Veri: Kimliği belirli veya belirlenebilir gerçek kişiye
-                ilişkin her türlü bilgiyi ifade etmektedir. Micota Şirketleri,
+                ilişkin her türlü bilgiyi ifade etmektedir. MiCoTa Şirketleri,
                 müşteri tercihlerini anlamak ve daha iyi hizmet vermek ve
                 benzeri amaçlar ile internet siteleri aracılığıyla, genel olarak
                 “web kayıt bilgisi" adı verilen verileri (kullanıcıların
@@ -177,7 +177,7 @@ export default function Guvenlik({ location }) {
                 rızasını gerektirmektedir.
               </p>
               <p>
-                Veri İlgilisi veya Sahipleri: Kişisel Verileri Micota tarafından
+                Veri İlgilisi veya Sahipleri: Kişisel Verileri MiCoTa tarafından
                 işlenen çalışanlar dahil tüm gerçek kişileri kapsamaktadır. Veri
                 sahibi Türk vatandaşı olmak ya da Türkiye’de ikamet etmek
                 zorunda değildir. Tüm veri sahipleri, kendi kişisel verilerine
@@ -188,15 +188,15 @@ export default function Guvenlik({ location }) {
                 vasıtalarını belirleyen, veri kayıt sisteminin kurulmasından ve
                 yönetilmesinden sorumlu olan gerçek veya tüzel kişiyi ifade
                 etmektedir. Bu kişilerin, Kanun’a uygun olarak uygulamalar ve
-                ilkeler belirlemek yönünde sorumlulukları vardır. Micota’nun iş
+                ilkeler belirlemek yönünde sorumlulukları vardır. MiCoTa’nun iş
                 süreçlerinde kullanılan tüm kişisel verilere ilişkin veri
-                sorumlusu ilgili Micota Şirketi ve Micota olmaktadır.
+                sorumlusu ilgili MiCoTa Şirketi ve MiCoTa olmaktadır.
               </p>
               <p>
                 Veri İşleyen: Bir veri sorumlusu tarafından verilen yetkiye
                 dayanarak ve onun adına veri işleyen herhangi bir kişidir. Veri
                 sorumlusunun çalışanlar bu tanımın dışındadır, ancak
-                uygulanabilir olması halinde, Micota adına kişisel veri işleyen
+                uygulanabilir olması halinde, MiCoTa adına kişisel veri işleyen
                 tedarikçiler, iş ortakları ve diğer üçüncü kişiler bu tanıma
                 dahil edilebilir.
               </p>
@@ -211,15 +211,15 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>POLİTİKANIN AMACI </h4>
               <p>
-                İşbu Politika ile amaçlanan, Micota Şirketleri tarafından
-                Kanun’a uyum için gerekli düzenlemelerin her bir Micota Şirketi
+                İşbu Politika ile amaçlanan, MiCoTa Şirketleri tarafından
+                Kanun’a uyum için gerekli düzenlemelerin her bir MiCoTa Şirketi
                 bünyesinde benimsenmesinin sağlanması, uygulanacak politikaların
                 düzenlenmesi ve iştirakler arasında bir birliğin
                 oluşturulmasıdır. Bu bağlamda Politika, Kanun ve ilgili mevzuat
-                tarafından konulan kuralların Micota Şirketleri tarafından nasıl
+                tarafından konulan kuralların MiCoTa Şirketleri tarafından nasıl
                 uygulandığına / uygulayacağına ilişkin temel ve tüm iş birimleri
                 için geçerli kurallar ve ilkelerin belirlenmesini amaç
-                edinmektedir. Micota Şirketleri, tüm iç süreçlerini Politika’ya
+                edinmektedir. MiCoTa Şirketleri, tüm iç süreçlerini Politika’ya
                 uygun hale getirecektir.
               </p>
               <p>
@@ -231,7 +231,7 @@ export default function Guvenlik({ location }) {
                 Değişen ve yenilenen süreçlere, en kısa sürede uyum gösterilmesi
                 için şirket içi eğitimler düzenlenecek ve tüm çalışanlar
                 nezdinde tüm sürecin Kanun’a uygun yürütülmesinden sorumlu
-                olacaktır. Bu Politika ile Micota Şirketleri’nin Kanun ve ilgi
+                olacaktır. Bu Politika ile MiCoTa Şirketleri’nin Kanun ve ilgi
                 mevzuat kapsamında gerekli idari yapı, süreç ve prosedürlerin
                 oluşturulup, Kişisel Verilerin güvenliği ve korunması hususunda
                 gerekli teknik ve idari önlemlerin alınması sağlanarak, Kişisel
@@ -242,15 +242,15 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>A. KİŞİSEL VERİLERİN İŞLENMESİNE İLİŞKİN İLKELER </h4>
               <p>
-                Micota bakımından önem arz eden hususlardan biri, Kişisel
+                MiCoTa bakımından önem arz eden hususlardan biri, Kişisel
                 Verilerin Kanun ve ilgili mevzuatta öngörülen genel ilkelere
-                uygun olarak işlenmesidir. Bu kapsamda, Micota Şirketleri
+                uygun olarak işlenmesidir. Bu kapsamda, MiCoTa Şirketleri
                 tarafından Kişisel Veriler; Hukuka ve iyi niyete uygun olarak
                 işlenmelidir: Bu ilkenin amacı Kişisel Verinin işlenmesi önlemek
                 değil, Kişisel Verilerin işlenmesinin dürüstlük kurallarına ve
                 hukuka uygun, Veri İlgisinin haklarını olumsuz şekilde
                 etkilemeyecek şekilde yapıldığından emin olmaktır. Veri
-                Sahibine, Veri Sorumlusunun kim olduğu, verinin Micota
+                Sahibine, Veri Sorumlusunun kim olduğu, verinin MiCoTa
                 tarafından hangi amaçla işleneceği, verinin açıklanabileceği
                 veya aktarılabileceği kişilerin kimliği ve bu veri sahibinin
                 hakları söylenmelidir. Kişisel Verinin hukuka uygun olarak
@@ -282,10 +282,10 @@ export default function Guvenlik({ location }) {
                 olarak sayılan istisnalar kapsamında işlenen verilerin Veri
                 İlgililerine, Kanun’un 16. Maddesi uyarınca öngörülen Aydınlatma
                 Yükümlülüğü’nü kapsayacak şekilde bilgilendirme yapılacak, söz
-                konusu bilgilendirme ile Kişisel Verilerin Micota Şirketleri
+                konusu bilgilendirme ile Kişisel Verilerin MiCoTa Şirketleri
                 tarafından işbu Politika uyarınca işlendiği konusunda bilgi
                 verilecek ve verilerin Kanun, ilgili mevzuat ve işbu Politika’ya
-                uygun olarak işlendiği teyit edilecektir. Micota, bu çerçevede,
+                uygun olarak işlendiği teyit edilecektir. MiCoTa, bu çerçevede,
                 Kanun’daki düzenlemelere uyum için gerekli süreçleri
                 oluşturacaktır.
               </p>
@@ -322,7 +322,7 @@ export default function Guvenlik({ location }) {
                 arşivlenmemelidir: Kişisel Veri, amacın gerektirdiğinden daha
                 uzun süre tutulmamalıdır. Başka bir deyişle, kişisel verilerin
                 işlenmesi artık gerekli olmadığında veya ihtiyaç kalmadığında,
-                kişisel veriler yok edilmeli ya da Micota sistemlerinden
+                kişisel veriler yok edilmeli ya da MiCoTa sistemlerinden
                 silinmelidir veya anonim hale getirilmelidir.
               </p>
               <p>
@@ -337,10 +337,10 @@ export default function Guvenlik({ location }) {
                 ilişkin ( E) başlığına bakınız. Veri Sahibinin haklarıyla uyumlu
                 olarak işlenmelidir: Veri Sahibini haklarına ve hukuki başvuru
                 yollarına ilişkin (C) başlığına bakınız. Güvende tutulmalıdır:
-                Veri Güvenliğine ilişkin Micota politikalarının detaylarına
+                Veri Güvenliğine ilişkin MiCoTa politikalarının detaylarına
                 ilişkin (D) başlığına bakınız. Yeterli korumaya sahip olmayan
                 ülkelerde bulunan kişilere ya da organizasyonlara
-                aktarılmamalıdır: Micota Şirketleri tarafından Kişisel Veriler,
+                aktarılmamalıdır: MiCoTa Şirketleri tarafından Kişisel Veriler,
                 yurtdışına aktarılmamaktadır.
               </p>
               <p>
@@ -366,7 +366,7 @@ export default function Guvenlik({ location }) {
                 düzeltilmesini isteme ve bunun Kişisel Verilerin aktarıldığı
                 üçüncü kişilere bildirilmesini talep etme hakları ile Kişisel
                 Verilerin Kanun’a aykırı işlenmesi sebebiyle zarara uğranması
-                durumunda tazminat talep etme haklarını haiz olup Micota
+                durumunda tazminat talep etme haklarını haiz olup MiCoTa
                 Şirketleri tarafından Veri Sahibinin talebi üzerine bu hakların
                 yerine getirilmesi konusunda en kısa süre içerisinde aksiyon
                 alınacak ve Veri Sahibine taleplerine ilişkin prosedür ile
@@ -374,18 +374,18 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>C. KİŞİSEL VERİLERİN GÜVENLİĞİ</h4>
               <p>
-                Micota Şirketleri, Kişisel Verilerin hukuka aykırı işlenmesini
+                MiCoTa Şirketleri, Kişisel Verilerin hukuka aykırı işlenmesini
                 önlemek, Kişisel Verilere hukuka aykırı olarak erişilmesini
                 önlemek ve Kişisel Verilerin muhafazasını sağlamak amaçlarıyla
                 uygun güvenlik düzeyini temin etmeye yönelik gerekli her türlü
-                teknik ve idari tedbirleri almakla yükümlüdür. Micota, hukuka
+                teknik ve idari tedbirleri almakla yükümlüdür. MiCoTa, hukuka
                 aykırı ya da yetkisiz Kişisel Veri işlenmesine veya Kişisel
                 Verinin bir kaza sonucu kaybı ya da zarar görmesine karşı uygun
                 güvenlik önlemlerinin alındığından emin olmalıdır. Bu tür
                 zararlara uğramaları durumunda Veri Sahipleri, dava yolu ile
                 tazminat talebinde bulunabilecektir. Kanun, Kişisel Verilerin
                 toplanma anından yok edilme anına kadar güvenliğinin
-                sağlanabilmesi için, Micota’nun bir takım idari ve teknik
+                sağlanabilmesi için, MiCoTa’nun bir takım idari ve teknik
                 önlemler almasını zorunlu kılmaktadır. Veri güvenliğinin
                 sağlanması, aşağıda tanımlandığı üzere, kişisel verinin
                 gizliliğinin, bütünlüğünün ve erişiminin garanti altına alınması
@@ -396,17 +396,17 @@ export default function Guvenlik({ location }) {
                 yetkilendirilmiş oldukları amaç çerçevesinde ihtiyaç duymaları
                 halinde, veriye erişebilmeleri anlamına gelmektedir. Kişisel
                 Verilere ilişkin güvenlik prosedürleri, veri güvenliğine ilişkin
-                teknik anlamda yetkin Micota bünyesindeki Bilişim Teknolojileri
+                teknik anlamda yetkin MiCoTa bünyesindeki Bilişim Teknolojileri
                 (“BT”, “IT”) birimine danışılarak yürürlüğe konacaktır.
               </p>
               <p>
-                Micota Şirketleri’nin halihazırdaki uygulamalarına uyumlu olarak
+                MiCoTa Şirketleri’nin halihazırdaki uygulamalarına uyumlu olarak
                 her bir iş biriminin erişim yetkileri, ilgili iş birimi
                 bakımından gerektiği ölçüde sınırlandırılacaktır. İlgili
-                sınırlandırmalar, Micota Şirketleri nezdinde halihazırda
+                sınırlandırmalar, MiCoTa Şirketleri nezdinde halihazırda
                 uygulanmaktadır ve bu sınırlandırmalar düzenli aralıklarla
                 gözden geçirilecek ve Kişisel Verilere erişim yalnızca zorunlu
-                olduğu ölçüde söz konusu olabilecektir. Micota Şirketleri’nin
+                olduğu ölçüde söz konusu olabilecektir. MiCoTa Şirketleri’nin
                 tüm çalışanları, veri güvenliğine ilişkin belirlenecek
                 prosedürler çerçevesinde bilgilendirilecek ve eğitilecektir. Bu
                 kapsamda, Kişisel Verilere erişmek üzerine şifre ile giriş
@@ -419,21 +419,21 @@ export default function Guvenlik({ location }) {
                 olacaktır.
               </p>
               <p>
-                Micota Şirketleri nezdinde tutulan Kişisel Veriler dahil tüm
+                MiCoTa Şirketleri nezdinde tutulan Kişisel Veriler dahil tüm
                 verilerin güvenliği için gereken teknik önlemler halihazırda
-                alınmakta olup Micota Şirketleri tarafından mevcut güvenlik
+                alınmakta olup MiCoTa Şirketleri tarafından mevcut güvenlik
                 sistemleri, virüs koruma programları ve ileti gönderilerine
                 ilişkin koruma sistemleri periyodik olarak denetlenecek ve tüm
                 bu sistemlerin en güncel sürümleri yürürlüğe konulacaktır. Bu
                 konuda, teknolojik gelişmeler takip edilecek ve ortaya
                 çıkabilecek risklere en kısa sürede müdahale edecek teknik ekip
                 ve sistem tahsis edilecektir. Yukarıdakilere ek olarak, tüm
-                Micota çalışanları, işlenen Kişisel Verilerin kanuni olmayan
+                MiCoTa çalışanları, işlenen Kişisel Verilerin kanuni olmayan
                 yollarla başkaları tarafından elde edilmesi ve/veya Kişisel
                 Verilerin güvenliğine ilişkin herhangi bir riskin söz konusu
                 olması hâlinde derhal , gereken önlemlerin koordinasyonu ve
                 uygulanabilir olması halinde bu durumun en kısa sürede ilgili
-                Veri Sahibine ve Kurula bildirilmesi için [Micota KVK Komitesi]
+                Veri Sahibine ve Kurula bildirilmesi için [MiCoTa KVK Komitesi]
                 birimine bilgi verecektir.
               </p>
               <p>
@@ -444,7 +444,7 @@ export default function Guvenlik({ location }) {
                 korunması amacıyla gerekli güvenlik tedbirlerini alacağını ve
                 kendi işletmelerinde / kurumlarında / kuruluşlarında bu
                 tedbirlere uyulmasını sağlayacağını temin etmek üzere
-                değiştirilmektedir. Micota’nun gerektirdiği güvenlik önlemlerini
+                değiştirilmektedir. MiCoTa’nun gerektirdiği güvenlik önlemlerini
                 sağlamayan ve verilerin gizliliği, bütünlüğü ve erişimine
                 ilişkin Kanun’un gerekliliklerini yerine getirmeyen üçüncü
                 kişilere hiçbir surette Kişisel Veri aktarılmayacaktır.
@@ -459,15 +459,15 @@ export default function Guvenlik({ location }) {
                 işlenme amaçları dışında başka bir amaçla veri aktarımı
                 yapılmamaktadır. Ancak her ne kadar İşlemenin, rıza alınmasını
                 gerektiren istisnaları kapsamında değerlendirilse de elde
-                edilecek olan yeni Veri Sahiplerinin Kişisel Verilerinin Micota
-                Şirketleri’nin kendi aralarında ve Micota’nun gerektirdiği
+                edilecek olan yeni Veri Sahiplerinin Kişisel Verilerinin MiCoTa
+                Şirketleri’nin kendi aralarında ve MiCoTa’nun gerektirdiği
                 güvenlik önlemlerini alan iş ortaklarına aktarılması için ilgili
-                Veri Sahibinin açık rızasının alınması sağlanacaktır. Micota
+                Veri Sahibinin açık rızasının alınması sağlanacaktır. MiCoTa
                 Şirketleri, iş ortaklarının seçiminde kişisel verilerin
                 gizliliğine ilişkin hususlarda ön inceleme yapacak ve onlarla
                 yapacağı sözleşmelerde Kişisel Verilerin güvenliği ve
                 gizliliğine ilişkin Kanun’un gerekliliklerini tatmin edecek
-                hükümlere yer verilmesini sağlayacaktır. Micota Şirketleri
+                hükümlere yer verilmesini sağlayacaktır. MiCoTa Şirketleri
                 tarafından Kişisel Veriler, yurtdışına aktarılmamaktadır.
               </p>
               <p>
@@ -477,18 +477,18 @@ export default function Guvenlik({ location }) {
                 olmamaktadır. Ancak, Şirket politikaları gereği Kişisel
                 Verilerin yurtdışına aktarılması veya yurtdışındaki serverlarda
                 tutulmasının kararlaştırılması halinde, alınmamış ise Veri
-                İlgilisinin ilgili Micota Şirketi tarafından açık rızası
+                İlgilisinin ilgili MiCoTa Şirketi tarafından açık rızası
                 alınacak ve veri, kural olarak, Kurul’un belirleyeceği yeterli
                 korumanın bulunduğu ülkelerden dışında bir ülkeye
                 aktarılmayacaktır.
               </p>
               <p>
-                Kişisel Veriler, uygulanabilir olması durumunda, ancak Micota ve
+                Kişisel Veriler, uygulanabilir olması durumunda, ancak MiCoTa ve
                 ilgili ülkede veri sorumlusu olacak gerçek ve/veya tüzel kişi
                 tarafından yeterli korumanın bulunduğu yazılı olarak taahhüt
                 edilmek ve Kurul’un veri transferine izni alınmak kaydıyla
                 yeterli korumanın olmadığı yabancı ülkelere de
-                aktarılabilecektir. Bu bağlamda, Micota tarafından Kanun’un 8.
+                aktarılabilecektir. Bu bağlamda, MiCoTa tarafından Kanun’un 8.
                 ve 9. Maddesinde öngörülen düzenlemelere uygun hareket etmeye
                 yönelik gerekli süreçler tasarlanacaktır. İşbu Politika’yı
                 onaylayan Veri Sahipleri, işbu Politika’da belirtilen hususlara
@@ -497,25 +497,25 @@ export default function Guvenlik({ location }) {
                 kararları ile idari kararlar dâhil kamu kurum ve kuruluşlarının
                 ilgili mevzuatta düzenlenen hakları çerçevesinde bilgi ve belge
                 talep ettiği hallerde Kişisel Verilerin aktarılabileceği
-                istisnası saklı kalmak kaydıyla, Micota Şirketleri arasında ve /
+                istisnası saklı kalmak kaydıyla, MiCoTa Şirketleri arasında ve /
                 veya üçüncü kişi iş ortakları, hizmet / destek / danışmanlık
                 alınan ya da işbirliği yapılan ya da proje / program / finansman
                 ortağı olunan kamu / özel kurum ve kuruluşlar, tedarikçiler,
-                Micota Şirketlerinin ortakları, şirket yetkilileri, bankalar,
+                MiCoTa Şirketlerinin ortakları, şirket yetkilileri, bankalar,
                 fonlar, şirketler ve sair 3. kişi ya da kuruluşlar ile
                 paylaşılmasına açık şekilde rıza göstermektedir.
               </p>
               <p>
-                Micota Şirketlerinin faaliyetlerinin şirketler topluluğumuzun
+                MiCoTa Şirketlerinin faaliyetlerinin şirketler topluluğumuzun
                 ilke, operasyon, süreç, hedef ve stratejilerine uygun olarak
-                yürütülmesi, Micota’nun hak ve menfaatleri ile itibarının
+                yürütülmesi, MiCoTa’nun hak ve menfaatleri ile itibarının
                 korunması amacıyla gerekli görülmesi halinde, kişisel verilerin,
-                Micota Şirketleri veya iş ortakları tarafından ve şirketler
+                MiCoTa Şirketleri veya iş ortakları tarafından ve şirketler
                 topluluğumuzun hâkim şirketi tarafından işlenebilmesi,
                 grubumuzun meşru menfaati kapsamındadır. Bu durum, Kişisel
                 Verilerin, Kanun’a aykırı şekilde işlenmesi anlamına gelmeyecek
-                olup tüm Micota Şirketleri, Kanun’a en üst derecede uyum
-                gösterecek şekilde süreçlerini yönetmektedir. Micota Şirketleri,
+                olup tüm MiCoTa Şirketleri, Kanun’a en üst derecede uyum
+                gösterecek şekilde süreçlerini yönetmektedir. MiCoTa Şirketleri,
                 tüm Veri İlgililerine bu duruma ilişkin aydınlatma yükümlülüğünü
                 yerine getirecek ve veri aktarımına ilişkin Veri İlgililerinin
                 yazılı rızalarını alacaktır.
@@ -525,7 +525,7 @@ export default function Guvenlik({ location }) {
                 ANONİMLEŞTİRİLMESİ PROSEDÜRLERİ
               </h4>
               <p>
-                Kişisel Verilerin Silinmesi ve Yok Edilmesi Prosedürü Micota
+                Kişisel Verilerin Silinmesi ve Yok Edilmesi Prosedürü MiCoTa
                 Şirketleri, Kanun’a uygun şekilde, işlenmesini gerektiren
                 sebeplerin ortadan kalkması hâlinde, ilgili kanun ve mevzuatta
                 öngörülen asgari saklama sürelerine riayet etmek koşulu ile
@@ -560,16 +560,16 @@ export default function Guvenlik({ location }) {
                 ile kişiler arasındaki bağın kopartılması sağlanmaktadır.
                 Kişisel Verilerin, silinmesi, yok edilmesi ve anonim hale
                 getirilmesi için asgari süreler, ilgili Kişisel Veriyi işleyen
-                iş birimi tarafından belirlenecek ve tüm Micota Şirketleri’nin
+                iş birimi tarafından belirlenecek ve tüm MiCoTa Şirketleri’nin
                 sistemleri, bu süreçlere uygun hale getirilecektir. Yasal
-                zorunluluklardan daha uzun süre veri saklanmasına ilişkin Micota
+                zorunluluklardan daha uzun süre veri saklanmasına ilişkin MiCoTa
                 Şirketlerinin Kişisel Veri işleme amaçları uyarınca bir karar
                 alınması halinde, bu karar ve Kişisel Verilerinin ne kadar süre
                 işleneceğine ilişkin Veri İlgililerine ayrıca bilgi
                 verilecektir.
               </p>
               <p>
-                Her halde, Micota Şirketleri, Kişisel Verilerin saklanmasına
+                Her halde, MiCoTa Şirketleri, Kişisel Verilerin saklanmasına
                 ilişkin prosedürlerine ve veri işleme amaçlarına ilişkin
                 aydınlatma yükümlülüğüne uygun davranmak zorundadır. İlgili
                 kanun ve mevzuat uyarınca saklanması için asgari sürelerin söz
@@ -578,12 +578,12 @@ export default function Guvenlik({ location }) {
                 getirmeye ilişkin talepler, ilgili yasal zorunluluklar
                 açıklanmak kaydıyla reddedilecektir. Kişisel verilerin
                 saklanmasına ilişkin mevzuatta bir süre düzenlenmemişse, Kişisel
-                Veriler Micota’nun veri işleme amacı uyarınca belirleyeceği,
+                Veriler MiCoTa’nun veri işleme amacı uyarınca belirleyeceği,
                 mevcut iş yapış, prosedür ve uygulamaları ve ticari yaşamının
                 teamülleri uyarınca işlenmesini gerektiren süre kadar
                 işlenmekte; daha sonra silinmekte, yok edilmekte veya anonim
                 hale getirilmektedir. Kişisel verilerin işlenme amacı, ilgili
-                mevzuat ve Micota Şirketleri’nin belirlediği süreler sona erse
+                mevzuat ve MiCoTa Şirketleri’nin belirlediği süreler sona erse
                 dahi, kişisel veriler olası hukuki uyuşmazlıklarda delil teşkil
                 etmesi veya kişisel veriye bağlı ilgili hakkın ileri
                 sürülebilmesi veya savunmanın tesis edilmesi amacıyla
@@ -592,7 +592,7 @@ export default function Guvenlik({ location }) {
               </p>
               <p>
                 Arşivleme sürelerinin tespitinde zamanaşımı süreleri dikkate
-                alınmakla beraber, Micota Şirketlerinin kendi tecrübeleri ve
+                alınmakla beraber, MiCoTa Şirketlerinin kendi tecrübeleri ve
                 benzer veri gruplarına ilişkin önceki talepler ışığında
                 zamanaşımı sürelerini aşan süreler belirlenmesi mümkün
                 olabilecektir. Bu durumlarda, kişisel verilere (güncellikleri ve
@@ -600,10 +600,10 @@ export default function Guvenlik({ location }) {
                 temin edilmeden) hukuki uyuşmazlığın çözümü dışında herhangi bir
                 başka amaçla erişilmeyecektir. Arşivleme için belirlenecek
                 süreler sonunda, arşivlenmesine karar verilen veriler dahi
-                silinecek, yok edilecek ve anonim hale getirilecektir. Micota
+                silinecek, yok edilecek ve anonim hale getirilecektir. MiCoTa
                 Şirketleri tarafından işlenen başlıca Kişisel Veriler ve bu
                 verilerin başlıca işleme amaçları aşağıdaki gibidir: Gerçek Kişi
-                Müşteri Verileri Her Micota Şirketi için geçerli olmamakla
+                Müşteri Verileri Her MiCoTa Şirketi için geçerli olmamakla
                 beraber, gerçek kişi müşterilere ilişkin ad, soyad, adres,
                 e-mail, cep tel, ev tel, iş tel, doğum tarihi, T.C. kimlik no,
                 cinsiyet, sadakat kartı numarası, ebeveyn türü, medeni durum,
@@ -626,7 +626,7 @@ export default function Guvenlik({ location }) {
                 müşteri sadakatini artırmak, özel üretim yapmak ve benzeri
                 amaçlar ile sınırlı olarak işlenmektedir. Kurumsal Müşteriler,
                 Tedarikçi ve Hizmet Sağlayıcıların Personellerine ve İmza
-                Yetkililerine İlişkin Veriler Her Micota Şirketi için geçerli
+                Yetkililerine İlişkin Veriler Her MiCoTa Şirketi için geçerli
                 olmamakla beraber, kurumsal müşterilerin personelleri için
                 yapılan özel dikimler kapsamında veya en genel anlamda kurumsal
                 müşterilerin, tedarikçilerin ve hizmet sağlayıcıların imza
@@ -643,10 +643,10 @@ export default function Guvenlik({ location }) {
                 pazarlama iletişimi yapmak, müşteri analizi yapmak, cari hesap
                 açmak, mutabakat yapmak, proje bazlı devlet teşviki almak ve
                 benzeri amaçlar ile sınırlı olarak işlenmektedir. Bu kişilere
-                Micota Şirketleri nezdinde işlenen verilerin aktarılması da söz
+                MiCoTa Şirketleri nezdinde işlenen verilerin aktarılması da söz
                 konusu olabilmekte ve aktarma prosedürleri işbu Politika’nın (E)
                 başlığı altında düzenlenmiştir. Potansiyel Müşteri Verileri Her
-                Micota Şirketi için geçerli olmamakla beraber, Micota
+                MiCoTa Şirketi için geçerli olmamakla beraber, MiCoTa
                 Şirketlerinin potansiyel müşterilerine ilişkin ad, soyad,
                 e-mail, cinsiyet, cep tel, doğum tarihi, ev adresi, iş adresi,
                 beden, evlilik tarihi ve benzeri Kişisel Veriler
@@ -659,7 +659,7 @@ export default function Guvenlik({ location }) {
               </p>
               <p>
                 Potansiyel müşterilere ilişkin veriler, söz konusu veriyi
-                aktarmak konusunda verisinin Micota Şirketleri tarafından
+                aktarmak konusunda verisinin MiCoTa Şirketleri tarafından
                 yukarıda belirtilen amaçlar çerçevesinde işlenebileceğine
                 ilişkin bilgilendirilmek kaydıyla, ilgili potansiyel müşterinin
                 ilgili verinin üçüncü kişilere aktarımına rızası dahilinde
@@ -673,8 +673,8 @@ export default function Guvenlik({ location }) {
               <p>
                 Potansiyel müşteri ile müşteri ilişkisi kurulması halinde, bu
                 kapsamda işlenen veriler de müşteri verilerine ilişkin
-                prosedürlere tabi olacaktır. Çalışan Verileri Her Micota Şirketi
-                için geçerli olmamakla beraber, Micota Şirketlerinin
+                prosedürlere tabi olacaktır. Çalışan Verileri Her MiCoTa Şirketi
+                için geçerli olmamakla beraber, MiCoTa Şirketlerinin
                 çalışanlarına ilişkin ad, soyad, doğum yeri, doğum tarihi, cep
                 tel, e-mail, ikametgah adresi, ikametgahın durumu, ikamet edilen
                 yapının yaşı, cinsiyet, maaş, medeni hali, eşinin adı, eşinin
@@ -728,16 +728,16 @@ export default function Guvenlik({ location }) {
               </p>
               <p>
                 Çalışan verilerinin işlenmesi ve çalışanların özlük dosyaları,
-                tüm Micota Şirketleri adına, Micota Holding Anonim Şirketi
+                tüm MiCoTa Şirketleri adına, MiCoTa Holding Anonim Şirketi
                 bünyesindeki ortak İnsan Kaynakları birimi tarafından
                 saklanmaktadır ve işlenmektedir. İnsan Kaynakları birimi
                 tarafından işlenen veriler ile sınırlı olarak tüm çalışanlar,
                 işbu Politika’nın kabul edilmesiyle mevcut sisteme ve Kişisel
-                Verilerinin bordrosuna kayıtlı olduğu Micota Şirketi dışındaki
-                bir Micota Şirketi’nin bünyesindeki İnsan Kaynakları birimi
+                Verilerinin bordrosuna kayıtlı olduğu MiCoTa Şirketi dışındaki
+                bir MiCoTa Şirketi’nin bünyesindeki İnsan Kaynakları birimi
                 tarafından işlenmesine rıza göstermektedir. Çalışan Adayı
-                Verileri Her Micota Şirketi için geçerli olmamakla beraber,
-                Micota Şirketlerinde çalışmak için başvuran adaylara ilişkin ad,
+                Verileri Her MiCoTa Şirketi için geçerli olmamakla beraber,
+                MiCoTa Şirketlerinde çalışmak için başvuran adaylara ilişkin ad,
                 soyad, anne adı, baba adı, cinsiyet, doğum yeri, doğum tarihi,
                 askerlik durumu, medeni hali, eş adı, eş soyadı, çocuk sayısı,
                 ikametgah adresi, ev telefonu, iş telefonu, cep telefonu,
@@ -755,8 +755,8 @@ export default function Guvenlik({ location }) {
                 işlenmektedir. Hizmet sözleşmesi ilişkisinin kurulması ile
                 birlikte bu kapsamda işlenen veriler de çalışan verilerine
                 ilişkin prosedür ve süreçlere tabi olacaktır. Öğrenci Verileri
-                Micota’nun uluslararası moda okulu ESMOD ile birlikte moda
-                sektörüne ilişkin eğitim verdiği birimi Micota ESMOD
+                MiCoTa’nun uluslararası moda okulu ESMOD ile birlikte moda
+                sektörüne ilişkin eğitim verdiği birimi MiCoTa ESMOD
                 programlarına katılan öğrencilere ilişkin ad, soyad, telefon,
                 e-mail, adres, T.C. kimlik no, ödemeyi yapacak kişinin adı,
                 ödemeyi yapacak kişinin soyadı, fatura unvanı, fatura adresi,
@@ -764,7 +764,7 @@ export default function Guvenlik({ location }) {
                 / sektör ve benzeri Kişisel Veriler işlenebilmektedir. Söz
                 konusu verilerin işlenmesi, sözleşme ifası, sertifika
                 düzenlenmesi için kamu otoriteleri nezdinde gereklilik ve/veya
-                ilgili kişilerin rızası dahilinde gerçekleştiriliyor olup Micota
+                ilgili kişilerin rızası dahilinde gerçekleştiriliyor olup MiCoTa
                 tarafından aydınlatma yükümlülüğünün gereklilikleri yerine
                 getirilecektir.
               </p>
@@ -774,7 +774,7 @@ export default function Guvenlik({ location }) {
                 ve kayıt prosedürlerine ilişkin paylaşmak, eğitimin devamını
                 sağlamak, eğitim sonunda eğitime ilişkin bilgi ve talepleri
                 yerine getirmek ve benzeri amaçlar ile sınırlı olarak
-                işlenmektedir. Ödeme Araçlarına İlişkin Veriler Her Micota
+                işlenmektedir. Ödeme Araçlarına İlişkin Veriler Her MiCoTa
                 Şirketi için geçerli olmamakla beraber, toptan satışlar ve
                 Eğitim birimince sürdürülen faaliyetlere ilişkin mail order
                 yöntemi ile ödeme gerçekleştirebilme olanağı tanınması için
@@ -793,7 +793,7 @@ export default function Guvenlik({ location }) {
                 benzeri) mevcut uygulamalara devam edilmekle beraber güvenliği
                 temin edecek daha ileri düzey prosedürler, mevcut olmaları
                 halinde, uygulanmaya başlanacak ve gerektiğinde
-                güncellenecektir. Dinleyici Verileri Temel olarak, Micota
+                güncellenecektir. Dinleyici Verileri Temel olarak, MiCoTa
                 nezdinde müzik yayını yapan iş birimleri (Power, PowerFM,
                 PowerTürk) için geçerli olmak üzere, dinleyiciler arasında
                 düzenlenen yarışmalar ve analizler için gerçek kişilere ilişkin
@@ -812,7 +812,7 @@ export default function Guvenlik({ location }) {
                 bakınız.
               </p>
               <p>
-                Şikayet Verileri Her Micota Şirketi için geçerli olmamakla
+                Şikayet Verileri Her MiCoTa Şirketi için geçerli olmamakla
                 beraber, 6502 sayılı Tüketicinin Korunması Hakkında Kanun
                 uyarınca tüketici şikâyet ve taleplerinin yerine getirilmesine
                 ilişkin olarak tüketicilerin ad, soyad, cinsiyet, e-mail, cep
@@ -824,9 +824,9 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>F. ÖZEL NİTELİKLİ KİŞİSEL VERİLERİN İŞLENMESİ</h4>
               <p>
-                Micota Şirketleri bünyesinde, Özel Nitelikli Kişisel Veriler,
+                MiCoTa Şirketleri bünyesinde, Özel Nitelikli Kişisel Veriler,
                 yalnızca kanuni ve idari / adli mercii gerekliliklerinin yerine
-                getirilmesi ve Micota Şirketlerinin işleyişi ile doğrudan ilgili
+                getirilmesi ve MiCoTa Şirketlerinin işleyişi ile doğrudan ilgili
                 olmak kaydıyla ve erişimi en üst düzeyde sınırlı ve güvenli
                 olacak şekilde işlenmektedir. Söz konusu veriler, Kanun’a tam
                 bir uyum göstermek kaydıyla, (i) sağlık ve cinsel hayat
@@ -839,7 +839,7 @@ export default function Guvenlik({ location }) {
                 yönetimi amacıyla, sır saklama yükümlülüğü altında bulunan
                 kişiler veya yetkili kurum ve kuruluşlar tarafından işlenmesi
                 durumunda Veri İlgilisi’nin rızası aranmaksızın işlenebilir.
-                Ancak Micota Şirketleri, bu istisna koşulları oluşsa dahi Veri
+                Ancak MiCoTa Şirketleri, bu istisna koşulları oluşsa dahi Veri
                 İlgililerine Özel Nitelikli Kişisel Verilerinin işlenmesine
                 ilişkin aydınlatma yükümlüğünün gerekliliklerini yerine
                 getirecek ve istisnaların olduğu durumlarda dahi Veri
@@ -854,19 +854,19 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>G. KİŞİSEL VERİ İLGİLİSİNİ AYDINLATMA YÜKÜMLÜLÜĞÜ</h4>
               <p>
-                Micota Şirketleri, Kişisel Verilerin elde edilmesi sırasında,
+                MiCoTa Şirketleri, Kişisel Verilerin elde edilmesi sırasında,
                 verisi işlenecek olan gerçek kişileri bilgilendirmek ile
                 yükümlüdür. Bu bilgilendirme yükümlülüğün kapsamı, aşağıdaki
                 gibidir: Veri sorumlusunun ve varsa temsilcisinin kimliği,
                 Kişisel Verilerin hangi amaçla işleneceği, İşlenen Kişisel
                 Verilerin kimlere ve hangi amaçla aktarılabileceği, Kişisel Veri
                 toplamanın yönetimi ve hukuki sebebi ile, Veri İlgilisinin (C)
-                başlığı altında belirtilen hakları. Micota Şirketleri, bu
+                başlığı altında belirtilen hakları. MiCoTa Şirketleri, bu
                 konuda, sistemlerinde işlemek üzere Üçüncü Kişilerden veri elde
                 etme araçları vasıtasıyla gerekli bilgilendirmeleri yapacak ve
                 aydınlatma yükümlülüğünün gerçekleştirildiğinin ispatı için veri
                 işlemeye ilişkin Veri Sahiplerinden aydınlatılmış onam
-                alacaktır. Kişisel Veriler, Micota Şirketlerinin elektronik
+                alacaktır. Kişisel Veriler, MiCoTa Şirketlerinin elektronik
                 ticaret, perakende ve toptan satış mağazaları dahil tüm satış
                 kanalları, şubeleri, internet siteleri, üçüncü kişilerden hizmet
                 alınabilecek çağrı merkezi ve benzeri diğer tüm kanalları
@@ -906,35 +906,35 @@ export default function Guvenlik({ location }) {
                 Çalışan ve Çağrı Merkezi, iş yapış süreçleri bu çerçevede
                 yeniden değerlendirilecek ve uygulanacaktır. Elektronik Ortamda
                 Kişisel Veri Elde Edilmesi: Elektronik ticaret kanalları ve
-                Micota’nun diğer internet kanalları ile elde edilen veriler de
+                MiCoTa’nun diğer internet kanalları ile elde edilen veriler de
                 işbu Politika dâhil olmak üzere, Kişisel Verilerin elde edilmesi
                 ve işlenmesini gerektiren mesafeli satış sözleşmeleri dâhil tüm
                 sözleşme ve belgeler / bağlantı adresleri / internet sayfaları
                 Kişisel Verilerin işlenmesine ilişkin aydınlatma yükümlülüğünü
                 yerine getirecek şekilde revize edilecektir. İşbu Politika tüm
-                internet sayfalarından ulaşılabilecek şekilde, Micota
+                internet sayfalarından ulaşılabilecek şekilde, MiCoTa
                 Şirketlerinin tamamının internet sitelerinde yer alacak ve veri
                 elde edilmesini gerektirebilecek her bağlantı adresinde veri
-                elde edilmesi için Micota Şirketleri tarafından veri
+                elde edilmesi için MiCoTa Şirketleri tarafından veri
                 işlenmesinin onaylanmasını gerektiren sistemler kurulacaktır.
                 Kişisel Verilerin işlenmesine onam verildiği açıkça
                 işaretlenmedikçe, girilen hiçbir bilgi ve belge otomatik olarak
-                hiçbir Micota Şirketi sistemine kaydedilmeyecek ve her ne
+                hiçbir MiCoTa Şirketi sistemine kaydedilmeyecek ve her ne
                 şekilde olursa olsun işlenmeyecektir.
               </p>
               <h4>H. ŞİKÂYET SÜREÇLERİNE İLİŞKİN PROSEDÜRLER</h4>
               <p>
-                Kişisel Verileri Micota Şirketleri tarafından işlenen Veri
-                Sahipleri tarafından yapılacak şikâyetler, Micota Şirketleri
+                Kişisel Verileri MiCoTa Şirketleri tarafından işlenen Veri
+                Sahipleri tarafından yapılacak şikâyetler, MiCoTa Şirketleri
                 tarafından en kısa süre içerisinde ve en geç 30 gün içerisinde
                 cevaplandırılacak ve sonuçlandırılacaktır. Veri Sahibi, talep ve
-                şikâyetlerini Micota Holding A.Ş. Şirketi Micota KVK Komitesi
+                şikâyetlerini MiCoTa Holding A.Ş. Şirketi MiCoTa KVK Komitesi
                 tarafından kimlik kontrolü yapılmak kaydıyla şahsen veya noter
                 onaylı vekâlet sunulması kaydıyla vekaleten yapılan başvurular,
                 noter kanalı ile yapılan başvurular ve güvenli elektronik imza
                 kullanılmak kaydıyla kayıtlı elektronik posta adresleri ile
                 KVKK@micota.com.tr adresine yapılabilecektir. E-posta ve telefon
-                yoluyla gelen taleplerle ilgilenen tüm çalışanlar, Micota
+                yoluyla gelen taleplerle ilgilenen tüm çalışanlar, MiCoTa
                 tarafından tutulan herhangi bir kişisel bilginin açıklanması
                 konusunda dikkatli olmalıdır. Bahsi geçen çalışanlar, özellikle;
                 Kişisel Verinin, kişisel veriyi almaya yönelik bir hakka sahip
@@ -949,14 +949,14 @@ export default function Guvenlik({ location }) {
                 kimse Kişisel Verinin açıklanması için zorlanmamalıdır. Bir
                 çalışanın, yukarıdaki prosedürlere tabi olmak kaydıyla, Veri
                 Sahiplerinden bir bildirim / talep alması halinde, bu durum bu
-                bildirimin / talebin alınmasını takiben derhal [Micota KVK
+                bildirimin / talebin alınmasını takiben derhal [MiCoTa KVK
                 Komitesi’ne ] yazılı şekilde rapor edilecek ve bu taleplere
                 cevap verilirken, söz konusu birimin tüm talimatlarına uygun
                 hareket edilecektir. Söz konusu iş birimi, şikâyetleri /
                 talepleri çözümlemek için ilgili iş biriminden ve destek
                 birimlerinden arkadaşlar ile bağlantı kuracaktır. Veri
                 Sahibinden gelen talepler özenli bir şekilde rapor edilmeli ve
-                gözden geçirilmeli, [Micota KVK Komitesi ] tarafından, talebin
+                gözden geçirilmeli, [MiCoTa KVK Komitesi ] tarafından, talebin
                 niteliğini de göz önünde bulundurarak, en fazla 30 gün
                 içerisinde olmak şartıyla, mümkün olan en kısa sürede ve Veri
                 Sahibine ek bir masraf yansıtılmaksızın söz konusu şikâyetler
@@ -966,10 +966,10 @@ export default function Guvenlik({ location }) {
               <p>
                 Kişisel Verilerin silinmesi, yok edilmesi ve anonim hale
                 getirilmesi dahil, her tür Veri Sahibi talebinin incelenmesine
-                ilişkin takip eden süreç aşağıdaki şekilde olacaktır: [Micota
+                ilişkin takip eden süreç aşağıdaki şekilde olacaktır: [MiCoTa
                 KVK Komitesi ] birimi, talebin/şikayetin geçerli olup olmadığına
                 ve kimlik teyidi ya da ek bilginin gerekli olup olmadığına karar
-                vermek için talebin ilk değerlendirmesini yapacaktır. [Micota
+                vermek için talebin ilk değerlendirmesini yapacaktır. [MiCoTa
                 KVK Komitesi] birimi, yazılı olarak birey ile bağlantı kurarak,
                 ilgili kişi erişim talebinin alındığını teyit edecek ve
                 gerektiği takdirde kimlik teyidi ve ek bilgi talep edecek ya da
@@ -978,27 +978,27 @@ export default function Guvenlik({ location }) {
               </p>
               <p>
                 Tüm ilgili elektronik ve basılı dosyalama sistemleri üzerinde
-                bir arama düzenlenecektir. [Micota KVK komitesi ], komplike
+                bir arama düzenlenecektir. [MiCoTa KVK komitesi ], komplike
                 durumları, özellikle de talebin üçüncü kişiler ile ilgili
                 bilgiyi içerdiği ya da Kişisel Verilerin ifşa edilmesinin ticari
                 gizliliğe ya da hukuki süreçlere zarar verebileceği durumları,
                 şirket içi ilgili birimler ya da üçüncü kişi danışmanlara sevk
                 edebilir ve talebin yanıtlanması konusunda destek alabilir.
-                [Micota KVK Komitesi ], talep edilen bilgileri kolaylıkla
-                okunabilir bir formatta düzenleyecektir. [Micota KVK Komitesi ],
-                ilgili Micota Şirketi adına Veri Sahibinin talebini kabul
+                [MiCoTa KVK Komitesi ], talep edilen bilgileri kolaylıkla
+                okunabilir bir formatta düzenleyecektir. [MiCoTa KVK Komitesi ],
+                ilgili MiCoTa Şirketi adına Veri Sahibinin talebini kabul
                 edebilir ya da gerekçesini açıklayarak yazılı ya da elektronik
                 ortamda reddedebilir. Bununla sınırlı olmaksızın, özellikle
                 Kanun’un ve Politika’nın uygulanmasına ilişkin istisnalardan
                 birinin söz konusu olduğu hallerde talep reddedilebilecektir.
               </p>
               <p>
-                Eğer Veri Sahibinin talebi kabul edilirse, talep Micota’nun
+                Eğer Veri Sahibinin talebi kabul edilirse, talep MiCoTa’nun
                 ilgili birimleri tarafından derhal yerine getirilecektir.
-                Şikâyet sahibi, Micota Şirketleri tarafından verilecek cevap ya
+                Şikâyet sahibi, MiCoTa Şirketleri tarafından verilecek cevap ya
                 da tespite tamamen ya da kısmen itiraz edebilecek ve ilgili
-                Micota çalışanını bu konuda bilgilendirebilecektir. İlgili
-                çalışan derhal [Micota KVK Komitesi ]’a bilgi verecektir. Böyle
+                MiCoTa çalışanını bu konuda bilgilendirebilecektir. İlgili
+                çalışan derhal [MiCoTa KVK Komitesi ]’a bilgi verecektir. Böyle
                 bir durumda, şikayet talebi yeniden değerlendirilecek ve nihai
                 olarak cevaplandırılacaktır. Uygulanacak prosedür ve sürelere
                 ilişkin ilk sürelere uygulanabilir prosedür ve süreler geçerli
@@ -1007,7 +1007,7 @@ export default function Guvenlik({ location }) {
                 değerlendirmeye ilişkin talepler kanuni bir yükümlülük
                 kapsamında değil salt müşteri memnuniyeti açısından yeniden
                 değerlendirilecektir. Kanun uyarınca, Veri Sahibinin ilk şikayet
-                başvurusuna verilecek ilk yanıttan itibaren, Micota Şirketi’nin
+                başvurusuna verilecek ilk yanıttan itibaren, MiCoTa Şirketi’nin
                 cevabını öğrendiği tarihten itibaren otuz ve her hâlde ilk
                 başvuru tarihinden itibaren altmış gün içinde Kurula başvurma
                 hakkı vardır ve söz konusu sürelere riayet edilmesi hak düşürücü
@@ -1015,18 +1015,18 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>I. KİŞİSEL VERİLERİN KORUNMASI KURUMU İLE İLETİŞİM</h4>
               <p>
-                Micota Şirketleri, devlet sırlarını içeren bilgi ve belgeler
+                MiCoTa Şirketleri, devlet sırlarını içeren bilgi ve belgeler
                 hariç olmak üzere; Kurulun, inceleme konusuyla ilgili istemiş
                 olduğu bilgi ve belgeleri 15 gün içinde göndermek ve
                 gerektiğinde yerinde inceleme yapılmasına imkân sağlamak
-                zorundadır. [Micota KVK Komitesi ], Kurum ile yapılacak
+                zorundadır. [MiCoTa KVK Komitesi ], Kurum ile yapılacak
                 yazışmaları gerçekleştirecek iş birimi olarak belirlenmiştir ve
                 çalışanlar, Kişisel Verinin korunmasına ilişkin Kurul ile her
-                türlü iletişimi [Micota KVK Komitesi]’a yönlendirmelidirler.
-                Micota ve tüm Micota çalışanları, Kurul’un re’sen ya da şikâyet
+                türlü iletişimi [MiCoTa KVK Komitesi]’a yönlendirmelidirler.
+                MiCoTa ve tüm MiCoTa çalışanları, Kurul’un re’sen ya da şikâyet
                 üzerine yapılan soruşturmanın sonucunda verilen kararlarına,
                 gecikmesiz ve bildirimden itibaren en geç 30 gün içerisinde
-                uyacaktır. Tüm Micota Şirketleri, Kurulun aktif olarak faaliyete
+                uyacaktır. Tüm MiCoTa Şirketleri, Kurulun aktif olarak faaliyete
                 geçmesi ve Kişisel Verileri Koruma Kurumu nezdinde oluşturulacak
                 başkanlık teşkilatının oluşumunu takiben Kurulun gözetiminde ve
                 Kişisel Verileri Koruma Kurumu Başkanlığı tarafından kamuya açık
@@ -1039,7 +1039,7 @@ export default function Guvenlik({ location }) {
                 YAPISI
               </h4>
               <p>
-                Micota Holding A.Ş. tarafından KVK Kanunu düzenlemelerine uygun
+                MiCoTa Holding A.Ş. tarafından KVK Kanunu düzenlemelerine uygun
                 hareket edilmesi ve Kişisel Verilerin Korunması ve İşlenmesi
                 Politikasının yürürlüğü için Kişisel Veriler Yönetim Üst Kurulu
                 oluşturulmuş ve Kişisel Verilerin Korunması Komitesi kurmuştur.
@@ -1098,16 +1098,16 @@ export default function Guvenlik({ location }) {
                 Yukarıdakiler dışında, tamamen veya kısmen otomatik olan ya da
                 herhangi bir veri kayıt sisteminin parçası olmak kaydıyla
                 otomatik olmayan yollarla elde edilen Kişisel Veriler de bu
-                Politika’nın kapsamı dışındadır. Bu çerçevede, Micota Şirketleri
+                Politika’nın kapsamı dışındadır. Bu çerçevede, MiCoTa Şirketleri
                 nezdinde herhangi bir veri kayıt sisteminde yer almayan tüm
                 veriler bakımından Kanun ve işbu Politika uygulanmayacaktır.
-                Micota’nun söz konusu veriler ile ilgili sorumluluğu T.C.
+                MiCoTa’nun söz konusu veriler ile ilgili sorumluluğu T.C.
                 Anayasası ve Türk Ceza Kanunu hükümleri ile sınırlı olacaktır.
               </p>
               <h4>L. İYİLEŞTİRME VE DEĞİŞİKLİKLER</h4>
               <p>
                 Herhangi bir çalışanın, işbu Politika ve Kanun hakkında soruları
-                ya da sorunları olur ise, bu konular hakkında [ Micota KVK
+                ya da sorunları olur ise, bu konular hakkında [ MiCoTa KVK
                 Komitesi ] ile iletişime geçmesi gerekmektedir. Bu çerçevede,
                 Kanun’un ve işbu Politika’nın gerekliliklerinin tüm çalışanlar
                 bakımından en üst düzeyde anlaşıldığı teyit edilecek ve Kanun ve
@@ -1117,13 +1117,13 @@ export default function Guvenlik({ location }) {
                 Politika’ya uyum gösterdiğini kabul, beyan ve taahhüt etmiş
                 olacaktır. Herhangi bir çalışanın ya da diğer Veri Sahiplerine
                 ait kişisel veriler bakımından işbu Politika’ya uyulmadığı
-                düşünülüyorsa, konu [Micota KVK Komitesi ]’a yönlendirilecektir.
+                düşünülüyorsa, konu [MiCoTa KVK Komitesi ]’a yönlendirilecektir.
                 İşbu Politika, Kanun uyarınca hazırlanacak ve yürürlüğe girecek
                 Yönetmelik ve diğer ikincil mevzuat uyarınca değişebilecek ve
                 güncellenebilecektir.
               </p>
               <p>
-                Micota Şirketleri ve tüm çalışanları, tüm süreçlerini en kısa
+                MiCoTa Şirketleri ve tüm çalışanları, tüm süreçlerini en kısa
                 süre içerisinde Kanun ve işbu Politika’da yapılacak
                 değişikliklere ve Kişisel Verilerin korunmasına ilişkin
                 çıkarılacak ikincil mevzuata tam bir uyum içerisinde
@@ -1137,13 +1137,13 @@ export default function Guvenlik({ location }) {
               </p>
               <h4>SONUÇ VE SORUMLULUK</h4>
               <p className='mb-5'>
-                Micota, Kanun uyarınca tüm süreçlerini Kanun’a uygun şekilde
+                MiCoTa, Kanun uyarınca tüm süreçlerini Kanun’a uygun şekilde
                 yönetmek ve Kanun’un gerekliliklerini yerine getirmek amacıyla
                 halihazırda Türkiye Cumhuriyeti Anayasası ve Türk Ceza Kanunu
                 hükümleri ile kişisel veri korumasına ilişkin uluslararası genel
                 ilkelere uyumlu süreçlerini iyileştirmektedir. Bu kapsamda, tüm
                 iş birimlerine uygulanmak üzere hazırlanan işbu genel Politika
-                uyarınca, Kişisel Verilerin Micota Şirketleri tarafından işlenme
+                uyarınca, Kişisel Verilerin MiCoTa Şirketleri tarafından işlenme
                 esasları ile tüm iş birimlerini ve çalışanlarını bağlamaktadır.
               </p>
             </div>

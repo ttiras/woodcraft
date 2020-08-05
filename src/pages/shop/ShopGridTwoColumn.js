@@ -25,7 +25,7 @@ const ShopGridTwoColumn = ({ location, products }) => {
   const pageLimit = 16;
   const { pathname } = location;
 
-  const getLayout = layout => {
+  const getLayout = (layout) => {
     setLayout(layout);
   };
 
@@ -54,34 +54,36 @@ const ShopGridTwoColumn = ({ location, products }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Micota. | Ürünler</title>
+        <title>MiCoTa. | Ürünler</title>
         <meta
           name='description'
-          content='Alışveriş sitemiz micota.com.tr mağazası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. Micota orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidir. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
+          content='Alışveriş sitemiz micota.com.tr mağazası. kahve sunumları, sofra düzeni, tepsi, supla gibi ev dekorasyon, sofra ve mutfak eşyaları. MiCoTa orta sehpa yerine koltuk ve yatak üstünde kullanabileceğiniz pratik ve şık bir ahşap sunum tepsisidir. Sunum tepsisi, kahve çay sunumu, ahşap yuvarlak tepsi ve supla, mini coffee table.'
         />
       </Helmet>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Anasayfa</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>
+        Anasayfa
+      </BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-      Ürünler
+        Ürünler
       </BreadcrumbsItem>
 
-      <LayoutOne headerTop="visible">
+      <LayoutOne headerTop='visible'>
         {/* breadcrumb */}
         <Breadcrumb />
 
-        <div className="shop-area pt-95 pb-100">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-3">
+        <div className='shop-area pt-95 pb-100'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-lg-3'>
                 {/* shop sidebar */}
                 <ShopSidebar
                   products={products}
                   getSortParams={getSortParams}
-                  sideSpaceClass="mr-30"
+                  sideSpaceClass='mr-30'
                 />
               </div>
-              <div className="col-lg-9">
+              <div className='col-lg-9'>
                 {/* shop topbar default */}
                 <ShopTopbar
                   getLayout={getLayout}
@@ -94,7 +96,7 @@ const ShopGridTwoColumn = ({ location, products }) => {
                 <ShopProducts layout={layout} products={currentData} />
 
                 {/* shop product pagination */}
-                <div className="pro-pagination-style text-center mt-30">
+                <div className='pro-pagination-style text-center mt-30'>
                   <Paginator
                     totalRecords={sortedProducts.length}
                     pageLimit={pageLimit}
@@ -102,9 +104,9 @@ const ShopGridTwoColumn = ({ location, products }) => {
                     setOffset={setOffset}
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
-                    pageContainerClass="mb-0 mt-0"
-                    pagePrevText="«"
-                    pageNextText="»"
+                    pageContainerClass='mb-0 mt-0'
+                    pagePrevText='«'
+                    pageNextText='»'
                   />
                 </div>
               </div>
@@ -118,12 +120,12 @@ const ShopGridTwoColumn = ({ location, products }) => {
 
 ShopGridTwoColumn.propTypes = {
   location: PropTypes.object,
-  products: PropTypes.array
+  products: PropTypes.array,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    products: state.productData.products
+    products: state.productData.products,
   };
 };
 
